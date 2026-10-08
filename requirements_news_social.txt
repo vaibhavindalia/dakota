@@ -1,0 +1,6 @@
+feedparser>=6.0.10
+google-genai>=0.3.0
+groq>=1.7.0
+torch>=2.0.0
+transformers>=4.30.0
+cloudscraper>=1.2.71

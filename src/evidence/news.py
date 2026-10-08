@@ -16,6 +16,11 @@ from urllib.parse import quote_plus
 
 import requests
 
+try:
+    from src.evidence.news_analyzer import verify_news_for_ticker
+except Exception:
+    verify_news_for_ticker = None
+
 GDELT_URL = "https://api.gdeltproject.org/api/v2/doc/doc"
 USER_AGENT = "Dakota/0.2 research prototype"
 
@@ -99,7 +104,7 @@ def _normalise_article(item: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def search_news(ticker: str, *, days: int = 7, max_records: int = 25, timeout: float = 8.0) -> dict[str, Any]:
+def _search_news_gdelt(ticker: str, *, days: int = 7, max_records: int = 25, timeout: float = 8.0) -> dict[str, Any]:
     ticker = ticker.upper().strip()
     query = f'"{ticker}"'
     params = {
@@ -184,3 +189,80 @@ def search_news(ticker: str, *, days: int = 7, max_records: int = 25, timeout: f
             observations=[],
             error=str(exc),
         ).to_dict()
+
+
+def _news_events_to_articles(news_events: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    articles: list[dict[str, Any]] = []
+    for item in news_events or []:
+        if not isinstance(item, dict):
+            continue
+        articles.append({
+            "title": str(item.get("headline") or item.get("title") or "").strip(),
+            "url": str(item.get("link") or item.get("url") or "").strip(),
+            "domain": str(item.get("source") or item.get("domain") or "").strip(),
+            "language": "",
+            "source_country": "IN",
+            "seen_date": str(item.get("published_at") or "").strip(),
+            "provider": str(item.get("source") or "Yahoo/Google"),
+        })
+    return articles
+
+
+def search_news(ticker: str, *, days: int = 7, max_records: int = 25, timeout: float = 8.0) -> dict[str, Any]:
+    """Collect Dakota GDELT evidence plus the teammate Yahoo/Google news model.
+
+    The teammate model is additive: its fetched articles and LLM assessment are
+    exposed under ``teammate_intelligence``. Dakota's explainable risk score still
+    relies on the existing observation stream rather than an opaque LLM modifier.
+    """
+    ticker = ticker.upper().strip()
+    gdelt = _search_news_gdelt(ticker, days=days, max_records=max_records, timeout=timeout)
+
+    teammate: dict[str, Any] = {
+        "status": "not_configured",
+        "ticker": ticker,
+        "has_recent_news": False,
+        "news_events": [],
+        "llm_analysis": None,
+        "error": None,
+        "providers": {"yahoo": "not_run", "google": "not_run"},
+    }
+    if verify_news_for_ticker is not None:
+        try:
+            teammate = verify_news_for_ticker(ticker)
+            teammate["status"] = str(teammate.get("status") or "unknown")
+        except Exception as exc:
+            teammate["status"] = "error"
+            teammate["error"] = str(exc)
+
+    teammate_articles = _news_events_to_articles(teammate.get("news_events") or [])
+    existing_urls = {str(a.get("url") or "").strip() for a in gdelt.get("articles") or [] if str(a.get("url") or "").strip()}
+    merged_articles = list(gdelt.get("articles") or [])
+    for article in teammate_articles:
+        url = str(article.get("url") or "").strip()
+        title = str(article.get("title") or "").strip().lower()
+        duplicate = url and url in existing_urls
+        if not duplicate and title:
+            duplicate = any(title == str(old.get("title") or "").strip().lower() for old in merged_articles)
+        if not duplicate:
+            merged_articles.append(article)
+            if url:
+                existing_urls.add(url)
+
+    result = dict(gdelt)
+    result["articles"] = merged_articles[: max(1, min(int(max_records) * 2, 100))]
+    result["article_count"] = len(result["articles"])
+    result["providers"] = {
+        "gdelt": gdelt.get("status", "unknown"),
+        "yahoo_google": teammate.get("status", "unknown"),
+    }
+    result["teammate_intelligence"] = {
+        "status": teammate.get("status"),
+        "news_events": teammate.get("news_events") or [],
+        "llm_analysis": teammate.get("llm_analysis"),
+        "has_recent_news": bool(teammate.get("has_recent_news")),
+        "error": teammate.get("error") or teammate.get("error_message"),
+    }
+    if result.get("status") in {"error", "unavailable"} and teammate.get("status") == "success":
+        result["status"] = "connected"
+    return result

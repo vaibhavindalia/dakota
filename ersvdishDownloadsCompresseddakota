@@ -1,0 +1,129 @@
+ .env.example                                       |  33 [31m-[m
+ .gitignore                                         |   5 [31m-[m
+ README.md                                          | 154 [31m-----[m
+ backend/main.py                                    | 422 [31m------------[m
+ bot/telegram_bot.py                                | 495 [31m--------------[m
+ dakota draft 1 news & social by pulkit/README.md   |  68 [32m++[m
+ .../app}/streamlit_app.py                          |   0
+ .../backend/main.py                                | 261 [32m++++++++[m
+ .../bot/telegram_bot.py                            | 710 [32m+++++++++++++++++++++[m
+ .../charting-library-tutorial                      |   0
+ .../config}/universe.csv                           |   0
+ .../data}/cache/fundamentals.csv                   |   0
+ .../data}/cache/shareholding.csv                   |   0
+ .../data}/market_history.csv                       |   0
+ .../data}/portfolio.json                           |   0
+ .../bse/BhavCopy_BSE_CM_0_0_0_20261006_F_0000.CSV  |   0
+ .../data}/raw/bse/SCBSEALL0610.csv                 |   0
+ .../nse/BhavCopy_NSE_CM_0_0_0_20261006_F_0000.csv  |   0
+ .../data}/raw/nse/cookies.txt                      |   0
+ .../data}/raw/nse/sec_bhavdata_full_06102026.csv   |   0
+ .../data}/raw/nse/sec_list_06102026.csv            |   0
+ .../data}/real/nse_CDSL_daily.csv                  |   0
+ .../data/tips/investigations.jsonl                 |   1 [32m+[m
+ .../frontend}/.gitignore                           |   0
+ .../frontend}/AGENTS.md                            |   0
+ .../frontend}/README.md                            |   0
+ .../frontend}/eslint.config.mjs                    |   0
+ .../frontend}/next.config.ts                       |   0
+ .../frontend}/package-lock.json                    |   0
+ .../frontend}/package.json                         |   0
+ .../frontend}/public/file.svg                      |   0
+ .../frontend}/public/globe.svg                     |   0
+ .../frontend}/public/next.svg                      |   0
+ .../frontend}/public/vercel.svg                    |   0
+ .../frontend}/public/window.svg                    |   0
+ .../frontend}/src/app/campaigns/page.tsx           |   0
+ .../frontend}/src/app/favicon.ico                  | Bin
+ .../frontend}/src/app/globals.css                  |   0
+ .../frontend/src/app/investigate/page.tsx          | 409 [32m++++++++++++[m
+ .../frontend}/src/app/layout.tsx                   |   0
+ .../frontend}/src/app/page.tsx                     |   0
+ .../frontend}/src/app/portfolio/page.tsx           |   0
+ .../frontend}/src/app/stocks/page.tsx              |   0
+ .../frontend/src/app/verify-tip/page.tsx           | 191 [32m++++++[m
+ .../frontend}/src/app/watcher/page.tsx             |   0
+ .../frontend}/src/components/Navbar.tsx            |   0
+ .../frontend}/tsconfig.json                        |   0
+ .../requirements.txt                               |  16 [32m+[m
+ .../scripts}/__init__.py                           |   0
+ .../scripts}/backtest.py                           |   0
+ .../scripts}/build_market_history.py               |   0
+ .../scripts}/fetch_real_history.py                 |   0
+ .../scripts}/nse_collector.py                      |   0
+ .../scripts}/test_bse_delivery.py                  |   0
+ .../scripts}/test_bse_download.py                  |   0
+ .../scripts}/test_bse_normalizer.py                |   0
+ .../scripts}/test_normalizer.py                    |   0
+ .../scripts}/test_nse_delivery.py                  |   0
+ .../scripts}/test_nse_download.py                  |   0
+ .../scripts}/test_nse_priceband.py                 |   0
+ .../src}/__init__.py                               |   0
+ .../src/campaign}/__init__.py                      |   0
+ .../src}/campaign/similarity.py                    |   0
+ .../src/engine}/__init__.py                        |   0
+ .../src}/engine/risk_engine.py                     |   0
+ .../src}/evidence/__init__.py                      |   0
+ .../src}/evidence/aggregate.py                     |   0
+ .../src}/evidence/news.py                          |   0
+ .../src/evidence/news_analyzer.py                  | 174 [32m+++++[m
+ .../src}/evidence/reddit.py                        |   0
+ .../src/evidence/sentiment_local.py                |  50 [32m++[m
+ .../src/evidence/social.py                         |  49 [32m++[m
+ .../src/evidence/stocktwits.py                     |  48 [32m++[m
+ .../src/evidence/twitter.py                        |  40 [32m++[m
+ .../src/features}/__init__.py                      |   0
+ .../src}/features/signals.py                       |   0
+ .../src/ingest}/__init__.py                        |   0
+ .../src}/ingest/fundamentals.py                    |   0
+ .../src}/ingest/market_data.py                     |   0
+ .../src}/ingest/shareholding.py                    |   0
+ .../src}/intake/__init__.py                        |   0
+ .../src}/intake/tip_intake.py                      |   0
+ .../src}/investigation/__init__.py                 |   0
+ .../src}/investigation/tip_investigator.py         | 238 [32m++++[m[31m---[m
+ .../src/market}/__init__.py                        |   0
+ .../src}/market/history.py                         |   0
+ .../src}/market/history_store.py                   |   0
+ .../src}/market/indicators.py                      |   0
+ .../src}/market/normalizer.py                      |   0
+ .../src}/market/real_history.py                    |   0
+ .../src}/tipcheck/__init__.py                      |   0
+ .../src/tipcheck/parser.py                         | 171 [32m+++++[m
+ .../src}/tipcheck/privacy.py                       |   0
+ .../system_architecture.md                         |  46 [32m++[m
+ .../tests}/__init__.py                             |   0
+ .../tests}/test_risk_engine.py                     |   0
+ .../tests}/test_tip_parser.py                      |   0
+ data/dakota.db                                     | Bin [31m16384[m -> [32m0[m bytes
+ data/live/investigations.jsonl                     |   9 [31m-[m
+ data/tips/investigations.jsonl                     |  88 [31m---[m
+ data/tips/live_investigations.jsonl                |   5 [31m-[m
+ frontend/src/app/investigate/page.tsx              | 331 [31m----------[m
+ requirements.txt                                   |   9 [31m-[m
+ scripts/diag_seam.py                               | 110 [31m----[m
+ scripts/sync_market.py                             |  21 [31m-[m
+ scripts/telegram/channel_reader.py                 | 183 [31m------[m
+ src/campaign/__init__.py                           |   1 [31m-[m
+ src/campaign/analyzer.py                           |  45 [31m--[m
+ src/campaign/store.py                              |  70 [31m--[m
+ src/classification/jev.py                          | 572 [31m-----------------[m
+ src/classification/local_classifier.py             | 149 [31m-----[m
+ src/connectors/__init__.py                         |   1 [31m-[m
+ src/connectors/company.py                          | 132 [31m----[m
+ src/connectors/config.py                           |  52 [31m--[m
+ src/connectors/instagram.py                        | 140 [31m----[m
+ src/connectors/reddit_api.py                       | 161 [31m-----[m
+ src/connectors/telegram.py                         |  62 [31m--[m
+ src/connectors/whatsapp.py                         |  73 [31m---[m
+ src/connectors/x_api.py                            | 139 [31m----[m
+ src/evidence/social.py                             |  22 [31m-[m
+ src/intake/live_store.py                           |  68 [31m--[m
+ src/investigation/impact_mapper.py                 | 493 [31m--------------[m
+ src/investigation/universal_investigator.py        | 144 [31m-----[m
+ src/market/__init__.py                             |   1 [31m-[m
+ src/market/exchange_sync.py                        |  90 [31m---[m
+ src/market/index_context.py                        | 108 [31m----[m
+ src/pipeline/run_pipeline.py                       | 306 [31m---------[m
+ src/tipcheck/parser.py                             | 635 [31m------------------[m
+ 128 files changed, 2370 insertions(+), 5431 deletions(-)

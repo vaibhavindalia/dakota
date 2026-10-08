@@ -1,0 +1,24 @@
+# Dakota News + Social providers
+
+# X API v2
+X_BEARER_TOKEN=
+
+# Instagram Graph API / Meta
+INSTAGRAM_ACCESS_TOKEN=
+INSTAGRAM_USER_ID=
+META_GRAPH_VERSION=
+
+# StockTwits Firestream / sentiment API
+STOCKTWITS_USERNAME=
+STOCKTWITS_PASSWORD=
+
+# Optional existing providers
+REDDIT_CLIENT_ID=
+REDDIT_CLIENT_SECRET=
+REDDIT_USER_AGENT=Dakota/1.0 research prototype
+
+# Existing teammate news-analysis providers, if used by news_analyzer.py
+GOOGLE_API_KEY=
+GEMINI_API_KEY=
+GROQ_API_KEY=
+APIFY_API_TOKEN=

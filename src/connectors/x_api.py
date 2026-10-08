@@ -1,139 +1,249 @@
-"""Official X API recent-search connector.
+"""Free X/Twitter evidence connector for Dakota.
 
-Uses X API v2 recent search when X_BEARER_TOKEN is configured. The endpoint
-covers recent posts; current X search access and pricing are controlled by X.
+This provider intentionally does NOT use the paid X API.
+It follows the working approach from the teammate repository:
+use DuckDuckGo/DDGS to discover publicly indexed X/Twitter pages and
+normalize the search snippets into Dakota's social-evidence schema.
+
+No X account, Bearer Token, or paid X API credits are required.
 """
 from __future__ import annotations
 
+import logging
 from datetime import datetime, timezone
 from typing import Any
 
-import requests
+log = logging.getLogger(__name__)
 
-from src.connectors.config import env
-
-URL = "https://api.x.com/2/tweets/search/recent"
 
 HYPE_TERMS = {
     "multibagger",
+    "multibag",
     "guaranteed",
     "target",
     "upper circuit",
+    "upper-circuit",
     "breakout",
     "rocket",
     "buy now",
     "operator",
     "telegram",
     "whatsapp",
+    "sure shot",
+    "sure-shot",
+    "100%",
+    "double",
+    "rocket stock",
 }
 
 
-def search_x(ticker: str, *, max_results: int = 50, days: int = 7, timeout: float = 10.0) -> dict[str, Any]:
-    token = env("X_BEARER_TOKEN")
-    ticker = ticker.upper().strip()
-    fetched_at = datetime.now(timezone.utc).isoformat()
+def _load_ddgs() -> Any:
+    """Load the current DDGS package, with teammate-era compatibility."""
+    try:
+        from ddgs import DDGS  # type: ignore
 
-    if not token:
-        return {
-            "status": "missing_credentials",
-            "query": ticker,
-            "results": [],
-            "result_count": 0,
-            "hype_result_count": 0,
-            "observations": [],
-            "error": "X_BEARER_TOKEN is not configured",
-        }
+        return DDGS
+    except ImportError:
+        try:
+            from duckduckgo_search import DDGS  # type: ignore
 
-    safe_days = max(1, min(days, 7))
-    query = f'"{ticker}" -is:retweet lang:en'
-    params = {
-        "query": query,
-        "max_results": max(10, min(max_results, 100)),
-        "tweet.fields": "created_at,public_metrics,lang,author_id",
-    }
+            return DDGS
+        except ImportError as exc:
+            raise ImportError(
+                "DDGS provider is not installed. Run: "
+                "python -m pip install -U ddgs"
+            ) from exc
+
+
+def _run_search(ddgs: Any, query: str, limit: int) -> list[dict[str, Any]]:
+    """Run text search against DDGS and normalize the iterator/list output."""
+    raw = ddgs.text(query, max_results=limit)
+
+    if raw is None:
+        return []
+
+    if isinstance(raw, list):
+        return [item for item in raw if isinstance(item, dict)]
 
     try:
-        response = requests.get(
-            URL,
-            headers={"Authorization": f"Bearer {token}"},
-            params=params,
-            timeout=timeout,
-        )
-        response.raise_for_status()
-        payload = response.json()
-        posts = payload.get("data") or []
+        return [item for item in raw if isinstance(item, dict)]
+    except TypeError:
+        return []
 
-        cutoff = datetime.now(timezone.utc).timestamp() - safe_days * 86400
-        cleaned: list[dict[str, Any]] = []
-        hype_count = 0
 
-        for post in posts:
-            created_at = post.get("created_at")
-            if created_at:
-                try:
-                    dt = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
-                    if dt.timestamp() < cutoff:
-                        continue
-                except ValueError:
-                    pass
+def _search_variants(ticker: str) -> list[str]:
+    symbol = ticker.upper().strip().split(".")[0]
 
-            text = str(post.get("text") or "")
-            if any(term in text.lower() for term in HYPE_TERMS):
-                hype_count += 1
+    # The first query mirrors the friend's working implementation.
+    # The second also catches X's newer x.com domain.
+    return [
+        f"site:twitter.com ${symbol}",
+        f"site:x.com ${symbol}",
+    ]
 
-            metrics = post.get("public_metrics") or {}
-            cleaned.append({
-                "id": str(post.get("id") or ""),
-                "text": text,
-                "created_at": created_at,
-                "author_id": str(post.get("author_id") or ""),
-                "public_metrics": {
-                    "like_count": metrics.get("like_count", 0),
-                    "reply_count": metrics.get("reply_count", 0),
-                    "retweet_count": metrics.get("retweet_count", 0),
-                    "quote_count": metrics.get("quote_count", 0),
-                },
-            })
 
-        observations: list[dict[str, Any]] = []
-        if len(cleaned) >= 30:
-            observations.append({
-                "signal": "x_volume",
-                "severity": "medium",
-                "text": f"X recent search returned {len(cleaned)} matching post(s).",
-            })
-        elif cleaned:
-            observations.append({
-                "signal": "x_presence",
-                "severity": "low",
-                "text": f"X recent search found {len(cleaned)} matching post(s).",
-            })
+def search_x(
+    ticker: str,
+    *,
+    max_results: int = 15,
+    timeout: float = 12.0,
+) -> dict[str, Any]:
+    """Discover public X/Twitter evidence through DDGS search.
 
-        if hype_count >= 5:
-            observations.append({
-                "signal": "x_hype_language",
-                "severity": "medium",
-                "text": f"{hype_count} X post(s) contain hype or urgency-style keywords.",
-            })
+    The returned shape intentionally matches the existing social.py contract:
+    status, provider, query, messages, results_count, observations, and error.
+    """
+    symbol = ticker.upper().strip().split(".")[0]
+    fetched_at = datetime.now(timezone.utc).isoformat()
+    limit = max(1, min(int(max_results), 30))
 
+    try:
+        DDGS = _load_ddgs()
+        ddgs = DDGS(timeout=timeout)
+    except TypeError:
+        # Compatibility with versions whose constructor does not accept timeout.
+        try:
+            DDGS = _load_ddgs()
+            ddgs = DDGS()
+        except Exception as exc:
+            return {
+                "status": "not_configured",
+                "provider": "X/Twitter via DDGS",
+                "query": symbol,
+                "ticker_searched": f"${symbol}",
+                "results": [],
+                "messages": [],
+                "result_count": 0,
+                "results_count": 0,
+                "hype_result_count": 0,
+                "observations": [],
+                "error": str(exc),
+                "fetched_at": fetched_at,
+                "method": "ddgs_public_search",
+            }
+    except ImportError as exc:
         return {
-            "status": "connected",
-            "query": query,
-            "fetched_at": fetched_at,
-            "results": cleaned,
-            "result_count": len(cleaned),
-            "hype_result_count": hype_count,
-            "observations": observations,
-            "error": None,
-        }
-    except Exception as exc:
-        return {
-            "status": "error",
-            "query": query,
-            "fetched_at": fetched_at,
+            "status": "not_configured",
+            "provider": "X/Twitter via DDGS",
+            "query": symbol,
+            "ticker_searched": f"${symbol}",
             "results": [],
+            "messages": [],
             "result_count": 0,
+            "results_count": 0,
             "hype_result_count": 0,
             "observations": [],
             "error": str(exc),
+            "fetched_at": fetched_at,
+            "method": "ddgs_public_search",
         }
+    except Exception as exc:
+        log.exception("DDGS initialization failed")
+        return {
+            "status": "error",
+            "provider": "X/Twitter via DDGS",
+            "query": symbol,
+            "ticker_searched": f"${symbol}",
+            "results": [],
+            "messages": [],
+            "result_count": 0,
+            "results_count": 0,
+            "hype_result_count": 0,
+            "observations": [],
+            "error": str(exc),
+            "fetched_at": fetched_at,
+            "method": "ddgs_public_search",
+        }
+
+    merged: list[dict[str, Any]] = []
+    seen_urls: set[str] = set()
+    errors: list[str] = []
+
+    for query in _search_variants(symbol):
+        try:
+            results = _run_search(ddgs, query, limit)
+        except Exception as exc:
+            errors.append(f"{query}: {exc}")
+            continue
+
+        for item in results:
+            title = str(item.get("title") or "").strip()
+            body = str(item.get("body") or item.get("snippet") or "").strip()
+            href = str(item.get("href") or item.get("url") or "").strip()
+
+            dedupe_key = href or f"{title}|{body}"
+            if dedupe_key in seen_urls:
+                continue
+            seen_urls.add(dedupe_key)
+
+            combined = f"{title} {body}".strip()
+            if not combined:
+                continue
+
+            hype = any(term in combined.lower() for term in HYPE_TERMS)
+
+            merged.append(
+                {
+                    "body": body,
+                    "text": body,
+                    "title": title,
+                    "url": href,
+                    "created_at": "",
+                    "username": title.replace(" - Twitter", "").strip(),
+                    "source": "Twitter/X",
+                    "hype": hype,
+                }
+            )
+
+            if len(merged) >= limit:
+                break
+
+        if len(merged) >= limit:
+            break
+
+    hype_count = sum(1 for item in merged if item.get("hype"))
+
+    observations: list[dict[str, Any]] = []
+    if merged:
+        observations.append(
+            {
+                "signal": "x_public_search",
+                "severity": "low",
+                "text": (
+                    f"DDGS found {len(merged)} publicly indexed X/Twitter result(s) "
+                    f"for ${symbol}. This is search-engine discovery evidence, "
+                    "not a complete X feed and not proof of coordination."
+                ),
+            }
+        )
+
+    if hype_count >= 5:
+        observations.append(
+            {
+                "signal": "x_hype_language",
+                "severity": "medium",
+                "text": f"{hype_count} discovered X/Twitter result(s) contain hype or urgency-style keywords.",
+            }
+        )
+
+    response: dict[str, Any] = {
+        "status": "connected" if merged else ("no_results" if not errors else "error"),
+        "provider": "X/Twitter via DDGS",
+        "query": f"site:twitter.com OR site:x.com ${symbol}",
+        "ticker_searched": f"${symbol}",
+        "fetched_at": fetched_at,
+        "results": merged,
+        "messages": merged,
+        "result_count": len(merged),
+        "results_count": len(merged),
+        "hype_result_count": hype_count,
+        "observations": observations,
+        "error": "; ".join(errors) if errors else None,
+        "method": "ddgs_public_search",
+        "requires_bearer_token": False,
+        "coverage_note": (
+            "Public search discovery only; coverage depends on search-engine indexing."
+        ),
+    }
+
+    return response

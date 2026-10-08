@@ -4,7 +4,22 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
-type Observation = { signal: string; severity: string; text: string };
+type Provider = {
+  status?: string;
+  provider?: string;
+  result_count?: number;
+  results?: any[];
+  messages?: any[];
+  observations?: { signal?: string; severity?: string; text?: string }[];
+  error?: string | null;
+  sentiment?: Record<string, any>;
+  message_volume?: Record<string, any>;
+  query?: string;
+  article_count?: number;
+  hype_article_count?: number;
+  red_flag_article_count?: number;
+};
+
 type Risk = {
   score: number;
   band: string;
@@ -13,7 +28,9 @@ type Risk = {
   components?: Record<string, number>;
   reasons?: string[];
   method?: string;
+  disclaimer?: string;
 };
+
 type LiveItem = {
   investigation_id: string;
   captured_at?: string;
@@ -55,6 +72,12 @@ type LiveItem = {
     investigations?: any[];
     next_steps?: string[];
     disclaimer?: string;
+    risk_engine_status?: {
+      status?: string;
+      method?: string;
+      tickers_scored?: string[];
+      as_of?: string;
+    };
   };
   risk?: Risk | null;
   status?: string;
@@ -63,25 +86,28 @@ type LiveItem = {
 
 type ManualResult = any;
 
-function bandClass(band?: string) {
-  const b = (band || "").toLowerCase();
-  if (b.includes("high")) return "border-red-400/30 bg-red-400/10 text-red-200";
-  if (b.includes("elev")) return "border-amber-400/30 bg-amber-400/10 text-amber-200";
-  return "border-emerald-400/20 bg-emerald-400/10 text-emerald-200";
+type SourceStatus = {
+  key: string;
+  label: string;
+  status: string;
+  detail: string;
+};
+
+function human(v?: string | null) {
+  return (v || "—")
+    .replaceAll("_", " ")
+    .replace(/\b\w/g, (m) => m.toUpperCase());
 }
 
-function fmt(v: unknown, digits = 1) {
+function fmt(v: unknown, digits = 0) {
   if (typeof v !== "number" || !Number.isFinite(v)) return "—";
   return v.toFixed(digits);
-}
-
-function title(v?: string | null) {
-  return (v || "—").replaceAll("_", " ");
 }
 
 function timeAgo(value?: string | null) {
   if (!value) return "unknown time";
   const ms = Date.now() - new Date(value).getTime();
+  if (!Number.isFinite(ms)) return "unknown time";
   const mins = Math.max(0, Math.floor(ms / 60000));
   if (mins < 1) return "just now";
   if (mins < 60) return `${mins}m ago`;
@@ -90,130 +116,351 @@ function timeAgo(value?: string | null) {
   return `${Math.floor(hrs / 24)}d ago`;
 }
 
-function RiskBadge({ risk }: { risk?: Risk | null }) {
-  if (!risk) return <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/40">No score yet</span>;
-  return <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${bandClass(risk.band)}`}>{fmt(risk.score)} · {risk.band}</span>;
+function statusTone(status?: string) {
+  const s = (status || "").toLowerCase();
+  if (["connected", "success", "rss_fallback", "ingestion_connector"].includes(s)) {
+    return "border-emerald-400/20 bg-emerald-400/[0.06] text-emerald-200";
+  }
+  if (["missing_credentials", "not_configured", "disabled", "connector_required"].includes(s)) {
+    return "border-amber-400/20 bg-amber-400/[0.05] text-amber-200";
+  }
+  if (s === "error" || s === "unauthorized" || s === "forbidden" || s === "rate_limited" || s === "provider_unavailable" || s === "timeout") {
+    return "border-red-400/20 bg-red-400/[0.05] text-red-200";
+  }
+  return "border-white/10 bg-white/[0.03] text-white/50";
 }
 
-function EvidenceCard({ label, value, tone = "default" }: { label: string; value: string; tone?: string }) {
-  const cls = tone === "live"
-    ? "border-emerald-400/20 bg-emerald-400/[0.05]"
-    : "border-white/10 bg-white/[0.03]";
+function scoreTone(band?: string) {
+  const b = (band || "").toLowerCase();
+  if (b.includes("high")) return "border-red-400/30 bg-red-400/[0.08] text-red-100";
+  if (b.includes("elev")) return "border-amber-400/30 bg-amber-400/[0.08] text-amber-100";
+  return "border-emerald-400/25 bg-emerald-400/[0.07] text-emerald-100";
+}
+
+function RiskBadge({ risk }: { risk?: Risk | null }) {
+  if (!risk) {
+    return <span className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/35">No score</span>;
+  }
   return (
-    <div className={`rounded-xl border p-4 ${cls}`}>
-      <div className="text-[10px] uppercase tracking-[0.22em] text-white/35">{label}</div>
+    <span className={`rounded-full border px-3 py-1 text-xs font-semibold ${scoreTone(risk.band)}`}>
+      {fmt(risk.score)} · {risk.band}
+    </span>
+  );
+}
+
+function SmallStat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-xl border border-white/10 bg-white/[0.025] p-4">
+      <div className="text-[10px] uppercase tracking-[0.2em] text-white/30">{label}</div>
       <div className="mt-2 text-sm font-semibold text-white">{value}</div>
     </div>
   );
 }
 
-function LiveCard({ item, onOpen }: { item: LiveItem; onOpen: (id: string) => void }) {
-  const risk = item.risk || item.investigation?.risk;
+function ProviderPill({ provider }: { provider: SourceStatus }) {
+  return (
+    <div className={`rounded-xl border px-3 py-2 ${statusTone(provider.status)}`}>
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-xs font-semibold text-white/80">{provider.label}</span>
+        <span className="h-2 w-2 rounded-full bg-current opacity-80" />
+      </div>
+      <div className="mt-1 text-[11px] opacity-70">{human(provider.status)}</div>
+    </div>
+  );
+}
+
+function getRisk(item: LiveItem) {
+  return item.risk || item.investigation?.risk || null;
+}
+
+function getEvidence(item: LiveItem) {
+  return item.investigation?.evidence || {};
+}
+
+function getProviders(item: LiveItem | null): SourceStatus[] {
+  if (!item) return [];
+  const evidence = getEvidence(item);
+  const social = evidence.social || {};
+  const news: Provider = evidence.news || {};
+  const reddit: Provider = social.reddit || {};
+  const x: Provider = social.x || {};
+  const instagram: Provider = social.instagram || {};
+  const stocktwits: Provider = social.stocktwits || {};
+  return [
+    {
+      key: "news",
+      label: "News",
+      status: news.status || "unknown",
+      detail: news.article_count != null ? `${news.article_count} articles` : "Coverage unavailable",
+    },
+    {
+      key: "reddit",
+      label: "Reddit",
+      status: reddit.status || "unknown",
+      detail: reddit.result_count != null ? `${reddit.result_count} results` : "Coverage unavailable",
+    },
+    {
+      key: "x",
+      label: "X",
+      status: x.status || "unknown",
+      detail: x.result_count != null ? `${x.result_count} posts` : "Provider not connected",
+    },
+    {
+      key: "instagram",
+      label: "Instagram",
+      status: instagram.status || "unknown",
+      detail: instagram.result_count != null ? `${instagram.result_count} media` : "Provider not connected",
+    },
+    {
+      key: "stocktwits",
+      label: "StockTwits",
+      status: stocktwits.status || "unknown",
+      detail: stocktwits.result_count != null ? `${stocktwits.result_count} results` : "Provider not connected",
+    },
+  ];
+}
+
+function FeedCard({ item, onOpen }: { item: LiveItem; onOpen: (item: LiveItem) => void }) {
+  const risk = getRisk(item);
   const cls = item.classification;
   const impact = item.impact;
-  const target = impact?.entity || item.ticker || item.tickers?.[0] || "Market topic";
+  const ticker = impact?.entity || item.ticker || item.tickers?.[0] || "Market topic";
+  const isScored = Boolean(risk);
 
   return (
-    <button onClick={() => onOpen(item.investigation_id)} className="w-full text-left rounded-2xl border border-white/10 bg-white/[0.03] p-5 transition hover:border-sky-400/25 hover:bg-white/[0.045]">
-      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        <div>
+    <button
+      onClick={() => onOpen(item)}
+      className="w-full rounded-2xl border border-white/10 bg-white/[0.025] p-5 text-left transition hover:border-sky-400/25 hover:bg-white/[0.04]"
+    >
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+        <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-lg font-semibold text-white">{title(target)}</span>
+            <span className="text-lg font-semibold text-white">{human(ticker)}</span>
             <RiskBadge risk={risk} />
           </div>
-          <div className="mt-1 text-xs text-white/35">{item.channel_username || item.channel || "Telegram"} · {timeAgo(item.telegram_timestamp || item.captured_at)}</div>
+          <div className="mt-1 text-xs text-white/35">
+            {item.channel_username || item.channel || "Telegram"} · {timeAgo(item.telegram_timestamp || item.captured_at)}
+          </div>
         </div>
-        <div className="text-right text-xs text-white/35">#{item.message_id ?? "—"}</div>
+        <div className="text-xs text-white/25">#{item.message_id ?? "—"}</div>
       </div>
 
       <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-        <EvidenceCard label="Message type" value={cls?.message_type || "—"} />
-        <EvidenceCard label="Domain" value={title(cls?.market_domain || cls?.domain)} />
-        <EvidenceCard label="Impact" value={title(impact?.exact_topic || impact?.entity)} />
-        <EvidenceCard label="Status" value={title(item.status || impact?.status)} tone="live" />
+        <SmallStat label="Message type" value={cls?.message_type || "—"} />
+        <SmallStat label="Domain" value={human(cls?.market_domain || cls?.domain)} />
+        <SmallStat label="Impact" value={human(impact?.exact_topic || impact?.entity)} />
+        <SmallStat label={isScored ? "Risk status" : "Classification"} value={isScored ? risk?.band || "—" : human(impact?.status || item.status)} />
       </div>
 
-      {impact?.potentially_affected_areas?.length ? (
-        <div className="mt-4 flex flex-wrap gap-2">
-          {impact.potentially_affected_areas.slice(0, 6).map((area) => (
-            <span key={area} className="rounded-full border border-white/10 px-2.5 py-1 text-[11px] text-white/50">{title(area)}</span>
-          ))}
-        </div>
-      ) : null}
-
       {risk?.reasons?.length ? (
-        <div className="mt-4 space-y-2">
-          {risk.reasons.slice(0, 3).map((reason) => <div key={reason} className="rounded-lg bg-black/10 p-3 text-xs text-white/60">{reason}</div>)}
+        <div className="mt-4 rounded-xl border border-white/10 bg-black/10 p-3 text-xs text-white/55">
+          <div className="mb-1 text-[10px] uppercase tracking-[0.2em] text-white/25">Why it moved</div>
+          {risk.reasons.slice(0, 2).join(" • ")}
         </div>
       ) : null}
     </button>
   );
 }
 
-function DetailPanel({ item, onClose }: { item: LiveItem; onClose: () => void }) {
-  const result = item.investigation || {};
-  const risk = item.risk || result.risk;
+function ProviderDetail({ label, provider }: { label: string; provider?: Provider }) {
+  const p = provider || {};
+  const count = p.result_count ?? (Array.isArray(p.results) ? p.results.length : undefined);
+  const observations = p.observations || [];
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 p-4 backdrop-blur-sm" onClick={onClose}>
-      <div className="mx-auto mt-8 max-h-[88vh] max-w-5xl overflow-y-auto rounded-3xl border border-white/10 bg-[#0b101a] p-6 shadow-2xl" onClick={(e) => e.stopPropagation()}>
-        <div className="flex items-start justify-between gap-4">
+    <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">
+      <div className="flex items-center justify-between gap-3">
+        <div className="font-semibold text-white/90">{label}</div>
+        <span className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold ${statusTone(p.status)}`}>
+          {human(p.status || "unknown")}
+        </span>
+      </div>
+      <div className="mt-3 text-xs text-white/45">
+        {count != null ? `${count} result${count === 1 ? "" : "s"}` : "No result count available"}
+      </div>
+      {p.error ? <div className="mt-3 rounded-lg bg-red-400/[0.06] p-3 text-xs text-red-100/70">{p.error}</div> : null}
+      {observations.slice(0, 2).map((obs, index) => (
+        <div key={`${obs.signal || "obs"}-${index}`} className="mt-3 text-xs text-white/50">• {obs.text}</div>
+      ))}
+    </div>
+  );
+}
+
+function ManualSummary({ manual }: { manual: ManualResult }) {
+  const investigation = manual?.investigations?.[0];
+  const risk: Risk | null = manual?.risk || investigation?.risk || manual?.stock_verdicts?.[0] || null;
+  const evidence = manual?.evidence || investigation?.evidence || {};
+  const social = evidence.social || {};
+  const sentiment = social.bulk_sentiment_analysis || {};
+  const ticker = manual?.ticker || investigation?.ticker || manual?.tip?.tickers?.[0] || "Investigation";
+
+  if (!risk) {
+    return (
+      <div className="rounded-2xl border border-amber-400/20 bg-amber-400/[0.04] p-5 text-sm text-amber-100/80">
+        Dakota classified this message, but no numeric risk score is available for the resolved entity yet.
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-5">
+      <div className={`rounded-2xl border p-5 ${scoreTone(risk.band)}`}>
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <div className="text-xs uppercase tracking-[0.22em] opacity-65">Dakota assessment</div>
+            <div className="mt-2 text-3xl font-bold">{human(String(ticker))}</div>
+            <div className="mt-1 text-sm opacity-65">Explainable risk aggregation</div>
+          </div>
+          <div className="text-right">
+            <div className="text-5xl font-bold">{fmt(risk.score)}</div>
+            <div className="text-sm opacity-70">/100 · {risk.band}</div>
+          </div>
+        </div>
+      </div>
+
+      {risk.components ? (
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {Object.entries(risk.components).map(([key, value]) => (
+            <SmallStat key={key} label={human(key)} value={fmt(value, 1)} />
+          ))}
+        </div>
+      ) : null}
+
+      <div className="grid gap-4 lg:grid-cols-3">
+        <ProviderDetail label="News" provider={evidence.news} />
+        <ProviderDetail label="Reddit" provider={social.reddit} />
+        <ProviderDetail label="X" provider={social.x} />
+        <ProviderDetail label="Instagram" provider={social.instagram} />
+        <ProviderDetail label="StockTwits" provider={social.stocktwits} />
+        <ProviderDetail label="Telegram" provider={social.telegram} />
+      </div>
+
+      <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+        <div className="flex items-center justify-between">
+          <div className="font-semibold">Social sentiment</div>
+          <span className={`rounded-full border px-2.5 py-1 text-[10px] ${statusTone(sentiment.status)}`}>{human(sentiment.status || "unknown")}</span>
+        </div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-4">
+          <SmallStat label="Positive" value={String(sentiment.positive ?? 0)} />
+          <SmallStat label="Neutral" value={String(sentiment.neutral ?? 0)} />
+          <SmallStat label="Negative" value={String(sentiment.negative ?? 0)} />
+          <SmallStat label="Total" value={String(sentiment.total ?? 0)} />
+        </div>
+      </div>
+
+      {risk.reasons?.length ? (
+        <div>
+          <div className="mb-3 text-sm font-semibold">Evidence / indicators</div>
+          <div className="grid gap-2 md:grid-cols-2">
+            {risk.reasons.map((reason) => <div key={reason} className="rounded-xl border border-white/10 p-3 text-sm text-white/60">{reason}</div>)}
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function DetailPanel({ item, onClose }: { item: LiveItem; onClose: () => void }) {
+  const risk = getRisk(item);
+  const evidence = getEvidence(item);
+  const social = evidence.social || {};
+  const sentiment = social.bulk_sentiment_analysis || {};
+  const providers = getProviders(item);
+  const target = item.impact?.entity || item.ticker || item.tickers?.[0] || "Market topic";
+
+  return (
+    <div className="fixed inset-0 z-50 bg-black/75 p-4 backdrop-blur-sm" onClick={onClose}>
+      <div className="mx-auto mt-6 max-h-[90vh] max-w-6xl overflow-y-auto rounded-3xl border border-white/10 bg-[#0a0f18] p-6 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <div>
             <div className="text-xs uppercase tracking-[0.25em] text-sky-400">Investigation detail</div>
-            <h2 className="mt-2 text-3xl font-bold">{title(item.impact?.entity || item.ticker || "Market topic")}</h2>
-            <p className="mt-1 text-sm text-white/40">{item.channel_username || item.channel} · {item.investigation_id}</p>
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              <h2 className="text-3xl font-bold">{human(target)}</h2>
+              <RiskBadge risk={risk} />
+            </div>
+            <div className="mt-1 text-sm text-white/35">{item.channel_username || item.channel || "Telegram"} · {item.investigation_id}</div>
           </div>
-          <button onClick={onClose} className="rounded-lg border border-white/10 px-3 py-2 text-sm text-white/60 hover:text-white">Close</button>
+          <button onClick={onClose} className="rounded-xl border border-white/10 px-4 py-2 text-sm text-white/55 hover:text-white">Close</button>
         </div>
 
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <EvidenceCard label="Classification" value={item.classification?.message_type || "—"} />
-          <EvidenceCard label="Domain" value={title(item.classification?.market_domain || item.classification?.domain)} />
-          <EvidenceCard label="Exact topic" value={title(item.impact?.exact_topic || item.impact?.entity)} />
-          <EvidenceCard label="Confidence" value={item.classification?.confidence == null ? "—" : `${fmt(item.classification.confidence * 100)}%`} />
+          <SmallStat label="Message type" value={item.classification?.message_type || "—"} />
+          <SmallStat label="Domain" value={human(item.classification?.market_domain || item.classification?.domain)} />
+          <SmallStat label="Impact" value={human(item.impact?.exact_topic || item.impact?.entity)} />
+          <SmallStat label="Confidence" value={item.classification?.confidence == null ? "—" : `${fmt(item.classification.confidence * 100, 1)}%`} />
         </div>
 
-        <div className={`mt-6 rounded-2xl border p-5 ${bandClass(risk?.band)}`}>
-          <div className="text-xs uppercase tracking-[0.2em] opacity-70">Risk aggregation</div>
-          <div className="mt-2 flex items-end gap-3"><span className="text-5xl font-bold">{risk ? fmt(risk.score) : "—"}</span><span className="mb-2 text-sm">/100 · {risk?.band || "pending"}</span></div>
-          <div className="mt-3 text-xs opacity-60">{risk?.method || "Waiting for evidence aggregation."}</div>
+        <div className="mt-6">
+          <div className="mb-3 text-sm font-semibold">Source coverage</div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {providers.map((provider) => <ProviderPill key={provider.key} provider={provider} />)}
+          </div>
         </div>
+
+        {risk ? (
+          <div className={`mt-6 rounded-2xl border p-5 ${scoreTone(risk.band)}`}>
+            <div className="text-xs uppercase tracking-[0.22em] opacity-60">Risk aggregation</div>
+            <div className="mt-2 flex items-end gap-3">
+              <span className="text-5xl font-bold">{fmt(risk.score)}</span>
+              <span className="mb-2 text-sm opacity-70">/100 · {risk.band}</span>
+            </div>
+            <div className="mt-2 text-xs opacity-55">{risk.method || "Dakota explainable risk engine"}</div>
+          </div>
+        ) : null}
 
         {risk?.components ? (
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {Object.entries(risk.components).map(([key, value]) => <EvidenceCard key={key} label={title(key)} value={String(value)} />)}
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {Object.entries(risk.components).map(([key, value]) => <SmallStat key={key} label={human(key)} value={fmt(value, 1)} />)}
           </div>
         ) : null}
 
         {risk?.reasons?.length ? (
           <div className="mt-6">
             <div className="mb-3 text-sm font-semibold">Why Dakota raised the score</div>
-            <div className="grid gap-2 md:grid-cols-2">{risk.reasons.map((r) => <div key={r} className="rounded-xl border border-white/10 p-3 text-sm text-white/65">{r}</div>)}</div>
+            <div className="grid gap-2 md:grid-cols-2">{risk.reasons.map((reason) => <div key={reason} className="rounded-xl border border-white/10 p-3 text-sm text-white/60">{reason}</div>)}</div>
           </div>
         ) : null}
 
-        {result.evidence?.news ? (
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <ProviderDetail label="News" provider={evidence.news} />
+          <ProviderDetail label="Reddit" provider={social.reddit} />
+          <ProviderDetail label="X" provider={social.x} />
+          <ProviderDetail label="Instagram" provider={social.instagram} />
+          <ProviderDetail label="StockTwits" provider={social.stocktwits} />
+          <ProviderDetail label="Telegram" provider={social.telegram} />
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-white/10 p-5">
+          <div className="flex items-center justify-between">
+            <div className="font-semibold">Social sentiment</div>
+            <span className={`rounded-full border px-2.5 py-1 text-[10px] ${statusTone(sentiment.status)}`}>{human(sentiment.status || "unknown")}</span>
+          </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-4">
+            <SmallStat label="Positive" value={String(sentiment.positive ?? 0)} />
+            <SmallStat label="Neutral" value={String(sentiment.neutral ?? 0)} />
+            <SmallStat label="Negative" value={String(sentiment.negative ?? 0)} />
+            <SmallStat label="Total" value={String(sentiment.total ?? 0)} />
+          </div>
+        </div>
+
+        {evidence.news?.articles?.length ? (
           <div className="mt-6 rounded-2xl border border-white/10 p-5">
-            <div className="flex items-center justify-between"><div className="text-sm font-semibold">News evidence</div><div className="text-xs uppercase tracking-widest text-white/35">{result.evidence.news.status}</div></div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">
-              <EvidenceCard label="Articles" value={String(result.evidence.news.article_count ?? 0)} />
-              <EvidenceCard label="Hype hits" value={String(result.evidence.news.hype_article_count ?? 0)} />
-              <EvidenceCard label="Red flags" value={String(result.evidence.news.red_flag_article_count ?? 0)} />
+            <div className="flex items-center justify-between gap-3">
+              <div className="font-semibold">Recent news</div>
+              <div className="text-xs text-white/35">{evidence.news.articles.length} shown</div>
             </div>
-            <div className="mt-4 space-y-2">{(result.evidence.news.articles || []).slice(0, 8).map((a: any) => <a key={a.url} href={a.url} target="_blank" rel="noreferrer" className="block rounded-xl border border-white/10 p-3 hover:bg-white/[0.03]"><div className="text-sm text-white/80">{a.title || "Untitled"}</div><div className="mt-1 text-xs text-white/35">{a.domain || "source"}</div></a>)}</div>
-          </div>
-        ) : null}
-
-        {result.evidence?.social ? (
-          <div className="mt-6 rounded-2xl border border-white/10 p-5">
-            <div className="text-sm font-semibold">Social evidence coverage</div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {Object.entries(result.evidence.social).map(([key, value]: any) => <EvidenceCard key={key} label={key} value={String(value?.status || "unknown")} />)}
+            <div className="mt-4 space-y-2">
+              {evidence.news.articles.slice(0, 6).map((article: any, index: number) => (
+                <a key={`${article.url || article.title || "article"}-${index}`} href={article.url} target="_blank" rel="noreferrer" className="block rounded-xl border border-white/10 p-3 hover:bg-white/[0.025]">
+                  <div className="text-sm text-white/80">{article.title || "Untitled article"}</div>
+                  <div className="mt-1 text-xs text-white/35">{article.domain || article.provider || "Source"}</div>
+                </a>
+              ))}
             </div>
           </div>
         ) : null}
 
-        {item.impact?.rationale ? <div className="mt-6 rounded-xl border border-sky-400/15 bg-sky-400/[0.04] p-4 text-sm text-white/65">{item.impact.rationale}</div> : null}
-        {item.disclaimer && <div className="mt-6 text-xs leading-5 text-white/30">{item.disclaimer}</div>}
+        {item.impact?.rationale ? <div className="mt-6 rounded-xl border border-sky-400/15 bg-sky-400/[0.04] p-4 text-sm text-white/60">{item.impact.rationale}</div> : null}
+        <div className="mt-6 text-xs leading-5 text-white/30">Dakota reports risk indicators from available evidence. It does not determine fraud and does not provide buy/sell advice.</div>
       </div>
     </div>
   );
@@ -267,65 +514,150 @@ export default function InvestigatePage() {
     }
   }
 
-  const headline = useMemo(() => live[0], [live]);
+  const scored = useMemo(() => live.filter((item) => Boolean(getRisk(item))), [live]);
+  const classified = useMemo(() => live.filter((item) => !getRisk(item)), [live]);
+  const latestScored = scored[0] || null;
+  const providerStatuses = getProviders(latestScored);
 
   return (
-    <main className="min-h-screen bg-[#080b12] px-6 py-10 text-white">
+    <main className="min-h-screen bg-[#070a10] px-4 py-8 text-white sm:px-6">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <header className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-400">Dakota Investigation Engine</div>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight">Every tip gets an investigation.</h1>
-            <p className="mt-3 max-w-3xl text-white/50">Telegram intake → classification → exact impact → evidence collection → explainable risk aggregation. Missing connectors are shown as gaps, never silently treated as clean.</p>
+            <div className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-400">Dakota Investigation Engine</div>
+            <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">Every tip gets an investigation.</h1>
+            <p className="mt-3 max-w-4xl text-sm leading-6 text-white/45">
+              Telegram intake → classification → exact impact → market + news + social evidence → explainable risk aggregation.
+            </p>
           </div>
-          <div className="rounded-full border border-emerald-400/20 bg-emerald-400/[0.06] px-4 py-2 text-xs font-semibold text-emerald-200">● LIVE TELEGRAM FEED</div>
-        </div>
+          <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.05] px-4 py-2 text-xs font-semibold text-emerald-200">
+            <span className="h-2 w-2 rounded-full bg-emerald-300" /> Live Telegram feed
+          </div>
+        </header>
 
-        <section className="rounded-2xl border border-sky-400/15 bg-sky-400/[0.03] p-5">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div><div className="text-sm font-semibold">Latest incoming investigation</div><div className="mt-1 text-xs text-white/35">The dashboard refreshes automatically every 3 seconds.</div></div>
-            {headline ? <RiskBadge risk={headline.risk || headline.investigation?.risk} /> : <span className="text-xs text-white/35">Waiting for the next Telegram post…</span>}
+        <section className="rounded-3xl border border-white/10 bg-white/[0.025] p-5 sm:p-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <div className="text-xs uppercase tracking-[0.22em] text-white/30">Source coverage</div>
+              <div className="mt-1 text-lg font-semibold">Connected intelligence layer</div>
+              <div className="mt-1 text-xs text-white/35">Provider gaps are surfaced explicitly.</div>
+            </div>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
+              {providerStatuses.length ? providerStatuses.map((provider) => <ProviderPill key={provider.key} provider={provider} />) : (
+                ["News", "Reddit", "X", "Instagram", "StockTwits"].map((label) => (
+                  <ProviderPill key={label} provider={{ key: label, label, status: "unknown", detail: "Waiting for a scored investigation" }} />
+                ))
+              )}
+            </div>
           </div>
         </section>
 
-        <section className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-          <div className="mb-4 text-sm font-semibold">Manual investigation</div>
-          <form onSubmit={submit} className="flex flex-col gap-4 lg:flex-row">
-            <textarea value={tip} onChange={(e) => setTip(e.target.value)} required rows={5} placeholder="Paste any Telegram / WhatsApp / X / Reddit tip here…" className="min-h-32 flex-1 resize-y rounded-xl border border-white/10 bg-black/20 p-4 text-sm outline-none placeholder:text-white/25 focus:border-sky-400/40" />
-            <div className="w-full lg:w-60">
+        <section className="mt-6 rounded-3xl border border-sky-400/15 bg-sky-400/[0.025] p-5 sm:p-6">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <div className="text-xs uppercase tracking-[0.22em] text-sky-300/70">Latest scored investigation</div>
+              <div className="mt-2 text-2xl font-bold">{latestScored ? human(latestScored.impact?.entity || latestScored.ticker || "Investigation") : "Waiting for a scored investigation"}</div>
+              <div className="mt-1 text-sm text-white/35">{latestScored ? `${latestScored.channel_username || latestScored.channel || "Telegram"} · ${timeAgo(latestScored.telegram_timestamp || latestScored.captured_at)}` : "Send a tip or wait for the next Telegram investigation."}</div>
+            </div>
+            {latestScored ? <RiskBadge risk={getRisk(latestScored)} /> : null}
+          </div>
+          {latestScored ? (
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              <SmallStat label="Message type" value={latestScored.classification?.message_type || "—"} />
+              <SmallStat label="Domain" value={human(latestScored.classification?.market_domain || latestScored.classification?.domain)} />
+              <SmallStat label="Impact" value={human(latestScored.impact?.exact_topic || latestScored.impact?.entity)} />
+              <SmallStat label="Source" value={latestScored.channel_username || latestScored.channel || "Telegram"} />
+            </div>
+          ) : null}
+        </section>
+
+        <section className="mt-6 rounded-3xl border border-white/10 bg-white/[0.025] p-5 sm:p-6">
+          <div className="mb-4 flex items-center justify-between gap-3">
+            <div>
+              <div className="text-sm font-semibold">Manual investigation</div>
+              <div className="mt-1 text-xs text-white/30">Run the same investigation path used by the live pipeline.</div>
+            </div>
+            <div className="text-xs text-white/25">No raw message is stored by the intake layer.</div>
+          </div>
+          <form onSubmit={submit} className="flex flex-col gap-4 xl:flex-row">
+            <textarea value={tip} onChange={(e) => setTip(e.target.value)} required rows={5} placeholder="CDSL target 1500 tomorrow..." className="min-h-32 flex-1 resize-y rounded-2xl border border-white/10 bg-black/20 p-4 text-sm outline-none placeholder:text-white/20 focus:border-sky-400/40" />
+            <div className="w-full xl:w-56">
               <label className="text-xs uppercase tracking-widest text-white/35">Source</label>
-              <select value={source} onChange={(e) => setSource(e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-[#101521] px-3 py-3 text-sm"><option value="manual">Manual</option><option value="telegram">Telegram</option><option value="whatsapp">WhatsApp</option><option value="x">X</option><option value="reddit">Reddit</option><option value="instagram">Instagram</option></select>
-              <button disabled={loading} className="mt-4 w-full rounded-xl bg-sky-500 px-4 py-3 font-semibold text-slate-950 hover:bg-sky-400 disabled:opacity-50">{loading ? "Investigating…" : "Investigate"}</button>
+              <select value={source} onChange={(e) => setSource(e.target.value)} className="mt-2 w-full rounded-xl border border-white/10 bg-[#101521] px-3 py-3 text-sm">
+                <option value="manual">Manual</option>
+                <option value="telegram">Telegram</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="x">X</option>
+                <option value="reddit">Reddit</option>
+                <option value="instagram">Instagram</option>
+              </select>
+              <button disabled={loading} className="mt-3 w-full rounded-xl bg-sky-500 px-4 py-3 font-semibold text-slate-950 transition hover:bg-sky-400 disabled:opacity-50">
+                {loading ? "Investigating…" : "Investigate"}
+              </button>
             </div>
           </form>
-          {manualError && <div className="mt-4 rounded-xl border border-red-400/20 bg-red-400/10 p-3 text-sm text-red-200">{manualError}</div>}
+          {manualError ? <div className="mt-4 rounded-xl border border-red-400/20 bg-red-400/[0.05] p-3 text-sm text-red-100">{manualError}</div> : null}
         </section>
 
-        {manual && (
-          <section className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
-            <div className="text-sm font-semibold">Manual result</div>
-            <pre className="mt-4 max-h-96 overflow-auto rounded-xl bg-black/30 p-4 text-xs text-white/65">{JSON.stringify(manual, null, 2)}</pre>
+        {manual ? (
+          <section className="mt-6 rounded-3xl border border-white/10 bg-white/[0.025] p-5 sm:p-6">
+            <div className="mb-5">
+              <div className="text-sm font-semibold">Manual result</div>
+              <div className="mt-1 text-xs text-white/30">Rendered from the investigation result — raw JSON is intentionally hidden.</div>
+            </div>
+            <ManualSummary manual={manual} />
           </section>
-        )}
+        ) : null}
 
         <section className="mt-10">
-          <div className="mb-4 flex items-end justify-between"><div><div className="text-sm font-semibold">Live investigations</div><div className="mt-1 text-xs text-white/35">Derived records only — original Telegram message text is not stored.</div></div><div className="text-xs text-white/35">{live.length} records</div></div>
-          {liveError && <div className="mb-4 rounded-xl border border-red-400/20 bg-red-400/10 p-3 text-sm text-red-200">{liveError}</div>}
+          <div className="mb-4 flex items-end justify-between">
+            <div>
+              <div className="text-sm font-semibold">Live investigations</div>
+              <div className="mt-1 text-xs text-white/30">Only investigations with a numeric risk score are promoted to the main feed.</div>
+            </div>
+            <div className="text-xs text-white/30">{scored.length} scored</div>
+          </div>
+
+          {liveError ? <div className="mb-4 rounded-xl border border-red-400/20 bg-red-400/[0.05] p-3 text-sm text-red-100">{liveError}</div> : null}
+
           <div className="space-y-3">
-            {live.length === 0 ? <div className="rounded-2xl border border-dashed border-white/10 p-10 text-center text-sm text-white/35">Waiting for Telegram investigations…</div> : live.map((item) => <LiveCard key={item.investigation_id} item={item} onOpen={(id) => setSelected(live.find((x) => x.investigation_id === id) || null)} />)}
+            {scored.slice(0, 12).map((item) => <FeedCard key={item.investigation_id} item={item} onOpen={setSelected} />)}
+            {scored.length === 0 ? <div className="rounded-2xl border border-dashed border-white/10 p-10 text-center text-sm text-white/30">Waiting for the next scored Telegram investigation…</div> : null}
           </div>
         </section>
 
-        <div className="mt-8 grid gap-3 md:grid-cols-4">
-          <EvidenceCard label="1. Classify" value="Stock / commodity / macro / sector / index" />
-          <EvidenceCard label="2. Map impact" value="Resolve exact entity/topic" />
-          <EvidenceCard label="3. Gather evidence" value="Market / news / social / company" />
-          <EvidenceCard label="4. Aggregate risk" value="Explainable 0–100 prototype" />
-        </div>
+        <section className="mt-10 rounded-3xl border border-white/10 bg-white/[0.02] p-5 sm:p-6">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <div className="text-sm font-semibold">Classification stream</div>
+              <div className="mt-1 text-xs text-white/30">Non-financial and unresolved messages stay visible here without cluttering the risk feed.</div>
+            </div>
+            <div className="text-xs text-white/30">{classified.length} records</div>
+          </div>
+          <div className="mt-4 grid gap-2 md:grid-cols-2">
+            {classified.slice(0, 8).map((item) => (
+              <button key={item.investigation_id} onClick={() => setSelected(item)} className="rounded-xl border border-white/10 bg-white/[0.02] p-4 text-left hover:bg-white/[0.04]">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="font-semibold">{item.ticker || item.tickers?.[0] || "Market topic"}</div>
+                  <span className={`rounded-full border px-2 py-1 text-[10px] ${statusTone(item.impact?.status || item.status)}`}>{human(item.impact?.status || item.status || "pending")}</span>
+                </div>
+                <div className="mt-2 text-xs text-white/35">{item.classification?.message_type || "—"} · {human(item.classification?.market_domain || item.classification?.domain)}</div>
+              </button>
+            ))}
+          </div>
+        </section>
 
-        <p className="mt-8 text-xs leading-5 text-white/30">Dakota reports risk indicators from available evidence. It does not determine fraud and does not provide buy/sell advice. Public Telegram monitoring uses authorized account access and an explicit channel allowlist.</p>
+        <section className="mt-8 grid gap-3 md:grid-cols-4">
+          <SmallStat label="1. Classify" value="Stock / commodity / macro / sector / index" />
+          <SmallStat label="2. Map impact" value="Resolve exact entity or topic" />
+          <SmallStat label="3. Gather evidence" value="Market / news / Reddit / X / Instagram / StockTwits" />
+          <SmallStat label="4. Aggregate risk" value="Explainable Dakota 0–100 score" />
+        </section>
+
+        <p className="mt-8 text-xs leading-5 text-white/25">Dakota reports risk indicators from available evidence. It does not determine fraud and does not provide buy/sell advice. Missing connectors remain visible as gaps.</p>
       </div>
-      {selected && <DetailPanel item={selected} onClose={() => setSelected(null)} />}
+
+      {selected ? <DetailPanel item={selected} onClose={() => setSelected(null)} /> : null}
     </main>
   );
 }
