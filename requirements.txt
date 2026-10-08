@@ -1,0 +1,9 @@
+fastapi>=0.115
+uvicorn>=0.34
+pandas>=2.2
+pydantic>=2.9
+requests>=2.32
+python-dotenv>=1.0
+# Existing Dakota exchange helpers; keep these in the venv already used by the project.
+nse>=3.2.1
+bse>=3.3.3

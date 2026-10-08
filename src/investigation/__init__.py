@@ -1,0 +1,1 @@
+"""Tip investigation package."""

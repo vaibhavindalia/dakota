@@ -1,0 +1,15 @@
+{
+  "name": "My Portfolio",
+  "holdings": [
+    {
+      "ticker": "CLOUD",
+      "quantity": 100.0,
+      "average_buy_price": null
+    },
+    {
+      "ticker": "AFCOM",
+      "quantity": 2000.0,
+      "average_buy_price": null
+    }
+  ]
+}

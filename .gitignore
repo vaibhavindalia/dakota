@@ -1,0 +1,13 @@
+﻿.venv/
+venv/
+node_modules/
+__pycache__/
+*.pyc
+*.pt
+*.bin
+*.safetensors
+*.session
+*.session-journal
+.env
+.next/
+.pytest_cache/

@@ -1,0 +1,5 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file!  Do not edit.
+
+.nseindia.com	TRUE	/	TRUE	1822947553	_abck	5137095909A59F51370694557C497922~-1~YAAQTIksMSxBUwWhAQAAdQRzGBCoinIhyJANFUbUKk/e+RgNHiyO/DnxFVejqd3JtCu+X6U7w79PstJ1ntjkrW/e8ZGDEUIlg2mNmKOWAhMGDAVbdeToE9HTGPKnV8pLOne9OkywWA3DMCNC3hVOBK/whEkeJJat471ZNZEuJLm2HWWilxi38g9XH0oB6PBa/YJeWmJXrHgqaNjt6UEwvIibiwnlm+kPMJhOBFAFWeU9ZBv4QPZeQOuDqbICZOOnY5ada6YSTj/S/EjLgSKu7gg2wWMp7lHSpxCkc68Q7HPaCCtKQmnOnfx21vLw7pziACxmKXGBX/1bEoAvNRhPevggEjBu1Tx8a09w+ug3Hp0L7xvv8xJX4oISqlkwzsJSiUjQ5RNdI9PIcqOKjPqvcBYyoSVYgMcb4HioZcp5pMhagHFNWQ5EKmIYZgGPinSz2n3y1a8m9/CW4iCgnwkgspo3aJCHkA==~-1~-1~-1~-1~-1

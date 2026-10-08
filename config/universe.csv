@@ -1,0 +1,21 @@
+ticker,name,exchange,market_id,segment,role,listing_date,issue_size_cr,free_float_pct,lockin_expiry,pump_end,case_event_date,surveillance_flag,notes
+CLOUD,Varanium Cloud Limited,NSE,CLOUD,SME,case,2022-09-16,,,2024-07-15,2024-05-10,2024-05-10,,SEBI interim order date; verify listing/lock-in fields from filings before production use
+ASRL,Add-Shop E-Retail Limited,BSE,541865,SME,case,2018-10-01,,,2023-12-01,2024-05-06,2024-05-06,,BSE scrip 541865; SEBI interim order date
+TRAFIKSOL,Trafiksol ITS Technologies Limited,BSE,544255,SME,case,2024-10-01,,,2025-03-31,2024-10-11,2024-10-11,,BSE scrip 544255; listing was postponed and SEBI interim ex-parte order followed
+AFCOM,Afcom Holdings Limited,BSE,544224,SME,case,2024-08-09,,,2025-02-09,2026-05-22,2026-05-22,,BSE SME scrip 544224; included as the illustrative 82-stock-family case
+DRONACHRYA,DroneAcharya Aerial Innovations Limited,BSE,543713,SME,control,2022-12-21,,,,,,False,Reference SME control; no synthetic pump flag
+BAHETI,Baheti Recycling Industries Limited,NSE,BAHETI,SME,control,2022-12-06,,,,,,False,Reference SME control
+BASILIC,Basilic Fly Studio Limited,NSE,BASILIC,SME,control,2023-09-11,,,,,,False,Reference SME control
+EXHICON,Exhicon Events Media Solutions Limited,BSE,543895,SME,control,2022-02-07,,,,,,False,Reference SME control
+CDSL,Central Depository Services (India) Limited,NSE,CDSL,main,control,2017-06-30,,,,,,,Reference main-board control
+IEX,Indian Energy Exchange Limited,NSE,IEX,main,control,2017-10-23,,,,,,,Reference main-board control
+RITES,RITES Limited,NSE,RITES,main,control,2018-07-02,,,,,,,Reference main-board control
+REDINGTON,Redington Limited,NSE,REDINGTON,main,control,2007-02-15,,,,,,,Reference main-board control
+TANLA,Tanla Platforms Limited,NSE,TANLA,main,control,2000-02-07,,,,,,,Reference main-board control
+ROUTE,Route Mobile Limited,NSE,ROUTE,main,control,2020-09-21,,,,,,,Reference main-board control
+BLS,BLS E-Services Limited,NSE,BLS,main,control,2024-02-07,,,,,,,Reference main-board control
+HFCL,HFCL Limited,NSE,HFCL,main,control,1995-01-01,,,,,,,Reference main-board control
+TRIDENT,Trident Limited,NSE,TRIDENT,main,control,1992-01-01,,,,,,,Reference main-board control
+CESC,CESC Limited,NSE,CESC,main,control,2008-02-01,,,,,,,Reference main-board control
+JBCHEPHARM,J.B. Chemicals & Pharmaceuticals Limited,NSE,JBCHEPHARM,main,control,1986-01-01,,,,,,,Reference main-board control
+FSL,Firstsource Solutions Limited,NSE,FSL,main,control,2001-01-01,,,,,,,Reference main-board control

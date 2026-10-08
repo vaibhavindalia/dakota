@@ -1,0 +1,13 @@
+ticker,quarter_end,promoter_pct,public_pct,note
+VARANIUM,2023-09-30,62.0,38.0,REPLACE with real BSE filing data
+VARANIUM,2023-12-31,55.0,45.0,REPLACE with real BSE filing data
+VARANIUM,2024-03-31,48.0,52.0,REPLACE with real BSE filing data
+ADDSHOP,2023-03-31,58.0,42.0,REPLACE with real BSE filing data
+ADDSHOP,2023-06-30,52.0,48.0,REPLACE with real BSE filing data
+ADDSHOP,2023-09-30,45.0,55.0,REPLACE with real BSE filing data
+TRAFIKSOL,2023-06-30,60.0,40.0,REPLACE with real BSE filing data
+TRAFIKSOL,2023-09-30,53.0,47.0,REPLACE with real BSE filing data
+TRAFIKSOL,2023-12-31,50.0,50.0,REPLACE with real BSE filing data
+FAMILYPUMP,2023-06-30,57.0,43.0,REPLACE with real BSE filing data
+FAMILYPUMP,2023-09-30,50.0,50.0,REPLACE with real BSE filing data
+FAMILYPUMP,2023-12-31,44.0,56.0,REPLACE with real BSE filing data
