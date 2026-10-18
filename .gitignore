@@ -30,3 +30,17 @@ Thumbs.db
 models/
 huggingface/
 .cache/
+
+# Scratch & temporary patch scripts
+fix_*.py
+update*.py
+tree.txt
+*.bak
+
+# Nested backup repositories
+dacota/
+market system dacota/
+
+# Telegram runtime session & state
+data/telegram/
+

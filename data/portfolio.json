@@ -1,15 +1,30 @@
-{
-  "name": "My Portfolio",
-  "holdings": [
-    {
-      "ticker": "CLOUD",
-      "quantity": 100.0,
-      "average_buy_price": null
-    },
-    {
-      "ticker": "AFCOM",
-      "quantity": 2000.0,
-      "average_buy_price": null
-    }
-  ]
-}
+[
+  {
+    "exchange": "NSE",
+    "ticker": "CLOUD",
+    "bse_code": null,
+    "quantity": 13.0,
+    "average_buy_price": null
+  },
+  {
+    "exchange": "NSE",
+    "ticker": "ZOMATO",
+    "bse_code": null,
+    "quantity": 500.0,
+    "average_buy_price": null
+  },
+  {
+    "exchange": "NSE",
+    "ticker": "HDFC",
+    "bse_code": null,
+    "quantity": 500.0,
+    "average_buy_price": null
+  },
+  {
+    "exchange": "NSE",
+    "ticker": "WIPRO",
+    "bse_code": null,
+    "quantity": 15.0,
+    "average_buy_price": null
+  }
+]

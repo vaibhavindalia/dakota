@@ -43,6 +43,28 @@ TRADING_ACTION_PATTERNS = (
     "breakout", "rally", "rocket", "multibagger", "trade", "call", "buy now",
 )
 
+SPAM_PROMO_PATTERNS = (
+    "join vip", "vip channel", "vip group", "free channel", "premium channel", "premium group",
+    "telegram channel", "join telegram", "whatsapp", "call +", "contact admin", "dm for",
+    "paid calls", "jackpot calls", "sure shot", "sure shots", "100% assured", "guaranteed profit",
+    "assured returns", "profit screenshot", "proof", "booking open", "daily profit",
+    "earn daily", "crypto signals", "forex signals", "subscription", "register now", "paid service",
+    "click here", "t.me/", "link in bio", "admin contact", "account handling", "recover loss",
+)
+
+CHIT_CHAT_PATTERNS = (
+    "good morning", "good evening", "good night", "gm all", "gm guys", "gn all", "hello",
+    "hi guys", "hi all", "happy diwali", "happy new year", "thanks", "thank you", "congrats",
+    "congratulations", "welcome", "happy trading", "have a nice day", "trading holiday",
+    "market closed today", "happy weekend", "birthday",
+)
+
+MARKET_STATUS_PATTERNS = (
+    "market opens", "market closed", "pre-market", "post-market", "market opening",
+    "heavy volatility", "expiry day today", "market update", "trading session ended",
+    "stay cautious", "closing bell", "opening bell",
+)
+
 
 def _match(text: str, aliases: tuple[str, ...]) -> str | None:
     for alias in sorted(aliases, key=len, reverse=True):
@@ -53,16 +75,18 @@ def _match(text: str, aliases: tuple[str, ...]) -> str | None:
 
 def _known_tickers(text: str) -> list[str]:
     found: list[str] = []
+    upper = text.upper()
     try:
-        import pandas as pd
-        from src.ingest.market_data import load_universe
-        uni = load_universe()
-        for ticker in uni.ticker.astype(str).str.upper():
-            if re.search(rf"(?<![A-Z0-9])\$?{re.escape(ticker)}(?![A-Z0-9])", text.upper()):
-                found.append(ticker)
+        from src.tipcheck.parser import get_extended_name_to_ticker
+        ext_map = get_extended_name_to_ticker()
+        for name_key in sorted(ext_map.keys(), key=len, reverse=True):
+            ticker_val = ext_map[name_key]
+            if re.search(rf"\b{re.escape(name_key)}\b", upper):
+                if ticker_val not in found:
+                    found.append(ticker_val)
     except Exception:
         pass
-    for ticker in re.findall(r"\$([A-Z][A-Z0-9]{1,11})\b", text.upper()):
+    for ticker in re.findall(r"\$([A-Z][A-Z0-9]{1,11})\b", upper):
         if ticker not in found:
             found.append(ticker)
     return found[:5]
@@ -88,27 +112,42 @@ def rule_classify(text: str) -> dict[str, Any] | None:
     tickers = _known_tickers(text)
     trading_intent = any(term in clean for term in TRADING_ACTION_PATTERNS)
 
+    # 1. Important: Stock Tip (identified company or ticker)
     if tickers:
         return _base("a specific stock trading tip", "equity", None, tickers, 0.98, trading_intent, "rules")
 
+    # 2. Tracked commodities
     for topic, aliases in COMMODITY_PATTERNS.items():
         if _match(clean, aliases):
             return _base("a commodity trading tip", "commodity", topic if topic != "crude_oil" else "commodity", [], 0.96, True, "rules")
 
+    # 3. Macroeconomic
     for topic, aliases in MACRO_PATTERNS.items():
         if _match(clean, aliases):
             return _base("a macroeconomic trading tip", "macro", "macro", [], 0.96, trading_intent, "rules")
 
+    # 4. Indices
     for topic, aliases in INDEX_PATTERNS.items():
         if _match(clean, aliases):
             return _base("an index trading tip", "index", "index", [], 0.96, trading_intent, "rules")
 
+    # 5. Sectors
     for topic, aliases in SECTOR_PATTERNS.items():
         if _match(clean, aliases):
             return _base("a sector trading tip", "sector", "sector", [], 0.94, True, "rules")
 
-    if not trading_intent and any(x in clean for x in ("birthday", "congratulations", "good morning", "good night", "hello", "thanks", "thank you")):
-        return _base("a non-financial message", "none", None, [], 0.94, False, "rules")
+    # 6. Shit / Noise Messages: Promotional spam / VIP funnel without a stock
+    if any(p in clean for p in SPAM_PROMO_PATTERNS):
+        return _base("a non-financial message", "none", None, [], 0.98, False, "rules_spam_filter")
+
+    # 7. Shit / Noise Messages: Chit-chat / Greetings
+    if any(p in clean for p in CHIT_CHAT_PATTERNS):
+        return _base("a non-financial message", "none", None, [], 0.98, False, "rules_chit_chat")
+
+    # 8. Noise Messages: General market status without actionable target
+    if any(p in clean for p in MARKET_STATUS_PATTERNS):
+        return _base("a non-financial message", "none", None, [], 0.90, False, "rules_general_status")
+
     return None
 
 
@@ -141,6 +180,19 @@ def ml_classify(text: str) -> dict[str, Any]:
     }
     domain, topic = mapping[top]
     tickers = _known_tickers(text)
+
+    # Prevent phantom sector or stock investigations for noisy/unactionable messages
+    if top in ("a specific stock trading tip", "a sector trading tip") and not tickers:
+        clean = " ".join(text.lower().split())
+        matched_sector = None
+        for sec_topic, aliases in SECTOR_PATTERNS.items():
+            if _match(clean, aliases):
+                matched_sector = sec_topic
+                break
+        if matched_sector:
+            return _base("a sector trading tip", "sector", matched_sector, [], score, True, "local_ml")
+        return _base("a non-financial message", "none", None, [], min(score, 0.40), False, "ml_unactionable_fallback")
+
     return _base(top, domain, topic, tickers, score, False, "local_ml")
 
 

@@ -40,7 +40,11 @@ def public_status() -> dict[str, str]:
             if env("INSTAGRAM_ACCESS_TOKEN") and env("INSTAGRAM_USER_ID")
             else "missing_credentials"
         ),
-        "telegram": "configured" if enabled("TELEGRAM_BOT_TOKEN") else "missing_credentials",
+        "telegram": (
+            "configured"
+            if enabled("TELEGRAM_BOT_TOKEN") or enabled("DAKOTA_BOT_TOKEN")
+            else "missing_credentials"
+        ),
         "whatsapp": (
             "configured"
             if env("WHATSAPP_ACCESS_TOKEN") and env("WHATSAPP_PHONE_NUMBER_ID")

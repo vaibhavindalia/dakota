@@ -35,12 +35,179 @@ HYPE_TERMS = {
 }
 
 
-def _status_from_http(status_code: int) -> str:
-    if status_code in {401, 403}:
-        return "unauthorized"
-    if status_code == 429:
-        return "rate_limited"
-    return "error"
+
+DEFAULT_META_GRAPH_VERSION = "v21.0"
+
+
+def _get_api_version() -> str:
+    """Normalize Meta Graph API version, defaulting to v21.0."""
+    raw = env("META_GRAPH_VERSION") or ""
+    raw = raw.strip().lstrip("/")
+    if not raw:
+        return DEFAULT_META_GRAPH_VERSION
+    if not raw.startswith("v"):
+        raw = f"v{raw}"
+    return raw
+
+
+def normalize_graph_version(raw: str | None) -> str:
+    """Normalize Meta Graph API version, defaulting to v21.0."""
+    val = (raw or "").strip().lstrip("/")
+    if not val:
+        return DEFAULT_META_GRAPH_VERSION
+    if not val.startswith("v"):
+        val = f"v{val}"
+    return val
+
+
+def _sanitize_string(text: str, token: str | None = None) -> str:
+    """Sanitize string by redacting secret access tokens."""
+    if not text:
+        return ""
+    res = str(text)
+    if token and len(token) > 4:
+        res = res.replace(token, "[REDACTED_ACCESS_TOKEN]")
+    import re
+    res = re.sub(r"access_token=[A-Za-z0-9_\-]+", "access_token=[REDACTED]", res)
+    return res
+
+
+def _parse_meta_error(resp: requests.Response, token: str | None = None) -> tuple[str, str]:
+    """Parse structured Meta Graph API JSON error and return normalized status and message."""
+    status_code = resp.status_code
+    status = "error"
+    try:
+        body = resp.json()
+        err = body.get("error") if isinstance(body, dict) else {}
+        code = err.get("code")
+        subcode = err.get("error_subcode")
+        msg = err.get("message", "")
+        err_type = err.get("type", "")
+
+        # OAuth token issues
+        if code == 190 or err_type == "OAuthException" or subcode in {463, 467}:
+            status = "token_expired"
+            return status, _sanitize_string(
+                f"Meta OAuth token has expired or is invalid (Code {code}, Subcode {subcode}): Please regenerate a new access token.",
+                token,
+            )
+
+        # Permission or capability issues
+        if code in {10, 200}:
+            status = "insufficient_permissions"
+            return status, _sanitize_string(
+                f"Application does not have the required permissions (e.g. instagram_basic, pages_show_list): {msg}",
+                token,
+            )
+
+        # Invalid account ID
+        if code == 100:
+            status = "invalid_account_id"
+            return status, _sanitize_string(
+                f"Invalid Instagram Account ID. Ensure this is an Instagram Professional (Business or Creator) account ID connected to a Facebook page: {msg}",
+                token,
+            )
+
+        # Rate limit
+        if code in {4, 17, 32, 613} or status_code == 429:
+            status = "rate_limited"
+            return status, _sanitize_string(f"Meta Graph API rate limit reached: {msg}", token)
+
+        if msg:
+            return status, _sanitize_string(f"Meta error (Code {code}): {msg}", token)
+    except Exception:
+        pass
+
+    safe_text = resp.text[:200].replace("\n", " ").strip()
+    return status, _sanitize_string(f"HTTP {status_code}: {safe_text or resp.reason}", token)
+
+
+def parse_meta_api_error(resp: requests.Response) -> tuple[str, str]:
+    """Backward-compatible alias for _parse_meta_error."""
+    return _parse_meta_error(resp)
+
+
+def validate_instagram_credentials(timeout: int = 10) -> dict[str, Any]:
+    """Validate Instagram credentials by querying Meta Graph API for account metadata."""
+    token = env("INSTAGRAM_ACCESS_TOKEN")
+    user_id = env("INSTAGRAM_USER_ID")
+    version = _get_api_version()
+
+    missing: list[str] = []
+    if not token:
+        missing.append("INSTAGRAM_ACCESS_TOKEN")
+    if not user_id:
+        missing.append("INSTAGRAM_USER_ID")
+
+    if missing:
+        return {
+            "status": "missing_credentials",
+            "configured": False,
+            "missing_fields": missing,
+            "setup_guide": (
+                "Add INSTAGRAM_ACCESS_TOKEN and INSTAGRAM_USER_ID to your environment or .env file. "
+                "See NEWS_SOCIAL_INTEGRATION.md for step-by-step setup instructions."
+            ),
+        }
+
+    url = f"{BASE}/{version}/{user_id}"
+    params = {"fields": "id,username,name", "access_token": token}
+    try:
+        resp = requests.get(url, params=params, timeout=timeout)
+        if resp.status_code == 200:
+            data = resp.json()
+            return {
+                "status": "connected",
+                "configured": True,
+                "username": data.get("username", "verified_user"),
+                "account_id": str(data.get("id", user_id)),
+                "name": data.get("name"),
+            }
+        status, err_msg = _parse_meta_error(resp, token)
+        return {
+            "status": status,
+            "configured": False,
+            "error": err_msg,
+            "status_code": resp.status_code,
+        }
+    except Exception as exc:
+        return {
+            "status": "error",
+            "configured": False,
+            "error": _sanitize_string(str(exc), token),
+        }
+
+
+def get_instagram_config_status() -> dict[str, Any]:
+    """Return sanitized Instagram configuration status without exposing tokens."""
+    token = env("INSTAGRAM_ACCESS_TOKEN")
+    user_id = env("INSTAGRAM_USER_ID")
+    version = _get_api_version()
+
+    missing: list[str] = []
+    if not token:
+        missing.append("INSTAGRAM_ACCESS_TOKEN")
+    if not user_id:
+        missing.append("INSTAGRAM_USER_ID")
+
+    is_configured = len(missing) == 0
+
+    return {
+        "status": "configured" if is_configured else "testing_phases",
+        "provider": "Instagram",
+        "configured": is_configured,
+        "has_access_token": bool(token),
+        "has_user_id": bool(user_id),
+        "graph_version": version,
+        "missing_fields": missing,
+        "account_type_required": "Instagram Professional (Business or Creator) connected to a Meta Facebook Page",
+        "required_permissions": ["instagram_basic", "pages_show_list"],
+        "help": (
+            "Ready for hashtag discovery."
+            if is_configured
+            else "Instagram hashtag discovery adapter is active in testing phase."
+        ),
+    }
 
 
 def search_instagram(
@@ -54,9 +221,15 @@ def search_instagram(
 
     token = env("INSTAGRAM_ACCESS_TOKEN")
     user_id = env("INSTAGRAM_USER_ID")
-    version = env("META_GRAPH_VERSION")
+    version = _get_api_version()
 
-    if not token or not user_id or not version:
+    missing: list[str] = []
+    if not token:
+        missing.append("INSTAGRAM_ACCESS_TOKEN")
+    if not user_id:
+        missing.append("INSTAGRAM_USER_ID")
+
+    if missing:
         return {
             "status": "missing_credentials",
             "provider": "Instagram",
@@ -64,8 +237,16 @@ def search_instagram(
             "results": [],
             "result_count": 0,
             "hype_result_count": 0,
-            "observations": [],
-            "error": "Set INSTAGRAM_ACCESS_TOKEN, INSTAGRAM_USER_ID and META_GRAPH_VERSION",
+            "observations": [
+                {
+                    "signal": "instagram_testing",
+                    "severity": "low",
+                    "text": "Instagram hashtag discovery adapter is active in testing phase.",
+                }
+            ],
+            "error": f"Instagram credentials not configured (missing: {', '.join(missing)}). Using Meta Graph API {version}.",
+            "missing_fields": missing,
+            "graph_version": version,
             "fetched_at": fetched_at,
         }
 
@@ -80,15 +261,16 @@ def search_instagram(
             timeout=timeout,
         )
         if search.status_code != 200:
+            err_status, err_msg = parse_meta_api_error(search)
             return {
-                "status": _status_from_http(search.status_code),
+                "status": err_status,
                 "provider": "Instagram",
                 "query": f"#{ticker}",
                 "results": [],
                 "result_count": 0,
                 "hype_result_count": 0,
                 "observations": [],
-                "error": f"HTTP {search.status_code}: {search.text[:500]}",
+                "error": err_msg,
                 "fetched_at": fetched_at,
             }
 
@@ -119,15 +301,16 @@ def search_instagram(
             timeout=timeout,
         )
         if media.status_code != 200:
+            err_status, err_msg = parse_meta_api_error(media)
             return {
-                "status": _status_from_http(media.status_code),
+                "status": err_status,
                 "provider": "Instagram",
                 "query": f"#{ticker}",
                 "results": [],
                 "result_count": 0,
                 "hype_result_count": 0,
                 "observations": [],
-                "error": f"HTTP {media.status_code}: {media.text[:500]}",
+                "error": err_msg,
                 "fetched_at": fetched_at,
                 "hashtag_found": True,
             }

@@ -7,6 +7,7 @@ access and respect current terms and rate limits.
 """
 from __future__ import annotations
 
+import time
 from datetime import datetime, timezone
 from typing import Any
 from urllib.parse import quote_plus
@@ -15,7 +16,7 @@ from xml.etree import ElementTree as ET
 import requests
 
 REDDIT_SEARCH_URL = "https://www.reddit.com/search.rss"
-USER_AGENT = "Dakota/0.2 research prototype"
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Dakota/0.3"
 
 HYPE_TERMS = {
     "multibagger",
@@ -41,6 +42,35 @@ def _child_text(entry: ET.Element, local_name: str) -> str:
     return ""
 
 
+def _fetch_rss(params: dict, timeout: float, max_retries: int = 2) -> requests.Response:
+    """Fetch Reddit RSS with retry + backoff for 429 rate limits."""
+    last_exc = None
+    for attempt in range(max_retries + 1):
+        try:
+            response = requests.get(
+                REDDIT_SEARCH_URL,
+                params=params,
+                headers={"User-Agent": USER_AGENT, "Accept": "application/rss+xml"},
+                timeout=timeout,
+            )
+            if response.status_code == 429:
+                if attempt < max_retries:
+                    wait = float(response.headers.get("Retry-After", 2 * (attempt + 1)))
+                    time.sleep(min(wait, 5))
+                    continue
+            response.raise_for_status()
+            return response
+        except requests.exceptions.HTTPError as exc:
+            last_exc = exc
+            if "429" in str(exc) and attempt < max_retries:
+                time.sleep(2 * (attempt + 1))
+                continue
+            raise
+        except Exception:
+            raise
+    raise last_exc  # type: ignore[misc]
+
+
 def search_reddit(ticker: str, *, days: int = 7, limit: int = 25, timeout: float = 8.0) -> dict[str, Any]:
     ticker = ticker.upper().strip()
     fetched_at = datetime.now(timezone.utc).isoformat()
@@ -53,13 +83,7 @@ def search_reddit(ticker: str, *, days: int = 7, limit: int = 25, timeout: float
     }
 
     try:
-        response = requests.get(
-            REDDIT_SEARCH_URL,
-            params=params,
-            headers={"User-Agent": USER_AGENT, "Accept": "application/rss+xml"},
-            timeout=timeout,
-        )
-        response.raise_for_status()
+        response = _fetch_rss(params, timeout)
         root = ET.fromstring(response.content)
         entries: list[dict[str, Any]] = []
         subreddits: set[str] = set()
@@ -141,8 +165,10 @@ def search_reddit(ticker: str, *, days: int = 7, limit: int = 25, timeout: float
             "error": None,
         }
     except Exception as exc:
+        # Distinguish rate-limiting from real errors
+        is_rate_limited = "429" in str(exc) or "too many" in str(exc).lower()
         return {
-            "status": "error",
+            "status": "rate_limited" if is_rate_limited else "error",
             "query": ticker,
             "fetched_at": fetched_at,
             "result_count": 0,
@@ -150,5 +176,6 @@ def search_reddit(ticker: str, *, days: int = 7, limit: int = 25, timeout: float
             "hype_result_count": 0,
             "results": [],
             "observations": [],
-            "error": str(exc),
+            "error": "Reddit rate limit reached — try again in a few minutes" if is_rate_limited else str(exc),
         }
+

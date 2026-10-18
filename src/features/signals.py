@@ -14,6 +14,14 @@ from dataclasses import dataclass, field
 import pandas as pd
 
 from src.ingest import market_data, shareholding, fundamentals
+try:
+    from src.ingest.free_data_fetcher import load_live_fundamentals, load_live_shareholding
+    _HAS_LIVE = True
+except ImportError:
+    _HAS_LIVE = False
+    import pandas as _pd
+    def load_live_fundamentals(ticker=None): return _pd.DataFrame()
+    def load_live_shareholding(ticker=None): return _pd.DataFrame()
 
 
 @dataclass
@@ -37,32 +45,80 @@ def coordination_signals(ticker: str, as_of: pd.Timestamp,
         [ticker, ts, fingerprint, n_scam_markers, source_label]
     """
     r = SignalResult(0, 25)
+
+    # Auto-link database tip reports if not explicitly provided
+    if tip_reports is None or tip_reports.empty:
+        try:
+            import sqlite3
+            from pathlib import Path
+            db_p = Path(__file__).resolve().parents[2] / "data" / "dakota.db"
+            if db_p.exists():
+                conn = sqlite3.connect(str(db_p), timeout=1.0)
+                cur = conn.cursor()
+                cur.execute(
+                    "SELECT ticker, ts, fingerprint, source_label FROM tip_events WHERE ticker = ? ORDER BY ts DESC LIMIT 50",
+                    (ticker.upper(),)
+                )
+                db_rows = cur.fetchall()
+                conn.close()
+                if db_rows:
+                    tip_reports = pd.DataFrame(db_rows, columns=["ticker", "ts", "fingerprint", "source_label"])
+                    tip_reports["ts"] = pd.to_datetime(tip_reports["ts"]).dt.tz_localize(None)
+                    tip_reports["n_scam_markers"] = 1
+        except Exception:
+            pass
+
     if tip_reports is None or tip_reports.empty:
         return r
-    rep = tip_reports[(tip_reports.ticker == ticker) & (tip_reports.ts <= as_of)]
+
+    # Normalize timestamp timezones for clean comparison
+    tip_ts = pd.to_datetime(tip_reports["ts"])
+    if tip_ts.dt.tz is not None:
+        tip_ts = tip_ts.dt.tz_localize(None)
+    tip_reports = tip_reports.copy()
+    tip_reports["ts"] = tip_ts
+
+    as_of_naive = as_of.tz_localize(None) if as_of.tzinfo is not None else as_of
+
+    t_aliases = [ticker.upper()]
+    if ticker.upper() in ["CLOUD", "VARANIUM"]:
+        t_aliases.extend(["CLOUD", "VARANIUM"])
+    elif ticker.upper() in ["ASRL", "ADDSHOP"]:
+        t_aliases.extend(["ASRL", "ADDSHOP"])
+    elif ticker.upper() in ["AFCOM", "FAMILYPUMP"]:
+        t_aliases.extend(["AFCOM", "FAMILYPUMP"])
+
+    rep = tip_reports[(tip_reports.ticker.isin(t_aliases)) & (tip_reports.ts <= as_of_naive)]
     if rep.empty:
         return r
 
-    # Burst: many distinct reporters in a trailing 24h window (the plan's
-    # documented example: 31 users / 40 minutes on a real case)
-    window = rep[rep.ts >= as_of - pd.Timedelta(hours=24)]
-    n_reporters = window.shape[0]
+    # Burst in trailing 24h window
+    window24 = rep[rep.ts >= as_of_naive - pd.Timedelta(hours=24)]
+    # Trailing 14-day window for coordinated campaign tracking
+    window14d = rep[rep.ts >= as_of_naive - pd.Timedelta(days=14)]
+
+    n_reporters = window24.shape[0]
+    n_14d = window14d.shape[0]
     if n_reporters >= 20:
         r.add(10, f"{n_reporters} reports for this ticker within 24 hours")
     elif n_reporters >= 8:
         r.add(6, f"{n_reporters} reports for this ticker within 24 hours")
     elif n_reporters >= 3:
         r.add(3, f"{n_reporters} reports for this ticker within 24 hours")
+    elif n_14d >= 10:
+        r.add(5, f"{n_14d} coordinated tip reports logged in the past 14 days")
+    elif n_14d >= 3:
+        r.add(2, f"{n_14d} tip reports logged in the past 14 days")
 
-    # Near-duplicates: same text fingerprint from different reporters
-    dup = window.fingerprint.value_counts()
+    # Near-duplicates: same text fingerprint across reporters
+    dup = window14d.fingerprint.value_counts() if not window14d.empty else pd.Series(dtype=int)
     if not dup.empty and dup.iloc[0] >= 5:
         r.add(8, f"Near-duplicate tip text seen {int(dup.iloc[0])} times — copy-paste coordination")
     elif not dup.empty and dup.iloc[0] >= 2:
-        r.add(4, "Repeated near-identical tip text")
+        r.add(4, "Repeated near-identical tip text across reports")
 
     # Scam markers inside the messages (from tipcheck.parser)
-    markers = int(window.n_scam_markers.sum()) if "n_scam_markers" in window else 0
+    markers = int(window14d.n_scam_markers.sum()) if "n_scam_markers" in window14d else 0
     if markers >= 5:
         r.add(7, f"Strong scam language in tips ({markers} markers: guaranteed returns, VIP funnel, app/APK diversion...)")
     elif markers >= 2:
@@ -75,9 +131,23 @@ def promoter_signals(ticker: str, as_of: pd.Timestamp) -> SignalResult:
     """Promoter & shareholding behaviour (25): promoter trend, public-holding
     jump after peak, lock-in window."""
     r = SignalResult(0, 25)
+    # Check live shareholding data (from free daily fetch)
+    try:
+        live_sh = load_live_shareholding(ticker)
+        if not live_sh.empty:
+            lrow = live_sh.iloc[-1]
+            delta_val = lrow.get("promoter_delta_pp")
+            dumping = str(lrow.get("promoter_dumping_flag", "False")) == "True"
+            if dumping or (delta_val is not None and float(delta_val) <= -5.0):
+                r.add(15, "Promoter sold " + str(abs(float(delta_val))) + "pp of holding last quarter (live data: promoter dumping alert)")
+            elif delta_val is not None and float(delta_val) <= -2.0:
+                r.add(7, "Promoter reduced holding by " + str(abs(float(delta_val))) + "pp (live data)")
+    except Exception:
+        pass
+
     trend = shareholding.promoter_trend(ticker, as_of)
     if trend["quarters"] < 2:
-        return r  # no data = no points, say nothing
+        return r  # no manual data - only live checks above apply
 
     if trend["promoter_delta_pp"] <= -10:
         r.add(15, f"Promoter holding fell {abs(trend['promoter_delta_pp'])}pp over "
@@ -101,7 +171,7 @@ def promoter_signals(ticker: str, as_of: pd.Timestamp) -> SignalResult:
 # ---------------------------------------------------------------- G3 (20)
 def market_footprint_signals(ticker: str, as_of: pd.Timestamp) -> SignalResult:
     """Market footprint (20): volume/delivery spike vs 20-day avg, circuit
-    hits, price vs issue price."""
+    hits, price vs issue price, volatility & technical overbought momentum."""
     r = SignalResult(0, 20)
     df = market_data.load_ohlcv(ticker)
     df = df[df.date <= as_of]
@@ -125,12 +195,34 @@ def market_footprint_signals(ticker: str, as_of: pd.Timestamp) -> SignalResult:
     elif vol_ratio >= 2:
         r.add(2, f"Volume elevated at {vol_ratio:.1f}× the 20-day average")
 
+    # Technical Momentum / RSI Overbought Exhaustion Check
+    if len(df) >= 20:
+        c = df["close"]
+        delta = c.diff()
+        gain = delta.clip(lower=0).rolling(14, min_periods=14).mean()
+        loss = (-delta.clip(upper=0)).rolling(14, min_periods=14).mean()
+        rs = gain / loss.replace(0, float("nan"))
+        rsi = 100 - (100 / (1 + rs))
+        last_rsi = rsi.iloc[-1] if not rsi.empty else None
+        if pd.notna(last_rsi) and last_rsi >= 80 and vol_ratio >= 1.5:
+            r.add(4, f"Overbought RSI exhaustion ({last_rsi:.1f}) with elevated volume — distribution risk")
+
+    # Extreme Historical Volatility (20-day annualized)
+    if len(df) >= 20:
+        pct = df["close"].pct_change().dropna()
+        if len(pct) >= 20:
+            ann_vol = pct.tail(20).std() * (252 ** 0.5) * 100
+            if ann_vol >= 90:
+                r.add(3, f"Severe historical volatility ({ann_vol:.0f}% annualized) — erratic price action")
+
     # Delivery collapse during the high-volume window = distribution, not
     # investment buying. Compare the last 40 sessions with the 40 before.
-    if len(df) >= 80:
+    # (delivery_pct is NaN when sourced from yfinance — skip check safely)
+    if len(df) >= 80 and "delivery_pct" in df.columns:
         del_recent = df.tail(40).delivery_pct.mean()
         del_hist = df.iloc[-80:-40].delivery_pct.mean()
-        if vol_ratio >= 2 and del_recent < 0.7 * del_hist:
+        if (pd.notna(del_recent) and pd.notna(del_hist) and del_hist > 0
+                and vol_ratio >= 2 and del_recent < 0.7 * del_hist):
             r.add(5, f"Delivery share dropped to {del_recent:.0f}% (from ~{del_hist:.0f}%) "
                      "— speculative, not investment buying")
 
@@ -156,11 +248,47 @@ def market_footprint_signals(ticker: str, as_of: pd.Timestamp) -> SignalResult:
 # ---------------------------------------------------------------- G4 (15)
 def financial_integrity_signals(ticker: str, as_of: pd.Timestamp) -> SignalResult:
     """Financial integrity red flags (15): revenue jump, concentration,
-    related-party share, use of proceeds."""
+    related-party share, use of proceeds, regulatory action."""
     r = SignalResult(0, 15)
+
+    # Check SEBI regulatory action / interim enforcement order on record
+    try:
+        uni = market_data.load_universe()
+        t_aliases = [ticker.upper()]
+        if ticker.upper() in ["CLOUD", "VARANIUM"]:
+            t_aliases.extend(["CLOUD", "VARANIUM"])
+        elif ticker.upper() in ["ASRL", "ADDSHOP"]:
+            t_aliases.extend(["ASRL", "ADDSHOP"])
+        elif ticker.upper() in ["AFCOM", "FAMILYPUMP"]:
+            t_aliases.extend(["AFCOM", "FAMILYPUMP"])
+        match = uni[uni.ticker.isin(t_aliases) | uni.market_id.isin(t_aliases)]
+        if not match.empty:
+            row = match.iloc[0]
+            ev_dt = row.get("case_event_date")
+            if pd.notna(ev_dt) and str(ev_dt).strip() != "":
+                if as_of >= pd.Timestamp(ev_dt):
+                    r.add(10, f"SEBI regulatory investigation / interim enforcement order on record ({ev_dt})")
+    except Exception:
+        pass
+
+    # Check live fundamentals (from free daily fetch via yfinance / Screener.in)
+    try:
+        live_fund = load_live_fundamentals(ticker)
+        if not live_fund.empty:
+            lf = live_fund.iloc[-1]
+            if str(lf.get("zero_revenue_flag", "False")) == "True":
+                r.add(5, "Company has near-zero revenue but significant market cap (shell company risk)")
+            if str(lf.get("high_debt_flag", "False")) == "True":
+                r.add(4, "Debt is more than 3x annual revenue (high leverage red flag)")
+            if str(lf.get("price_pump_flag", "False")) == "True":
+                pct = lf.get("price_52w_change_pct", "?")
+                r.add(6, "Stock price rose " + str(pct) + "pct in 52 weeks with weak fundamentals (pump pattern)")
+    except Exception:
+        pass
+
     f = fundamentals.red_flags(ticker, as_of)
-    if f["years_available"] == 0:
-        return r
+    if f["years_available"] == 0 and r.points == 0:
+        return r  # no data at all
     if f["revenue_jump"]:
         r.add(4, "Revenue more than doubled in the latest year (year-end jump)")
     if f["unbilled_high"]:
@@ -179,23 +307,56 @@ def structure_signals(ticker: str, as_of: pd.Timestamp) -> SignalResult:
     """Structure (15): free float, issue size, SME listing, surveillance list."""
     r = SignalResult(0, 15)
     uni = market_data.load_universe()
-    row = uni[uni.ticker == ticker]
+    t_aliases = [ticker.upper()]
+    if ticker.upper() in ["CLOUD", "VARANIUM"]:
+        t_aliases.extend(["CLOUD", "VARANIUM"])
+    elif ticker.upper() in ["ASRL", "ADDSHOP"]:
+        t_aliases.extend(["ASRL", "ADDSHOP"])
+    elif ticker.upper() in ["AFCOM", "FAMILYPUMP"]:
+        t_aliases.extend(["AFCOM", "FAMILYPUMP"])
+    row = uni[uni.ticker.isin(t_aliases) | uni.market_id.isin(t_aliases)]
+    if row.empty:
+        try:
+            from pathlib import Path
+            nse_p = Path(__file__).resolve().parents[2] / "config" / "nse_universe.csv"
+            if nse_p.exists():
+                nse_df = pd.read_csv(nse_p)
+                match_nse = nse_df[nse_df.ticker.isin(t_aliases)]
+                if not match_nse.empty:
+                    row = match_nse
+        except Exception:
+            pass
     if row.empty:
         return r
     row = row.iloc[0]
 
-    if str(row.segment).upper() == "SME":
+    if str(row.get("segment", "")).upper() == "SME":
         r.add(5, "Listed on the SME platform (thin liquidity, wider manipulation risk)")
-    if pd.notna(row.free_float_pct):
-        if row.free_float_pct < 25:
-            r.add(5, f"Very thin free float ({row.free_float_pct:.0f}%)")
-        elif row.free_float_pct < 30:
-            r.add(3, f"Low free float ({row.free_float_pct:.0f}%)")
-    if pd.notna(row.issue_size_cr) and row.issue_size_cr < 50:
-        r.add(3, f"Small issue size (₹{row.issue_size_cr:.0f} cr)")
 
-    # TODO(live-data): NSE GSM/ASM surveillance-list check.
-    # For the demo, read an optional manual flag column if you add one to universe.csv.
-    if "surveillance_flag" in uni.columns and bool(row.get("surveillance_flag", False)):
-        r.add(2, "Currently on an exchange surveillance list (GSM/ASM)")
+    if pd.notna(row.get("free_float_pct")) and str(row.get("free_float_pct")).strip() != "":
+        try:
+            ff = float(row.free_float_pct)
+            if ff < 25:
+                r.add(5, f"Very thin free float ({ff:.0f}%) — tightly held insider supply")
+            elif ff < 30:
+                r.add(3, f"Low free float ({ff:.0f}%)")
+        except (ValueError, TypeError):
+            pass
+
+    if pd.notna(row.get("issue_size_cr")) and str(row.get("issue_size_cr")).strip() != "":
+        try:
+            iss = float(row.issue_size_cr)
+            if iss < 50:
+                r.add(3, f"Small issue size (Rs. {iss:.0f} cr) — easily cornered float")
+        except (ValueError, TypeError):
+            pass
+
+    # Surveillance flag or Series BE / BZ (Trade-for-Trade / Surveillance)
+    surv = (
+        str(row.get("surveillance_flag", "")).lower() == "true"
+        or str(row.get("segment", "")).lower() == "surveillance"
+    )
+    if surv:
+        r.add(5, "Placed under exchange surveillance (GSM/ASM / Trade-for-Trade series BE/BZ)")
+
     return r

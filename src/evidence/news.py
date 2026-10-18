@@ -178,8 +178,9 @@ def _search_news_gdelt(ticker: str, *, days: int = 7, max_records: int = 25, tim
             observations=observations,
         ).to_dict()
     except Exception as exc:
+        is_rate_limited = "429" in str(exc) or "too many" in str(exc).lower()
         return NewsResult(
-            status="error",
+            status="rate_limited" if is_rate_limited else "error",
             query=query,
             fetched_at=fetched_at,
             article_count=0,
@@ -187,7 +188,7 @@ def _search_news_gdelt(ticker: str, *, days: int = 7, max_records: int = 25, tim
             red_flag_article_count=0,
             articles=[],
             observations=[],
-            error=str(exc),
+            error="GDELT rate limit reached — try again in a few minutes" if is_rate_limited else str(exc),
         ).to_dict()
 
 
@@ -263,6 +264,6 @@ def search_news(ticker: str, *, days: int = 7, max_records: int = 25, timeout: f
         "has_recent_news": bool(teammate.get("has_recent_news")),
         "error": teammate.get("error") or teammate.get("error_message"),
     }
-    if result.get("status") in {"error", "unavailable"} and teammate.get("status") == "success":
+    if result.get("status") in {"error", "rate_limited", "unavailable"} and teammate.get("status") == "success":
         result["status"] = "connected"
     return result

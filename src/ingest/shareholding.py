@@ -42,6 +42,16 @@ _TEMPLATE = pd.DataFrame({
 })
 
 
+_ALIASES: dict[str, list[str]] = {
+    "CLOUD": ["CLOUD", "VARANIUM"],
+    "VARANIUM": ["VARANIUM", "CLOUD"],
+    "ASRL": ["ASRL", "ADDSHOP"],
+    "ADDSHOP": ["ADDSHOP", "ASRL"],
+    "AFCOM": ["AFCOM", "FAMILYPUMP"],
+    "FAMILYPUMP": ["FAMILYPUMP", "AFCOM"],
+}
+
+
 def load_shareholding(ticker: str | None = None) -> pd.DataFrame:
     """Load shareholding rows; seeds a template file on first run."""
     if not SH_CSV.exists():
@@ -49,7 +59,9 @@ def load_shareholding(ticker: str | None = None) -> pd.DataFrame:
         _TEMPLATE.to_csv(SH_CSV, index=False)
     df = pd.read_csv(SH_CSV, parse_dates=["quarter_end"])
     if ticker:
-        return df[df.ticker == ticker].sort_values("quarter_end").reset_index(drop=True)
+        t_up = ticker.upper()
+        symbols = _ALIASES.get(t_up, [t_up])
+        return df[df.ticker.isin(symbols)].sort_values("quarter_end").reset_index(drop=True)
     return df
 
 

@@ -37,6 +37,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv(ROOT / ".env")
+except Exception:
+    pass
+
 
 # --------------------------------------------------------------------------
 # Telegram
@@ -387,6 +393,130 @@ async def cmd_recent(
     )
 
 
+async def cmd_intel(
+    update: Update,
+    context: ContextTypes.DEFAULT_TYPE,
+) -> None:
+    if update.message is None:
+        return
+
+    query = " ".join(context.args) if context.args else ""
+    if not query:
+        await update.message.reply_text(
+            "Please provide a question, e.g.:\n"
+            "/intel What are the key risk factors for VARANIUM?"
+        )
+        return
+
+    await update.message.reply_text(
+        f"🔍 Querying Dakota Intelligence Core for: \"{query}\"..."
+    )
+
+    try:
+        from src.intelligence.engine import IntelligenceEngine
+        from src.intelligence.models import IntelligenceQuery
+
+        engine = IntelligenceEngine()
+        answer = engine.process_query(
+            IntelligenceQuery(query=query)
+        )
+
+        reply_parts = [
+            "🧠 *DAKOTA INTELLIGENCE BRIEF*",
+            f"*{answer.summary}*",
+            "",
+        ]
+
+        if answer.findings:
+            reply_parts.append("📋 *Key Findings:*")
+            for f in answer.findings[:3]:
+                reply_parts.append(f"• {f.claim}")
+            reply_parts.append("")
+
+        if answer.citations:
+            reply_parts.append("🔗 *Sources:*")
+            for c in answer.citations[:3]:
+                reply_parts.append(f"• {c.label} {c.source_name}")
+            reply_parts.append("")
+
+        reply_parts.append(DISCLAIMER)
+        await update.message.reply_text("\n".join(reply_parts), parse_mode="Markdown")
+    except Exception as exc:
+        log.error("Telegram intel command error: %s", exc)
+        await update.message.reply_text(f"Dakota Intelligence error: {exc}")
+
+
+async def cmd_report(
+    update: Update,
+    context: ContextTypes.DEFAULT_TYPE,
+) -> None:
+    if update.message is None:
+        return
+
+    ticker = (context.args[0] if context.args else "").upper().strip()
+    if not ticker:
+        await update.message.reply_text(
+            "Please specify a ticker, e.g.:\n/report VARANIUM"
+        )
+        return
+
+    await update.message.reply_text(
+        f"📊 Generating Dakota Intelligence Brief for {ticker}..."
+    )
+
+    try:
+        from src.intelligence.reporter import ReportGenerator
+        gen = ReportGenerator()
+        rep = gen.generate_report(ticker=ticker)
+
+        parts = [
+            f"📄 *{rep.title}*",
+            f"ID: `{rep.id}` | {rep.generated_at[:10]}",
+            "",
+            f"*{rep.executive_summary}*",
+            "",
+            "🔍 *Key Findings:*",
+        ]
+        for f in rep.key_findings[:3]:
+            parts.append(f"• {f.claim}")
+
+        parts.append("")
+        parts.append(DISCLAIMER)
+        await update.message.reply_text("\n".join(parts), parse_mode="Markdown")
+    except Exception as exc:
+        log.error("Telegram report command error: %s", exc)
+        await update.message.reply_text(f"Report generation error: {exc}")
+
+
+async def cmd_status(
+    update: Update,
+    context: ContextTypes.DEFAULT_TYPE,
+) -> None:
+    if update.message is None:
+        return
+
+    try:
+        from src.connectors.config import public_status
+        from src.intelligence.provider import get_ai_provider
+
+        conn_status = public_status()
+        prov_status = get_ai_provider().get_status()
+
+        parts = [
+            "⚡ *DAKOTA SYSTEM & INTELLIGENCE HEALTH*",
+            f"• AI Provider: `{prov_status.get('provider')}` ({prov_status.get('status')})",
+            f"• X / DDGS: `{conn_status.get('x')}`",
+            f"• Reddit: `{conn_status.get('reddit')}`",
+            f"• Instagram: `{conn_status.get('instagram')}`",
+            f"• News RSS: `{conn_status.get('news')}`",
+            "",
+            "Status normal. Intelligence Core online.",
+        ]
+        await update.message.reply_text("\n".join(parts), parse_mode="Markdown")
+    except Exception as exc:
+        await update.message.reply_text(f"Status check error: {exc}")
+
+
 # --------------------------------------------------------------------------
 # Error handler
 # --------------------------------------------------------------------------
@@ -447,6 +577,34 @@ def main() -> None:
         CommandHandler(
             "recent",
             cmd_recent,
+        )
+    )
+
+    app.add_handler(
+        CommandHandler(
+            "intel",
+            cmd_intel,
+        )
+    )
+
+    app.add_handler(
+        CommandHandler(
+            "ask",
+            cmd_intel,
+        )
+    )
+
+    app.add_handler(
+        CommandHandler(
+            "report",
+            cmd_report,
+        )
+    )
+
+    app.add_handler(
+        CommandHandler(
+            "status",
+            cmd_status,
         )
     )
 

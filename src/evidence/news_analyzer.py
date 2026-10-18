@@ -196,22 +196,22 @@ def analyze_news_with_llm(
                 "risk_score_modifier": 0,
             }
 
+    # LLM analysis is unavailable — return honest status with zero influence
+    # on the risk score.  The keyword scan below is informational only.
     has_good_news = any(
         word in headlines.lower()
         for word in ["profit", "win", "acquires", "surge", "contract", "revenue"]
     )
 
     return {
-        "is_credible_reason": has_good_news,
+        "is_credible_reason": False,
         "explanation": (
-            "[Mock LLM - Missing API Keys] "
-            + (
-                "Found positive corporate news."
-                if has_good_news
-                else "No solid news found."
-            )
+            "[LLM Unavailable] "
+            "No API keys configured for Gemini or OpenAI. "
+            "Keyword scan is informational only and does not modify the risk score."
         ),
-        "risk_score_modifier": -15 if has_good_news else 0,
+        "risk_score_modifier": 0,
+        "llm_status": "unavailable",
     }
 
 

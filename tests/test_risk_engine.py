@@ -38,7 +38,8 @@ def test_cases_outscore_controls(universe):
 
 
 def test_sme_structure_points(universe):
-    v = assess("CTRL01")  # SME control: structure points but nothing else
+    sme_control = universe[(universe.segment.str.upper() == "SME") & (universe.role == "control")].ticker.iloc[0]
+    v = assess(sme_control)  # SME control: structure points but nothing else
     assert v["contributions"]["structure"] > 0
 
 

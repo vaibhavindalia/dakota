@@ -19,7 +19,7 @@ def analyze_bulk_sentiment(texts: List[str]) -> Dict[str, Any]:
     This runs completely offline and costs $0.
     """
     if not texts:
-        return {"positive": 0, "negative": 0, "neutral": 0, "total": 0}
+        return {"positive": 0, "negative": 0, "neutral": 0, "total": 0, "method": "none"}
         
     if sentiment_pipeline:
         try:
@@ -27,7 +27,7 @@ def analyze_bulk_sentiment(texts: List[str]) -> Dict[str, Any]:
             truncated_texts = [str(t)[:500] for t in texts]
             results = sentiment_pipeline(truncated_texts)
             
-            counts = {"positive": 0, "negative": 0, "neutral": 0, "total": len(texts)}
+            counts = {"positive": 0, "negative": 0, "neutral": 0, "total": len(texts), "method": "finbert"}
             for r in results:
                 label = r['label'].lower() # usually 'positive', 'negative', 'neutral'
                 if label in counts:
@@ -36,8 +36,8 @@ def analyze_bulk_sentiment(texts: List[str]) -> Dict[str, Any]:
         except Exception as e:
             logging.error(f"Error during FinBERT analysis: {e}")
             
-    # Mock fallback if model fails to load or transformers isn't installed
-    counts = {"positive": 0, "negative": 0, "neutral": 0, "total": len(texts)}
+    # Keyword fallback if model fails to load or transformers isn't installed
+    counts = {"positive": 0, "negative": 0, "neutral": 0, "total": len(texts), "method": "keyword_fallback"}
     for t in texts:
         text_lower = str(t).lower()
         if any(w in text_lower for w in ["buy", "bull", "moon", "good", "win", "profit", "multibagger"]):

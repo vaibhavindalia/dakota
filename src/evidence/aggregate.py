@@ -34,7 +34,7 @@ def aggregate_scores(
     news_raw, news_reasons = _points(news_observations, {"high": 7, "medium": 4, "low": 1})
     social_raw, social_reasons = _points(social_observations, {"high": 7, "medium": 4, "low": 1})
 
-    caps = {"tip": 20, "market": 35, "news": 20, "social": 15}
+    caps = {"tip": 30, "market": 30, "news": 25, "social": 15}
     components = {
         "tip": min(tip_raw, caps["tip"]),
         "market": min(market_raw, caps["market"]),

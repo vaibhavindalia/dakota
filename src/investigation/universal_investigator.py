@@ -241,7 +241,11 @@ def _stock_news_evidence(
 
         if isinstance(llm_analysis, dict):
             explanation = str(llm_analysis.get("explanation") or "").strip()
-            if explanation and not explanation.startswith("[Mock LLM"):
+            llm_status = str(llm_analysis.get("llm_status") or "").strip()
+            if (explanation
+                    and not explanation.startswith("[Mock LLM")
+                    and not explanation.startswith("[LLM Unavailable]")
+                    and llm_status != "unavailable"):
                 observations.append({
                     "signal": "news_llm_context",
                     "severity": "low",

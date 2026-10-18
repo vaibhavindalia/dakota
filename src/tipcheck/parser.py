@@ -127,10 +127,112 @@ class ParsedTip:
 
     fingerprint: str = ""
 
+    is_index: bool = False
+
+    index_name: str | None = None
+
 
 # --------------------------------------------------------------------------
 # Parser
 # --------------------------------------------------------------------------
+
+
+# Name-to-ticker mapping for common stocks mentioned by company name
+# Name-to-ticker mapping for common stocks mentioned by company name or informal aliases
+NAME_TO_TICKER: dict[str, str] = {
+    "RELIANCE INDUSTRIES": "RELIANCE",
+    "RELIANCE IND": "RELIANCE",
+    "RELIANCE": "RELIANCE",
+    "RIL": "RELIANCE",
+    "INFOSYS": "INFY",
+    "INFY": "INFY",
+    "TATA CONSULTANCY": "TCS",
+    "TCS": "TCS",
+    "TATA POWER": "TATAPOWER",
+    "TATAPOWER": "TATAPOWER",
+    "TATA MOTORS": "TATAMOTORS",
+    "TATAMOTORS": "TATAMOTORS",
+    "TATA STEEL": "TATASTEEL",
+    "TATASTEEL": "TATASTEEL",
+    "HDFC BANK": "HDFCBANK",
+    "HDFCBANK": "HDFCBANK",
+    "ICICI BANK": "ICICIBANK",
+    "ICICIBANK": "ICICIBANK",
+    "STATE BANK OF INDIA": "SBIN",
+    "STATE BANK": "SBIN",
+    "SBI": "SBIN",
+    "SBIN": "SBIN",
+    "AXIS BANK": "AXISBANK",
+    "AXISBANK": "AXISBANK",
+    "BAJAJ FINANCE": "BAJFINANCE",
+    "ADANI ENT": "ADANIENT",
+    "ADANI ENTERPRISES": "ADANIENT",
+    "ADANI POWER": "ADANIPOWER",
+    "ADANIPOWER": "ADANIPOWER",
+    "ADANI GREEN": "ADANIGREEN",
+    "ADANIGREEN": "ADANIGREEN",
+    "ADANI PORTS": "ADANIPORTS",
+    "ADANIPORTS": "ADANIPORTS",
+    "LARSEN": "LT",
+    "L&T": "LT",
+    "LT": "LT",
+    "SUN PHARMA": "SUNPHARMA",
+    "SUNPHARMA": "SUNPHARMA",
+    "HINDUSTAN UNILEVER": "HINDUNILVR",
+    "HINDUNILVR": "HINDUNILVR",
+    "HUL": "HINDUNILVR",
+    "INDIAN RAILWAY CATERING AND TOURISM CORPORATION LTD": "IRCTC",
+    "INDIAN RAILWAY CATERING AND TOURISM CORPORATION": "IRCTC",
+    "INDIAN RAILWAY CATERING": "IRCTC",
+    "IRCTC": "IRCTC",
+    "SUZLON ENERGY LTD": "SUZLON",
+    "SUZLON ENERGY": "SUZLON",
+    "SUZLON": "SUZLON",
+    "CDSL": "CDSL",
+    "CENTRAL DEPOSITORY SERVICES": "CDSL",
+    "CENTRAL DEPOSITORY": "CDSL",
+    "KOTAK BANK": "KOTAKBANK",
+    "KOTAK": "KOTAKBANK",
+    "BHARTI AIRTEL": "BHARTIARTL",
+    "AIRTEL": "BHARTIARTL",
+    "WIPRO": "WIPRO",
+    "HCL TECH": "HCLTECH",
+    "TECH MAHINDRA": "TECHM",
+    "DR REDDY": "DRREDDY",
+    "MARUTI SUZUKI": "MARUTI",
+    "MARUTI": "MARUTI",
+    "JSW STEEL": "JSWSTEEL",
+    "VARANIUM": "VARANIUM",
+    "VARANIUM CLOUD": "CLOUD",
+}
+
+
+def get_extended_name_to_ticker() -> dict[str, str]:
+    """Return dictionary of company names and aliases mapped to tickers."""
+    mapping = dict(NAME_TO_TICKER)
+    try:
+        from src.ingest.market_data import load_universe
+        uni = load_universe()
+        for _, row in uni.iterrows():
+            t = str(row["ticker"]).strip().upper()
+            n = str(row.get("name") or "").strip()
+            mapping[t] = t
+            if n:
+                mapping[n.upper()] = t
+                clean_n = re.sub(
+                    r"\b(limited|ltd\.?|corporation|company|holdings|enterprises|technologies|solutions|services|industries|india)\b",
+                    "",
+                    n,
+                    flags=re.I,
+                ).strip()
+                clean_n = re.sub(r"[\(\)]", "", clean_n).strip()
+                clean_n = re.sub(r"\s+", " ", clean_n).strip()
+                if len(clean_n) >= 3:
+                    mapping[clean_n.upper()] = t
+    except Exception:
+        pass
+    return mapping
+
 
 def parse_tip(
     raw_text: str,
@@ -169,14 +271,13 @@ def parse_tip(
 
     # Known tickers from Dakota's tracked universe.
     for ticker in universe_tickers:
-
+        t_upper = str(ticker).upper()
         if re.search(
-            rf"\b{re.escape(ticker.upper())}\b",
+            rf"\b{re.escape(t_upper)}\b",
             upper,
         ):
-            tip.tickers.append(
-                ticker
-            )
+            if t_upper not in tip.tickers:
+                tip.tickers.append(t_upper)
 
     # Also catch $TICKER / #TICKER even if
     # it is not currently in the universe.
@@ -189,6 +290,31 @@ def parse_tip(
             tip.tickers.append(
                 match
             )
+
+    # Name-to-ticker mapping: catch company names mentioned in text using word boundaries
+    ext_map = get_extended_name_to_ticker()
+    for name_key in sorted(ext_map.keys(), key=len, reverse=True):
+        ticker_val = ext_map[name_key]
+        if re.search(rf"\b{re.escape(name_key)}\b", upper):
+            if ticker_val not in tip.tickers:
+                tip.tickers.append(ticker_val)
+
+    # ------------------------------------------------------------------
+    # Index extraction (NIFTY, BANK NIFTY, SENSEX, etc.)
+    # ------------------------------------------------------------------
+    index_patterns = [
+        (r"\b(BANK\s*NIFTY|BANKNIFTY)\b", "BANK NIFTY"),
+        (r"\b(FIN\s*NIFTY|FINNIFTY)\b", "FIN NIFTY"),
+        (r"\b(MIDCP\s*NIFTY|NIFTY\s*MIDCAP)\b", "NIFTY MIDCAP"),
+        (r"\b(NIFTY\s*50|NIFTY)\b", "NIFTY 50"),
+        (r"\b(SENSEX|BSE\s*SENSEX)\b", "SENSEX"),
+        (r"\b(BANKEX)\b", "BANKEX"),
+    ]
+    for pattern, name in index_patterns:
+        if re.search(pattern, upper):
+            tip.is_index = True
+            tip.index_name = name
+            break
 
     # ------------------------------------------------------------------
     # Price target
@@ -463,9 +589,13 @@ def check_tip(
             best["verdict"]
             if best
             else (
-                "Suspicious message patterns detected"
-                if tip.n_scam_markers >= 2
-                else "No known stock identified in this tip"
+                f"Market Benchmark Index Detected: {tip.index_name}"
+                if getattr(tip, "is_index", False)
+                else (
+                    "Suspicious message patterns detected"
+                    if tip.n_scam_markers >= 2
+                    else "No known stock identified in this tip"
+                )
             )
         ),
 
@@ -483,10 +613,20 @@ def check_tip(
         "next_steps": (
             best["next_steps"]
             if best
-            else [
-                "Could not match a tracked stock "
-                "— double-check the ticker name."
-            ]
+            else (
+                [
+                    f"'{tip.index_name}' is a broad benchmark index basket, not an individual corporate equity ticker.",
+                    "Dakota's forensic 5-pillar engine inspects individual corporate equities for operator manipulation, volume anomalies, and promoter pledging.",
+                    "If this tip promotes index options/futures calls, verify if the advisor quotes a verified SEBI Research Analyst (INH) registration number.",
+                    "To test Dakota's forensic scanner on major index heavyweights, evaluate individual constituents such as HDFCBANK, RELIANCE, ICICIBANK, or INFY.",
+                ]
+                if getattr(tip, "is_index", False)
+                else [
+                    "Could not match a tracked stock — double-check the ticker name.",
+                    "Try testing prominent stocks such as VARANIUM, ZOMATO, HDFCBANK, or BASILIC.",
+                    "Paste the full message text including stock name and price target for full forensic screening.",
+                ]
+            )
         ),
 
         "disclaimer": (

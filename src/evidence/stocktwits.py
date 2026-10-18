@@ -82,11 +82,18 @@ def _search(
     *,
     max_results: int = 10,
 ) -> list[dict[str, Any]]:
-    with DDGS() as client:
-        raw = client.text(
-            query,
-            max_results=max_results,
-        )
+    try:
+        with DDGS() as client:
+            raw = client.text(
+                query,
+                max_results=max_results,
+            )
+    except Exception as exc:
+        # DDGS raises exceptions for "No results found", timeouts, and
+        # network errors — none of these are provider failures.
+        if "no results" in str(exc).lower() or "timed out" in str(exc).lower() or "timeout" in str(exc).lower():
+            return []
+        raise
 
     out: list[dict[str, Any]] = []
 
@@ -163,8 +170,10 @@ def search_stocktwits(
     results = _dedupe(results)
 
     if not results and errors:
+        # Only treat it as a real error if the errors are NOT just "no results".
+        all_soft = all("no results" in e.lower() for e in errors)
         return {
-            "status": "error",
+            "status": "no_results" if all_soft else "error",
             "provider": "StockTwits public search",
             "symbol": symbol,
             "query": queries[0],

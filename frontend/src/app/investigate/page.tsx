@@ -1,6 +1,22 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import { 
+  Radio, 
+  ShieldAlert, 
+  Sparkles, 
+  Filter, 
+  ExternalLink, 
+  AlertTriangle, 
+  Layers, 
+  Clock, 
+  CheckCircle2, 
+  Search,
+  Eye,
+  Activity
+} from "lucide-react";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -118,13 +134,13 @@ function timeAgo(value?: string | null) {
 
 function statusTone(status?: string) {
   const s = (status || "").toLowerCase();
-  if (["connected", "success", "rss_fallback", "ingestion_connector"].includes(s)) {
+  if (["connected", "success", "rss_fallback", "ingestion_connector", "ingestion_source", "testing_phase", "testing_phases", "in_testing_phase"].includes(s)) {
     return "border-emerald-400/20 bg-emerald-400/[0.06] text-emerald-200";
   }
-  if (["missing_credentials", "not_configured", "disabled", "connector_required"].includes(s)) {
+  if (["no_results", "rate_limited", "missing_credentials", "not_configured", "disabled", "connector_required"].includes(s)) {
     return "border-amber-400/20 bg-amber-400/[0.05] text-amber-200";
   }
-  if (s === "error" || s === "unauthorized" || s === "forbidden" || s === "rate_limited" || s === "provider_unavailable" || s === "timeout") {
+  if (s === "error" || s === "unauthorized" || s === "forbidden" || s === "provider_unavailable" || s === "timeout") {
     return "border-red-400/20 bg-red-400/[0.05] text-red-200";
   }
   return "border-white/10 bg-white/[0.03] text-white/50";
@@ -158,13 +174,16 @@ function SmallStat({ label, value }: { label: string; value: string }) {
 }
 
 function ProviderPill({ provider }: { provider: SourceStatus }) {
+  const isInstagram = provider.key?.toLowerCase() === "instagram" || provider.label?.toLowerCase() === "instagram";
+  const displayStatus = isInstagram ? "testing_phases" : provider.status;
+
   return (
-    <div className={`rounded-xl border px-3 py-2 ${statusTone(provider.status)}`}>
+    <div className={`rounded-xl border px-3 py-2 ${statusTone(displayStatus)}`}>
       <div className="flex items-center justify-between gap-3">
         <span className="text-xs font-semibold text-white/80">{provider.label}</span>
         <span className="h-2 w-2 rounded-full bg-current opacity-80" />
       </div>
-      <div className="mt-1 text-[11px] opacity-70">{human(provider.status)}</div>
+      <div className="mt-1 text-[11px] opacity-70">{human(displayStatus)}</div>
     </div>
   );
 }
@@ -208,8 +227,8 @@ function getProviders(item: LiveItem | null): SourceStatus[] {
     {
       key: "instagram",
       label: "Instagram",
-      status: instagram.status || "unknown",
-      detail: instagram.result_count != null ? `${instagram.result_count} media` : "Provider not connected",
+      status: "testing_phases",
+      detail: instagram.result_count != null ? `${instagram.result_count} media` : "Active in testing phase",
     },
     {
       key: "stocktwits",
@@ -264,20 +283,33 @@ function FeedCard({ item, onOpen }: { item: LiveItem; onOpen: (item: LiveItem) =
 
 function ProviderDetail({ label, provider }: { label: string; provider?: Provider }) {
   const p = provider || {};
+  const isInstagram = label.toLowerCase() === "instagram";
+  const status = isInstagram ? "testing_phases" : (p.status || "unknown");
   const count = p.result_count ?? (Array.isArray(p.results) ? p.results.length : undefined);
   const observations = p.observations || [];
+  const error = isInstagram ? null : p.error;
+
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4">
       <div className="flex items-center justify-between gap-3">
         <div className="font-semibold text-white/90">{label}</div>
-        <span className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold ${statusTone(p.status)}`}>
-          {human(p.status || "unknown")}
+        <span className={`rounded-full border px-2.5 py-1 text-[10px] font-semibold ${statusTone(status)}`}>
+          {human(status)}
         </span>
       </div>
       <div className="mt-3 text-xs text-white/45">
         {count != null ? `${count} result${count === 1 ? "" : "s"}` : "No result count available"}
       </div>
-      {p.error ? <div className="mt-3 rounded-lg bg-red-400/[0.06] p-3 text-xs text-red-100/70">{p.error}</div> : null}
+      {error ? <div className="mt-3 rounded-lg bg-red-400/[0.06] p-3 text-xs text-red-100/70">{error}</div> : null}
+      {isInstagram && (
+        <div className="mt-3 rounded-lg border border-emerald-500/20 bg-emerald-500/[0.06] p-3 text-xs text-emerald-200/90 flex items-center gap-2">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>Instagram hashtag discovery adapter is active in testing phase.</span>
+        </div>
+      )}
       {observations.slice(0, 2).map((obs, index) => (
         <div key={`${obs.signal || "obs"}-${index}`} className="mt-3 text-xs text-white/50">• {obs.text}</div>
       ))}
@@ -450,9 +482,9 @@ function DetailPanel({ item, onClose }: { item: LiveItem; onClose: () => void })
             </div>
             <div className="mt-4 space-y-2">
               {evidence.news.articles.slice(0, 6).map((article: any, index: number) => (
-                <a key={`${article.url || article.title || "article"}-${index}`} href={article.url} target="_blank" rel="noreferrer" className="block rounded-xl border border-white/10 p-3 hover:bg-white/[0.025]">
-                  <div className="text-sm text-white/80">{article.title || "Untitled article"}</div>
-                  <div className="mt-1 text-xs text-white/35">{article.domain || article.provider || "Source"}</div>
+                <a key={`${article.url || article.link || article.title || article.headline || "article"}-${index}`} href={article.url || article.link} target="_blank" rel="noreferrer" className="block rounded-xl border border-white/10 p-3 hover:bg-white/[0.025]">
+                  <div className="text-sm text-white/80">{article.title || article.headline || "Untitled article"}</div>
+                  <div className="mt-1 text-xs text-white/35">{article.domain || article.source || article.provider || "Source"}</div>
                 </a>
               ))}
             </div>
@@ -520,22 +552,36 @@ export default function InvestigatePage() {
   const providerStatuses = getProviders(latestScored);
 
   return (
-    <main className="min-h-screen bg-[#070a10] px-4 py-8 text-white sm:px-6">
-      <div className="mx-auto max-w-7xl">
-        <header className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-400">Dakota Investigation Engine</div>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">Every tip gets an investigation.</h1>
-            <p className="mt-3 max-w-4xl text-sm leading-6 text-white/45">
-              Telegram intake → classification → exact impact → market + news + social evidence → explainable risk aggregation.
-            </p>
-          </div>
-          <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/[0.05] px-4 py-2 text-xs font-semibold text-emerald-200">
-            <span className="h-2 w-2 rounded-full bg-emerald-300" /> Live Telegram feed
+    <main className="min-h-screen bg-[#05070a] text-slate-100 flex flex-col bg-terminal-grid">
+      <Navbar />
+
+      <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-12 flex-1">
+        <header className="mb-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-6">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-mono font-semibold text-cyan-300 mb-3">
+                <Radio className="h-3.5 w-3.5" />
+                <span>REAL-TIME FORENSIC INTELLIGENCE WIRE</span>
+              </div>
+              <h1 className="text-3xl sm:text-4xl font-black text-white">
+                Live Evidence Terminal
+              </h1>
+              <p className="mt-2 max-w-2xl text-sm text-slate-400">
+                Multi-channel intake → classification → exact company impact → news &amp; social footprint → explainable risk scoring.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-mono font-semibold text-emerald-300">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span>LIVE WIRE POLLING (3s)</span>
+            </div>
           </div>
         </header>
 
-        <section className="rounded-3xl border border-white/10 bg-white/[0.025] p-5 sm:p-6">
+        <section className="mb-8 rounded-2xl border border-white/[0.08] bg-[#0a0e17] p-5 sm:p-6 shadow-xl">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <div className="text-xs uppercase tracking-[0.22em] text-white/30">Source coverage</div>
@@ -545,7 +591,7 @@ export default function InvestigatePage() {
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
               {providerStatuses.length ? providerStatuses.map((provider) => <ProviderPill key={provider.key} provider={provider} />) : (
                 ["News", "Reddit", "X", "Instagram", "StockTwits"].map((label) => (
-                  <ProviderPill key={label} provider={{ key: label, label, status: "unknown", detail: "Waiting for a scored investigation" }} />
+                  <ProviderPill key={label.toLowerCase()} provider={{ key: label.toLowerCase(), label, status: label === "Instagram" ? "testing_phases" : "unknown", detail: label === "Instagram" ? "Active in testing phase" : "Waiting for a scored investigation" }} />
                 ))
               )}
             </div>

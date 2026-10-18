@@ -31,13 +31,25 @@ _TEMPLATE = pd.DataFrame({
 })
 
 
+_ALIASES: dict[str, list[str]] = {
+    "CLOUD": ["CLOUD", "VARANIUM"],
+    "VARANIUM": ["VARANIUM", "CLOUD"],
+    "ASRL": ["ASRL", "ADDSHOP"],
+    "ADDSHOP": ["ADDSHOP", "ASRL"],
+    "AFCOM": ["AFCOM", "FAMILYPUMP"],
+    "FAMILYPUMP": ["FAMILYPUMP", "AFCOM"],
+}
+
+
 def load_fundamentals(ticker: str | None = None) -> pd.DataFrame:
     if not FUND_CSV.exists():
         CACHE_DIR.mkdir(parents=True, exist_ok=True)
         _TEMPLATE.to_csv(FUND_CSV, index=False)
     df = pd.read_csv(FUND_CSV, parse_dates=["fy_end"])
     if ticker:
-        return df[df.ticker == ticker].sort_values("fy_end").reset_index(drop=True)
+        t_up = ticker.upper()
+        symbols = _ALIASES.get(t_up, [t_up])
+        return df[df.ticker.isin(symbols)].sort_values("fy_end").reset_index(drop=True)
     return df
 
 

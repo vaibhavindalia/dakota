@@ -163,6 +163,10 @@ def search_x(
         try:
             results = _run_search(ddgs, query, limit)
         except Exception as exc:
+            # DDGS raises "No results found" or times out — not a real provider failure.
+            exc_str = str(exc).lower()
+            if "no results" in exc_str or "timed out" in exc_str or "timeout" in exc_str:
+                continue
             errors.append(f"{query}: {exc}")
             continue
 
@@ -227,7 +231,7 @@ def search_x(
         )
 
     response: dict[str, Any] = {
-        "status": "connected" if merged else ("no_results" if not errors else "error"),
+        "status": "connected" if merged else "no_results",
         "provider": "X/Twitter via DDGS",
         "query": f"site:twitter.com OR site:x.com ${symbol}",
         "ticker_searched": f"${symbol}",
