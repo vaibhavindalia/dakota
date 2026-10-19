@@ -1,0 +1,442 @@
+{
+  "evaluation_timestamp": "2026-10-19T14:29:55.544887+00:00",
+  "dataset_path": "data/research/pre_annotated_financial_evidence.json",
+  "target_label_field": "ai_suggested_label",
+  "total_records_evaluated": 82,
+  "canonical_classes": [
+    "Bullish",
+    "Bearish",
+    "Neutral",
+    "Mixed",
+    "Ambiguous",
+    "Insufficient Evidence"
+  ],
+  "results": {
+    "majority_class": {
+      "total_samples": 82,
+      "correct": 53,
+      "accuracy": 0.6463,
+      "ci_95": [
+        0.5384,
+        0.7411
+      ],
+      "macro_precision": 0.1616,
+      "macro_recall": 0.25,
+      "macro_f1": 0.1963,
+      "per_class": {
+        "Bullish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "Bearish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 13
+        },
+        "Mixed": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 13
+        },
+        "Ambiguous": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Insufficient Evidence": {
+          "precision": 0.6463,
+          "recall": 1.0,
+          "f1": 0.7852,
+          "support": 53
+        }
+      },
+      "confusion_matrix": {
+        "Bullish": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 3
+        },
+        "Bearish": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Neutral": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 13
+        },
+        "Mixed": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 13
+        },
+        "Ambiguous": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Insufficient Evidence": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 53
+        }
+      },
+      "mean_latency_ms": 0.02
+    },
+    "tfidf_logistic_regression": {
+      "total_samples": 82,
+      "correct": 72,
+      "accuracy": 0.878,
+      "ci_95": [
+        0.7899,
+        0.9324
+      ],
+      "macro_precision": 0.6718,
+      "macro_recall": 0.6154,
+      "macro_f1": 0.6373,
+      "per_class": {
+        "Bullish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "Bearish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Neutral": {
+          "precision": 0.8182,
+          "recall": 0.6923,
+          "f1": 0.75,
+          "support": 13
+        },
+        "Mixed": {
+          "precision": 1.0,
+          "recall": 0.7692,
+          "f1": 0.8696,
+          "support": 13
+        },
+        "Ambiguous": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Insufficient Evidence": {
+          "precision": 0.8689,
+          "recall": 1.0,
+          "f1": 0.9298,
+          "support": 53
+        }
+      },
+      "confusion_matrix": {
+        "Bullish": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 1,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 2
+        },
+        "Bearish": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Neutral": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 9,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 4
+        },
+        "Mixed": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 1,
+          "Mixed": 10,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 2
+        },
+        "Ambiguous": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Insufficient Evidence": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 53
+        }
+      },
+      "mean_latency_ms": 0.05
+    },
+    "tfidf_complement_nb": {
+      "total_samples": 82,
+      "correct": 76,
+      "accuracy": 0.9268,
+      "ci_95": [
+        0.8494,
+        0.966
+      ],
+      "macro_precision": 0.662,
+      "macro_recall": 0.6923,
+      "macro_f1": 0.6746,
+      "per_class": {
+        "Bullish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "Bearish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Neutral": {
+          "precision": 0.75,
+          "recall": 0.9231,
+          "f1": 0.8276,
+          "support": 13
+        },
+        "Mixed": {
+          "precision": 0.9167,
+          "recall": 0.8462,
+          "f1": 0.88,
+          "support": 13
+        },
+        "Ambiguous": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Insufficient Evidence": {
+          "precision": 0.9815,
+          "recall": 1.0,
+          "f1": 0.9907,
+          "support": 53
+        }
+      },
+      "confusion_matrix": {
+        "Bullish": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 2,
+          "Mixed": 1,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Bearish": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Neutral": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 12,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 1
+        },
+        "Mixed": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 2,
+          "Mixed": 11,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Ambiguous": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Insufficient Evidence": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 53
+        }
+      },
+      "mean_latency_ms": 0.05
+    },
+    "mock_classifier_control": {
+      "total_samples": 82,
+      "correct": 3,
+      "accuracy": 0.0366,
+      "ci_95": [
+        0.0125,
+        0.1021
+      ],
+      "macro_precision": 0.0091,
+      "macro_recall": 0.25,
+      "macro_f1": 0.0176,
+      "per_class": {
+        "Bullish": {
+          "precision": 0.0366,
+          "recall": 1.0,
+          "f1": 0.0706,
+          "support": 3
+        },
+        "Bearish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 13
+        },
+        "Mixed": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 13
+        },
+        "Ambiguous": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 0
+        },
+        "Insufficient Evidence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 53
+        }
+      },
+      "confusion_matrix": {
+        "Bullish": {
+          "Bullish": 3,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Bearish": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Neutral": {
+          "Bullish": 13,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Mixed": {
+          "Bullish": 13,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Ambiguous": {
+          "Bullish": 0,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        },
+        "Insufficient Evidence": {
+          "Bullish": 53,
+          "Bearish": 0,
+          "Neutral": 0,
+          "Mixed": 0,
+          "Ambiguous": 0,
+          "Insufficient Evidence": 0
+        }
+      },
+      "mean_latency_ms": 5.69,
+      "control_type": "mock_fixed_logits"
+    },
+    "official_simple_jev_qwen9b": {
+      "status": "completed_representative_probe",
+      "model_id": "Qwen/Qwen3.5-9B",
+      "quantization": "4-bit_nf4",
+      "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU (8GB)",
+      "total_samples": 2,
+      "correct": 1,
+      "accuracy": 0.50,
+      "ci_95": [
+        0.0945,
+        0.9055
+      ],
+      "mean_latency_ms": 38936.86,
+      "cold_load_time_s": 85.2,
+      "peak_vram_gib": 5.62,
+      "predictions": [
+        "Neutral",
+        "Bullish"
+      ],
+      "notes": "Real JEV causal LM inference executed in WSL2 on RTX 4060 GPU. Due to reference PyTorch linear attention kernels (causal_conv1d/flash-linear-attention not installed), per-sample latency is ~38.9s. Bounded 2-sample probe executed to verify live weight loading and logit extraction."
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-10-19T14:34:28.489699+00:00",
+  "overall_status": "PASS_WITH_WARNINGS",
+  "total_records_audited": 82,
+  "human_reviewed_records": 1,
+  "checks": [
+    {
+      "check": "Record ID Stability and Uniqueness",
+      "status": "PASS",
+      "details": "Found 82 unique sequential IDs ANN-LIVE-001 through ANN-LIVE-082."
+    },
+    {
+      "check": "Core Schema Completeness",
+      "status": "PASS",
+      "details": "Missing core fields: Zero missing."
+    },
+    {
+      "check": "Human vs AI Label Strict Separation",
+      "status": "PASS",
+      "details": "Zero AI suggestions leaked into human_reviewed_label. Exactly 1 genuine human review present."
+    },
+    {
+      "check": "Cross-Split Duplicate Group Leakage",
+      "status": "PASS",
+      "details": "Group intersection = 0. All peer clusters isolated within single split."
+    },
+    {
+      "check": "Evidence Sourcing & Sufficiency Audit",
+      "status": "WARNING",
+      "details": "External evidence attached in 30/82 records (36.6%). 52 records (63.4%) are isolated social tips without external corroboration."
+    },
+    {
+      "check": "Held-Out Statistical Evaluation Readiness",
+      "status": "WARNING",
+      "details": "Currently 1/82 record has completed human review. Statistically defensible held-out evaluation requires expanding human ground truth via review queue."
+    }
+  ]
+}

@@ -1,0 +1,1861 @@
+[
+  {
+    "sample_id": "ANN-LIVE-002",
+    "record_id": "ANN-LIVE-002",
+    "ticker": "CDSL",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_CDSL_002"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "a1a595ae50fbf948",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "CDSL",
+      "as_of": "2026-10-08T12:27:52+00:00",
+      "latest_price": 1263.4,
+      "change_pct": null,
+      "volume": 896613.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: CDSL | Target: \u20b91500.0 | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-003",
+    "record_id": "ANN-LIVE-003",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_003"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "1a865e09aa256679",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-08T12:29:41+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-018",
+    "record_id": "ANN-LIVE-018",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_018"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "1a865e09aa256679",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T09:58:33+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-004",
+    "record_id": "ANN-LIVE-004",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_004"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "e6e9153180c8d67e",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-08T12:41:25+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @minish_fast | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-005",
+    "record_id": "ANN-LIVE-005",
+    "ticker": "CDSL",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_CDSL_005"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "d228afd09aa2",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "CDSL",
+      "as_of": "2026-10-08T12:00:00Z",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": null,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: Telegram | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-006",
+    "record_id": "ANN-LIVE-006",
+    "ticker": "CDSL",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_CDSL_006"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "d228afd09aa2",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "CDSL",
+      "as_of": "2026-10-08T12:00:00Z",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": null,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: Telegram | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-007",
+    "record_id": "ANN-LIVE-007",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_007"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "fe3355b75b08e969",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-08T13:33:25+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @Mystocksin | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-008",
+    "record_id": "ANN-LIVE-008",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_008"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "6ab1e4580d1b828a",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-08T13:33:39+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @Growx_intraday_groww | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-009",
+    "record_id": "ANN-LIVE-009",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_009"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "c1ff45e174340ec5",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-08T13:33:50+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @Growx_intraday_groww | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-012",
+    "record_id": "ANN-LIVE-012",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_012"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "c1ff45e174340ec5",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-08T13:43:02+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @Growx_intraday_groww | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-011",
+    "record_id": "ANN-LIVE-011",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_011"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "810dfa205b8ef921",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-08T13:42:50+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @Growx_intraday_groww | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-014",
+    "record_id": "ANN-LIVE-014",
+    "ticker": "RELIANCE",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_RELIANCE_014"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "a2a561a7606a",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "RELIANCE",
+      "as_of": "2026-10-09T17:22:52.006043+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 8.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @FundamentalInvesting | Type: fundamental_analysis"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-015",
+    "record_id": "ANN-LIVE-015",
+    "ticker": "TATAPOWER",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_TATAPOWER_015"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "40874e1ebe3e",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "TATAPOWER",
+      "as_of": "2026-10-09T17:22:52.006043+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 35.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @TechnicalChart | Type: technical_analysis"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-016",
+    "record_id": "ANN-LIVE-016",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_016"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "de521ad30d5dece9",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T09:39:25+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @testchannel | Target: \u20b9250.0 | (Urgent call) | Type: an index trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-017",
+    "record_id": "ANN-LIVE-017",
+    "ticker": "CDSL",
+    "label": null,
+    "ai_suggested_label": "Bullish",
+    "evidence_ids": [
+      "E_LIVE_TG_CDSL_017",
+      "E_DISC_CDSL_017"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "9292e314314bb3ca",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "CDSL",
+      "as_of": "2026-10-10T09:58:00+00:00",
+      "latest_price": 1263.4,
+      "change_pct": null,
+      "volume": 896613.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 75.0,
+      "news_headlines": [
+        "Central Depository Services (India) Ltd (NSE:CDSL) (Q1 2027) Earnings Call Highlights: Record ...",
+        "NSDL hits new low, down 8% vs IPO; CDSL up 748%; analysts decode divergence - Business Standard",
+        "NSDL, CDSL, BSE shares: Check key technical levels to watch out for - Business Today",
+        "NSE IPO opens: BSE, CDSL, other capital market stocks rally; here\u2019s why - Upstox",
+        "5 Fintech Stocks India 2026: Strong Future Roadmaps - Univest",
+        "Central Depository Services (India) Ltd. Share Price Live Today - CNBC TV18"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: CDSL | Target: \u20b91500.0 | (Urgent call) | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-019",
+    "record_id": "ANN-LIVE-019",
+    "ticker": "SENSEX",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_SENSEX_019",
+      "E_DISC_SENSEX_019"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "f8ca5141a3d70772",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "SENSEX",
+      "as_of": "2026-10-10T09:59:32+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 10.0,
+      "news_headlines": [
+        "Led by IT stocks, easing oil prices, Sensex, Nifty jump over 1% after two days of losses - OrissaPOST",
+        "India's Nifty and Sensex diverge following launch of new auction mechanism - Reuters",
+        "Vishal Nirmiti shares list at 2% discount over IPO price on NSE, BSE - The Economic Times",
+        "Is stock market open or closed today? Check NSE, BSE October 2 schedule - India Today",
+        "October stock market holidays 2026: Will NSE, BSE be open on Gandhi Jayanti? Check full trading holiday... - Moneycontrol.com"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: sensex | Type: an index trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-020",
+    "record_id": "ANN-LIVE-020",
+    "ticker": "SENSEX",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_SENSEX_020",
+      "E_DISC_SENSEX_020"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "f8ca5141a3d70772",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "SENSEX",
+      "as_of": "2026-10-10T10:00:01+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 9.0,
+      "news_headlines": [
+        "Led by IT stocks, easing oil prices, Sensex, Nifty jump over 1% after two days of losses - OrissaPOST",
+        "India's Nifty and Sensex diverge following launch of new auction mechanism - Reuters",
+        "Vishal Nirmiti shares list at 2% discount over IPO price on NSE, BSE - The Economic Times",
+        "Is stock market open or closed today? Check NSE, BSE October 2 schedule - India Today",
+        "October stock market holidays 2026: Will NSE, BSE be open on Gandhi Jayanti? Check full trading holiday... - Moneycontrol.com"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: sensex | Type: an index trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-021",
+    "record_id": "ANN-LIVE-021",
+    "ticker": "RBI_RATE",
+    "label": null,
+    "ai_suggested_label": "Bullish",
+    "evidence_ids": [
+      "E_LIVE_TG_RBI_RATE_021",
+      "E_DISC_RBI_RATE_021"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "53d7c103a5b8bd73",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "RBI_RATE",
+      "as_of": "2026-10-10T10:20:05+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 10.0,
+      "news_headlines": [
+        "RBI hikes repo rate to 5.5%: Experts suggest buying these top 10 rate-sensitive stocks post-monetary... - Moneycontrol.com",
+        "Stock Market Open Report Today, October 6, 2026: Sensex, Nifty Edge Higher as Investors Await RBI Rate Decision - HDFC Sky",
+        "Monetary Policy statement by RBI Governor Sanjay Malhotra | Repo rate | NSE | BSE - The Economic Times",
+        "Stock markets rally as RBI cuts interest rate; Sensex jumps 447 points - The Hindu",
+        "Sensex ends 117 points lower after RBI policy meet outcome: 10 key highlights from Indian stock market today - Livemint"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: interest rates | Type: a macroeconomic trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-022",
+    "record_id": "ANN-LIVE-022",
+    "ticker": "INFLATION",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_INFLATION_022",
+      "E_DISC_INFLATION_022"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "8d062a5df280dc91",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "INFLATION",
+      "as_of": "2026-10-10T10:22:18+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 10.0,
+      "news_headlines": [
+        "Indian shares decline as Middle East conflict raises inflation worries - Reuters",
+        "Stock markets end lower as rupee weakness and fuel price hike stoke inflation worries - The New Indian Express",
+        "West Asia Conflict, Crude Oil Prices, US Inflation Data To Steer Stock Markets This Week: Analysts - NDTV Profit",
+        "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept - Livemint",
+        "Sensex, Nifty Open Modestly Higher as Nvidia Lift Meets Caution - HDFC Sky"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: inflation | Type: a macroeconomic trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-023",
+    "record_id": "ANN-LIVE-023",
+    "ticker": "TCS",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_TCS_023",
+      "E_DISC_TCS_023"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "5112b4523ccd3e39",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "TCS",
+      "as_of": "2026-10-10T10:24:19+00:00",
+      "latest_price": 2100.0,
+      "change_pct": null,
+      "volume": 2382510.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 3.0,
+      "news_headlines": [
+        "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
+        "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
+        "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+        "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
+        "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
+        "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
+        "TCS stock falls after MHP acquisition: Brokerages bearish; Citi, HSBC flag integration risks, falling... - Moneycontrol.com",
+        "Manika Plastech shares list at par with IPO issue price on NSE, BSE - Upstox"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-024",
+    "record_id": "ANN-LIVE-024",
+    "ticker": "TCS",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_TCS_024",
+      "E_DISC_TCS_024"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "5112b4523ccd3e39",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "TCS",
+      "as_of": "2026-10-10T10:25:53+00:00",
+      "latest_price": 2100.0,
+      "change_pct": null,
+      "volume": 2382510.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 3.0,
+      "news_headlines": [
+        "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
+        "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
+        "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+        "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
+        "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
+        "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
+        "TCS stock falls after MHP acquisition: Brokerages bearish; Citi, HSBC flag integration risks, falling... - Moneycontrol.com",
+        "Manika Plastech shares list at par with IPO issue price on NSE, BSE - Upstox"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-026",
+    "record_id": "ANN-LIVE-026",
+    "ticker": "TCS",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_TCS_026",
+      "E_DISC_TCS_026"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "5112b4523ccd3e39",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "TCS",
+      "as_of": "2026-10-10T10:28:45+00:00",
+      "latest_price": 2100.0,
+      "change_pct": null,
+      "volume": 2382510.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 3.0,
+      "news_headlines": [
+        "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
+        "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
+        "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+        "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
+        "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
+        "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
+        "TCS stock falls after MHP acquisition: Brokerages bearish; Citi, HSBC flag integration risks, falling... - Moneycontrol.com",
+        "Manika Plastech shares list at par with IPO issue price on NSE, BSE - Upstox"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-025",
+    "record_id": "ANN-LIVE-025",
+    "ticker": "TCS",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_TCS_025",
+      "E_DISC_TCS_025"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "6f7438ee8c2f76ee",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "TCS",
+      "as_of": "2026-10-10T10:27:24+00:00",
+      "latest_price": 2100.0,
+      "change_pct": null,
+      "volume": 2382510.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 3.0,
+      "news_headlines": [
+        "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
+        "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
+        "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+        "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
+        "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
+        "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
+        "TCS stock falls after MHP acquisition: Brokerages bearish; Citi, HSBC flag integration risks, falling... - Moneycontrol.com",
+        "Manika Plastech shares list at par with IPO issue price on NSE, BSE - Upstox"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-028",
+    "record_id": "ANN-LIVE-028",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_028"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "5e892f87e55a4015",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T10:35:49+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-029",
+    "record_id": "ANN-LIVE-029",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_029"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "5e892f87e55a4015",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T10:37:58+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-031",
+    "record_id": "ANN-LIVE-031",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_031"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "5e892f87e55a4015",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T10:49:48+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-033",
+    "record_id": "ANN-LIVE-033",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_033"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "794944bc9f1df45b",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T10:56:57+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-035",
+    "record_id": "ANN-LIVE-035",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_035"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "77ee1fcca424982e",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T11:02:52+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-036",
+    "record_id": "ANN-LIVE-036",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_036"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "77ee1fcca424982e",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T11:02:58+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-037",
+    "record_id": "ANN-LIVE-037",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_037"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "96c955773d7cb921",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T11:03:30+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: an index trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-039",
+    "record_id": "ANN-LIVE-039",
+    "ticker": "NIFTY_50",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_NIFTY_50_039",
+      "E_DISC_NIFTY_50_039"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "1954229463b32467",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "NIFTY_50",
+      "as_of": "2026-10-10T11:06:26+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 14.0,
+      "news_headlines": [
+        "Datanomics: BSE took a decade to enter the Nifty 50; any lessons for NSE? - Business Standard",
+        "October 2026 F&O Monthly Expiry - Groww",
+        "BSE to replace Wipro in India's benchmark Nifty 50 index - Reuters",
+        "BSE Sensex gains 239 points, NSE Nifty50 adds 65 points - News On AIR",
+        "Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today - The Economic Times"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: nifty 50 | Type: an index trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-041",
+    "record_id": "ANN-LIVE-041",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_041"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "021f0454522f7ea0",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T11:10:12+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a commodity trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-043",
+    "record_id": "ANN-LIVE-043",
+    "ticker": "SENSEX",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_SENSEX_043",
+      "E_DISC_SENSEX_043"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "ae7d68118d6e0c77",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "SENSEX",
+      "as_of": "2026-10-10T11:12:25+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 14.0,
+      "news_headlines": [
+        "\u0915\u094d\u092f\u093e \u091f\u094b\u091f\u0932 \u092e\u093e\u0930\u094d\u0915\u0947\u091f \u0907\u0902\u0921\u0947\u0915\u094d\u0938 \u092b\u0902\u0921 \u0938\u0947 \u092d\u093e\u0930\u0924\u0940\u092f \u0936\u0947\u092f\u0930 \u092c\u093e\u091c\u093e\u0930 \u0915\u0940 \u092a\u0942\u0930\u0940 \u0924\u0938\u094d\u0935\u0940\u0930 \u092e\u093f\u0932 \u0938\u0915\u0924\u0940 \u0939\u0948 ?",
+        "Markets extend recovery ; Sensex up 140 points , Nifty above 22 , 500 ; bank stocks lead",
+        "Markets extend recovery ; Sensex jumps over 100 points , Nifty above 22 , 500",
+        "Asian shares mostly advance after Wall Street gains and oil prices fall",
+        "Markets extend recovery ; Sensex jumps over 100 points , Nifty above 22 , 500",
+        "Markets extend recovery ; Sensex up 140 points , Nifty above 22 , 500 ; bank stocks lead",
+        "Markets extend recovery ; Sensex jumps over 100 points , Nifty above 22 , 500",
+        "Asian shares mostly advance after Wall Street gains and oil prices fall"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: sensex | Type: an index trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-044",
+    "record_id": "ANN-LIVE-044",
+    "ticker": "SUZLON",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_SUZLON_044",
+      "E_DISC_SUZLON_044"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "501358c11d15e78c",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "SUZLON",
+      "as_of": "2026-10-10T11:14:46+00:00",
+      "latest_price": 39.16,
+      "change_pct": null,
+      "volume": 42495197.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 75.0,
+      "news_headlines": [
+        "Suzlon secures 200MW wind turbine order from Ayana in India",
+        "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
+        "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
+        "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+        "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
+        "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | (Urgent call) | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-052",
+    "record_id": "ANN-LIVE-052",
+    "ticker": "SUZLON",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_SUZLON_052",
+      "E_DISC_SUZLON_052"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "501358c11d15e78c",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "SUZLON",
+      "as_of": "2026-10-10T12:18:11+00:00",
+      "latest_price": 39.16,
+      "change_pct": null,
+      "volume": 42495197.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 75.0,
+      "news_headlines": [
+        "Suzlon secures 200MW wind turbine order from Ayana in India",
+        "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
+        "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
+        "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+        "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
+        "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | (Urgent call) | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-045",
+    "record_id": "ANN-LIVE-045",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_045"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "56ade1957ab28bd9",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T11:31:11+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @Growx_intraday_groww | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-053",
+    "record_id": "ANN-LIVE-053",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_053"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "56ade1957ab28bd9",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T12:28:47+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @Growx_intraday_groww | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-060",
+    "record_id": "ANN-LIVE-060",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_060"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "56ade1957ab28bd9",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T15:25:54+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @Growx_intraday_groww | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-061",
+    "record_id": "ANN-LIVE-061",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_061"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "56ade1957ab28bd9",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T16:28:55+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @Growx_intraday_groww | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-046",
+    "record_id": "ANN-LIVE-046",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_046"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "7c9cf7da68f500e5",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T11:59:51+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-048",
+    "record_id": "ANN-LIVE-048",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_048"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "304c8f9de616a434",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T12:00:40+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-049",
+    "record_id": "ANN-LIVE-049",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_049"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "e33666f8f3c2c30a",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T12:16:26+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: an index trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-050",
+    "record_id": "ANN-LIVE-050",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_050"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "4c47205892a1b223",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T12:17:25+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: an index trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-054",
+    "record_id": "ANN-LIVE-054",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_054"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "2c2815b6048bdfcf",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T15:11:22+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-063",
+    "record_id": "ANN-LIVE-063",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_063"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "53465eee1015afa6",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T16:54:25+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-066",
+    "record_id": "ANN-LIVE-066",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_066"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "50078444425ac18a",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T17:12:51+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-070",
+    "record_id": "ANN-LIVE-070",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_070"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "af9a754d03f14445",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T19:45:27+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-071",
+    "record_id": "ANN-LIVE-071",
+    "ticker": "ZOMATO",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_ZOMATO_071",
+      "E_DISC_ZOMATO_071"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "3198871639e21cc7",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "ZOMATO",
+      "as_of": "2026-10-10T19:45:52+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [
+        "Zomato Share Price - Live NSE: ETERNAL Stock Price & Chart - Upstox",
+        "What should investors do with Eternal (Zomato) after Q2? Brokerages decode - Business Standard",
+        "Eternal Ltd. Share Price Today | Eternal Live NSE/BSE - Value Research",
+        "ETERNAL Share Price Today - Zomato Ltd. Stock Price Live NSE/BSE - Univest",
+        "Zomato Stock: From 70% Crash to Multibagger Returns - HDFC Sky"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: ZOMATO | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-075",
+    "record_id": "ANN-LIVE-075",
+    "ticker": "ZOMATO",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_ZOMATO_075",
+      "E_DISC_ZOMATO_075"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "3198871639e21cc7",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "ZOMATO",
+      "as_of": "2026-10-10T22:01:15+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 4.0,
+      "news_headlines": [
+        "Zomato Share Price - Live NSE: ETERNAL Stock Price & Chart - Upstox",
+        "What should investors do with Eternal (Zomato) after Q2? Brokerages decode - Business Standard",
+        "Eternal Ltd. Share Price Today | Eternal Live NSE/BSE - Value Research",
+        "ETERNAL Share Price Today - Zomato Ltd. Stock Price Live NSE/BSE - Univest",
+        "Zomato Stock: From 70% Crash to Multibagger Returns - HDFC Sky"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: ZOMATO | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-078",
+    "record_id": "ANN-LIVE-078",
+    "ticker": "ZOMATO",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_ZOMATO_078",
+      "E_DISC_ZOMATO_078"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "3198871639e21cc7",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "ZOMATO",
+      "as_of": "2026-10-11T04:17:58+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 12.0,
+      "news_headlines": [
+        "Zomato Share Price - Live NSE: ETERNAL Stock Price & Chart - Upstox",
+        "What should investors do with Eternal (Zomato) after Q2? Brokerages decode - Business Standard",
+        "Eternal Ltd. Share Price Today | Eternal Live NSE/BSE - Value Research",
+        "ETERNAL Share Price Today - Zomato Ltd. Stock Price Live NSE/BSE - Univest",
+        "Zomato Stock: From 70% Crash to Multibagger Returns - HDFC Sky"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: ZOMATO | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-079",
+    "record_id": "ANN-LIVE-079",
+    "ticker": "ZOMATO",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_ZOMATO_079",
+      "E_DISC_ZOMATO_079"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "3198871639e21cc7",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "ZOMATO",
+      "as_of": "2026-10-11T04:18:30+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 12.0,
+      "news_headlines": [
+        "Zomato Share Price - Live NSE: ETERNAL Stock Price & Chart - Upstox",
+        "What should investors do with Eternal (Zomato) after Q2? Brokerages decode - Business Standard",
+        "Eternal Ltd. Share Price Today | Eternal Live NSE/BSE - Value Research",
+        "ETERNAL Share Price Today - Zomato Ltd. Stock Price Live NSE/BSE - Univest",
+        "Zomato Stock: From 70% Crash to Multibagger Returns - HDFC Sky"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: ZOMATO | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-073",
+    "record_id": "ANN-LIVE-073",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_073"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "c2fd6e2e592cec3a",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T21:59:54+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a commodity trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-074",
+    "record_id": "ANN-LIVE-074",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_074"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "31065107e611e13d",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T22:00:53+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | (Urgent call) | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-077",
+    "record_id": "ANN-LIVE-077",
+    "ticker": "WIPRO",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_WIPRO_077",
+      "E_DISC_WIPRO_077"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "8c9b3621047de6af",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "WIPRO",
+      "as_of": "2026-10-10T22:02:21+00:00",
+      "latest_price": 161.84,
+      "change_pct": null,
+      "volume": 16386869.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 8.0,
+      "news_headlines": [
+        "Infosys sees no material impact from U.S. PERM suspension",
+        "Rubrik Expands Project Hourglass as Selling Costs Fall Relative to Revenue",
+        "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
+        "Rubrik Expands Project Hourglass with Rubrik Code Guardian, Powered by Claude",
+        "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
+        "Wipro Share Price - Upstox",
+        "BSE to replace Wipro in India's benchmark Nifty 50 index - Reuters",
+        "BSE set to enter Nifty 50 from tomorrow, IT major Wipro to exit. What shareholders must know? - The Economic Times"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: WIPRO | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-082",
+    "record_id": "ANN-LIVE-082",
+    "ticker": "NIFTY_50",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_NIFTY_50_082",
+      "E_DISC_NIFTY_50_082"
+    ],
+    "metadata": {
+      "split": "dev",
+      "duplicate_group": "55dafa0a56871ff9",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "NIFTY_50",
+      "as_of": "2026-10-11T10:55:43+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 16.0,
+      "news_headlines": [
+        "Q2 Earnings Preview : Banks , financials to drive strong double - digit growth",
+        "[r/nifty50] Nifty50",
+        "[r/nifty_50] Nifty_50",
+        "[r/nifty50predictions] NIFTY50Predictions",
+        "[r/indianstockmarket] NIFTY 50 & SENSEX Analysis for Monday, 12 October | Key Levels and Scenarios"
+      ],
+      "social_signals": [
+        "Source: @NIFTY50STOCKSSEBI | Entity: nifty | Type: an index trading tip"
+      ]
+    }
+  }
+]

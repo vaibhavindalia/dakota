@@ -12,7 +12,11 @@
       "Ambiguous",
       "Insufficient Evidence"
     ],
-    "annotation_instructions": "Review each record's original_text, news_headlines, and telemetry. Assign one of allowed_labels to 'human_reviewed_label' and document the rationale in 'annotation_rationale'. Do not label uncorroborated promotional claims as Bullish without positive fundamental/news corroboration."
+    "annotation_instructions": "Review each record's original_text, news_headlines, and telemetry. Assign one of allowed_labels to 'human_reviewed_label' and document the rationale in 'annotation_rationale'. Do not label uncorroborated promotional claims as Bullish without positive fundamental/news corroboration.",
+    "last_updated_at": "2026-10-19T14:07:30.350536+00:00",
+    "completed_annotations": 1,
+    "flagged_records": 0,
+    "pending_records": 81
   },
   "records": [
     {
@@ -81,8 +85,8 @@
       "published_at": "2026-10-08T12:20:26+00:00",
       "collected_at": "2026-10-08T12:20:26+00:00",
       "duplicate_group": "b7ab0b4c183948ce",
-      "human_reviewed_label": null,
-      "annotation_rationale": null,
+      "human_reviewed_label": "Insufficient Evidence",
+      "annotation_rationale": "Uncorroborated urgent Telegram commodity trading tip; attached Reddit threads contain general macro discussion with no official inventory, EIA disclosures, or verified pricing telemetry.",
       "evidence_ids": [
         "E_LIVE_TG_CRUDE_OIL_001",
         "E_DISC_CRUDE_OIL_001"
@@ -108,12 +112,15 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "completed",
+      "reviewer_id": "REV-VAIBHAV",
+      "reviewed_at": "2026-10-19T14:07:30.349272+00:00"
     },
     {
       "record_id": "ANN-LIVE-002",
       "ticker": "CDSL",
-      "original_text": "Source: @markemahakelpredictions | Entity: CDSL | Target: \u20b91500.0 | Type: a specific stock trading tip",
+      "original_text": "Source: @markemahakelpredictions | Entity: CDSL | Target: ₹1500.0 | Type: a specific stock trading tip",
       "news_headlines": [],
       "sources": [],
       "published_at": "2026-10-08T12:27:52+00:00",
@@ -135,11 +142,14 @@
         "risk_score": 0.0,
         "news_headlines": [],
         "social_signals": [
-          "Source: @markemahakelpredictions | Entity: CDSL | Target: \u20b91500.0 | Type: a specific stock trading tip"
+          "Source: @markemahakelpredictions | Entity: CDSL | Target: ₹1500.0 | Type: a specific stock trading tip"
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-003",
@@ -172,7 +182,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-018"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-004",
@@ -203,7 +216,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-005",
@@ -236,7 +252,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-006"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-006",
@@ -269,7 +288,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-005"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-007",
@@ -300,7 +322,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-008",
@@ -331,7 +356,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-009",
@@ -364,7 +392,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-012"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-010",
@@ -395,7 +426,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-011",
@@ -426,7 +460,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-012",
@@ -459,7 +496,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-009"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-013",
@@ -490,7 +530,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-014",
@@ -521,7 +564,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-015",
@@ -552,12 +598,15 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-016",
       "ticker": "UNKNOWN",
-      "original_text": "Source: @testchannel | Target: \u20b9250.0 | (Urgent call) | Type: an index trading tip",
+      "original_text": "Source: @testchannel | Target: ₹250.0 | (Urgent call) | Type: an index trading tip",
       "news_headlines": [],
       "sources": [],
       "published_at": "2026-10-10T09:39:25+00:00",
@@ -579,21 +628,24 @@
         "risk_score": 0.0,
         "news_headlines": [],
         "social_signals": [
-          "Source: @testchannel | Target: \u20b9250.0 | (Urgent call) | Type: an index trading tip"
+          "Source: @testchannel | Target: ₹250.0 | (Urgent call) | Type: an index trading tip"
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-017",
       "ticker": "CDSL",
-      "original_text": "Source: @markemahakelpredictions | Entity: CDSL | Target: \u20b91500.0 | (Urgent call) | Type: a specific stock trading tip",
+      "original_text": "Source: @markemahakelpredictions | Entity: CDSL | Target: ₹1500.0 | (Urgent call) | Type: a specific stock trading tip",
       "news_headlines": [
         "Central Depository Services (India) Ltd (NSE:CDSL) (Q1 2027) Earnings Call Highlights: Record ...",
         "NSDL hits new low, down 8% vs IPO; CDSL up 748%; analysts decode divergence - Business Standard",
         "NSDL, CDSL, BSE shares: Check key technical levels to watch out for - Business Today",
-        "NSE IPO opens: BSE, CDSL, other capital market stocks rally; here\u2019s why - Upstox",
+        "NSE IPO opens: BSE, CDSL, other capital market stocks rally; here’s why - Upstox",
         "5 Fintech Stocks India 2026: Strong Future Roadmaps - Univest",
         "Central Depository Services (India) Ltd. Share Price Live Today - CNBC TV18"
       ],
@@ -616,7 +668,7 @@
         {
           "name": "News",
           "url": "",
-          "title": "NSE IPO opens: BSE, CDSL, other capital market stocks rally; here\u2019s why - Upstox"
+          "title": "NSE IPO opens: BSE, CDSL, other capital market stocks rally; here’s why - Upstox"
         },
         {
           "name": "News",
@@ -671,16 +723,19 @@
           "Central Depository Services (India) Ltd (NSE:CDSL) (Q1 2027) Earnings Call Highlights: Record ...",
           "NSDL hits new low, down 8% vs IPO; CDSL up 748%; analysts decode divergence - Business Standard",
           "NSDL, CDSL, BSE shares: Check key technical levels to watch out for - Business Today",
-          "NSE IPO opens: BSE, CDSL, other capital market stocks rally; here\u2019s why - Upstox",
+          "NSE IPO opens: BSE, CDSL, other capital market stocks rally; here’s why - Upstox",
           "5 Fintech Stocks India 2026: Strong Future Roadmaps - Univest",
           "Central Depository Services (India) Ltd. Share Price Live Today - CNBC TV18"
         ],
         "social_signals": [
-          "Source: @markemahakelpredictions | Entity: CDSL | Target: \u20b91500.0 | (Urgent call) | Type: a specific stock trading tip"
+          "Source: @markemahakelpredictions | Entity: CDSL | Target: ₹1500.0 | (Urgent call) | Type: a specific stock trading tip"
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-018",
@@ -713,7 +768,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-003"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-019",
@@ -810,7 +868,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-020"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-020",
@@ -907,7 +968,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-019"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-021",
@@ -1002,7 +1066,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-022",
@@ -1059,12 +1126,12 @@
         {
           "name": "Reddit (r/securityanalysis)",
           "url": "https://www.reddit.com/r/SecurityAnalysis/comments/1x2bp8v/mercado_libre_meli_a_deep_dive_into_melis_credit/",
-          "title": "Mercado Libre (MELI): A deep dive into MELI\u2019s credit business"
+          "title": "Mercado Libre (MELI): A deep dive into MELI’s credit business"
         },
         {
           "name": "Reddit (r/supplychain)",
           "url": "https://www.reddit.com/r/supplychain/comments/1x2bov2/7elevens_us_arm_looks_to_move_supply_chain/",
-          "title": "7-Eleven\u2019s US arm looks to move supply chain in-house as inflation bites"
+          "title": "7-Eleven’s US arm looks to move supply chain in-house as inflation bites"
         }
       ],
       "published_at": "2026-10-10T10:22:18+00:00",
@@ -1097,7 +1164,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-023",
@@ -1105,8 +1175,8 @@
       "original_text": "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip",
       "news_headlines": [
         "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
-        "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
-        "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+        "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right",
+        "Porsche sharpens focus on core business with MHP sale to India’s TCS",
         "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
         "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
         "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
@@ -1122,12 +1192,12 @@
         {
           "name": "News",
           "url": "",
-          "title": "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right"
+          "title": "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right"
         },
         {
           "name": "News",
           "url": "",
-          "title": "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS"
+          "title": "Porsche sharpens focus on core business with MHP sale to India’s TCS"
         },
         {
           "name": "News",
@@ -1162,7 +1232,7 @@
         {
           "name": "News",
           "url": "",
-          "title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE \u2014 Complete Guide - Univest"
+          "title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE — Complete Guide - Univest"
         }
       ],
       "published_at": "2026-10-10T10:24:19+00:00",
@@ -1185,8 +1255,8 @@
         "risk_score": 3.0,
         "news_headlines": [
           "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
-          "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
-          "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+          "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right",
+          "Porsche sharpens focus on core business with MHP sale to India’s TCS",
           "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
           "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
           "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
@@ -1201,7 +1271,10 @@
       "duplicate_peers": [
         "ANN-LIVE-024",
         "ANN-LIVE-026"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-024",
@@ -1209,8 +1282,8 @@
       "original_text": "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip",
       "news_headlines": [
         "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
-        "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
-        "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+        "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right",
+        "Porsche sharpens focus on core business with MHP sale to India’s TCS",
         "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
         "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
         "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
@@ -1226,12 +1299,12 @@
         {
           "name": "News",
           "url": "",
-          "title": "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right"
+          "title": "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right"
         },
         {
           "name": "News",
           "url": "",
-          "title": "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS"
+          "title": "Porsche sharpens focus on core business with MHP sale to India’s TCS"
         },
         {
           "name": "News",
@@ -1266,7 +1339,7 @@
         {
           "name": "News",
           "url": "",
-          "title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE \u2014 Complete Guide - Univest"
+          "title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE — Complete Guide - Univest"
         }
       ],
       "published_at": "2026-10-10T10:25:53+00:00",
@@ -1289,8 +1362,8 @@
         "risk_score": 3.0,
         "news_headlines": [
           "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
-          "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
-          "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+          "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right",
+          "Porsche sharpens focus on core business with MHP sale to India’s TCS",
           "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
           "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
           "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
@@ -1305,7 +1378,10 @@
       "duplicate_peers": [
         "ANN-LIVE-023",
         "ANN-LIVE-026"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-025",
@@ -1313,8 +1389,8 @@
       "original_text": "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip",
       "news_headlines": [
         "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
-        "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
-        "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+        "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right",
+        "Porsche sharpens focus on core business with MHP sale to India’s TCS",
         "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
         "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
         "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
@@ -1330,12 +1406,12 @@
         {
           "name": "News",
           "url": "",
-          "title": "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right"
+          "title": "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right"
         },
         {
           "name": "News",
           "url": "",
-          "title": "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS"
+          "title": "Porsche sharpens focus on core business with MHP sale to India’s TCS"
         },
         {
           "name": "News",
@@ -1370,7 +1446,7 @@
         {
           "name": "News",
           "url": "",
-          "title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE \u2014 Complete Guide - Univest"
+          "title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE — Complete Guide - Univest"
         }
       ],
       "published_at": "2026-10-10T10:27:24+00:00",
@@ -1393,8 +1469,8 @@
         "risk_score": 3.0,
         "news_headlines": [
           "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
-          "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
-          "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+          "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right",
+          "Porsche sharpens focus on core business with MHP sale to India’s TCS",
           "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
           "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
           "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
@@ -1406,7 +1482,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-026",
@@ -1414,8 +1493,8 @@
       "original_text": "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip",
       "news_headlines": [
         "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
-        "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
-        "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+        "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right",
+        "Porsche sharpens focus on core business with MHP sale to India’s TCS",
         "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
         "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
         "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
@@ -1431,12 +1510,12 @@
         {
           "name": "News",
           "url": "",
-          "title": "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right"
+          "title": "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right"
         },
         {
           "name": "News",
           "url": "",
-          "title": "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS"
+          "title": "Porsche sharpens focus on core business with MHP sale to India’s TCS"
         },
         {
           "name": "News",
@@ -1471,7 +1550,7 @@
         {
           "name": "News",
           "url": "",
-          "title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE \u2014 Complete Guide - Univest"
+          "title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE — Complete Guide - Univest"
         }
       ],
       "published_at": "2026-10-10T10:28:45+00:00",
@@ -1494,8 +1573,8 @@
         "risk_score": 3.0,
         "news_headlines": [
           "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
-          "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
-          "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+          "Becoming ‘AI native’ might not be as profitable as you think. Unless your company does it right",
+          "Porsche sharpens focus on core business with MHP sale to India’s TCS",
           "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
           "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
           "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
@@ -1510,7 +1589,10 @@
       "duplicate_peers": [
         "ANN-LIVE-023",
         "ANN-LIVE-024"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-027",
@@ -1541,7 +1623,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-028",
@@ -1575,7 +1660,10 @@
       "duplicate_peers": [
         "ANN-LIVE-029",
         "ANN-LIVE-031"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-029",
@@ -1609,7 +1697,10 @@
       "duplicate_peers": [
         "ANN-LIVE-028",
         "ANN-LIVE-031"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-030",
@@ -1640,7 +1731,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-031",
@@ -1674,7 +1768,10 @@
       "duplicate_peers": [
         "ANN-LIVE-028",
         "ANN-LIVE-029"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-032",
@@ -1684,7 +1781,7 @@
         "Reliance Industries Share Price - Live NSE: RELIANCE Stock Price & Chart - Upstox",
         "Reliance Industries Ltd Share Price Today NSE/BSE Charts - Alice Blue",
         "Reliance Shares Drop Before Earnings - Rediff MoneyWiz",
-        "Reliance stock sheds 8% in 4 days; erodes \u20b92 trn market cap from Jan high - Business Standard",
+        "Reliance stock sheds 8% in 4 days; erodes ₹2 trn market cap from Jan high - Business Standard",
         "Ambani Stocks 2026: Complete List of Mukesh Ambani's Companies on NSE/BSE - Univest"
       ],
       "sources": [
@@ -1706,7 +1803,7 @@
         {
           "name": "News",
           "url": "",
-          "title": "Reliance stock sheds 8% in 4 days; erodes \u20b92 trn market cap from Jan high - Business Standard"
+          "title": "Reliance stock sheds 8% in 4 days; erodes ₹2 trn market cap from Jan high - Business Standard"
         },
         {
           "name": "News",
@@ -1761,7 +1858,7 @@
           "Reliance Industries Share Price - Live NSE: RELIANCE Stock Price & Chart - Upstox",
           "Reliance Industries Ltd Share Price Today NSE/BSE Charts - Alice Blue",
           "Reliance Shares Drop Before Earnings - Rediff MoneyWiz",
-          "Reliance stock sheds 8% in 4 days; erodes \u20b92 trn market cap from Jan high - Business Standard",
+          "Reliance stock sheds 8% in 4 days; erodes ₹2 trn market cap from Jan high - Business Standard",
           "Ambani Stocks 2026: Complete List of Mukesh Ambani's Companies on NSE/BSE - Univest"
         ],
         "social_signals": [
@@ -1769,7 +1866,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-033",
@@ -1800,7 +1900,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-034",
@@ -1857,7 +1960,7 @@
         {
           "name": "Reddit (r/dbltradinghub)",
           "url": "https://www.reddit.com/r/DblTradingHub/comments/1x2ceks/only_for_21_cheapest_in_the_market_14_goldfrieza/",
-          "title": "Only for 21$ cheapest in the market \ud83e\udd37\u200d\u2642\ufe0f / 14* GoldFrieza W/ perfect equip + 91kcc now / Paypal Only \u2705"
+          "title": "Only for 21$ cheapest in the market 🤷‍♂️ / 14* GoldFrieza W/ perfect equip + 91kcc now / Paypal Only ✅"
         },
         {
           "name": "Reddit (r/wardogs)",
@@ -1897,7 +2000,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-038"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-035",
@@ -1930,7 +2036,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-036"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-036",
@@ -1963,7 +2072,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-035"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-037",
@@ -1994,7 +2106,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-038",
@@ -2051,7 +2166,7 @@
         {
           "name": "Reddit (r/dbltradinghub)",
           "url": "https://www.reddit.com/r/DblTradingHub/comments/1x2ceks/only_for_21_cheapest_in_the_market_14_goldfrieza/",
-          "title": "Only for 21$ cheapest in the market \ud83e\udd37\u200d\u2642\ufe0f / 14* GoldFrieza W/ perfect equip + 91kcc now / Paypal Only \u2705"
+          "title": "Only for 21$ cheapest in the market 🤷‍♂️ / 14* GoldFrieza W/ perfect equip + 91kcc now / Paypal Only ✅"
         },
         {
           "name": "Reddit (r/wardogs)",
@@ -2091,7 +2206,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-034"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-039",
@@ -2148,7 +2266,7 @@
         {
           "name": "Reddit (r/indianstockmarket)",
           "url": "https://www.reddit.com/r/IndianStockMarket/comments/1x2b107/indian_stock_market_today_nse_simulation_mode_on/",
-          "title": "Indian Stock Market today: NSE Simulation Mode ON \ud83d\ude02"
+          "title": "Indian Stock Market today: NSE Simulation Mode ON 😂"
         },
         {
           "name": "Reddit (r/mutualfunds)",
@@ -2186,7 +2304,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-040",
@@ -2243,7 +2364,7 @@
         {
           "name": "Reddit (r/indianstockmarket)",
           "url": "https://www.reddit.com/r/IndianStockMarket/comments/1x2b107/indian_stock_market_today_nse_simulation_mode_on/",
-          "title": "Indian Stock Market today: NSE Simulation Mode ON \ud83d\ude02"
+          "title": "Indian Stock Market today: NSE Simulation Mode ON 😂"
         },
         {
           "name": "Reddit (r/mutualfunds)",
@@ -2281,7 +2402,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-041",
@@ -2312,7 +2436,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-042",
@@ -2343,14 +2470,17 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-043",
       "ticker": "SENSEX",
       "original_text": "Source: @markemahakelpredictions | Entity: sensex | Type: an index trading tip",
       "news_headlines": [
-        "\u0915\u094d\u092f\u093e \u091f\u094b\u091f\u0932 \u092e\u093e\u0930\u094d\u0915\u0947\u091f \u0907\u0902\u0921\u0947\u0915\u094d\u0938 \u092b\u0902\u0921 \u0938\u0947 \u092d\u093e\u0930\u0924\u0940\u092f \u0936\u0947\u092f\u0930 \u092c\u093e\u091c\u093e\u0930 \u0915\u0940 \u092a\u0942\u0930\u0940 \u0924\u0938\u094d\u0935\u0940\u0930 \u092e\u093f\u0932 \u0938\u0915\u0924\u0940 \u0939\u0948 ?",
+        "क्या टोटल मार्केट इंडेक्स फंड से भारतीय शेयर बाजार की पूरी तस्वीर मिल सकती है ?",
         "Markets extend recovery ; Sensex up 140 points , Nifty above 22 , 500 ; bank stocks lead",
         "Markets extend recovery ; Sensex jumps over 100 points , Nifty above 22 , 500",
         "Asian shares mostly advance after Wall Street gains and oil prices fall",
@@ -2363,7 +2493,7 @@
         {
           "name": "News",
           "url": "https://www.sharemanthan.in/niveshak-darbaar/462-advice/79998-can-a-total-market-index-fund-provide-a-complete-picture-of-the-indian-stock-market",
-          "title": "\u0915\u094d\u092f\u093e \u091f\u094b\u091f\u0932 \u092e\u093e\u0930\u094d\u0915\u0947\u091f \u0907\u0902\u0921\u0947\u0915\u094d\u0938 \u092b\u0902\u0921 \u0938\u0947 \u092d\u093e\u0930\u0924\u0940\u092f \u0936\u0947\u092f\u0930 \u092c\u093e\u091c\u093e\u0930 \u0915\u0940 \u092a\u0942\u0930\u0940 \u0924\u0938\u094d\u0935\u0940\u0930 \u092e\u093f\u0932 \u0938\u0915\u0924\u0940 \u0939\u0948 ?"
+          "title": "क्या टोटल मार्केट इंडेक्स फंड से भारतीय शेयर बाजार की पूरी तस्वीर मिल सकती है ?"
         },
         {
           "name": "News",
@@ -2403,7 +2533,7 @@
         {
           "name": "News",
           "url": "https://business24.ro/piata-indiana/piata-capital-india-declin-investitori-prim-plan-1670285",
-          "title": "Pia\u021ba de capital din India , \u00een declin cu 15 %, cu investitorii locali \u00een prim - plan"
+          "title": "Piața de capital din India , în declin cu 15 %, cu investitorii locali în prim - plan"
         },
         {
           "name": "News",
@@ -2430,7 +2560,7 @@
         "is_surveillance": false,
         "risk_score": 14.0,
         "news_headlines": [
-          "\u0915\u094d\u092f\u093e \u091f\u094b\u091f\u0932 \u092e\u093e\u0930\u094d\u0915\u0947\u091f \u0907\u0902\u0921\u0947\u0915\u094d\u0938 \u092b\u0902\u0921 \u0938\u0947 \u092d\u093e\u0930\u0924\u0940\u092f \u0936\u0947\u092f\u0930 \u092c\u093e\u091c\u093e\u0930 \u0915\u0940 \u092a\u0942\u0930\u0940 \u0924\u0938\u094d\u0935\u0940\u0930 \u092e\u093f\u0932 \u0938\u0915\u0924\u0940 \u0939\u0948 ?",
+          "क्या टोटल मार्केट इंडेक्स फंड से भारतीय शेयर बाजार की पूरी तस्वीर मिल सकती है ?",
           "Markets extend recovery ; Sensex up 140 points , Nifty above 22 , 500 ; bank stocks lead",
           "Markets extend recovery ; Sensex jumps over 100 points , Nifty above 22 , 500",
           "Asian shares mostly advance after Wall Street gains and oil prices fall",
@@ -2444,17 +2574,20 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-044",
       "ticker": "SUZLON",
-      "original_text": "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | (Urgent call) | Type: a specific stock trading tip",
+      "original_text": "Source: @markemahakelpredictions | Entity: SUZLON | Target: ₹85.0 | (Urgent call) | Type: a specific stock trading tip",
       "news_headlines": [
         "Suzlon secures 200MW wind turbine order from Ayana in India",
         "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
         "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
-        "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+        "Suzlon, BSE, ITC: Top stocks to trade — Check technical setup, levels, target prices & stop loss - Business Today",
         "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
         "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18"
       ],
@@ -2477,7 +2610,7 @@
         {
           "name": "News",
           "url": "",
-          "title": "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today"
+          "title": "Suzlon, BSE, ITC: Top stocks to trade — Check technical setup, levels, target prices & stop loss - Business Today"
         },
         {
           "name": "News",
@@ -2532,18 +2665,21 @@
           "Suzlon secures 200MW wind turbine order from Ayana in India",
           "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
           "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
-          "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+          "Suzlon, BSE, ITC: Top stocks to trade — Check technical setup, levels, target prices & stop loss - Business Today",
           "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
           "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18"
         ],
         "social_signals": [
-          "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | (Urgent call) | Type: a specific stock trading tip"
+          "Source: @markemahakelpredictions | Entity: SUZLON | Target: ₹85.0 | (Urgent call) | Type: a specific stock trading tip"
         ]
       },
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-052"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-045",
@@ -2578,7 +2714,10 @@
         "ANN-LIVE-053",
         "ANN-LIVE-060",
         "ANN-LIVE-061"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-046",
@@ -2609,7 +2748,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-047",
@@ -2642,7 +2784,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-064"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-048",
@@ -2673,7 +2818,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-049",
@@ -2704,7 +2852,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-050",
@@ -2735,7 +2886,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-051",
@@ -2766,17 +2920,20 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-052",
       "ticker": "SUZLON",
-      "original_text": "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | (Urgent call) | Type: a specific stock trading tip",
+      "original_text": "Source: @markemahakelpredictions | Entity: SUZLON | Target: ₹85.0 | (Urgent call) | Type: a specific stock trading tip",
       "news_headlines": [
         "Suzlon secures 200MW wind turbine order from Ayana in India",
         "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
         "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
-        "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+        "Suzlon, BSE, ITC: Top stocks to trade — Check technical setup, levels, target prices & stop loss - Business Today",
         "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
         "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18"
       ],
@@ -2799,7 +2956,7 @@
         {
           "name": "News",
           "url": "",
-          "title": "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today"
+          "title": "Suzlon, BSE, ITC: Top stocks to trade — Check technical setup, levels, target prices & stop loss - Business Today"
         },
         {
           "name": "News",
@@ -2854,18 +3011,21 @@
           "Suzlon secures 200MW wind turbine order from Ayana in India",
           "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
           "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
-          "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+          "Suzlon, BSE, ITC: Top stocks to trade — Check technical setup, levels, target prices & stop loss - Business Today",
           "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
           "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18"
         ],
         "social_signals": [
-          "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | (Urgent call) | Type: a specific stock trading tip"
+          "Source: @markemahakelpredictions | Entity: SUZLON | Target: ₹85.0 | (Urgent call) | Type: a specific stock trading tip"
         ]
       },
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-044"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-053",
@@ -2900,7 +3060,10 @@
         "ANN-LIVE-045",
         "ANN-LIVE-060",
         "ANN-LIVE-061"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-054",
@@ -2931,7 +3094,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-055",
@@ -2962,7 +3128,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-056",
@@ -2995,7 +3164,10 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-057"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-057",
@@ -3028,12 +3200,15 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-056"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-058",
       "ticker": "UNKNOWN",
-      "original_text": "Source: @markemahakelpredictions | Target: \u20b915500.0 | Type: a sector trading tip",
+      "original_text": "Source: @markemahakelpredictions | Target: ₹15500.0 | Type: a sector trading tip",
       "news_headlines": [],
       "sources": [],
       "published_at": "2026-10-10T15:14:26+00:00",
@@ -3055,7 +3230,7 @@
         "risk_score": 0.0,
         "news_headlines": [],
         "social_signals": [
-          "Source: @markemahakelpredictions | Target: \u20b915500.0 | Type: a sector trading tip"
+          "Source: @markemahakelpredictions | Target: ₹15500.0 | Type: a sector trading tip"
         ]
       },
       "duplicate_count": 4,
@@ -3063,12 +3238,15 @@
         "ANN-LIVE-062",
         "ANN-LIVE-068",
         "ANN-LIVE-080"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-059",
       "ticker": "UNKNOWN",
-      "original_text": "Source: @markemahakelpredictions | Target: \u20b915500.0 | Type: a sector trading tip",
+      "original_text": "Source: @markemahakelpredictions | Target: ₹15500.0 | Type: a sector trading tip",
       "news_headlines": [],
       "sources": [],
       "published_at": "2026-10-10T15:25:12+00:00",
@@ -3090,11 +3268,14 @@
         "risk_score": 0.0,
         "news_headlines": [],
         "social_signals": [
-          "Source: @markemahakelpredictions | Target: \u20b915500.0 | Type: a sector trading tip"
+          "Source: @markemahakelpredictions | Target: ₹15500.0 | Type: a sector trading tip"
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-060",
@@ -3129,7 +3310,10 @@
         "ANN-LIVE-045",
         "ANN-LIVE-053",
         "ANN-LIVE-061"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-061",
@@ -3164,12 +3348,15 @@
         "ANN-LIVE-045",
         "ANN-LIVE-053",
         "ANN-LIVE-060"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-062",
       "ticker": "IRCTC",
-      "original_text": "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip",
+      "original_text": "Source: @markemahakelpredictions | Entity: IRCTC | Target: ₹15500.0 | Type: a specific stock trading tip",
       "news_headlines": [
         "IRCTC Share Price Today - IRCTC on NSE/BSE - scanx.trade",
         "Indian Railway Catering & Tourism Corporation Ltd. Share Price Live Today - CNBC TV18",
@@ -3255,7 +3442,7 @@
           "Stock market crash: IRCTC, Patanjali Foods, Mazagon Dock, Cochin Shipyard among 1,219 stocks that hit 52-week low on NSE - Upstox"
         ],
         "social_signals": [
-          "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip"
+          "Source: @markemahakelpredictions | Entity: IRCTC | Target: ₹15500.0 | Type: a specific stock trading tip"
         ]
       },
       "duplicate_count": 4,
@@ -3263,7 +3450,10 @@
         "ANN-LIVE-058",
         "ANN-LIVE-068",
         "ANN-LIVE-080"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-063",
@@ -3294,7 +3484,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-064",
@@ -3386,17 +3579,20 @@
       "duplicate_count": 2,
       "duplicate_peers": [
         "ANN-LIVE-047"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-065",
       "ticker": "SUZLON",
-      "original_text": "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | Type: a specific stock trading tip",
+      "original_text": "Source: @markemahakelpredictions | Entity: SUZLON | Target: ₹85.0 | Type: a specific stock trading tip",
       "news_headlines": [
         "Suzlon secures 200MW wind turbine order from Ayana in India",
         "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
         "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
-        "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+        "Suzlon, BSE, ITC: Top stocks to trade — Check technical setup, levels, target prices & stop loss - Business Today",
         "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
         "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18"
       ],
@@ -3419,7 +3615,7 @@
         {
           "name": "News",
           "url": "",
-          "title": "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today"
+          "title": "Suzlon, BSE, ITC: Top stocks to trade — Check technical setup, levels, target prices & stop loss - Business Today"
         },
         {
           "name": "News",
@@ -3474,16 +3670,19 @@
           "Suzlon secures 200MW wind turbine order from Ayana in India",
           "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
           "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
-          "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+          "Suzlon, BSE, ITC: Top stocks to trade — Check technical setup, levels, target prices & stop loss - Business Today",
           "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
           "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18"
         ],
         "social_signals": [
-          "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | Type: a specific stock trading tip"
+          "Source: @markemahakelpredictions | Entity: SUZLON | Target: ₹85.0 | Type: a specific stock trading tip"
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-066",
@@ -3514,12 +3713,15 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-067",
       "ticker": "ADANIPOWER",
-      "original_text": "Source: @markemahakelpredictions | Entity: ADANIPOWER | Target: \u20b9750.0 | (Urgent call) | Type: a specific stock trading tip",
+      "original_text": "Source: @markemahakelpredictions | Entity: ADANIPOWER | Target: ₹750.0 | (Urgent call) | Type: a specific stock trading tip",
       "news_headlines": [
         "Adani Power gains 2% in weak market, zooms 49% in April; here's why - Business Standard",
         "Stocks to Watch Today: HDFC Life, Adani Power, TVS Holdings, NTPC Green, Laser Power, India Pesticides,... - Moneycontrol.com",
@@ -3560,13 +3762,13 @@
         },
         {
           "name": "Reddit (r/kafkabtc)",
-          "url": "https://www.reddit.com/r/KafkaBTC/comments/1x1jp8v/\u0441\u043e\u0435\u0434\u0438\u043d\u0451\u043d\u043d\u044b\u0435_\u0448\u0442\u0430\u0442\u044b_\u043f\u0440\u0438\u043e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u043b\u0438_\u0440\u0430\u0431\u043e\u0447\u0438\u0435_\u0432\u0438\u0437\u044b_\u0432\u0441\u0435\u043c/",
-          "title": "\u0421\u043e\u0435\u0434\u0438\u043d\u0451\u043d\u043d\u044b\u0435 \u0428\u0442\u0430\u0442\u044b \u043f\u0440\u0438\u043e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u043b\u0438 \u0440\u0430\u0431\u043e\u0447\u0438\u0435 \u0432\u0438\u0437\u044b \u0432\u0441\u0435\u043c \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u043c \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u044f\u043c, \u0447\u0442\u043e\u0431\u044b \u043e\u043d\u0438 \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0435 \u043d\u0430\u043d\u0438\u043c\u0430\u043b\u0438 \u0438\u043d\u043e\u0441\u0442\u0440\u0430\u043d\u043d\u044b\u0445 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442\u043e\u0432, \u0438 \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u043a\u0430 \u0418\u043d\u0434\u0438\u0438 \u0432\u0437\u043e\u0440\u0432\u0430\u043b\u0430\u0441\u044c."
+          "url": "https://www.reddit.com/r/KafkaBTC/comments/1x1jp8v/соединённые_штаты_приостановили_рабочие_визы_всем/",
+          "title": "Соединённые Штаты приостановили рабочие визы всем технологическим компаниям, чтобы они больше не нанимали иностранных программистов, и экономика Индии взорвалась."
         },
         {
           "name": "Reddit (r/whoathatsinteresting)",
           "url": "https://www.reddit.com/r/whoathatsinteresting/comments/1x0py5g/indian_stock_market_loses_9_lakh_crore_93_billion/",
-          "title": "Indian stock market loses \u20b99 Lakh Crore (~$93 billion) so far today"
+          "title": "Indian stock market loses ₹9 Lakh Crore (~$93 billion) so far today"
         },
         {
           "name": "Reddit (r/indianstockmarket)",
@@ -3605,16 +3807,19 @@
           "Adani Power jumps 12% in 2 days, hits new high; what's driving stock price? - Business Standard"
         ],
         "social_signals": [
-          "Source: @markemahakelpredictions | Entity: ADANIPOWER | Target: \u20b9750.0 | (Urgent call) | Type: a specific stock trading tip"
+          "Source: @markemahakelpredictions | Entity: ADANIPOWER | Target: ₹750.0 | (Urgent call) | Type: a specific stock trading tip"
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-068",
       "ticker": "IRCTC",
-      "original_text": "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip",
+      "original_text": "Source: @markemahakelpredictions | Entity: IRCTC | Target: ₹15500.0 | Type: a specific stock trading tip",
       "news_headlines": [
         "IRCTC Share Price Today - IRCTC on NSE/BSE - scanx.trade",
         "Indian Railway Catering & Tourism Corporation Ltd. Share Price Live Today - CNBC TV18",
@@ -3675,7 +3880,7 @@
           "Stock market crash: IRCTC, Patanjali Foods, Mazagon Dock, Cochin Shipyard among 1,219 stocks that hit 52-week low on NSE - Upstox"
         ],
         "social_signals": [
-          "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip"
+          "Source: @markemahakelpredictions | Entity: IRCTC | Target: ₹15500.0 | Type: a specific stock trading tip"
         ]
       },
       "duplicate_count": 4,
@@ -3683,7 +3888,10 @@
         "ANN-LIVE-058",
         "ANN-LIVE-062",
         "ANN-LIVE-080"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-069",
@@ -3714,7 +3922,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-070",
@@ -3745,7 +3956,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-071",
@@ -3844,7 +4058,10 @@
         "ANN-LIVE-075",
         "ANN-LIVE-078",
         "ANN-LIVE-079"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-072",
@@ -3875,7 +4092,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-073",
@@ -3906,7 +4126,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-074",
@@ -3937,7 +4160,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-075",
@@ -4036,7 +4262,10 @@
         "ANN-LIVE-071",
         "ANN-LIVE-078",
         "ANN-LIVE-079"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-076",
@@ -4067,7 +4296,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-077",
@@ -4168,7 +4400,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-078",
@@ -4267,7 +4502,10 @@
         "ANN-LIVE-071",
         "ANN-LIVE-075",
         "ANN-LIVE-079"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-079",
@@ -4341,12 +4579,15 @@
         "ANN-LIVE-071",
         "ANN-LIVE-075",
         "ANN-LIVE-078"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-080",
       "ticker": "IRCTC",
-      "original_text": "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip",
+      "original_text": "Source: @markemahakelpredictions | Entity: IRCTC | Target: ₹15500.0 | Type: a specific stock trading tip",
       "news_headlines": [
         "IRCTC Share Price Today - IRCTC on NSE/BSE - scanx.trade",
         "Indian Railway Catering & Tourism Corporation Ltd Share Price Today NSE/BSE Charts - Alice Blue",
@@ -4432,7 +4673,7 @@
           "RVNL, IRFC, IRCTC: Railway stocks rally up to 12% in trade; here's why - Business Standard"
         ],
         "social_signals": [
-          "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip"
+          "Source: @markemahakelpredictions | Entity: IRCTC | Target: ₹15500.0 | Type: a specific stock trading tip"
         ]
       },
       "duplicate_count": 4,
@@ -4440,7 +4681,10 @@
         "ANN-LIVE-058",
         "ANN-LIVE-062",
         "ANN-LIVE-068"
-      ]
+      ],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-081",
@@ -4471,7 +4715,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     },
     {
       "record_id": "ANN-LIVE-082",
@@ -4566,7 +4813,10 @@
         ]
       },
       "duplicate_count": 1,
-      "duplicate_peers": []
+      "duplicate_peers": [],
+      "review_status": "pending",
+      "reviewer_id": null,
+      "reviewed_at": null
     }
   ]
 }

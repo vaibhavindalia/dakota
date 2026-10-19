@@ -1,0 +1,4402 @@
+{
+  "generated_at": "2026-10-19T14:21:20.561910+00:00",
+  "total_records": 82,
+  "source_distribution": {
+    "reddit_social": 114,
+    "financial_press": 135,
+    "google_news": 40
+  },
+  "corroboration_distribution": {
+    "contextualized_macro_or_neutral": 7,
+    "uncorroborated_promotional": 27,
+    "out_of_scope_non_financial": 25,
+    "corroborated_positive": 8,
+    "corroborated_negative": 2,
+    "conflicting_evidence": 13
+  },
+  "records": [
+    {
+      "record_id": "ANN-LIVE-001",
+      "ticker": "CRUDE_OIL",
+      "timestamp": "2026-10-08T12:20:26+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: crudeoil | (Urgent call) | Type: a commodity trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_CRUDE_OIL_001",
+        "E_DISC_CRUDE_OIL_001"
+      ],
+      "corroboration_status": "contextualized_macro_or_neutral",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-001_01",
+          "name": "Reddit (r/crudeoil)",
+          "url": "https://www.reddit.com/r/CrudeOil/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Crude Oil Trading",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-001_02",
+          "name": "Reddit (r/oil)",
+          "url": "https://www.reddit.com/r/oil/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Oil, gas, and other products that keep the world flowing",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-001_03",
+          "name": "Reddit (r/worldnews)",
+          "url": "https://www.reddit.com/r/worldnews/",
+          "domain_category": "reddit_social",
+          "extracted_title": "World News",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-001_04",
+          "name": "Reddit (r/mesmnqmorningbrief)",
+          "url": "https://www.reddit.com/r/MESMNQMorningBrief/comments/1x0pezr/daily_market_brief_published_thursday_october_8/",
+          "domain_category": "reddit_social",
+          "extracted_title": "DAILY MARKET BRIEF ~ Published Thursday October 8, 2026 Archive Reference Number: DMB-20260714-062",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-001_05",
+          "name": "Reddit (r/indiafinance)",
+          "url": "https://www.reddit.com/r/IndiaFinance/comments/1x0p4p6/should_i_fast_track_or_hold_the_purchase_of_land/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Should I fast track or hold the purchase of land worth of around 20 Lakh?",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-001_06",
+          "name": "Reddit (r/scarystories)",
+          "url": "https://www.reddit.com/r/scarystories/comments/1x0p0hd/the_revolving_door_act2/",
+          "domain_category": "reddit_social",
+          "extracted_title": "The Revolving Door [Act2]",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-001_07",
+          "name": "Reddit (r/nonsleep)",
+          "url": "https://www.reddit.com/r/Nonsleep/comments/1x0ozzt/the_revolving_door_act2/",
+          "domain_category": "reddit_social",
+          "extracted_title": "The Revolving Door [Act2]",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-001_08",
+          "name": "Reddit (r/goldjewellerypakistan)",
+          "url": "https://www.reddit.com/r/goldjewellerypakistan/comments/1x0otvb/gold_silver_rate_update_in_pakistan/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Gold & Silver Rate Update in Pakistan",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-001_09",
+          "name": "Reddit (r/pomorci)",
+          "url": "https://www.reddit.com/r/pomorci/comments/1x0omkj/iskustva_s_apex_shipping_preko_pasate/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Iskustva s APEX Shipping preko Pasate",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-001_10",
+          "name": "Reddit (r/oil)",
+          "url": "https://www.reddit.com/r/oil/comments/1x0ohwc/brent_crude_tops_105_are_we_headed_for_120_oil/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Brent Crude Tops $105: Are We Headed for $120 Oil?",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 10.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560481+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-002",
+      "ticker": "CDSL",
+      "timestamp": "2026-10-08T12:27:52+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: CDSL | Target: \u20b91500.0 | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_CDSL_002"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": 1263.4,
+        "change_pct": null,
+        "volume": 896613.0,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560497+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-003",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-08T12:29:41+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_003"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560502+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-004",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-08T12:41:25+00:00",
+      "original_message_text": "Source: @minish_fast | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_004"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560505+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-005",
+      "ticker": "CDSL",
+      "timestamp": "2026-10-08T12:00:00Z",
+      "original_message_text": "Source: Telegram | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_CDSL_005"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": null
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560509+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-006",
+      "ticker": "CDSL",
+      "timestamp": "2026-10-08T12:00:00Z",
+      "original_message_text": "Source: Telegram | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_CDSL_006"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": null
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560511+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-007",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-08T13:33:25+00:00",
+      "original_message_text": "Source: @Mystocksin | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_007"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560514+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-008",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-08T13:33:39+00:00",
+      "original_message_text": "Source: @Growx_intraday_groww | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_008"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560516+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-009",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-08T13:33:50+00:00",
+      "original_message_text": "Source: @Growx_intraday_groww | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_009"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560519+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-010",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-08T13:42:12+00:00",
+      "original_message_text": "Source: @Growx_intraday_groww | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_010"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560521+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-011",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-08T13:42:50+00:00",
+      "original_message_text": "Source: @Growx_intraday_groww | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_011"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560524+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-012",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-08T13:43:02+00:00",
+      "original_message_text": "Source: @Growx_intraday_groww | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_012"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560527+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-013",
+      "ticker": "VARANIUM",
+      "timestamp": "2026-10-09T17:22:52.006043+00:00",
+      "original_message_text": "Source: @ScamAlert | Type: pump_and_dump",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_VARANIUM_013"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 78.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560529+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-014",
+      "ticker": "RELIANCE",
+      "timestamp": "2026-10-09T17:22:52.006043+00:00",
+      "original_message_text": "Source: @FundamentalInvesting | Type: fundamental_analysis",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_RELIANCE_014"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 8.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560532+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-015",
+      "ticker": "TATAPOWER",
+      "timestamp": "2026-10-09T17:22:52.006043+00:00",
+      "original_message_text": "Source: @TechnicalChart | Type: technical_analysis",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_TATAPOWER_015"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 35.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560534+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-016",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T09:39:25+00:00",
+      "original_message_text": "Source: @testchannel | Target: \u20b9250.0 | (Urgent call) | Type: an index trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_016"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560537+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-017",
+      "ticker": "CDSL",
+      "timestamp": "2026-10-10T09:58:00+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: CDSL | Target: \u20b91500.0 | (Urgent call) | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_CDSL_017",
+        "E_DISC_CDSL_017"
+      ],
+      "corroboration_status": "corroborated_positive",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-017_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Central Depository Services (India) Ltd (NSE:CDSL) (Q1 2027) Earnings Call Highlights: Record ...",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-017_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "NSDL hits new low, down 8% vs IPO; CDSL up 748%; analysts decode divergence - Business Standard",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-017_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "NSDL, CDSL, BSE shares: Check key technical levels to watch out for - Business Today",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-017_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "NSE IPO opens: BSE, CDSL, other capital market stocks rally; here\u2019s why - Upstox",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-017_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "5 Fintech Stocks India 2026: Strong Future Roadmaps - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-017_06",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Central Depository Services (India) Ltd. Share Price Live Today - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-017_07",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Front page of Indian Stock Market",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-017_08",
+          "name": "Reddit (r/indianstreetbets)",
+          "url": "https://www.reddit.com/r/IndianStreetBets/",
+          "domain_category": "reddit_social",
+          "extracted_title": "IndianStreetBets",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-017_09",
+          "name": "Reddit (r/indiainvestments)",
+          "url": "https://www.reddit.com/r/IndiaInvestments/",
+          "domain_category": "reddit_social",
+          "extracted_title": "A place for Indians to discuss and evaluate Investments",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-017_10",
+          "name": "Reddit (r/ipo_india)",
+          "url": "https://www.reddit.com/r/IPO_India/comments/1x28ta1/jio_vs_airtel/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Jio vs Airtel",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 1263.4,
+        "change_pct": null,
+        "volume": 896613.0,
+        "delivery_pct": null,
+        "risk_score": 75.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560581+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-018",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T09:58:33+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_018"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560584+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-019",
+      "ticker": "SENSEX",
+      "timestamp": "2026-10-10T09:59:32+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: sensex | Type: an index trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_SENSEX_019",
+        "E_DISC_SENSEX_019"
+      ],
+      "corroboration_status": "corroborated_negative",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-019_01",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNc2dHVEQyeVRKay00cW52Wll2SmxKT2t0Ynd0dk9RbFJYdk5EcTBSaUlYRXBibERmZnlMV0gzZllKUGNMUmZBM2NmZGhkZmEyb0k0V2NkRW5Cb0NpWnJ3NlZOVE9uSjBUMExzcTdIVndkSzh2akd6NG4xdTJJOWxRVEoyVDNyc0VENWVMc3NQYVQ5UXRuY0NVV3BmVEJ0M3hBMUF0ZUNXUW5UZXN6bEFKU0dn0gGyAUFVX3lxTE1zZ0dURDJ5VEprLTRxbnZaWXZKbEpPa3Rid3R2T1FsUlh2TkRxMFJpSVhFcGJsRGZmeUxXSDNmWUpQY0xSZkEzY2ZkaGRmYTJvSTRXY2RFbkJvQ2lacnc2Vk5UT25KMFQwTHNxN0hWd2RLOHZqR3o0bjF1Mkk5bFFUSjJUM3JzRUQ1ZUxzc1BhVDlRdG5jQ1VXcGZUQnQzeEExQXRlQ1dRblRlc3psQUpTR2c?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Led by IT stocks, easing oil prices, Sensex, Nifty jump over 1% after two days of losses - OrissaPOST",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-019_02",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQazBsLXlLazNKQ0tJV3JleVhBcV9JZktMbkR1WVB1allUaGcyZjUzdk5HeGRpNmx2REJ0ZEV0c0JOMGo5UkVoTEpEWGNpN1BNd0s0a2lMdGd5RkFuWFFNM0RDcEdEdGRpUGZVclU1QmtTRkR6YWNjclJkdmU0anNrejQ4RkpLeWFPVEtmSVJVcS0xcVZNNHc1UjZWMDQ0ZU5LRnRkSTNVdV83QQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "India's Nifty and Sensex diverge following launch of new auction mechanism - Reuters",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-019_03",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcEpFMkg5YnJTVFFVMG44TUJIOURkVEF3N2duMEN5SDl6X1ZfaXlmb016WGtKZmhDa0Fod3hZRGo4Y0N6cDhNbUtOc2VtNkxIdW1hcXAtQnlqbzBCWnpMU0tzd1RuSjZZWUcwOWV1Nmo1Ykx6WVAwcGp4eWo0Smtzc3RTLWdhbGZjcHJKQnZvR1dVaFhCYlhkT2NNUl82MG1lNnBqdktHT21aV01MY1ZjS0ZRMlRsV016VGRRS2h5LU1NYl9uWE5fVk5RRzE1MnfSAdQBQVVfeXFMTmM3bF9POTF1RUc1b1hnTFhtVXg0WHRVWFFSamh6SmxMN0hnVHFUSlVyTFhwSHlYeUlGeElqZl9URmhpNzY2aGs3eHNHS1A2dk00Q0QybnYwZGhTM1JaRXBXY2w0dEU3VFVYUUFCN01HYktXQ3RDSEpQQ1p2bnRsdnFpcUsxY3Y5djNVYU1pNHhHZlhFT011b2dCTDJqV3FjTi1FOFlrLVE0RkF1QmNQR2JkOFVJbUNEOVItZGFxWjNlLTRwaUhseEIybU82dFU0VGMxakM?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Vishal Nirmiti shares list at 2% discount over IPO price on NSE, BSE - The Economic Times",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-019_04",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNQ1U4TXZLU3NVTnNha3RtZi1kWWVBX3NpRWliSV9UeWxvU3JqUFh0QW8zc2xhV285NzJFMHVDZXlvVHhLY2dScV9kUnRtbnUzeWVQNUVhN214Z0lkOHg1QWEzdm9udWp6dTdPZGxmMzMxVExsMk15dzdFVTZfVTJ4OWxMVzhoeUNGYzVkN016MF9SSlQxZkxqejlLc3QzWXh5d1d1bUNYNElGcVZibWZ4bWhQRXRRc05sUGNqTjVNUDlJeWJoU0J6X0lRQjhwQnFBeWdZRGplRHJHZDU1b2JmOWtqZUdjUdIB6wFBVV95cUxQbG1KLUxFZDY4X19ySk50dEZDZFdnOUxCd2xkRF9kMzQzalRkcGVSLUlCSnJfUWx5QVNRQjBEMXZ6YjdCTGdjdU5YX2ZlRGRHT1lDdUlIcWs5OVBOOTVpeDlkc20tM24wenFwc3ktc2YtQzMwbGNjQU5JdFRHYzVxWGJPaDdtVDBWNnRlSTJrUXNoQXA3dExRTUtfOS1jcFNxT0J2S3RabVcxbzRnVlpmcWtsVm5yN3Q5RVF0d2gyZnN0WWNxMnkyMWxVOFpZclhNQWdFU1MxMUd0cUNpUGFVSm9CZ015alhDbFg4?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Is stock market open or closed today? Check NSE, BSE October 2 schedule - India Today",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-019_05",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxPelB3V25HMlpKRURIV3NzTjFrRmlCdGpKSjFETVJYbHd6am1NZm5LRDJUSUE1bVBUUnNjLWdvVENJeHJaMUxBczluZFBrT20wbEFQbGxlNmkyd19LZ2VwUWstUC0takFHMFE0aDY4amdsc1hQaU5pOVpGUm5PMEk2RzI1TWxKRVROVkpUS2RxMlRKanVZWWdLeUc3WEx2UHB3U1l2SGVhSHBZWjdRdXFBd0JFdTFtWUdab3pBRDBNbDZRRlczWlZXZzlIaHc3STZWalpMLThwR0NiN2dZOEZRc2RLSWJnSktMRFhiaUZMNzZIWGY0LWFpSnhJQUUzVGpTUEZzQXpIb2FCalYyaHFHMm5MUFdrdmVZXy000gGgAkFVX3lxTFBVTVN6cUlVVmxpb3NnXzRnV1RaY3RXZy04VUNtOHh3VWhod1MyUVF2NHF3dDhvUnJGVWl3SThFaWlLM0EzTGI5djVkNjJVbE0yTFlMTFBYNlZrYXJPaW91ZmIxbXpKSVNDY2dRNDdyV0VnN2VZaGp3dzJlQmtqYmo3UWhKaGFEVTVLdGhzVU1RZk8xQjUtZGk3cTlPRF9jS1k4dTBiUDhWWXVMR1d3Ti1YUlM3elV6SE1OT1FpbmpTX055TGtvUXFhMVdRMTlWTGx1YkQ1a3IySEdLZzNDelAtbkl4bW5Qb01UVFRKdUV1dVNfdVZ0UVlaMWc2VmQtX0xCUHdob1plV0RxdWpzQi1DNk5IbnlBM0dXNUVYTjZseA?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "October stock market holidays 2026: Will NSE, BSE be open on Gandhi Jayanti? Check full trading holiday... - Moneycontrol.com",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-019_06",
+          "name": "Reddit (r/algotrading_nse_bse)",
+          "url": "https://www.reddit.com/r/AlgoTrading_nse_bse/",
+          "domain_category": "reddit_social",
+          "extracted_title": "AlgoTrading_nse_bse",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-019_07",
+          "name": "Reddit (r/tradersbet)",
+          "url": "https://www.reddit.com/r/tradersbet/",
+          "domain_category": "reddit_social",
+          "extracted_title": "tradersbet",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-019_08",
+          "name": "Reddit (r/india)",
+          "url": "https://www.reddit.com/r/india/",
+          "domain_category": "reddit_social",
+          "extracted_title": "India: United We Stand",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-019_09",
+          "name": "Reddit (r/indiaalgotrading)",
+          "url": "https://www.reddit.com/r/IndiaAlgoTrading/comments/1x2b2f6/250gb_of_data_nsemcxbse_fno/",
+          "domain_category": "reddit_social",
+          "extracted_title": "250GB of data (NSE+MCX+BSE FnO)",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-019_10",
+          "name": "Reddit (r/buildinpublic)",
+          "url": "https://www.reddit.com/r/buildinpublic/comments/1x29vqg/ill_do_free_onescreen_ux_audit_for_vibecoded_apps/",
+          "domain_category": "reddit_social",
+          "extracted_title": "I'll do FREE one-screen UX audit for vibe-coded apps (3 slots)",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 10.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560624+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-020",
+      "ticker": "SENSEX",
+      "timestamp": "2026-10-10T10:00:01+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: sensex | Type: an index trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_SENSEX_020",
+        "E_DISC_SENSEX_020"
+      ],
+      "corroboration_status": "corroborated_negative",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-020_01",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNc2dHVEQyeVRKay00cW52Wll2SmxKT2t0Ynd0dk9RbFJYdk5EcTBSaUlYRXBibERmZnlMV0gzZllKUGNMUmZBM2NmZGhkZmEyb0k0V2NkRW5Cb0NpWnJ3NlZOVE9uSjBUMExzcTdIVndkSzh2akd6NG4xdTJJOWxRVEoyVDNyc0VENWVMc3NQYVQ5UXRuY0NVV3BmVEJ0M3hBMUF0ZUNXUW5UZXN6bEFKU0dn0gGyAUFVX3lxTE1zZ0dURDJ5VEprLTRxbnZaWXZKbEpPa3Rid3R2T1FsUlh2TkRxMFJpSVhFcGJsRGZmeUxXSDNmWUpQY0xSZkEzY2ZkaGRmYTJvSTRXY2RFbkJvQ2lacnc2Vk5UT25KMFQwTHNxN0hWd2RLOHZqR3o0bjF1Mkk5bFFUSjJUM3JzRUQ1ZUxzc1BhVDlRdG5jQ1VXcGZUQnQzeEExQXRlQ1dRblRlc3psQUpTR2c?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Led by IT stocks, easing oil prices, Sensex, Nifty jump over 1% after two days of losses - OrissaPOST",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-020_02",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQazBsLXlLazNKQ0tJV3JleVhBcV9JZktMbkR1WVB1allUaGcyZjUzdk5HeGRpNmx2REJ0ZEV0c0JOMGo5UkVoTEpEWGNpN1BNd0s0a2lMdGd5RkFuWFFNM0RDcEdEdGRpUGZVclU1QmtTRkR6YWNjclJkdmU0anNrejQ4RkpLeWFPVEtmSVJVcS0xcVZNNHc1UjZWMDQ0ZU5LRnRkSTNVdV83QQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "India's Nifty and Sensex diverge following launch of new auction mechanism - Reuters",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-020_03",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcEpFMkg5YnJTVFFVMG44TUJIOURkVEF3N2duMEN5SDl6X1ZfaXlmb016WGtKZmhDa0Fod3hZRGo4Y0N6cDhNbUtOc2VtNkxIdW1hcXAtQnlqbzBCWnpMU0tzd1RuSjZZWUcwOWV1Nmo1Ykx6WVAwcGp4eWo0Smtzc3RTLWdhbGZjcHJKQnZvR1dVaFhCYlhkT2NNUl82MG1lNnBqdktHT21aV01MY1ZjS0ZRMlRsV016VGRRS2h5LU1NYl9uWE5fVk5RRzE1MnfSAdQBQVVfeXFMTmM3bF9POTF1RUc1b1hnTFhtVXg0WHRVWFFSamh6SmxMN0hnVHFUSlVyTFhwSHlYeUlGeElqZl9URmhpNzY2aGs3eHNHS1A2dk00Q0QybnYwZGhTM1JaRXBXY2w0dEU3VFVYUUFCN01HYktXQ3RDSEpQQ1p2bnRsdnFpcUsxY3Y5djNVYU1pNHhHZlhFT011b2dCTDJqV3FjTi1FOFlrLVE0RkF1QmNQR2JkOFVJbUNEOVItZGFxWjNlLTRwaUhseEIybU82dFU0VGMxakM?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Vishal Nirmiti shares list at 2% discount over IPO price on NSE, BSE - The Economic Times",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-020_04",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxNQ1U4TXZLU3NVTnNha3RtZi1kWWVBX3NpRWliSV9UeWxvU3JqUFh0QW8zc2xhV285NzJFMHVDZXlvVHhLY2dScV9kUnRtbnUzeWVQNUVhN214Z0lkOHg1QWEzdm9udWp6dTdPZGxmMzMxVExsMk15dzdFVTZfVTJ4OWxMVzhoeUNGYzVkN016MF9SSlQxZkxqejlLc3QzWXh5d1d1bUNYNElGcVZibWZ4bWhQRXRRc05sUGNqTjVNUDlJeWJoU0J6X0lRQjhwQnFBeWdZRGplRHJHZDU1b2JmOWtqZUdjUdIB6wFBVV95cUxQbG1KLUxFZDY4X19ySk50dEZDZFdnOUxCd2xkRF9kMzQzalRkcGVSLUlCSnJfUWx5QVNRQjBEMXZ6YjdCTGdjdU5YX2ZlRGRHT1lDdUlIcWs5OVBOOTVpeDlkc20tM24wenFwc3ktc2YtQzMwbGNjQU5JdFRHYzVxWGJPaDdtVDBWNnRlSTJrUXNoQXA3dExRTUtfOS1jcFNxT0J2S3RabVcxbzRnVlpmcWtsVm5yN3Q5RVF0d2gyZnN0WWNxMnkyMWxVOFpZclhNQWdFU1MxMUd0cUNpUGFVSm9CZ015alhDbFg4?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Is stock market open or closed today? Check NSE, BSE October 2 schedule - India Today",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-020_05",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxPelB3V25HMlpKRURIV3NzTjFrRmlCdGpKSjFETVJYbHd6am1NZm5LRDJUSUE1bVBUUnNjLWdvVENJeHJaMUxBczluZFBrT20wbEFQbGxlNmkyd19LZ2VwUWstUC0takFHMFE0aDY4amdsc1hQaU5pOVpGUm5PMEk2RzI1TWxKRVROVkpUS2RxMlRKanVZWWdLeUc3WEx2UHB3U1l2SGVhSHBZWjdRdXFBd0JFdTFtWUdab3pBRDBNbDZRRlczWlZXZzlIaHc3STZWalpMLThwR0NiN2dZOEZRc2RLSWJnSktMRFhiaUZMNzZIWGY0LWFpSnhJQUUzVGpTUEZzQXpIb2FCalYyaHFHMm5MUFdrdmVZXy000gGgAkFVX3lxTFBVTVN6cUlVVmxpb3NnXzRnV1RaY3RXZy04VUNtOHh3VWhod1MyUVF2NHF3dDhvUnJGVWl3SThFaWlLM0EzTGI5djVkNjJVbE0yTFlMTFBYNlZrYXJPaW91ZmIxbXpKSVNDY2dRNDdyV0VnN2VZaGp3dzJlQmtqYmo3UWhKaGFEVTVLdGhzVU1RZk8xQjUtZGk3cTlPRF9jS1k4dTBiUDhWWXVMR1d3Ti1YUlM3elV6SE1OT1FpbmpTX055TGtvUXFhMVdRMTlWTGx1YkQ1a3IySEdLZzNDelAtbkl4bW5Qb01UVFRKdUV1dVNfdVZ0UVlaMWc2VmQtX0xCUHdob1plV0RxdWpzQi1DNk5IbnlBM0dXNUVYTjZseA?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "October stock market holidays 2026: Will NSE, BSE be open on Gandhi Jayanti? Check full trading holiday... - Moneycontrol.com",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-020_06",
+          "name": "Reddit (r/algotrading_nse_bse)",
+          "url": "https://www.reddit.com/r/AlgoTrading_nse_bse/",
+          "domain_category": "reddit_social",
+          "extracted_title": "AlgoTrading_nse_bse",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-020_07",
+          "name": "Reddit (r/tradersbet)",
+          "url": "https://www.reddit.com/r/tradersbet/",
+          "domain_category": "reddit_social",
+          "extracted_title": "tradersbet",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-020_08",
+          "name": "Reddit (r/india)",
+          "url": "https://www.reddit.com/r/india/",
+          "domain_category": "reddit_social",
+          "extracted_title": "India: United We Stand",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-020_09",
+          "name": "Reddit (r/indiaalgotrading)",
+          "url": "https://www.reddit.com/r/IndiaAlgoTrading/comments/1x2b2f6/250gb_of_data_nsemcxbse_fno/",
+          "domain_category": "reddit_social",
+          "extracted_title": "250GB of data (NSE+MCX+BSE FnO)",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-020_10",
+          "name": "Reddit (r/buildinpublic)",
+          "url": "https://www.reddit.com/r/buildinpublic/comments/1x29vqg/ill_do_free_onescreen_ux_audit_for_vibecoded_apps/",
+          "domain_category": "reddit_social",
+          "extracted_title": "I'll do FREE one-screen UX audit for vibe-coded apps (3 slots)",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 9.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560660+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-021",
+      "ticker": "RBI_RATE",
+      "timestamp": "2026-10-10T10:20:05+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: interest rates | Type: a macroeconomic trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_RBI_RATE_021",
+        "E_DISC_RBI_RATE_021"
+      ],
+      "corroboration_status": "corroborated_positive",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-021_01",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOampkWlN1cWtWclgyRENzRU9SVXpMMnNRcnVpUjNrNGdRRU42QjV3bUVRMVFMelFOS0hNLWVROWJOQVlEc0c3dVlMRDE1S08ySmdBeHkzLXZHeC02VGdXVVg1c1FMekgwYm45STB5VGMwTmROZC1qeVhQcWY5QnpkZUFtdDhfMEE4TWhlejlDY0xObEJiQ3pjU3JKenJDLWVQYmRGRGR6djl3TEFEQkVBblJSaGFfbWVCeGhrcVFfNHNCaDQtdkloWFgzcERxN2o0RndTX2VKSGNXTkowSldNb0Q1aDNwRWJJSHlFdkVxbXFxWG42eFh3NlJTcVlUUWvSAYQCQVVfeXFMUEQyNzlHRDJMLUlSdFdlOE9fQTl0WTdhWUpTdzNycl83LUhKTFluaGl6d3dLQXlLT1FVMXlUaVAwazVKdGpZcldYLUtKenJkZFdIMlB1WEhrMnRSeUJJTDFPdVlmWVRtRjBZalJ0bVFSYWp1eHZvRmtMUnRrSFl1MUplTVoxc0pfWmtKZHdPLXY3bXZraEVLQXJqMkxJT0hBQTN4MzN2NnppRG9KSk1fUHNLMm5oeDJ1NExDY0ZGaExjY3FQdWhIUnFHQmxWelJ5WWNHOUNpaW9zNUVSVkxaYy0xdkw3bzJWWmU0SHB4TnJLcURLN0RwZi02Q1VhNEV0WXJ0cms?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "RBI hikes repo rate to 5.5%: Experts suggest buying these top 10 rate-sensitive stocks post-monetary... - Moneycontrol.com",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-021_02",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQYXlXS3EwSzRVZ3puMU4xc0w5V0IzRWR0bkQ4UmtNQnVkLUVFSlk2N3Bma1hlMXYtUFAtcFppa1laeWFjT3I2WUpZRlQxUTlRZXVSMTVJX0M5aFIxVlpSUUZnZWpyYTQzTjFXRU5TQk9WdmdfV20xRHNFaTBGWGRKa0liNjhqeGs5SlFFTV8tR3daZHVZZjFaSmNGVExoVjl6eXhtbURYaHpKaE8xV2U4eWl2NkVRbklBZmxJd0lmcGNxaGlfWTln?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Stock Market Open Report Today, October 6, 2026: Sensex, Nifty Edge Higher as Investors Await RBI Rate Decision - HDFC Sky",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-021_03",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPdmhreGZVWVpNS2t4a3dpMFhWYWVnT0ZvSWw2S29qcWhiTU0yOU9FZkZiVFRJeDVtVVZIaVZFYTNyS2VKOFhHM2d3YXZScjMyMjBlQy1VaWxYTy10UU1vZWRGSURHRDBlOGUzSDJscHhoZmNhNWNMOE1iSlk3SVh3ZTd1MDlCbUprVFUxNnJfdnJCYzNjV2tmczVmalRvU3BrMGdZTkZtSjRnSEZ3TVNBenVuMk5WV3FPTk92ZFQxbWlTUmQ4aWwtUFc3RFFrZGRSMHlIb9IB2gFBVV95cUxPa0xxWUJ5S09JVnJ3RkRwZUY2YjBxV3Z0bzlRVDBadF9XeDFTZ0ZmV1JzOWxFeTJwRDYxOWxrWnFqVWZtZHlKcVJOTmdka0RGRWVVLTB5VzFiZ3A5M2xXd2V2OF80cGhQS1dydngzaTVqaUZMc3ZnZlFhaWFERng1djlpSVhrSkxfNzUtYTBBRlVwX2UyX2MxZ1lkczYzZ0VOVU5abE95aWxvVWNuNXd6aXRTRHAxWFhNTzV0eVVUdjA5NGZJY0hHdkstTFp4QWtOUDNVVzFDYVotZw?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Monetary Policy statement by RBI Governor Sanjay Malhotra | Repo rate | NSE | BSE - The Economic Times",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-021_04",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOUXdVNmR0TjJhazYwRExtODZZWGMxU2ZXQWlFRkt0Y3Z2RVAtSmlMV0dCbzY0SG9sR1NXOE5UeEt4ZERqVUxpVnF6VnIwUjZXcUlrTGV5aXJraTlrZFFCWVBKeXNFY3NRbzI3cWlrNF91MEVhRE8zTXdDa3JUSlBoc3R5MmZTZVVwRHF6dk9JYTRnMTcwSnMtR2FMV1JiTHYtalN5eTFZSlJjeFZmTFYxSS1qX0dURFB3blFoaWFoWWYzZ0h3OWR6cDM0QdIB0gFBVV95cUxPWkNUYUl4Q296Slg3aE1RbE5mcGN3LWxUVVNXRy1xY0NjZ2MwRjdGWmEyOGJsZlFCSHR6NXFtalkyZFI2aWV3ckpFTEU4a2JZR3k0aUwxc1N2M1RIbXlzemt3U1B4WjVESklvWFVnd1Y2eHFJZUp2MmlCc1JPajhETWpnZy1JdGpGcEhuVkI4dFJ4ZHdSemtxdjQ4c01QQXlGbGU4NVFfQVdfd1V2T0pYNUN6Wllkd1lmN05OTll5RkN2UndiRFgwbkxFclQtTWhOdWc?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Stock markets rally as RBI cuts interest rate; Sensex jumps 447 points - The Hindu",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-021_05",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxPMm5KendhS0VvRUZmVUZhYTBwV3hYS3lQa0stTzB6YXJjV1RqdlVEV0ZjWGVlMjdCWl9CM0t1SkxlVHdZNFJmM1lQZ0FTclpjMFZUM3h4QVlCd0JzRjl6a0NKbzl4VVRMVW5LcUxUZDVXV0pIcVN1bnRzMVctRG92dmFFT1ZhV2JLcVFzLUdFVkNrUE5qbEdZTkh4UkJwanYzV0E2clA5NmlTd21fOGZBd2VGQTRVR1pHT3VIUWJOeUhFTXdKcHp6RjF2UHhwMTBWVVBKRUNkYmFBdVY5ZmljaEt6bzFWUUppZ2pwcExTelhoeEpCajN1ZGtHdl9CR3VTYTg5VGRjNFrSAY4CQVVfeXFMUDExYlluLW13WGc3Mmpic1lzN19naG50NlhfdmdKM1Q0eThQREZPVExVX2JiOTNyaFpFVDBhdFA2OUpiaUotTFEwaFBFZnFUeVhldlVTZjBrRzVOSjVDSVpoRzdLcEV5eEgxS1dKUmtqcUk0c2p5OGowa1NhX2ozUERyRWdZWFFNS1pSb3ZtRk8tQXA0MFhIU20tWUJqeElpV3ZIZl95dnRrNFNrZUJxOXktQmZqUVdjU2RBNTFiWlhtaW5vNzZtaDEyZ3hOcUtXWlRGcUdoTjR5ODFPX2htMDBaWHktRXh1cGVlbkkxOFlTc1RMZUo3dkFGcFFaajMwLUMwenJWeTZuTXlpVFJn?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Sensex ends 117 points lower after RBI policy meet outcome: 10 key highlights from Indian stock market today - Livemint",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-021_06",
+          "name": "Reddit (r/india)",
+          "url": "https://www.reddit.com/r/india/",
+          "domain_category": "reddit_social",
+          "extracted_title": "India: United We Stand",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-021_07",
+          "name": "Reddit (r/indiainvestments)",
+          "url": "https://www.reddit.com/r/IndiaInvestments/",
+          "domain_category": "reddit_social",
+          "extracted_title": "A place for Indians to discuss and evaluate Investments",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-021_08",
+          "name": "Reddit (r/forumrbi)",
+          "url": "https://www.reddit.com/r/forumRBI/",
+          "domain_category": "reddit_social",
+          "extracted_title": "forumRBI",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-021_09",
+          "name": "Reddit (r/indiamoney)",
+          "url": "https://www.reddit.com/r/IndiaMoney/comments/1x27x5z/is_airtel_payments_bank_better/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Is Airtel Payments Bank better?",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-021_10",
+          "name": "Reddit (r/tamilyapping)",
+          "url": "https://www.reddit.com/r/tamilyapping/comments/1x27urn/guys_is_airtel_payments_bank_good/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Guys is Airtel Payments Bank good?",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 10.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560690+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-022",
+      "ticker": "INFLATION",
+      "timestamp": "2026-10-10T10:22:18+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: inflation | Type: a macroeconomic trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_INFLATION_022",
+        "E_DISC_INFLATION_022"
+      ],
+      "corroboration_status": "corroborated_positive",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-022_01",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNd2lyNzEwamJqaFFnV1d3R1hUSWg1V1M5eWFpSzVMYmZNM2gydENPeTkxQmJuLXVaUW5UNU5rX3hrYjJURUI3V1QxRVVPdDlpVXJwZWthM1d4UHhPMll3TDJjQTEzLTMwSEwzeUZ4ZE1yckswZVV2VnlfWDl5b0lDVURsR180c2RRYVpmNkdycHpVNHlzMmV2YlJOQ2ZtT2NMOWIxTTdiOHV1SFN1aUdBWVRsUzBqTTdmWG8wdzNn?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Indian shares decline as Middle East conflict raises inflation worries - Reuters",
+          "corroboration_type": "neutral_context",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-022_02",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPZE1wNG5xTlUzbjEteWc3bDRyRjVrTU5KLXNPTThTWDVkZXdqOVR6VHJCajI2bG1zYjNVbXNpU0ZTdzV6My1MMDJVaDU2bGkxRDg3V0tkb2FBU1dCZjVmTTB1Rm5KNHAyUFpMME5mR0RWeDlEbUdfbzB1Ym9iVTBkYnYwTXJqU2tqTlF5QzduRXpUUndSU2JCSXBKS3RxVGp0Z1hDdlY5LXNic2pWMTV4U1pZWjZObkxhblU5VHEzT0JWc2o0SWlnbTVScjRqbHBQOC0wLTBB0gHjAUFVX3lxTE9BNHJvcmJTTEJHTzVRYUZGd2RIeDBOQnBWOW1pd0VZamJ0WUxKLUVoVEpScVZvbktmOFZjS0cwQS1FZ3JvcHRKQWRwc2xzMVB6a29ERGJ3Q2NUalc4T3lkYVQ3T01qLU5EaERfZFQtc2lYeXE3eG1tS3ZTRzhzR2RqQnE3bjVPSTdPWXczWVh3aXRuUzh5U04zcHRpRi1pblY1czdyS1BLRW8tUlhoS2diX09oWHZ2RFVFQnJ3Zm1iYUJrT2tRaGVnN3hpMy1QNUF5NDZ6ZVA1OXBZTjBlQjdQM0x3?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Stock markets end lower as rupee weakness and fuel price hike stoke inflation worries - The New Indian Express",
+          "corroboration_type": "neutral_context",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-022_03",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxPclctQTg5M1NXd1BTLVEtbHFQYlBtR1hjckgxQmFvWHJCVWNkTGRuUE9uZEU4dXJXSG5FaHIzdUNtMnVxMUVETF9VVUZUX01sS3pOcUV6N0hZOGtjWUlGaUtSRGRFSFFIbHMxNHJ3c1JnT085Z0VmSVQ5NmRMbjhJRmZIT3lpcnBUWEJheHdzUTlPcUs3ZzRnRzVBX3JEdVRWSDFUOWc0bkFtTzBwV3U0UXI4VHlRb1V0YWJmeXBxR2E0bEZhNnVLOGFqdGp1bHlFdk40RU1nQ0NVNXhHUmd0YWhFRkYtSjRuTGlDSGM1ZXg0UnZXNEHSAf4BQVVfeXFMT2VTVWNrNjFrOEhIY3NiZm5XUGdPMzJqbkQwdEd1YVVqbG9WWm9ZTDJWQ0pNY0ZVX0JqTHVMYnNZZlV0cTc1SjN1eUI0d3d1alVXUnYtWXFDM0dHQjlabTlHVUxYbzBneG9LbG1ZaGJFYnlhSWpKM2lVQTJ1MjNoVGdYaDRlSThRamNOdkl6VGRPa0dLQ1JZckVTRmNneGpZOGowX3J0YlBLSHM4dEFGTFBWaGpyaVAwZXBkYnFLQVhaVDVnaUhtRktzM29vUWdLeGc3cnZXY3hKb3JfWVlUUUotM3VRemU4bWlFTkFsMEhNcjBGVlBmejd6eGhCX1E?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "West Asia Conflict, Crude Oil Prices, US Inflation Data To Steer Stock Markets This Week: Analysts - NDTV Profit",
+          "corroboration_type": "neutral_context",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-022_04",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxNd1MzRHU4NUFGWGxyeEd6dTNIYmtpaEl1Y1NlcGd1OUtVVldFeFJGd0Q3ZW9uMWlRQ3ZlMFlPeFYta3M2eE9mdk1KQ1JPb3Zkc3h2aHhDaFlyQjBRWEJzOXdFX1dmRW42Y0l1U2pKYm5TVzV2LVVScmpjOWZYV3NtS0NvT2FTai1HU1Z4bU9vTUgxX2dmV2l5SFVSMGJSaDY3U1M0R21PX0NRdG1XYmdQd0ZtdG94UDVxZ2dTSlJvZUt5Tnl3ejZxbnhLVkFxbWNZVTFKVmpRQTJXeHRVZzlNdU9FbFhFeTVBZElIQ2c5RFVSM2J6dXNmMjV5VV9QSFJwWkZMYnphNFBhai1IakhKWFVsMNIBmAJBVV95cUxQaWVIcUZsWVZEUmhLUEVoeXZwVTZ3eXhXRXJ4TDVtaGlQZThmTXV6YndjcVEyWkJFNWFCVzFVNkVrUFRGdEV2b3ZVdDlHcFY4V3lpa1EybTQ1T0FjOGZjY0RGbTlBaUpqMHF1NWQwWXN6Y1I1Y3NwUmZCd0pfcGxfdGpnakhKVU5qZm82MjJQd2xOdlU1d0dfNGU3U2g2R19iWUNXQ0pTY3NyRm54OFFuSWxhLWltOUs3MEFubF90cEt0NDRfYzNsZ2RZWUJPZXczN1lXdXJtUDdnRy1sZkQ0NzIzVFo2cUhDTHRtcEUzbzdoMnpLV1RSRlN6cEYyVlltSlpER0I0a0FHY3MtQkVPN2o4Ul9uMl9Q?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Sensex, Nifty prediction for Tuesday: NSE, BSE closed tomorrow on Ganesha Chaturthi - Outlook for stock market 15th Sept - Livemint",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-022_05",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNSVF5MHVrUGwyTGUtZTR0WGo1RF82M2dKQmVFdXFENkRMMF81WHowRDVkMjZWZkRZQ2QyLXk5ZXVaMXRHeENqVkt2Z0Jzek02RXBYbHZkRE9LTHlMRHFJb2x5XzV0TlVhOHRkSlQwcXZ2M01jaXNFR2dIclM0bk0xbzFaMEk0a0RFXzRkdkItRGhLZ3NoNm9IMFh4VFgzYjdXOE5NRFZHS29oREM3cnl3SUZIREdqTWlNakdYVmVza1FxX0I2ZWRmNmJJbFk5WUhVLVE?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Sensex, Nifty Open Modestly Higher as Nvidia Lift Meets Caution - HDFC Sky",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-022_06",
+          "name": "Reddit (r/inflation)",
+          "url": "https://www.reddit.com/r/inflation/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Trumpflation",
+          "corroboration_type": "neutral_context",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-022_07",
+          "name": "Reddit (r/inflation_art)",
+          "url": "https://www.reddit.com/r/Inflation_Art/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Inflation_Art",
+          "corroboration_type": "neutral_context",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-022_08",
+          "name": "Reddit (r/econinflation)",
+          "url": "https://www.reddit.com/r/EconInflation/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Economic Inflation",
+          "corroboration_type": "neutral_context",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-022_09",
+          "name": "Reddit (r/securityanalysis)",
+          "url": "https://www.reddit.com/r/SecurityAnalysis/comments/1x2bp8v/mercado_libre_meli_a_deep_dive_into_melis_credit/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Mercado Libre (MELI): A deep dive into MELI\u2019s credit business",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-022_10",
+          "name": "Reddit (r/supplychain)",
+          "url": "https://www.reddit.com/r/supplychain/comments/1x2bov2/7elevens_us_arm_looks_to_move_supply_chain/",
+          "domain_category": "reddit_social",
+          "extracted_title": "7-Eleven\u2019s US arm looks to move supply chain in-house as inflation bites",
+          "corroboration_type": "neutral_context",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 10.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560729+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-023",
+      "ticker": "TCS",
+      "timestamp": "2026-10-10T10:24:19+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_TCS_023",
+        "E_DISC_TCS_023"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-023_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-023_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-023_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-023_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-023_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-023_06",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-023_07",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS stock falls after MHP acquisition: Brokerages bearish; Citi, HSBC flag integration risks, falling... - Moneycontrol.com",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-023_08",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Manika Plastech shares list at par with IPO issue price on NSE, BSE - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-023_09",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Consultancy Services Ltd. Share Price Live Today - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-023_10",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE \u2014 Complete Guide - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 2100.0,
+        "change_pct": null,
+        "volume": 2382510.0,
+        "delivery_pct": null,
+        "risk_score": 3.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560768+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-024",
+      "ticker": "TCS",
+      "timestamp": "2026-10-10T10:25:53+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_TCS_024",
+        "E_DISC_TCS_024"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-024_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-024_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-024_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-024_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-024_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-024_06",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-024_07",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS stock falls after MHP acquisition: Brokerages bearish; Citi, HSBC flag integration risks, falling... - Moneycontrol.com",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-024_08",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Manika Plastech shares list at par with IPO issue price on NSE, BSE - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-024_09",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Consultancy Services Ltd. Share Price Live Today - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-024_10",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE \u2014 Complete Guide - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 2100.0,
+        "change_pct": null,
+        "volume": 2382510.0,
+        "delivery_pct": null,
+        "risk_score": 3.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560802+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-025",
+      "ticker": "TCS",
+      "timestamp": "2026-10-10T10:27:24+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_TCS_025",
+        "E_DISC_TCS_025"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-025_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-025_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-025_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-025_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-025_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-025_06",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-025_07",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS stock falls after MHP acquisition: Brokerages bearish; Citi, HSBC flag integration risks, falling... - Moneycontrol.com",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-025_08",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Manika Plastech shares list at par with IPO issue price on NSE, BSE - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-025_09",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Consultancy Services Ltd. Share Price Live Today - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-025_10",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE \u2014 Complete Guide - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 2100.0,
+        "change_pct": null,
+        "volume": 2382510.0,
+        "delivery_pct": null,
+        "risk_score": 3.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560831+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-026",
+      "ticker": "TCS",
+      "timestamp": "2026-10-10T10:28:45+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: TCS | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_TCS_026",
+        "E_DISC_TCS_026"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-026_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-026_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Becoming \u2018AI native\u2019 might not be as profitable as you think. Unless your company does it right",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-026_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Porsche sharpens focus on core business with MHP sale to India\u2019s TCS",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-026_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Porsche sells MHP consulting unit to TCS in $1.5 billion AI deal",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-026_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-026_06",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS slips 3%; analysts bullish on AI traction, split on growth outlook - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-026_07",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS stock falls after MHP acquisition: Brokerages bearish; Citi, HSBC flag integration risks, falling... - Moneycontrol.com",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-026_08",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Manika Plastech shares list at par with IPO issue price on NSE, BSE - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-026_09",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Consultancy Services Ltd. Share Price Live Today - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-026_10",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Stocks List 2026: All Tata Group Companies on NSE/BSE \u2014 Complete Guide - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 2100.0,
+        "change_pct": null,
+        "volume": 2382510.0,
+        "delivery_pct": null,
+        "risk_score": 3.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560859+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-027",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T10:33:52+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_027"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560862+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-028",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T10:35:49+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_028"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560865+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-029",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T10:37:58+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_029"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560867+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-030",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T10:43:04+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_030"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560870+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-031",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T10:49:48+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_031"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560872+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-032",
+      "ticker": "RELIANCE",
+      "timestamp": "2026-10-10T10:50:37+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: RELIANCE | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_RELIANCE_032",
+        "E_DISC_RELIANCE_032"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-032_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Reliance Industries Share Price - Live NSE: RELIANCE Stock Price & Chart - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-032_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Reliance Industries Ltd Share Price Today NSE/BSE Charts - Alice Blue",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-032_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Reliance Shares Drop Before Earnings - Rediff MoneyWiz",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-032_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Reliance stock sheds 8% in 4 days; erodes \u20b92 trn market cap from Jan high - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-032_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Ambani Stocks 2026: Complete List of Mukesh Ambani's Companies on NSE/BSE - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-032_06",
+          "name": "Reddit (r/selfreliance)",
+          "url": "https://www.reddit.com/r/selfreliance/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Self-Reliance: Reliance on one's own powers and resources",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-032_07",
+          "name": "Reddit (r/reliancejio)",
+          "url": "https://www.reddit.com/r/RelianceJio/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Reliance Jio",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-032_08",
+          "name": "Reddit (r/india)",
+          "url": "https://www.reddit.com/r/india/",
+          "domain_category": "reddit_social",
+          "extracted_title": "India: United We Stand",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-032_09",
+          "name": "Reddit (r/indiadealsexchange)",
+          "url": "https://www.reddit.com/r/IndiaDealsExchange/comments/1x2c4bm/h_multiple_gc_w_upi/",
+          "domain_category": "reddit_social",
+          "extracted_title": "[H] Multiple Gc [W] Upi",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-032_10",
+          "name": "Reddit (r/himachalpradesh)",
+          "url": "https://www.reddit.com/r/HimachalPradesh/comments/1x2c3i1/business_owners_in_himachal_lets_have_a/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Business owners in Himachal, let's have a discussion. (Restaurant and cafe owners)",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 1218.0,
+        "change_pct": null,
+        "volume": 18003127.0,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560906+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-033",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T10:56:57+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_033"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560909+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-034",
+      "ticker": "GOLD",
+      "timestamp": "2026-10-10T10:57:29+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: gold | Type: a commodity trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_GOLD_034",
+        "E_DISC_GOLD_034"
+      ],
+      "corroboration_status": "contextualized_macro_or_neutral",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-034_01",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBiNmZ4WXlBQnlheVVJLTNHYndXWVlJeEZSdFZnR05PVVdpYlFfNFhyc1pxN1NrdER0eTZ1R0NtZXQxYm8wdGstLXdxRmhhWEVTeDhoVQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "SENCO Share Price Today - Senco Gold on NSE/BSE - scanx.trade",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-034_02",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1EdUJ3OEYxOFJlZ3lhU2JxOUlqNG5JODN2dU1jVURSWW9zRk9ldG9PbmF0bXB5U0tZcWZ3OTRTcGtFWWJmWUFENy1qYm1PODQzck9vWWtUN1FiUm53VGRTZXdsNnU?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Tata Gold Exchange Traded Fund Share Price NSE/BSE - Live Price Charts & Performance - HDFC Sky",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-034_03",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Id2JuaE92LXZVR1FIRHdsM0MzOWNmSndrRXotbnpyMHZtanktc3RjR3J6X2duZzcyR19VX0NMbUVKaEl2TGpfc1Y3QUxWcC1YcTVwWjhnRjNPcHdoVTB4Z1JvS0tSM2s2RzFEYkRQVTFjajg?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "GOLDBETA Share Price Today - UTI GOLD ETF Stock Price Live NSE/BSE - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-034_04",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMingJBVV95cUxOVU1nbWR5UDEzVm5hNFUyREZ1ZjdPdWZDTzVsU3pReFpLY0RWYWgtdFRiM1pTel9xQU1uUWtaZlJpSEF4Z09LS25tbVpOanlWY3FuVE1Yd2xxdTI0SEJ6UVpldmlGT1dtNGtuQ1Uzbmo4SEVaN2FWZGc5dThOOXJ4Zm51UjJpNFUyZXAwRWlZcWQzMUlVOTZQbEs0M1FJNzVXMzQzTTBQSm9TVHJmLTctZ3dITC1lbUJCSXpQd0pTYWdnRkY5aXVGX0dRQmtJX3FQaVNGZGU0VC1mbVZDbEZkR1h6LWVoM3NzY0wtUjVmR1FwT3IyWF9qaXFrOFhMcXQ5MTRkQkJPSmJtY0JnOEZ1WXBxZzlCeXFZT25BbTd30gGjAkFVX3lxTE9fUmhJRm9zcXFXeDg5blVxcTduZTcyVG9SNi1FRURTY0NrMk9CenFuOERMbDV2eGhWbGV5UC1DRnBBc0l3d0dPc2w0VVhtMmlnTnI0enFEM2RGM2hlLUxrcHE5bjNRN0s1Z3pENzF2RXBvV2ZNWEFPcDljemFCdlZiTEFuNU5BbTdKbzhWQXdrOTc3OEZnUDVYYmdVRy1zRVBSblJWajJoRTRjX3JWWnJNeDI2bDVaZVlOaXNGdWRoaGhjOVBuVHkzWFczY28yNlpRcjlTbjFDRkFLeGZ2RG9VSWFqTWplRXRIcmFsMFBwMjN4RnhkRHJGU1hBay1SSGxyeUM5YmtJbWxjUmhPU2hDVzBMS2YzM2JhS015TXQ5TUF3UQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Stock market holiday on May 1: Are NSE, BSE open or closed on Maharashtra Day? Check full trading... - Moneycontrol.com",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-034_05",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE40REhaeW1Fa2N2R0lEeVBVcGgtZWFyU1BTa2RSdDNnS2JoY1BSNS0tZ3VEZ3ZHMFNLV2FDTk9FeXFSbVR5d2FnUDFjMHBPVHhURU5COXJjYVJ2T254SnVyMg?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "CHOICEGOLD Share Price Today - Choice Gold ETF Stock Analysis - Equitypandit",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-034_06",
+          "name": "Reddit (r/gold)",
+          "url": "https://www.reddit.com/r/Gold/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Gold",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-034_07",
+          "name": "Reddit (r/goldcoast)",
+          "url": "https://www.reddit.com/r/GoldCoast/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Gold Coast & Hinterland",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-034_08",
+          "name": "Reddit (r/goldindia)",
+          "url": "https://www.reddit.com/r/GoldIndia/",
+          "domain_category": "reddit_social",
+          "extracted_title": "GoldIndia",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-034_09",
+          "name": "Reddit (r/dbltradinghub)",
+          "url": "https://www.reddit.com/r/DblTradingHub/comments/1x2ceks/only_for_21_cheapest_in_the_market_14_goldfrieza/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Only for 21$ cheapest in the market \ud83e\udd37\u200d\u2642\ufe0f / 14* GoldFrieza W/ perfect equip + 91kcc now / Paypal Only \u2705",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-034_10",
+          "name": "Reddit (r/wardogs)",
+          "url": "https://www.reddit.com/r/WarDogs/comments/1x2ceh7/i_finally_got_the_gold_ak/",
+          "domain_category": "reddit_social",
+          "extracted_title": "I finally got the gold AK!",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 10.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560952+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-035",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T11:02:52+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_035"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560955+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-036",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T11:02:58+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_036"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560958+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-037",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T11:03:30+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: an index trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_037"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560960+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-038",
+      "ticker": "GOLD",
+      "timestamp": "2026-10-10T11:03:51+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: gold | Type: a commodity trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_GOLD_038",
+        "E_DISC_GOLD_038"
+      ],
+      "corroboration_status": "contextualized_macro_or_neutral",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-038_01",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBiNmZ4WXlBQnlheVVJLTNHYndXWVlJeEZSdFZnR05PVVdpYlFfNFhyc1pxN1NrdER0eTZ1R0NtZXQxYm8wdGstLXdxRmhhWEVTeDhoVQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "SENCO Share Price Today - Senco Gold on NSE/BSE - scanx.trade",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-038_02",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1EdUJ3OEYxOFJlZ3lhU2JxOUlqNG5JODN2dU1jVURSWW9zRk9ldG9PbmF0bXB5U0tZcWZ3OTRTcGtFWWJmWUFENy1qYm1PODQzck9vWWtUN1FiUm53VGRTZXdsNnU?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Tata Gold Exchange Traded Fund Share Price NSE/BSE - Live Price Charts & Performance - HDFC Sky",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-038_03",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Id2JuaE92LXZVR1FIRHdsM0MzOWNmSndrRXotbnpyMHZtanktc3RjR3J6X2duZzcyR19VX0NMbUVKaEl2TGpfc1Y3QUxWcC1YcTVwWjhnRjNPcHdoVTB4Z1JvS0tSM2s2RzFEYkRQVTFjajg?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "GOLDBETA Share Price Today - UTI GOLD ETF Stock Price Live NSE/BSE - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-038_04",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMingJBVV95cUxOVU1nbWR5UDEzVm5hNFUyREZ1ZjdPdWZDTzVsU3pReFpLY0RWYWgtdFRiM1pTel9xQU1uUWtaZlJpSEF4Z09LS25tbVpOanlWY3FuVE1Yd2xxdTI0SEJ6UVpldmlGT1dtNGtuQ1Uzbmo4SEVaN2FWZGc5dThOOXJ4Zm51UjJpNFUyZXAwRWlZcWQzMUlVOTZQbEs0M1FJNzVXMzQzTTBQSm9TVHJmLTctZ3dITC1lbUJCSXpQd0pTYWdnRkY5aXVGX0dRQmtJX3FQaVNGZGU0VC1mbVZDbEZkR1h6LWVoM3NzY0wtUjVmR1FwT3IyWF9qaXFrOFhMcXQ5MTRkQkJPSmJtY0JnOEZ1WXBxZzlCeXFZT25BbTd30gGjAkFVX3lxTE9fUmhJRm9zcXFXeDg5blVxcTduZTcyVG9SNi1FRURTY0NrMk9CenFuOERMbDV2eGhWbGV5UC1DRnBBc0l3d0dPc2w0VVhtMmlnTnI0enFEM2RGM2hlLUxrcHE5bjNRN0s1Z3pENzF2RXBvV2ZNWEFPcDljemFCdlZiTEFuNU5BbTdKbzhWQXdrOTc3OEZnUDVYYmdVRy1zRVBSblJWajJoRTRjX3JWWnJNeDI2bDVaZVlOaXNGdWRoaGhjOVBuVHkzWFczY28yNlpRcjlTbjFDRkFLeGZ2RG9VSWFqTWplRXRIcmFsMFBwMjN4RnhkRHJGU1hBay1SSGxyeUM5YmtJbWxjUmhPU2hDVzBMS2YzM2JhS015TXQ5TUF3UQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Stock market holiday on May 1: Are NSE, BSE open or closed on Maharashtra Day? Check full trading... - Moneycontrol.com",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-038_05",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE40REhaeW1Fa2N2R0lEeVBVcGgtZWFyU1BTa2RSdDNnS2JoY1BSNS0tZ3VEZ3ZHMFNLV2FDTk9FeXFSbVR5d2FnUDFjMHBPVHhURU5COXJjYVJ2T254SnVyMg?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "CHOICEGOLD Share Price Today - Choice Gold ETF Stock Analysis - Equitypandit",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-038_06",
+          "name": "Reddit (r/gold)",
+          "url": "https://www.reddit.com/r/Gold/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Gold",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-038_07",
+          "name": "Reddit (r/goldcoast)",
+          "url": "https://www.reddit.com/r/GoldCoast/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Gold Coast & Hinterland",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-038_08",
+          "name": "Reddit (r/goldindia)",
+          "url": "https://www.reddit.com/r/GoldIndia/",
+          "domain_category": "reddit_social",
+          "extracted_title": "GoldIndia",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-038_09",
+          "name": "Reddit (r/dbltradinghub)",
+          "url": "https://www.reddit.com/r/DblTradingHub/comments/1x2ceks/only_for_21_cheapest_in_the_market_14_goldfrieza/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Only for 21$ cheapest in the market \ud83e\udd37\u200d\u2642\ufe0f / 14* GoldFrieza W/ perfect equip + 91kcc now / Paypal Only \u2705",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-038_10",
+          "name": "Reddit (r/wardogs)",
+          "url": "https://www.reddit.com/r/WarDogs/comments/1x2ceh7/i_finally_got_the_gold_ak/",
+          "domain_category": "reddit_social",
+          "extracted_title": "I finally got the gold AK!",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 10.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.560994+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-039",
+      "ticker": "NIFTY_50",
+      "timestamp": "2026-10-10T11:06:26+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: nifty 50 | Type: an index trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_NIFTY_50_039",
+        "E_DISC_NIFTY_50_039"
+      ],
+      "corroboration_status": "corroborated_positive",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-039_01",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNQ1QyNWJTR1BnSkpCc2htWEt3TFMwMzVhbC01ZklkZ3hnMEt1bVYzUG1oV0t1Ylg0bFUySkFlNzZ4N1BRUlNGa0pPaXdhbGxaSE10dnlMUnVUUU1hRTlpbGkxYXlud0JNWjJIdlE0QllZU3JpS3h3OGtxVnVMeU9zc0NkZnhZbEpYM2txTjFPNHYxYzBJWi0zX2h1bXpQTmRJc013ZUxsejV3NFBScnN5TFBaTHlwU3pPa0l3TXYyTmV4RDJiLXduRENLUjF0N3Y4Mnp30gHYAUFVX3lxTE1WQXRFc3kxX2FnbDhaR0tOV0huajBJMWhqMVhuZ2d1SEhUN2JhVWFJeXJtdGd5cEJ5SkExZ1E4aHZzUWNhMkF3Y2oxM0UzMkpLcV9xZXpqZHdPaF9XT0RZeExHcmxNSmxZSVJTcnBpdExUWU5RT0RkYVhYa0prX2x3cUlmdi1sSUxHUExSNk5tSmp5Y3hubENLbDdoT1FyZDhXbXlLbmpmMWN0NWVoWFhMaGJ3dUZTS0VTcHVFQk9jU0dWNnVkMnNNYjd2eWZkLTJUOHFPdmV2SQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Datanomics: BSE took a decade to enter the Nifty 50; any lessons for NSE? - Business Standard",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-039_02",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1MbDhrd01qWkVHejFJaHhvNHhRQ21SRVVxUnNPWlkxRXZzQnp6WTZSRnNSTHhTeEdYVUxmT2RJX2l4c1U3ZjVtcWtLNU1WUjZ2Y3V3TktiVQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "October 2026 F&O Monthly Expiry - Groww",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-039_03",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQeGhIN19pS1ZwOUhZbGZZcVV1LW5DaGxLcHEtdHpGVk9qVGdqaEx5NG9Xbm5XWkN4M0c3NmRJS2xkVUhsTmppMlZSeFVtV3pPbnVTdU8xNVZxSC1sUTVHSnhQdE9LQzhOLXhCOHdWTXVhcjJUNE96V2hqeGMya2pQblNIQTEtUEhUSllQUWRuYThadnFqNTBuVUdham9PQQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "BSE to replace Wipro in India's benchmark Nifty 50 index - Reuters",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-039_04",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNSHhMOWxiN3JHSlNCMzFCb2hmcjVKTWRMTG5Pako5QzZINUlsYkV4dDlmNVhHZkQ5SmIyT1BMc212Qk5RenZZVXRERGdQWWh0azdFalkyNjVrUEhwRjJtOFVqdW9MaEVhTUxvaWRRSUlsREVseHZnQVNMaW1EbGVtZlFad3VrV0k?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "BSE Sensex gains 239 points, NSE Nifty50 adds 65 points - News On AIR",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-039_05",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1pdllieG9walJtZS01eEV5TXozT2d4aHZtby1TSEJ2WHM2ZDVCVG5kOEk2V3VDemRWd0tqajBYOGlILTJncTV4eU1XSUVUU3ljOXNzOFBXUkx6TTN3cTRrTHh3aS1BRE5SUWM5RGxqZTBQQlk0?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today - The Economic Times",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-039_06",
+          "name": "Reddit (r/nifty50)",
+          "url": "https://www.reddit.com/r/Nifty50/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Nifty50",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-039_07",
+          "name": "Reddit (r/nifty_50)",
+          "url": "https://www.reddit.com/r/Nifty_50/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Nifty_50",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-039_08",
+          "name": "Reddit (r/nifty50predictions)",
+          "url": "https://www.reddit.com/r/NIFTY50Predictions/",
+          "domain_category": "reddit_social",
+          "extracted_title": "NIFTY50Predictions",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-039_09",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/comments/1x2b107/indian_stock_market_today_nse_simulation_mode_on/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Indian Stock Market today: NSE Simulation Mode ON \ud83d\ude02",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-039_10",
+          "name": "Reddit (r/mutualfunds)",
+          "url": "https://www.reddit.com/r/mutualfunds/comments/1x2ah39/which_is_better_allocation_for_15vyear_horizon/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Which is better allocation for 15vyear horizon ? ( Leaned towards aggressive risk , 22 year old)",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 14.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561029+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-040",
+      "ticker": "NIFTY_50",
+      "timestamp": "2026-10-10T11:08:00+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: nifty 50 | Type: an index trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_NIFTY_50_040",
+        "E_DISC_NIFTY_50_040"
+      ],
+      "corroboration_status": "corroborated_positive",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-040_01",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNQ1QyNWJTR1BnSkpCc2htWEt3TFMwMzVhbC01ZklkZ3hnMEt1bVYzUG1oV0t1Ylg0bFUySkFlNzZ4N1BRUlNGa0pPaXdhbGxaSE10dnlMUnVUUU1hRTlpbGkxYXlud0JNWjJIdlE0QllZU3JpS3h3OGtxVnVMeU9zc0NkZnhZbEpYM2txTjFPNHYxYzBJWi0zX2h1bXpQTmRJc013ZUxsejV3NFBScnN5TFBaTHlwU3pPa0l3TXYyTmV4RDJiLXduRENLUjF0N3Y4Mnp30gHYAUFVX3lxTE1WQXRFc3kxX2FnbDhaR0tOV0huajBJMWhqMVhuZ2d1SEhUN2JhVWFJeXJtdGd5cEJ5SkExZ1E4aHZzUWNhMkF3Y2oxM0UzMkpLcV9xZXpqZHdPaF9XT0RZeExHcmxNSmxZSVJTcnBpdExUWU5RT0RkYVhYa0prX2x3cUlmdi1sSUxHUExSNk5tSmp5Y3hubENLbDdoT1FyZDhXbXlLbmpmMWN0NWVoWFhMaGJ3dUZTS0VTcHVFQk9jU0dWNnVkMnNNYjd2eWZkLTJUOHFPdmV2SQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Datanomics: BSE took a decade to enter the Nifty 50; any lessons for NSE? - Business Standard",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-040_02",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1MbDhrd01qWkVHejFJaHhvNHhRQ21SRVVxUnNPWlkxRXZzQnp6WTZSRnNSTHhTeEdYVUxmT2RJX2l4c1U3ZjVtcWtLNU1WUjZ2Y3V3TktiVQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "October 2026 F&O Monthly Expiry - Groww",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-040_03",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQeGhIN19pS1ZwOUhZbGZZcVV1LW5DaGxLcHEtdHpGVk9qVGdqaEx5NG9Xbm5XWkN4M0c3NmRJS2xkVUhsTmppMlZSeFVtV3pPbnVTdU8xNVZxSC1sUTVHSnhQdE9LQzhOLXhCOHdWTXVhcjJUNE96V2hqeGMya2pQblNIQTEtUEhUSllQUWRuYThadnFqNTBuVUdham9PQQ?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "BSE to replace Wipro in India's benchmark Nifty 50 index - Reuters",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-040_04",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNSHhMOWxiN3JHSlNCMzFCb2hmcjVKTWRMTG5Pako5QzZINUlsYkV4dDlmNVhHZkQ5SmIyT1BMc212Qk5RenZZVXRERGdQWWh0azdFalkyNjVrUEhwRjJtOFVqdW9MaEVhTUxvaWRRSUlsREVseHZnQVNMaW1EbGVtZlFad3VrV0k?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "BSE Sensex gains 239 points, NSE Nifty50 adds 65 points - News On AIR",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-040_05",
+          "name": "News",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1pdllieG9walJtZS01eEV5TXozT2d4aHZtby1TSEJ2WHM2ZDVCVG5kOEk2V3VDemRWd0tqajBYOGlILTJncTV4eU1XSUVUU3ljOXNzOFBXUkx6TTN3cTRrTHh3aS1BRE5SUWM5RGxqZTBQQlk0?oc=5",
+          "domain_category": "google_news",
+          "extracted_title": "Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today - The Economic Times",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-040_06",
+          "name": "Reddit (r/nifty50)",
+          "url": "https://www.reddit.com/r/Nifty50/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Nifty50",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-040_07",
+          "name": "Reddit (r/nifty_50)",
+          "url": "https://www.reddit.com/r/Nifty_50/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Nifty_50",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-040_08",
+          "name": "Reddit (r/nifty50predictions)",
+          "url": "https://www.reddit.com/r/NIFTY50Predictions/",
+          "domain_category": "reddit_social",
+          "extracted_title": "NIFTY50Predictions",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-040_09",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/comments/1x2b107/indian_stock_market_today_nse_simulation_mode_on/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Indian Stock Market today: NSE Simulation Mode ON \ud83d\ude02",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-040_10",
+          "name": "Reddit (r/mutualfunds)",
+          "url": "https://www.reddit.com/r/mutualfunds/comments/1x2ah39/which_is_better_allocation_for_15vyear_horizon/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Which is better allocation for 15vyear horizon ? ( Leaned towards aggressive risk , 22 year old)",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 15.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561061+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-041",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T11:10:12+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a commodity trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_041"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561063+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-042",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T11:11:02+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_042"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561066+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-043",
+      "ticker": "SENSEX",
+      "timestamp": "2026-10-10T11:12:25+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: sensex | Type: an index trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_SENSEX_043",
+        "E_DISC_SENSEX_043"
+      ],
+      "corroboration_status": "corroborated_positive",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-043_01",
+          "name": "News",
+          "url": "https://www.sharemanthan.in/niveshak-darbaar/462-advice/79998-can-a-total-market-index-fund-provide-a-complete-picture-of-the-indian-stock-market",
+          "domain_category": "financial_press",
+          "extracted_title": "\u0915\u094d\u092f\u093e \u091f\u094b\u091f\u0932 \u092e\u093e\u0930\u094d\u0915\u0947\u091f \u0907\u0902\u0921\u0947\u0915\u094d\u0938 \u092b\u0902\u0921 \u0938\u0947 \u092d\u093e\u0930\u0924\u0940\u092f \u0936\u0947\u092f\u0930 \u092c\u093e\u091c\u093e\u0930 \u0915\u0940 \u092a\u0942\u0930\u0940 \u0924\u0938\u094d\u0935\u0940\u0930 \u092e\u093f\u0932 \u0938\u0915\u0924\u0940 \u0939\u0948 ?",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-043_02",
+          "name": "News",
+          "url": "http://www.sierraleonetimes.com/news/279354215/markets-extend-recovery-sensex-up-140-points-nifty-above-22500-bank-stocks-lead",
+          "domain_category": "financial_press",
+          "extracted_title": "Markets extend recovery ; Sensex up 140 points , Nifty above 22 , 500 ; bank stocks lead",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-043_03",
+          "name": "News",
+          "url": "http://www.utahindependent.com/news/279354384/markets-extend-recovery-sensex-jumps-over-100-points-nifty-above-22500",
+          "domain_category": "financial_press",
+          "extracted_title": "Markets extend recovery ; Sensex jumps over 100 points , Nifty above 22 , 500",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-043_04",
+          "name": "News",
+          "url": "https://www.wral.com/news/ap/e8285-asian-shares-are-mixed-after-wall-street-gains-oil-price-steadies/",
+          "domain_category": "financial_press",
+          "extracted_title": "Asian shares mostly advance after Wall Street gains and oil prices fall",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-043_05",
+          "name": "News",
+          "url": "http://www.sierraleonetimes.com/news/279354384/markets-extend-recovery-sensex-jumps-over-100-points-nifty-above-22500",
+          "domain_category": "financial_press",
+          "extracted_title": "Markets extend recovery ; Sensex jumps over 100 points , Nifty above 22 , 500",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-043_06",
+          "name": "News",
+          "url": "http://www.zimbabwestar.com/news/279354215/markets-extend-recovery-sensex-up-140-points-nifty-above-22500-bank-stocks-lead",
+          "domain_category": "financial_press",
+          "extracted_title": "Markets extend recovery ; Sensex up 140 points , Nifty above 22 , 500 ; bank stocks lead",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-043_07",
+          "name": "News",
+          "url": "https://news.webindia123.com/news/Articles/Business/20261006/4507681.html",
+          "domain_category": "financial_press",
+          "extracted_title": "Markets extend recovery ; Sensex jumps over 100 points , Nifty above 22 , 500",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-043_08",
+          "name": "News",
+          "url": "https://www.union-bulletin.com/news/world/asian-shares-mostly-advance-after-wall-street-gains-and-oil-prices-fall/article_3e2a9d1a-d521-5045-900a-48c3a6688b98.html",
+          "domain_category": "financial_press",
+          "extracted_title": "Asian shares mostly advance after Wall Street gains and oil prices fall",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-043_09",
+          "name": "News",
+          "url": "https://business24.ro/piata-indiana/piata-capital-india-declin-investitori-prim-plan-1670285",
+          "domain_category": "financial_press",
+          "extracted_title": "Pia\u021ba de capital din India , \u00een declin cu 15 %, cu investitorii locali \u00een prim - plan",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-043_10",
+          "name": "News",
+          "url": "https://santamariatimes.com/ap/business/asian-shares-mostly-advance-after-wall-street-gains-and-oil-prices-fall/article_519ad095-a5c6-5e50-a178-aa4e4e58865b.html",
+          "domain_category": "financial_press",
+          "extracted_title": "Asian shares mostly advance after Wall Street gains and oil prices fall",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 14.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561104+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-044",
+      "ticker": "SUZLON",
+      "timestamp": "2026-10-10T11:14:46+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | (Urgent call) | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_SUZLON_044",
+        "E_DISC_SUZLON_044"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-044_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon secures 200MW wind turbine order from Ayana in India",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-044_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-044_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-044_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-044_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-044_06",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-044_07",
+          "name": "Reddit (r/suzlon)",
+          "url": "https://www.reddit.com/r/SUZLON/",
+          "domain_category": "reddit_social",
+          "extracted_title": "SUZLON",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-044_08",
+          "name": "Reddit (r/indianstreetbets)",
+          "url": "https://www.reddit.com/r/IndianStreetBets/",
+          "domain_category": "reddit_social",
+          "extracted_title": "IndianStreetBets",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-044_09",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Front page of Indian Stock Market",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-044_10",
+          "name": "Reddit (r/ipo_india)",
+          "url": "https://www.reddit.com/r/IPO_India/comments/1x1c1kx/large_caps_are_performing_today_midcaps_and/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Large Caps are performing today! Midcaps and Smallcaps are not.",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 39.16,
+        "change_pct": null,
+        "volume": 42495197.0,
+        "delivery_pct": null,
+        "risk_score": 75.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561141+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-045",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T11:31:11+00:00",
+      "original_message_text": "Source: @Growx_intraday_groww | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_045"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561144+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-046",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T11:59:51+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_046"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561146+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-047",
+      "ticker": "TATAPOWER",
+      "timestamp": "2026-10-10T12:00:07+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_TATAPOWER_047"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561149+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-048",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T12:00:40+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_048"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561151+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-049",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T12:16:26+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: an index trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_049"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561153+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-050",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T12:17:25+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: an index trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_050"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561155+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-051",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T12:17:53+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_051"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561158+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-052",
+      "ticker": "SUZLON",
+      "timestamp": "2026-10-10T12:18:11+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | (Urgent call) | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_SUZLON_052",
+        "E_DISC_SUZLON_052"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-052_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon secures 200MW wind turbine order from Ayana in India",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-052_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-052_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-052_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-052_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-052_06",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-052_07",
+          "name": "Reddit (r/suzlon)",
+          "url": "https://www.reddit.com/r/SUZLON/",
+          "domain_category": "reddit_social",
+          "extracted_title": "SUZLON",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-052_08",
+          "name": "Reddit (r/indianstreetbets)",
+          "url": "https://www.reddit.com/r/IndianStreetBets/",
+          "domain_category": "reddit_social",
+          "extracted_title": "IndianStreetBets",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-052_09",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Front page of Indian Stock Market",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-052_10",
+          "name": "Reddit (r/ipo_india)",
+          "url": "https://www.reddit.com/r/IPO_India/comments/1x1c1kx/large_caps_are_performing_today_midcaps_and/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Large Caps are performing today! Midcaps and Smallcaps are not.",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 39.16,
+        "change_pct": null,
+        "volume": 42495197.0,
+        "delivery_pct": null,
+        "risk_score": 75.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561189+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-053",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T12:28:47+00:00",
+      "original_message_text": "Source: @Growx_intraday_groww | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_053"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561191+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-054",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T15:11:22+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_054"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561194+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-055",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T15:12:14+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_055"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561196+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-056",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T15:12:54+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_056"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561198+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-057",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T15:13:49+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_057"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561201+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-058",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T15:14:26+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Target: \u20b915500.0 | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_058"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561204+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-059",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T15:25:12+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Target: \u20b915500.0 | Type: a sector trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_059"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561206+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-060",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T15:25:54+00:00",
+      "original_message_text": "Source: @Growx_intraday_groww | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_060"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561208+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-061",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T16:28:55+00:00",
+      "original_message_text": "Source: @Growx_intraday_groww | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_061"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561211+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-062",
+      "ticker": "IRCTC",
+      "timestamp": "2026-10-10T16:50:03+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_IRCTC_062",
+        "E_DISC_IRCTC_062"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-062_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "IRCTC Share Price Today - IRCTC on NSE/BSE - scanx.trade",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-062_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Indian Railway Catering & Tourism Corporation Ltd. Share Price Live Today - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-062_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "SpiceJet, IRCTC, Indian Hotels, other tourism-related shares extend losses as US-Iran tensions drag for... - Moneycontrol.com",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-062_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "RVNL, IRFC, IRCTC: Railway stocks rally up to 12% in trade; here's why - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-062_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Stock market crash: IRCTC, Patanjali Foods, Mazagon Dock, Cochin Shipyard among 1,219 stocks that hit 52-week low on NSE - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-062_06",
+          "name": "Reddit (r/irctc)",
+          "url": "https://www.reddit.com/r/IRCTC/",
+          "domain_category": "reddit_social",
+          "extracted_title": "IRCTC",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-062_07",
+          "name": "Reddit (r/indianrailways)",
+          "url": "https://www.reddit.com/r/indianrailways/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Indian Railways",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-062_08",
+          "name": "Reddit (r/india)",
+          "url": "https://www.reddit.com/r/india/",
+          "domain_category": "reddit_social",
+          "extracted_title": "India: United We Stand",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-062_09",
+          "name": "Reddit (r/afcatprep)",
+          "url": "https://www.reddit.com/r/AFCATprep/comments/1x2dffm/ive_been_allotted_5afsb_guwahati_gate_entry_on/",
+          "domain_category": "reddit_social",
+          "extracted_title": "I've been allotted 5AFSB Guwahati (GATE Entry), on 19th Oct. I have no idea how to get there.",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-062_10",
+          "name": "Reddit (r/indianrailways)",
+          "url": "https://www.reddit.com/r/indianrailways/comments/1x2cjf2/irctc_ticket_showing_only_half_my_name/",
+          "domain_category": "reddit_social",
+          "extracted_title": "IRCTC ticket showing only half my name",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 454.8,
+        "change_pct": null,
+        "volume": 718299.0,
+        "delivery_pct": null,
+        "risk_score": 10.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561244+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-063",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T16:54:25+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_063"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561247+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-064",
+      "ticker": "TATAPOWER",
+      "timestamp": "2026-10-10T16:55:32+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: TATAPOWER | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_TATAPOWER_064",
+        "E_DISC_TATAPOWER_064"
+      ],
+      "corroboration_status": "corroborated_positive",
+      "sources_count": 9,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-064_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TATAPOWER Share Price Today - Tata Power on NSE/BSE - scanx.trade",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-064_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Power Share Price - Live NSE: TATAPOWER Stock Price & Chart - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-064_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Power Company Ltd. Share Price, Stock Price - NSE/BSE Live - NDTV Profit",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-064_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Tata Power Company Ltd. Share Price Live Today - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-064_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Stocks to buy or sell: Dharmesh Shah of ICICI Sec suggests buying Tata Power, Sona BLW shares on 1 June - Livemint",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-064_06",
+          "name": "Reddit (r/indianstreetbets)",
+          "url": "https://www.reddit.com/r/IndianStreetBets/",
+          "domain_category": "reddit_social",
+          "extracted_title": "IndianStreetBets",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-064_07",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Front page of Indian Stock Market",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-064_08",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/comments/1wzxzm4/small_investment_but_losing_heavily_any_hope_all/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Small investment! But losing heavily! Any hope all these recover?",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-064_09",
+          "name": "Reddit (r/indiastreetbets)",
+          "url": "https://www.reddit.com/r/Indiastreetbets/comments/1wwizx4/what_should_i_do_now/",
+          "domain_category": "reddit_social",
+          "extracted_title": "What should I do now",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 351.65,
+        "change_pct": null,
+        "volume": 5741438.0,
+        "delivery_pct": null,
+        "risk_score": 12.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561276+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-065",
+      "ticker": "SUZLON",
+      "timestamp": "2026-10-10T16:58:09+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_SUZLON_065",
+        "E_DISC_SUZLON_065"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-065_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon secures 200MW wind turbine order from Ayana in India",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-065_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-065_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-065_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-065_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-065_06",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-065_07",
+          "name": "Reddit (r/suzlon)",
+          "url": "https://www.reddit.com/r/SUZLON/",
+          "domain_category": "reddit_social",
+          "extracted_title": "SUZLON",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-065_08",
+          "name": "Reddit (r/indianstreetbets)",
+          "url": "https://www.reddit.com/r/IndianStreetBets/",
+          "domain_category": "reddit_social",
+          "extracted_title": "IndianStreetBets",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-065_09",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Front page of Indian Stock Market",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-065_10",
+          "name": "Reddit (r/indiastocks)",
+          "url": "https://www.reddit.com/r/IndiaStocks/comments/1x2izn9/kindly_review_my_portfolio/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Kindly review my portfolio",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 39.16,
+        "change_pct": null,
+        "volume": 42495197.0,
+        "delivery_pct": null,
+        "risk_score": 75.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561307+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-066",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T17:12:51+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_066"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561310+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-067",
+      "ticker": "ADANIPOWER",
+      "timestamp": "2026-10-10T17:13:18+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: ADANIPOWER | Target: \u20b9750.0 | (Urgent call) | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_ADANIPOWER_067",
+        "E_DISC_ADANIPOWER_067"
+      ],
+      "corroboration_status": "corroborated_positive",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-067_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Adani Power gains 2% in weak market, zooms 49% in April; here's why - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-067_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Stocks to Watch Today: HDFC Life, Adani Power, TVS Holdings, NTPC Green, Laser Power, India Pesticides,... - Moneycontrol.com",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-067_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Adani Power Ltd. Share Price Today - Adani Power Ltd. Stock Price Live NSE/BSE - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-067_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "BSE, RVNL to Adani Power: These 10 stocks are fastest wealth creators in last 5 years, shows MOSL study - Livemint",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-067_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Adani Power jumps 12% in 2 days, hits new high; what's driving stock price? - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-067_06",
+          "name": "Reddit (r/stockmarketindia)",
+          "url": "https://www.reddit.com/r/StockMarketIndia/comments/1x2frfv/here_is_why_i_stopped_using_traditional_method_of/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Here is why I stopped using traditional method of investing in stocks .",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-067_07",
+          "name": "Reddit (r/kafkabtc)",
+          "url": "https://www.reddit.com/r/KafkaBTC/comments/1x1jp8v/\u0441\u043e\u0435\u0434\u0438\u043d\u0451\u043d\u043d\u044b\u0435_\u0448\u0442\u0430\u0442\u044b_\u043f\u0440\u0438\u043e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u043b\u0438_\u0440\u0430\u0431\u043e\u0447\u0438\u0435_\u0432\u0438\u0437\u044b_\u0432\u0441\u0435\u043c/",
+          "domain_category": "reddit_social",
+          "extracted_title": "\u0421\u043e\u0435\u0434\u0438\u043d\u0451\u043d\u043d\u044b\u0435 \u0428\u0442\u0430\u0442\u044b \u043f\u0440\u0438\u043e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u043b\u0438 \u0440\u0430\u0431\u043e\u0447\u0438\u0435 \u0432\u0438\u0437\u044b \u0432\u0441\u0435\u043c \u0442\u0435\u0445\u043d\u043e\u043b\u043e\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u043c \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u044f\u043c, \u0447\u0442\u043e\u0431\u044b \u043e\u043d\u0438 \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0435 \u043d\u0430\u043d\u0438\u043c\u0430\u043b\u0438 \u0438\u043d\u043e\u0441\u0442\u0440\u0430\u043d\u043d\u044b\u0445 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0441\u0442\u043e\u0432, \u0438 \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u043a\u0430 \u0418\u043d\u0434\u0438\u0438 \u0432\u0437\u043e\u0440\u0432\u0430\u043b\u0430\u0441\u044c.",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-067_08",
+          "name": "Reddit (r/whoathatsinteresting)",
+          "url": "https://www.reddit.com/r/whoathatsinteresting/comments/1x0py5g/indian_stock_market_loses_9_lakh_crore_93_billion/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Indian stock market loses \u20b99 Lakh Crore (~$93 billion) so far today",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-067_09",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/comments/1wzxzm4/small_investment_but_losing_heavily_any_hope_all/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Small investment! But losing heavily! Any hope all these recover?",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-067_10",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/comments/1wznbqu/market_aint_looking_good_in_the_morning/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Market aint looking good in the morning",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 202.4,
+        "change_pct": null,
+        "volume": 23468966.0,
+        "delivery_pct": null,
+        "risk_score": 2.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561349+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-068",
+      "ticker": "IRCTC",
+      "timestamp": "2026-10-10T19:42:00+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_IRCTC_068",
+        "E_DISC_IRCTC_068"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 5,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-068_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "IRCTC Share Price Today - IRCTC on NSE/BSE - scanx.trade",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-068_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Indian Railway Catering & Tourism Corporation Ltd. Share Price Live Today - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-068_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "SpiceJet, IRCTC, Indian Hotels, other tourism-related shares extend losses as US-Iran tensions drag for... - Moneycontrol.com",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-068_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "RVNL, IRFC, IRCTC: Railway stocks rally up to 12% in trade; here's why - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-068_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Stock market crash: IRCTC, Patanjali Foods, Mazagon Dock, Cochin Shipyard among 1,219 stocks that hit 52-week low on NSE - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 454.8,
+        "change_pct": null,
+        "volume": 718299.0,
+        "delivery_pct": null,
+        "risk_score": 14.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561368+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-069",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T19:45:03+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_069"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561371+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-070",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T19:45:27+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_070"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561373+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-071",
+      "ticker": "ZOMATO",
+      "timestamp": "2026-10-10T19:45:52+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: ZOMATO | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_ZOMATO_071",
+        "E_DISC_ZOMATO_071"
+      ],
+      "corroboration_status": "contextualized_macro_or_neutral",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-071_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Zomato Share Price - Live NSE: ETERNAL Stock Price & Chart - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-071_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "What should investors do with Eternal (Zomato) after Q2? Brokerages decode - Business Standard",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-071_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Eternal Ltd. Share Price Today | Eternal Live NSE/BSE - Value Research",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-071_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "ETERNAL Share Price Today - Zomato Ltd. Stock Price Live NSE/BSE - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-071_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Zomato Stock: From 70% Crash to Multibagger Returns - HDFC Sky",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-071_06",
+          "name": "Reddit (r/zomato)",
+          "url": "https://www.reddit.com/r/Zomato/",
+          "domain_category": "reddit_social",
+          "extracted_title": "zomato",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-071_07",
+          "name": "Reddit (r/fuckkzomato)",
+          "url": "https://www.reddit.com/r/fuckkzomato/",
+          "domain_category": "reddit_social",
+          "extracted_title": "fuckkzomato",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-071_08",
+          "name": "Reddit (r/india)",
+          "url": "https://www.reddit.com/r/india/",
+          "domain_category": "reddit_social",
+          "extracted_title": "India: United We Stand",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-071_09",
+          "name": "Reddit (r/egyptstory)",
+          "url": "https://www.reddit.com/r/egyptstory/comments/1x2nsmz/how_restaurants_in_egypt_can_boost_sales_with/",
+          "domain_category": "reddit_social",
+          "extracted_title": "How Restaurants in Egypt Can Boost Sales with Online Marketing",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-071_10",
+          "name": "Reddit (r/boredinbangalore)",
+          "url": "https://www.reddit.com/r/BoredInBangalore/comments/1x2nqqz/i_need_a_help/",
+          "domain_category": "reddit_social",
+          "extracted_title": "I need a help",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561407+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-072",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T21:59:30+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_072"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561409+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-073",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T21:59:54+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a commodity trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_073"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561413+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-074",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T22:00:53+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | (Urgent call) | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_074"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561417+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-075",
+      "ticker": "ZOMATO",
+      "timestamp": "2026-10-10T22:01:15+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: ZOMATO | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_ZOMATO_075",
+        "E_DISC_ZOMATO_075"
+      ],
+      "corroboration_status": "contextualized_macro_or_neutral",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-075_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Zomato Share Price - Live NSE: ETERNAL Stock Price & Chart - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-075_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "What should investors do with Eternal (Zomato) after Q2? Brokerages decode - Business Standard",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-075_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Eternal Ltd. Share Price Today | Eternal Live NSE/BSE - Value Research",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-075_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "ETERNAL Share Price Today - Zomato Ltd. Stock Price Live NSE/BSE - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-075_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Zomato Stock: From 70% Crash to Multibagger Returns - HDFC Sky",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-075_06",
+          "name": "Reddit (r/zomato)",
+          "url": "https://www.reddit.com/r/Zomato/",
+          "domain_category": "reddit_social",
+          "extracted_title": "zomato",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-075_07",
+          "name": "Reddit (r/fuckkzomato)",
+          "url": "https://www.reddit.com/r/fuckkzomato/",
+          "domain_category": "reddit_social",
+          "extracted_title": "fuckkzomato",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-075_08",
+          "name": "Reddit (r/india)",
+          "url": "https://www.reddit.com/r/india/",
+          "domain_category": "reddit_social",
+          "extracted_title": "India: United We Stand",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-075_09",
+          "name": "Reddit (r/indiancyberhub)",
+          "url": "https://www.reddit.com/r/IndianCyberHub/comments/1x2ot62/someone_is_trying_to_get_access_to_my_apps_and/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Someone is trying to get access to my apps and whatsapp",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-075_10",
+          "name": "Reddit (r/zomato)",
+          "url": "https://www.reddit.com/r/Zomato/comments/1x2onyj/is_this_legit_restaurant_from_sainik_farm_wefit/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Is this legit? Restaurant from sainik farm \"WeFit\"",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 4.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561450+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-076",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-10T22:01:53+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Type: a commodity trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_076"
+      ],
+      "corroboration_status": "uncorroborated_promotional",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561452+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-077",
+      "ticker": "WIPRO",
+      "timestamp": "2026-10-10T22:02:21+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: WIPRO | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_WIPRO_077",
+        "E_DISC_WIPRO_077"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-077_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Infosys sees no material impact from U.S. PERM suspension",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-077_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Rubrik Expands Project Hourglass as Selling Costs Fall Relative to Revenue",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-077_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "TCS shares rise as AI revenue offsets sluggish growth, lifts Indian IT stocks",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-077_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Rubrik Expands Project Hourglass with Rubrik Code Guardian, Powered by Claude",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-077_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-077_06",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Wipro Share Price - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-077_07",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "BSE to replace Wipro in India's benchmark Nifty 50 index - Reuters",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-077_08",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "BSE set to enter Nifty 50 from tomorrow, IT major Wipro to exit. What shareholders must know? - The Economic Times",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-077_09",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Nifty rejig kicks in: BSE joins as Wipro exits; what investors need to know - IndiaIPO",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-077_10",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Nifty rejig kicks in: BSE joins as Wipro exits; what investors need to know - Business Standard",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 161.84,
+        "change_pct": null,
+        "volume": 16386869.0,
+        "delivery_pct": null,
+        "risk_score": 8.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561487+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-078",
+      "ticker": "ZOMATO",
+      "timestamp": "2026-10-11T04:17:58+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: ZOMATO | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_ZOMATO_078",
+        "E_DISC_ZOMATO_078"
+      ],
+      "corroboration_status": "contextualized_macro_or_neutral",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-078_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Zomato Share Price - Live NSE: ETERNAL Stock Price & Chart - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-078_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "What should investors do with Eternal (Zomato) after Q2? Brokerages decode - Business Standard",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-078_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Eternal Ltd. Share Price Today | Eternal Live NSE/BSE - Value Research",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-078_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "ETERNAL Share Price Today - Zomato Ltd. Stock Price Live NSE/BSE - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-078_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Zomato Stock: From 70% Crash to Multibagger Returns - HDFC Sky",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-078_06",
+          "name": "Reddit (r/zomato)",
+          "url": "https://www.reddit.com/r/Zomato/",
+          "domain_category": "reddit_social",
+          "extracted_title": "zomato",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-078_07",
+          "name": "Reddit (r/fuckkzomato)",
+          "url": "https://www.reddit.com/r/fuckkzomato/",
+          "domain_category": "reddit_social",
+          "extracted_title": "fuckkzomato",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-078_08",
+          "name": "Reddit (r/india)",
+          "url": "https://www.reddit.com/r/india/",
+          "domain_category": "reddit_social",
+          "extracted_title": "India: United We Stand",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-078_09",
+          "name": "Reddit (r/boredinbangalore)",
+          "url": "https://www.reddit.com/r/BoredInBangalore/comments/1x2xxg8/i_need_a_help/",
+          "domain_category": "reddit_social",
+          "extracted_title": "I need a help",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-078_10",
+          "name": "Reddit (r/creditcardsindia)",
+          "url": "https://www.reddit.com/r/CreditCardsIndia/comments/1x2xq0b/redeemed_visa_rewards_offer_of_rs_500_amazon_pay/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Redeemed Visa rewards offer of Rs 500 Amazon pay GIft Card",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 12.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561519+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-079",
+      "ticker": "ZOMATO",
+      "timestamp": "2026-10-11T04:18:30+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: ZOMATO | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_ZOMATO_079",
+        "E_DISC_ZOMATO_079"
+      ],
+      "corroboration_status": "contextualized_macro_or_neutral",
+      "sources_count": 5,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-079_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Zomato Share Price - Live NSE: ETERNAL Stock Price & Chart - Upstox",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-079_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "What should investors do with Eternal (Zomato) after Q2? Brokerages decode - Business Standard",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-079_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Eternal Ltd. Share Price Today | Eternal Live NSE/BSE - Value Research",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-079_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "ETERNAL Share Price Today - Zomato Ltd. Stock Price Live NSE/BSE - Univest",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-079_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Zomato Stock: From 70% Crash to Multibagger Returns - HDFC Sky",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 12.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561537+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-080",
+      "ticker": "IRCTC",
+      "timestamp": "2026-10-11T04:22:06+00:00",
+      "original_message_text": "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_IRCTC_080",
+        "E_DISC_IRCTC_080"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-080_01",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "IRCTC Share Price Today - IRCTC on NSE/BSE - scanx.trade",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-080_02",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Indian Railway Catering & Tourism Corporation Ltd Share Price Today NSE/BSE Charts - Alice Blue",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-080_03",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "Indian Railway Catering & Tourism Corporation Ltd. Share Price Live Today - CNBC TV18",
+          "corroboration_type": "general_mention",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-080_04",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "SpiceJet, IRCTC, Indian Hotels, other tourism-related shares extend losses as US-Iran tensions drag for... - Moneycontrol.com",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-080_05",
+          "name": "News",
+          "url": "",
+          "domain_category": "financial_press",
+          "extracted_title": "RVNL, IRFC, IRCTC: Railway stocks rally up to 12% in trade; here's why - Business Standard",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": false
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-080_06",
+          "name": "Reddit (r/irctc)",
+          "url": "https://www.reddit.com/r/IRCTC/",
+          "domain_category": "reddit_social",
+          "extracted_title": "IRCTC",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-080_07",
+          "name": "Reddit (r/indianrailways)",
+          "url": "https://www.reddit.com/r/indianrailways/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Indian Railways",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-080_08",
+          "name": "Reddit (r/india)",
+          "url": "https://www.reddit.com/r/india/",
+          "domain_category": "reddit_social",
+          "extracted_title": "India: United We Stand",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-080_09",
+          "name": "Reddit (r/afcatprep)",
+          "url": "https://www.reddit.com/r/AFCATprep/comments/1x2dffm/ive_been_allotted_5afsb_guwahati_gate_entry_on/",
+          "domain_category": "reddit_social",
+          "extracted_title": "I've been allotted 5AFSB Guwahati (GATE Entry), on 19th Oct. I have no idea how to get there.",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-080_10",
+          "name": "Reddit (r/indianrailways)",
+          "url": "https://www.reddit.com/r/indianrailways/comments/1x2cjf2/irctc_ticket_showing_only_half_my_name/",
+          "domain_category": "reddit_social",
+          "extracted_title": "IRCTC ticket showing only half my name",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": 454.8,
+        "change_pct": null,
+        "volume": 718299.0,
+        "delivery_pct": null,
+        "risk_score": 14.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561677+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-081",
+      "ticker": "UNKNOWN",
+      "timestamp": "2026-10-11T04:46:38+00:00",
+      "original_message_text": "Source: @minish_fast | Type: a non-financial message",
+      "is_financial": false,
+      "evidence_ids": [
+        "E_LIVE_TG_UNKNOWN_081"
+      ],
+      "corroboration_status": "out_of_scope_non_financial",
+      "sources_count": 0,
+      "sources": [],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 0.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561682+00:00"
+    },
+    {
+      "record_id": "ANN-LIVE-082",
+      "ticker": "NIFTY_50",
+      "timestamp": "2026-10-11T10:55:43+00:00",
+      "original_message_text": "Source: @NIFTY50STOCKSSEBI | Entity: nifty | Type: an index trading tip",
+      "is_financial": true,
+      "evidence_ids": [
+        "E_LIVE_TG_NIFTY_50_082",
+        "E_DISC_NIFTY_50_082"
+      ],
+      "corroboration_status": "conflicting_evidence",
+      "sources_count": 10,
+      "sources": [
+        {
+          "source_id": "SRC_ANN-LIVE-082_01",
+          "name": "News",
+          "url": "https://www.business-standard.com/markets/news/q2-earnings-preview-banks-financials-to-drive-strong-double-digit-growth-126100800201_1.html",
+          "domain_category": "financial_press",
+          "extracted_title": "Q2 Earnings Preview : Banks , financials to drive strong double - digit growth",
+          "corroboration_type": "supports_bullish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-082_02",
+          "name": "Reddit (r/nifty50)",
+          "url": "https://www.reddit.com/r/Nifty50/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Nifty50",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-082_03",
+          "name": "Reddit (r/nifty_50)",
+          "url": "https://www.reddit.com/r/Nifty_50/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Nifty_50",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-082_04",
+          "name": "Reddit (r/nifty50predictions)",
+          "url": "https://www.reddit.com/r/NIFTY50Predictions/",
+          "domain_category": "reddit_social",
+          "extracted_title": "NIFTY50Predictions",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-082_05",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/comments/1x34tgu/nifty_50_sensex_analysis_for_monday_12_october/",
+          "domain_category": "reddit_social",
+          "extracted_title": "NIFTY 50 & SENSEX Analysis for Monday, 12 October | Key Levels and Scenarios",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-082_06",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/comments/1x32ka2/nifty_is_down_almost_900_points_in_the_past_month/",
+          "domain_category": "reddit_social",
+          "extracted_title": "Nifty is down almost 900 points in the past month, and ironically, HDFC Bank was one of the stocks that helped limit the fall....",
+          "corroboration_type": "supports_bearish",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-082_07",
+          "name": "Reddit (r/indianstocks)",
+          "url": "https://www.reddit.com/r/IndianStocks/comments/1x2zzfo/any_suggestions/",
+          "domain_category": "reddit_social",
+          "extracted_title": "any suggestions?",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-082_08",
+          "name": "Reddit (r/indianstockmarket)",
+          "url": "https://www.reddit.com/r/IndianStockMarket/comments/1x2zv3f/any_suggestions/",
+          "domain_category": "reddit_social",
+          "extracted_title": "any suggestions?",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-082_09",
+          "name": "Reddit (r/personalfinanceindia)",
+          "url": "https://www.reddit.com/r/personalfinanceindia/comments/1x2otxv/us_equitiesstock_investment_suggestions/",
+          "domain_category": "reddit_social",
+          "extracted_title": "US equities/stock investment suggestions?",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        },
+        {
+          "source_id": "SRC_ANN-LIVE-082_10",
+          "name": "Reddit (r/nsebets)",
+          "url": "https://www.reddit.com/r/NSEbets/comments/1x2o0pw/how_i_went_from_1cr_to_6cr_in_24_months/",
+          "domain_category": "reddit_social",
+          "extracted_title": "How I went from 1cr to 6cr in 24 months",
+          "corroboration_type": "general_mention",
+          "verified_locally": true
+        }
+      ],
+      "market_telemetry": {
+        "latest_price": null,
+        "change_pct": null,
+        "volume": null,
+        "delivery_pct": null,
+        "risk_score": 16.0
+      },
+      "enrichment_timestamp": "2026-10-19T14:21:20.561716+00:00"
+    }
+  ]
+}

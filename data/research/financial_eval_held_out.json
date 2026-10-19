@@ -1,0 +1,917 @@
+[
+  {
+    "sample_id": "ANN-LIVE-001",
+    "record_id": "ANN-LIVE-001",
+    "ticker": "CRUDE_OIL",
+    "label": "Insufficient Evidence",
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_CRUDE_OIL_001",
+      "E_DISC_CRUDE_OIL_001"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "b7ab0b4c183948ce",
+      "reviewer_id": "REV-VAIBHAV",
+      "review_status": "completed",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "CRUDE_OIL",
+      "as_of": "2026-10-08T12:20:26+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 10.0,
+      "news_headlines": [
+        "[r/crudeoil] Crude Oil Trading",
+        "[r/oil] Oil, gas, and other products that keep the world flowing",
+        "[r/worldnews] World News",
+        "[r/mesmnqmorningbrief] DAILY MARKET BRIEF ~ Published Thursday October 8, 2026 Archive Reference Number: DMB-20260714-062",
+        "[r/indiafinance] Should I fast track or hold the purchase of land worth of around 20 Lakh?"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: crudeoil | (Urgent call) | Type: a commodity trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-010",
+    "record_id": "ANN-LIVE-010",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_010"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "d551a662afc01d2b",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-08T13:42:12+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @Growx_intraday_groww | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-013",
+    "record_id": "ANN-LIVE-013",
+    "ticker": "VARANIUM",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_VARANIUM_013"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "2728b9acfb2e",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "VARANIUM",
+      "as_of": "2026-10-09T17:22:52.006043+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 78.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @ScamAlert | Type: pump_and_dump"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-027",
+    "record_id": "ANN-LIVE-027",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_027"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "f852e7ee4f061206",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T10:33:52+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-030",
+    "record_id": "ANN-LIVE-030",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_030"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "e322e298ac258980",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T10:43:04+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-032",
+    "record_id": "ANN-LIVE-032",
+    "ticker": "RELIANCE",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_RELIANCE_032",
+      "E_DISC_RELIANCE_032"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "8170993195d6b2e2",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "RELIANCE",
+      "as_of": "2026-10-10T10:50:37+00:00",
+      "latest_price": 1218.0,
+      "change_pct": null,
+      "volume": 18003127.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [
+        "Reliance Industries Share Price - Live NSE: RELIANCE Stock Price & Chart - Upstox",
+        "Reliance Industries Ltd Share Price Today NSE/BSE Charts - Alice Blue",
+        "Reliance Shares Drop Before Earnings - Rediff MoneyWiz",
+        "Reliance stock sheds 8% in 4 days; erodes \u20b92 trn market cap from Jan high - Business Standard",
+        "Ambani Stocks 2026: Complete List of Mukesh Ambani's Companies on NSE/BSE - Univest"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: RELIANCE | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-034",
+    "record_id": "ANN-LIVE-034",
+    "ticker": "GOLD",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_GOLD_034",
+      "E_DISC_GOLD_034"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "2aaf42ed55d06f6e",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "GOLD",
+      "as_of": "2026-10-10T10:57:29+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 10.0,
+      "news_headlines": [
+        "SENCO Share Price Today - Senco Gold on NSE/BSE - scanx.trade",
+        "Tata Gold Exchange Traded Fund Share Price NSE/BSE - Live Price Charts & Performance - HDFC Sky",
+        "GOLDBETA Share Price Today - UTI GOLD ETF Stock Price Live NSE/BSE - Univest",
+        "Stock market holiday on May 1: Are NSE, BSE open or closed on Maharashtra Day? Check full trading... - Moneycontrol.com",
+        "CHOICEGOLD Share Price Today - Choice Gold ETF Stock Analysis - Equitypandit"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: gold | Type: a commodity trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-038",
+    "record_id": "ANN-LIVE-038",
+    "ticker": "GOLD",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_GOLD_038",
+      "E_DISC_GOLD_038"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "2aaf42ed55d06f6e",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "GOLD",
+      "as_of": "2026-10-10T11:03:51+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 10.0,
+      "news_headlines": [
+        "SENCO Share Price Today - Senco Gold on NSE/BSE - scanx.trade",
+        "Tata Gold Exchange Traded Fund Share Price NSE/BSE - Live Price Charts & Performance - HDFC Sky",
+        "GOLDBETA Share Price Today - UTI GOLD ETF Stock Price Live NSE/BSE - Univest",
+        "Stock market holiday on May 1: Are NSE, BSE open or closed on Maharashtra Day? Check full trading... - Moneycontrol.com",
+        "CHOICEGOLD Share Price Today - Choice Gold ETF Stock Analysis - Equitypandit"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: gold | Type: a commodity trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-040",
+    "record_id": "ANN-LIVE-040",
+    "ticker": "NIFTY_50",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_NIFTY_50_040",
+      "E_DISC_NIFTY_50_040"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "3a9da7d652ad5871",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "NIFTY_50",
+      "as_of": "2026-10-10T11:08:00+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 15.0,
+      "news_headlines": [
+        "Datanomics: BSE took a decade to enter the Nifty 50; any lessons for NSE? - Business Standard",
+        "October 2026 F&O Monthly Expiry - Groww",
+        "BSE to replace Wipro in India's benchmark Nifty 50 index - Reuters",
+        "BSE Sensex gains 239 points, NSE Nifty50 adds 65 points - News On AIR",
+        "Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today - The Economic Times"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: nifty 50 | Type: an index trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-042",
+    "record_id": "ANN-LIVE-042",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_042"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "b77ac4cdcdb01597",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T11:11:02+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-047",
+    "record_id": "ANN-LIVE-047",
+    "ticker": "TATAPOWER",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_TATAPOWER_047"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "90da7236d0b2ada6",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "TATAPOWER",
+      "as_of": "2026-10-10T12:00:07+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-064",
+    "record_id": "ANN-LIVE-064",
+    "ticker": "TATAPOWER",
+    "label": null,
+    "ai_suggested_label": "Neutral",
+    "evidence_ids": [
+      "E_LIVE_TG_TATAPOWER_064",
+      "E_DISC_TATAPOWER_064"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "90da7236d0b2ada6",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "TATAPOWER",
+      "as_of": "2026-10-10T16:55:32+00:00",
+      "latest_price": 351.65,
+      "change_pct": null,
+      "volume": 5741438.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 12.0,
+      "news_headlines": [
+        "TATAPOWER Share Price Today - Tata Power on NSE/BSE - scanx.trade",
+        "Tata Power Share Price - Live NSE: TATAPOWER Stock Price & Chart - Upstox",
+        "Tata Power Company Ltd. Share Price, Stock Price - NSE/BSE Live - NDTV Profit",
+        "Tata Power Company Ltd. Share Price Live Today - CNBC TV18",
+        "Stocks to buy or sell: Dharmesh Shah of ICICI Sec suggests buying Tata Power, Sona BLW shares on 1 June - Livemint"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: TATAPOWER | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-051",
+    "record_id": "ANN-LIVE-051",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_051"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "38d1363cf74b8fac",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T12:17:53+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-055",
+    "record_id": "ANN-LIVE-055",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_055"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "07b22e3c6afdd47e",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T15:12:14+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-056",
+    "record_id": "ANN-LIVE-056",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_056"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "40aa68885d691c6b",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T15:12:54+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-057",
+    "record_id": "ANN-LIVE-057",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_057"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "40aa68885d691c6b",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T15:13:49+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-058",
+    "record_id": "ANN-LIVE-058",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_058"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "21c9d622afcf6fb5",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T15:14:26+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Target: \u20b915500.0 | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-062",
+    "record_id": "ANN-LIVE-062",
+    "ticker": "IRCTC",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_IRCTC_062",
+      "E_DISC_IRCTC_062"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "21c9d622afcf6fb5",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "IRCTC",
+      "as_of": "2026-10-10T16:50:03+00:00",
+      "latest_price": 454.8,
+      "change_pct": null,
+      "volume": 718299.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 10.0,
+      "news_headlines": [
+        "IRCTC Share Price Today - IRCTC on NSE/BSE - scanx.trade",
+        "Indian Railway Catering & Tourism Corporation Ltd. Share Price Live Today - CNBC TV18",
+        "SpiceJet, IRCTC, Indian Hotels, other tourism-related shares extend losses as US-Iran tensions drag for... - Moneycontrol.com",
+        "RVNL, IRFC, IRCTC: Railway stocks rally up to 12% in trade; here's why - Business Standard",
+        "Stock market crash: IRCTC, Patanjali Foods, Mazagon Dock, Cochin Shipyard among 1,219 stocks that hit 52-week low on NSE - Upstox"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-068",
+    "record_id": "ANN-LIVE-068",
+    "ticker": "IRCTC",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_IRCTC_068",
+      "E_DISC_IRCTC_068"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "21c9d622afcf6fb5",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "IRCTC",
+      "as_of": "2026-10-10T19:42:00+00:00",
+      "latest_price": 454.8,
+      "change_pct": null,
+      "volume": 718299.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 14.0,
+      "news_headlines": [
+        "IRCTC Share Price Today - IRCTC on NSE/BSE - scanx.trade",
+        "Indian Railway Catering & Tourism Corporation Ltd. Share Price Live Today - CNBC TV18",
+        "SpiceJet, IRCTC, Indian Hotels, other tourism-related shares extend losses as US-Iran tensions drag for... - Moneycontrol.com",
+        "RVNL, IRFC, IRCTC: Railway stocks rally up to 12% in trade; here's why - Business Standard",
+        "Stock market crash: IRCTC, Patanjali Foods, Mazagon Dock, Cochin Shipyard among 1,219 stocks that hit 52-week low on NSE - Upstox"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-080",
+    "record_id": "ANN-LIVE-080",
+    "ticker": "IRCTC",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_IRCTC_080",
+      "E_DISC_IRCTC_080"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "21c9d622afcf6fb5",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "IRCTC",
+      "as_of": "2026-10-11T04:22:06+00:00",
+      "latest_price": 454.8,
+      "change_pct": null,
+      "volume": 718299.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 14.0,
+      "news_headlines": [
+        "IRCTC Share Price Today - IRCTC on NSE/BSE - scanx.trade",
+        "Indian Railway Catering & Tourism Corporation Ltd Share Price Today NSE/BSE Charts - Alice Blue",
+        "Indian Railway Catering & Tourism Corporation Ltd. Share Price Live Today - CNBC TV18",
+        "SpiceJet, IRCTC, Indian Hotels, other tourism-related shares extend losses as US-Iran tensions drag for... - Moneycontrol.com",
+        "RVNL, IRFC, IRCTC: Railway stocks rally up to 12% in trade; here's why - Business Standard"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: IRCTC | Target: \u20b915500.0 | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-059",
+    "record_id": "ANN-LIVE-059",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_059"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "a8d430e8ffce3cae",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T15:25:12+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Target: \u20b915500.0 | Type: a sector trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-065",
+    "record_id": "ANN-LIVE-065",
+    "ticker": "SUZLON",
+    "label": null,
+    "ai_suggested_label": "Mixed",
+    "evidence_ids": [
+      "E_LIVE_TG_SUZLON_065",
+      "E_DISC_SUZLON_065"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "633d34c8b2db2c7a",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "SUZLON",
+      "as_of": "2026-10-10T16:58:09+00:00",
+      "latest_price": 39.16,
+      "change_pct": null,
+      "volume": 42495197.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 75.0,
+      "news_headlines": [
+        "Suzlon secures 200MW wind turbine order from Ayana in India",
+        "Suzlon Energy Share Price Up 3.54%: Price, Sector Analysis - Univest",
+        "Suzlon Energy soars 7%, trades at 7-month high; what's driving stock? - Business Standard",
+        "Suzlon, BSE, ITC: Top stocks to trade \u2014 Check technical setup, levels, target prices & stop loss - Business Today",
+        "Suzlon Energy Ltd Share Price Today NSE/BSE Charts - Alice Blue",
+        "Suzlon Energy Ltd. Share Price Today - Suzlon Energy Ltd. Stock Price Live NSE/BSE - CNBC TV18"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: SUZLON | Target: \u20b985.0 | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-067",
+    "record_id": "ANN-LIVE-067",
+    "ticker": "ADANIPOWER",
+    "label": null,
+    "ai_suggested_label": "Bullish",
+    "evidence_ids": [
+      "E_LIVE_TG_ADANIPOWER_067",
+      "E_DISC_ADANIPOWER_067"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "9a5be56a18f75c88",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "ADANIPOWER",
+      "as_of": "2026-10-10T17:13:18+00:00",
+      "latest_price": 202.4,
+      "change_pct": null,
+      "volume": 23468966.0,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 2.0,
+      "news_headlines": [
+        "Adani Power gains 2% in weak market, zooms 49% in April; here's why - Business Standard",
+        "Stocks to Watch Today: HDFC Life, Adani Power, TVS Holdings, NTPC Green, Laser Power, India Pesticides,... - Moneycontrol.com",
+        "Adani Power Ltd. Share Price Today - Adani Power Ltd. Stock Price Live NSE/BSE - CNBC TV18",
+        "BSE, RVNL to Adani Power: These 10 stocks are fastest wealth creators in last 5 years, shows MOSL study - Livemint",
+        "Adani Power jumps 12% in 2 days, hits new high; what's driving stock price? - Business Standard"
+      ],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Entity: ADANIPOWER | Target: \u20b9750.0 | (Urgent call) | Type: a specific stock trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-069",
+    "record_id": "ANN-LIVE-069",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_069"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "336a6dcdecef2947",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T19:45:03+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-072",
+    "record_id": "ANN-LIVE-072",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_072"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "ea95574ebd5276aa",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T21:59:30+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a non-financial message"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-076",
+    "record_id": "ANN-LIVE-076",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_076"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "1ba581fd94f9de61",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-10T22:01:53+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @markemahakelpredictions | Type: a commodity trading tip"
+      ]
+    }
+  },
+  {
+    "sample_id": "ANN-LIVE-081",
+    "record_id": "ANN-LIVE-081",
+    "ticker": "UNKNOWN",
+    "label": null,
+    "ai_suggested_label": "Insufficient Evidence",
+    "evidence_ids": [
+      "E_LIVE_TG_UNKNOWN_081"
+    ],
+    "metadata": {
+      "split": "held_out",
+      "duplicate_group": "1851390c74af3bac",
+      "reviewer_id": null,
+      "review_status": "pending",
+      "is_financial": true
+    },
+    "sample": {
+      "ticker": "UNKNOWN",
+      "as_of": "2026-10-11T04:46:38+00:00",
+      "latest_price": null,
+      "change_pct": null,
+      "volume": null,
+      "delivery_pct": null,
+      "is_surveillance": false,
+      "risk_score": 0.0,
+      "news_headlines": [],
+      "social_signals": [
+        "Source: @minish_fast | Type: a non-financial message"
+      ]
+    }
+  }
+]
