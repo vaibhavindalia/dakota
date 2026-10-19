@@ -5,6 +5,7 @@ supports debounced live search, segment filtering, pagination, and on-demand ris
 """
 from __future__ import annotations
 
+import json
 import logging
 import sqlite3
 from datetime import datetime, timezone
@@ -176,15 +177,49 @@ def get_or_assess_stock(
         verdict = risk.get("verdict", "")
 
         now_iso = datetime.now(timezone.utc).isoformat()
+        prev_score = data.get("score")
+        score_change = round(score - prev_score, 1) if prev_score is not None and score is not None else 0.0
+        change_reason = "Initial assessment" if prev_score is None else (
+            f"Score changed by {score_change:+0.1f} pts" if score_change != 0 else "No significant score variance"
+        )
+        calculated_at = risk.get("calculated_at", now_iso)
+        market_data_as_of = risk.get("market_data_as_of", now_iso)
+        data_freshness = risk.get("data_freshness", "fresh")
+        contrib_json = json.dumps(risk.get("contributions", {}))
+        reasons_json = json.dumps(risk.get("reasons", []))
+
         cur.execute("""
         UPDATE stock_assessments SET
             score = ?,
             band = ?,
             verdict = ?,
             status = 'completed',
-            updated_at = ?
+            updated_at = ?,
+            calculated_at = ?,
+            market_data_as_of = ?,
+            data_freshness = ?,
+            contributions_json = ?,
+            reasons_json = ?,
+            previous_score = ?,
+            score_change = ?,
+            change_reason = ?
         WHERE ticker = ?
-        """, (score, band, verdict, now_iso, ticker))
+        """, (
+            score, band, verdict, now_iso, calculated_at, market_data_as_of,
+            data_freshness, contrib_json, reasons_json, prev_score, score_change,
+            change_reason, ticker
+        ))
+
+        # Record timeline history
+        cur.execute("""
+        INSERT INTO stock_risk_history (
+            ticker, score, band, verdict, contributions_json, reasons_json,
+            market_data_as_of, calculated_at, data_freshness, score_change, change_reason
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (
+            ticker, score, band, verdict, contrib_json, reasons_json,
+            market_data_as_of, calculated_at, data_freshness, score_change, change_reason
+        ))
         conn.commit()
 
         data.update({
@@ -193,6 +228,16 @@ def get_or_assess_stock(
             "verdict": verdict,
             "status": "completed",
             "updated_at": now_iso,
+            "calculated_at": calculated_at,
+            "market_data_as_of": market_data_as_of,
+            "data_freshness": data_freshness,
+            "contributions_json": contrib_json,
+            "reasons_json": reasons_json,
+            "previous_score": prev_score,
+            "score_change": score_change,
+            "change_reason": change_reason,
+            "contributions": risk.get("contributions", {}),
+            "reasons": risk.get("reasons", []),
         })
     except Exception as exc:
         logger.warning("On-demand assessment failed for %s: %s", ticker, exc)
@@ -200,6 +245,23 @@ def get_or_assess_stock(
         conn.close()
 
     return data
+
+
+def get_stock_risk_history(ticker: str, limit: int = 10) -> list[dict[str, Any]]:
+    """Retrieve historical risk assessments and timeline shifts for a ticker."""
+    conn = _get_connection()
+    cur = conn.cursor()
+    cur.execute("""
+    SELECT id, ticker, score, band, verdict, contributions_json, reasons_json,
+           market_data_as_of, calculated_at, data_freshness, score_change, change_reason
+    FROM stock_risk_history
+    WHERE ticker = ?
+    ORDER BY id DESC
+    LIMIT ?
+    """, (ticker.upper().strip(), limit))
+    rows = [dict(r) for r in cur.fetchall()]
+    conn.close()
+    return rows
 
 
 def sync_pending_batch(batch_size: int = 10) -> int:

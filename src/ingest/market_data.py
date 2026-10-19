@@ -11,14 +11,20 @@ until NSE delivery-position files are wired in separately.
 """
 from __future__ import annotations
 
+import json
 import logging
+import os
+import time
 from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 import pandas as pd
 
 logger = logging.getLogger(__name__)
+
+DEFAULT_DAILY_CACHE_TTL_MARKET_HOURS = 300
 
 CACHE_DIR = Path(__file__).resolve().parents[2] / "data" / "cache"
 CACHE_DIR.mkdir(parents=True, exist_ok=True)
@@ -42,6 +48,49 @@ def default_as_of(ticker: str) -> pd.Timestamp:
 
 def _cache_path(ticker: str) -> Path:
     return CACHE_DIR / f"ohlcv_{ticker}.parquet"
+
+
+def _meta_path(ticker: str) -> Path:
+    return CACHE_DIR / f"ohlcv_{ticker}.meta.json"
+
+
+def get_daily_cache_status(ticker: str, max_age_seconds: int = 86400) -> dict[str, Any]:
+    """Inspect local cache freshness and metadata for a ticker."""
+    clean_ticker = ticker.upper().strip()
+    c_path = _cache_path(clean_ticker)
+    m_path = _meta_path(clean_ticker)
+
+    if not c_path.exists():
+        return {
+            "exists": False,
+            "is_fresh": False,
+            "status": "missing",
+            "age_seconds": None,
+            "meta": {},
+        }
+
+    try:
+        mtime = os.path.getmtime(c_path)
+        age = max(0.0, time.time() - mtime)
+    except Exception:
+        age = 0.0
+
+    meta: dict[str, Any] = {}
+    if m_path.exists():
+        try:
+            meta = json.loads(m_path.read_text(encoding="utf-8"))
+        except Exception:
+            meta = {}
+
+    is_fresh = age <= max_age_seconds
+    status = "fresh" if is_fresh else "stale"
+    return {
+        "exists": True,
+        "is_fresh": is_fresh,
+        "status": status,
+        "age_seconds": age,
+        "meta": meta,
+    }
 
 
 TICKER_EXCHANGE_ALIASES: dict[str, list[str]] = {
@@ -125,6 +174,7 @@ def load_ohlcv(
     end: date | str | None = None,
     allow_synthetic: bool = True,
     force_refresh: bool = False,
+    include_live_session: bool = True,
 ) -> pd.DataFrame:
     """Load OHLCV for a ticker: cache -> live -> synthetic (tests only).
 
@@ -132,7 +182,9 @@ def load_ohlcv(
     If cached data is synthetic (old demo cache), discard it and fetch live.
     If live fetch fails, fall back to synthetic ONLY when allow_synthetic=True.
     """
-    cache = _cache_path(ticker)
+    clean_ticker = ticker.upper().strip()
+    cache = _cache_path(clean_ticker)
+    meta_file = _meta_path(clean_ticker)
 
     # Use cache only if it contains real data and force_refresh is not requested
     if cache.exists() and not force_refresh:
@@ -140,33 +192,63 @@ def load_ohlcv(
             df = pd.read_parquet(cache)
             if "synthetic" in df.columns and not df["synthetic"].any():
                 df["date"] = pd.to_datetime(df["date"])
+                if include_live_session:
+                    df = merge_live_intraday_session(df, clean_ticker)
                 return df.sort_values("date").reset_index(drop=True)
             # Cache contains synthetic data — discard it, fetch real
-            logger.info("Discarding synthetic cache for %s, fetching real data", ticker)
+            logger.info("Discarding synthetic cache for %s, fetching real data", clean_ticker)
         except Exception:
             pass
 
     # Try live fetch
     try:
-        df = fetch_ohlcv(ticker, pd.Timestamp(start).date(),
+        df = fetch_ohlcv(clean_ticker, pd.Timestamp(start).date(),
                          pd.Timestamp(end).date() if end else date.today())
         df.to_parquet(cache)
+        try:
+            meta = {
+                "ticker": clean_ticker,
+                "retrieved_at": datetime.now(timezone.utc).isoformat(),
+                "status": "fresh",
+                "source": "yfinance",
+            }
+            meta_file.write_text(json.dumps(meta), encoding="utf-8")
+        except Exception:
+            pass
     except Exception as exc:
-        logger.warning("Live fetch failed for %s: %s", ticker, exc)
+        logger.warning("Live fetch failed for %s: %s", clean_ticker, exc)
         # Re-check cache (even synthetic) before generating new synthetic
         if cache.exists():
             try:
+                if meta_file.exists():
+                    try:
+                        m_obj = json.loads(meta_file.read_text(encoding="utf-8"))
+                    except Exception:
+                        m_obj = {}
+                else:
+                    m_obj = {"ticker": clean_ticker}
+                m_obj["status"] = "stale"
+                m_obj["last_error"] = str(exc)
+                meta_file.write_text(json.dumps(m_obj), encoding="utf-8")
+            except Exception:
+                pass
+
+            try:
                 df = pd.read_parquet(cache)
                 df["date"] = pd.to_datetime(df["date"])
+                if include_live_session:
+                    df = merge_live_intraday_session(df, clean_ticker)
                 return df.sort_values("date").reset_index(drop=True)
             except Exception:
                 pass
         if not allow_synthetic:
             raise
-        logger.warning("Falling back to synthetic OHLCV for %s (tests/offline only)", ticker)
-        df = make_synthetic_ohlcv(ticker, start, end)
+        logger.warning("Falling back to synthetic OHLCV for %s (tests/offline only)", clean_ticker)
+        df = make_synthetic_ohlcv(clean_ticker, start, end)
 
     df["date"] = pd.to_datetime(df["date"])
+    if include_live_session and not df.empty and ("synthetic" not in df.columns or not df["synthetic"].any()):
+        df = merge_live_intraday_session(df, clean_ticker)
     return df.sort_values("date").reset_index(drop=True)
 
 
@@ -445,6 +527,59 @@ def fetch_intraday_ohlcv(ticker: str, interval: str = "5m") -> tuple[pd.DataFram
             continue
 
     raise RuntimeError(f"Could not fetch intraday data for {ticker_clean} (tried {candidates}): {last_err}")
+
+
+def merge_live_intraday_session(df_daily: pd.DataFrame, ticker: str) -> pd.DataFrame:
+    """Merge live intraday candles into daily OHLCV series for point-in-time calculation."""
+    if df_daily is None or df_daily.empty:
+        return df_daily
+
+    try:
+        df_intraday, intra_meta = fetch_intraday_ohlcv(ticker)
+        if df_intraday is None or df_intraday.empty:
+            return df_daily
+
+        if "datetime" in df_intraday.columns:
+            intra_ts = pd.to_datetime(df_intraday["datetime"].iloc[-1])
+        elif "date" in df_intraday.columns:
+            intra_ts = pd.to_datetime(df_intraday["date"].iloc[-1])
+        else:
+            return df_daily
+
+        session_date = pd.Timestamp(intra_ts.date())
+        df_res = df_daily.copy()
+        df_res["date"] = pd.to_datetime(df_res["date"])
+
+        day_open = float(intra_meta.get("day_open") if intra_meta.get("day_open") is not None else df_intraday["open"].iloc[0])
+        day_high = float(intra_meta.get("day_high") if intra_meta.get("day_high") is not None else df_intraday["high"].max())
+        day_low = float(intra_meta.get("day_low") if intra_meta.get("day_low") is not None else df_intraday["low"].min())
+        day_close = float(df_intraday["close"].iloc[-1])
+        day_volume = int(intra_meta.get("day_volume") if intra_meta.get("day_volume") is not None else df_intraday["volume"].sum())
+
+        last_daily_date = pd.Timestamp(df_res["date"].max().date())
+        if session_date > last_daily_date:
+            new_row = pd.DataFrame([{
+                "date": session_date,
+                "open": day_open,
+                "high": day_high,
+                "low": day_low,
+                "close": day_close,
+                "volume": day_volume,
+                "delivery_pct": np.nan,
+                "synthetic": False,
+            }])
+            df_res = pd.concat([df_res, new_row], ignore_index=True)
+        elif session_date == last_daily_date:
+            idx = df_res.index[-1]
+            df_res.at[idx, "high"] = max(float(df_res.at[idx, "high"]), day_high)
+            df_res.at[idx, "low"] = min(float(df_res.at[idx, "low"]), day_low)
+            df_res.at[idx, "close"] = day_close
+            df_res.at[idx, "volume"] = max(int(df_res.at[idx, "volume"]), day_volume)
+
+        return df_res.sort_values("date").reset_index(drop=True)
+    except Exception as exc:
+        logger.debug("Failed merging live intraday session for %s: %s", ticker, exc)
+        return df_daily
 
 
 def make_synthetic_intraday(
