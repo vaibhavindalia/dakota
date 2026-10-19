@@ -1,0 +1,8 @@
+{
+  "total": 2,
+  "predictions": [
+    "Neutral",
+    "Bullish"
+  ],
+  "mean_latency_ms": 38936.86
+}

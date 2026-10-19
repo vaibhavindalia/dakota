@@ -55,12 +55,15 @@ def test_jev_analyze_endpoint(client):
 
 
 def test_jev_benchmark_endpoint(client):
-    response = client.get("/api/intelligence/jev/benchmark?n_splits=2&purge_hours=24")
-    assert response.status_code == 200
-    data = response.json()
-    assert "report" in data
-    assert "markdown_table" in data
-    report = data["report"]
-    assert report["total_samples"] > 0
-    assert "Majority Baseline" in report["evaluated_models"]
-    assert "TF-IDF + LogReg" in report["evaluated_models"]
+    from unittest.mock import patch
+    from src.intelligence.jev.adapters.mock_adapter import MockClassifierAdapter
+    with patch("src.intelligence.jev.api.get_active_adapter", return_value=MockClassifierAdapter()):
+        response = client.get("/api/intelligence/jev/benchmark?refresh=true&n_splits=2&purge_hours=24")
+        assert response.status_code == 200
+        data = response.json()
+        assert "report" in data
+        assert "markdown_table" in data
+        report = data["report"]
+        assert report["total_samples"] > 0
+        assert "Majority Baseline" in report["evaluated_models"]
+        assert "TF-IDF + LogReg" in report["evaluated_models"]

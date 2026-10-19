@@ -30,7 +30,7 @@ from src.connectors.telegram import extract_tip_update, send_message, set_webhoo
 from src.connectors.whatsapp import extract_messages, send_text, verify_signature, verify_webhook
 from src.investigation.tip_investigator import investigate_tip
 from src.investigation.universal_investigator import investigate_message
-from src.classification.local_classifier import classify_message
+from src.classification.jev_classifier import classify_message_with_feature_flag as classify_message
 from src.intake.live_store import load_live_investigations, get_live_investigation
 from src.market.exchange_sync import sync_date
 from src.market.exchange_sync import latest_weekday

@@ -48,7 +48,12 @@ _CACHED_BENCHMARK: Optional[BenchmarkReport] = None
 
 def get_active_adapter() -> BaseClassifierAdapter:
     global _ACTIVE_ADAPTER
-    if os.environ.get("DAKOTA_USE_JEV", "0").strip().lower() in ("1", "true", "yes", "on"):
+    # Use mock ONLY when explicitly requested via DAKOTA_USE_MOCK=1 or DAKOTA_USE_JEV=0
+    use_mock = (
+        os.environ.get("DAKOTA_USE_MOCK", "0").strip().lower() in ("1", "true", "yes", "on")
+        or os.environ.get("DAKOTA_USE_JEV", "1").strip().lower() in ("0", "false", "no", "off")
+    )
+    if not use_mock:
         if isinstance(_ACTIVE_ADAPTER, MockClassifierAdapter):
             try:
                 from .adapters.official_jev_adapter import OfficialSimpleJEVAdapter

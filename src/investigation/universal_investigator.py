@@ -15,6 +15,7 @@ Missing or unavailable evidence remains explicitly visible.
 from __future__ import annotations
 
 import os
+import uuid
 from datetime import datetime, timezone
 from typing import Any
 
@@ -491,6 +492,114 @@ def _replace_stock_risk_with_real_engine(
     return result
 
 
+def _attach_jev_assessment(
+    result: dict[str, Any],
+    *,
+    raw_text: str,
+    source_label: str,
+    timestamp: str | None,
+) -> dict[str, Any]:
+    """Execute structured Simple JEV + Qwen sentiment divergence and factual analysis.
+
+    Connects real market indicators, technical snapshots, news headlines, and risk scores
+    with the official answer-token logit scoring adapter.
+    """
+    try:
+        from src.intelligence.jev.api import get_active_adapter
+        from src.intelligence.jev.tasks.sentiment import SentimentDivergenceTask
+        from src.intelligence.jev.analysis_layer import EvidenceGroundedAnalyzer
+
+        adapter = get_active_adapter()
+        task = SentimentDivergenceTask()
+        analyzer = EvidenceGroundedAnalyzer()
+
+        # Resolve primary ticker or entity
+        investigations = result.get("investigations") or []
+        first_inv = investigations[0] if (investigations and isinstance(investigations[0], dict)) else {}
+
+        ticker = (
+            first_inv.get("ticker")
+            or result.get("ticker")
+            or result.get("entity")
+            or ((result.get("classification") or {}).get("tickers") or [""])[0]
+            or "MARKET"
+        )
+        ticker = str(ticker).upper().strip()
+
+        # Extract market telemetry
+        market = first_inv.get("market") or {}
+        snapshot = market.get("snapshot") or {}
+        risk = result.get("risk") or first_inv.get("risk") or {}
+
+        # Extract news headlines
+        news_obj = result.get("evidence", {}).get("news", {})
+        raw_articles = news_obj.get("articles") or news_obj.get("news_events") or []
+        headlines = []
+        for art in raw_articles:
+            if isinstance(art, dict):
+                h = art.get("title") or art.get("headline")
+                if h:
+                    headlines.append(str(h).strip())
+            elif isinstance(art, str):
+                headlines.append(art.strip())
+
+        technicals = {
+            "trend_vs_ema20": snapshot.get("trend_vs_ema20", "flat"),
+            "rsi": snapshot.get("rsi_14"),
+            "volume_status": snapshot.get("volume_status", "normal"),
+            "above_200dma": snapshot.get("above_200dma"),
+        }
+
+        # Build verified evidence IDs
+        evidence_ids = [f"E_MKT_{ticker}"]
+        if headlines:
+            evidence_ids.append(f"E_NEWS_{ticker}")
+        evidence_ids.append(f"E_SOC_{source_label.upper()}")
+
+        sample_context = {
+            "ticker": ticker,
+            "as_of": timestamp or datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "latest_price": snapshot.get("close"),
+            "change_pct": snapshot.get("return_1d_pct"),
+            "volume": snapshot.get("volume"),
+            "delivery_pct": snapshot.get("delivery_pct"),
+            "technicals": technicals,
+            "risk_score": risk.get("score") if isinstance(risk, dict) else None,
+            "risk_band": risk.get("band", "Unknown") if isinstance(risk, dict) else "Unknown",
+            "is_surveillance": bool(isinstance(risk, dict) and (risk.get("band") == "High" or (risk.get("score") or 0) >= 70)),
+            "news_headlines": headlines[:6],
+            "social_signals": [raw_text],
+            "evidence_ids": evidence_ids,
+        }
+
+        pred = task.classify(adapter, sample_context)
+        report = analyzer.analyze(pred, sample_context)
+
+        is_real = adapter.__class__.__name__ == "OfficialSimpleJEVAdapter"
+        jev_payload = {
+            "status": "completed",
+            "is_real_model": is_real,
+            "model_id": pred.model_id,
+            "backend": "official_simple_jev_transformers" if is_real else "mock_adapter",
+            "prediction": pred.model_dump(),
+            "analysis": report.model_dump(),
+        }
+    except Exception as exc:
+        jev_payload = {
+            "status": "error",
+            "error": str(exc),
+            "is_real_model": False,
+            "model_id": "unavailable",
+            "prediction": None,
+            "analysis": None,
+        }
+
+    result["jev"] = jev_payload
+    if first_inv:
+        first_inv["jev"] = jev_payload
+    return result
+
+
 def investigate_message(
     raw_text: str,
     classification: dict[str, Any],
@@ -562,11 +671,28 @@ def investigate_message(
                         result["risk"] = verdict["risk"]
                         break
 
+        result = _attach_jev_assessment(
+            result,
+            raw_text=raw_text,
+            source_label=source_label,
+            timestamp=timestamp,
+        )
+
+        if not result.get("investigation_id"):
+            result["investigation_id"] = f"inv-{int(datetime.now(timezone.utc).timestamp())}-{uuid.uuid4().hex[:6]}"
+
+        try:
+            from src.intake.live_store import save_live_investigation
+            save_live_investigation(result)
+        except Exception:
+            pass
+
         return result
 
     if impact["status"] == "classified_non_financial":
-        return {
+        res = {
             "status": "classified_non_financial",
+            "investigation_id": f"inv-{int(datetime.now(timezone.utc).timestamp())}-{uuid.uuid4().hex[:6]}",
             "source": source_label,
             "timestamp": timestamp,
             "classification": classification,
@@ -578,10 +704,17 @@ def investigate_message(
             "risk": None,
             "evidence": {},
         }
+        try:
+            from src.intake.live_store import save_live_investigation
+            save_live_investigation(res)
+        except Exception:
+            pass
+        return res
 
     if impact["status"] == "needs_entity_resolution":
-        return {
+        res = {
             "status": "needs_entity_resolution",
+            "investigation_id": f"inv-{int(datetime.now(timezone.utc).timestamp())}-{uuid.uuid4().hex[:6]}",
             "source": source_label,
             "timestamp": timestamp,
             "classification": classification,
@@ -593,6 +726,12 @@ def investigate_message(
             "risk": None,
             "evidence": {},
         }
+        try:
+            from src.intake.live_store import save_live_investigation
+            save_live_investigation(res)
+        except Exception:
+            pass
+        return res
 
     entity = str(impact.get("entity") or "").strip()
     label = _label(entity)
@@ -648,8 +787,9 @@ def investigate_message(
         "telegram": "ingestion_source",
     }
 
-    return {
+    topic_result = {
         "status": "ok",
+        "investigation_id": f"inv-{int(datetime.now(timezone.utc).timestamp())}-{uuid.uuid4().hex[:6]}",
         "source": source_label,
         "timestamp": timestamp,
         "classification": classification,
@@ -679,3 +819,18 @@ def investigate_message(
             "It does not determine fraud and does not provide buy/sell advice."
         ),
     }
+
+    topic_result = _attach_jev_assessment(
+        topic_result,
+        raw_text=raw_text,
+        source_label=source_label,
+        timestamp=timestamp,
+    )
+
+    try:
+        from src.intake.live_store import save_live_investigation
+        save_live_investigation(topic_result)
+    except Exception:
+        pass
+
+    return topic_result
