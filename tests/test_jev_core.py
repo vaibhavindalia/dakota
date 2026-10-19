@@ -190,7 +190,7 @@ def test_mock_adapter_end_to_end_sentiment_task():
 
     # Preset logits favoring 'Mixed' (Divergence between hype and fundamentals)
     # Output labels: ('A', 'B', 'C', 'D', 'E') -> ('Bullish', 'Bearish', 'Neutral', 'Mixed', 'Insufficient Evidence')
-    adapter.set_preset_logits({"A": 1.0, "B": 2.5, "C": 0.5, "D": 6.8, "E": -1.0})
+    adapter.set_preset_logits({"A": 1.0, "B": 2.5, "C": 0.5, "D": 6.8, "E": -1.0, "F": -2.0})
 
     pred = task.classify(adapter, sample_divergence)
 
@@ -284,7 +284,7 @@ def test_contextual_bpe_token_alignment_qwen3_5_9b():
     context = "System: You are an equity analyst.\nUser: Analyze RELIANCE.\nAnswer: ("
     base_ids = tokenizer.encode(context, add_special_tokens=False)
 
-    expected_ids = {"A": 32, "B": 33, "C": 34, "D": 35, "E": 36}
+    expected_ids = {"A": 32, "B": 33, "C": 34, "D": 35, "E": 36, "F": 37}
 
     for lbl, exp_id in expected_ids.items():
         appended_ids = tokenizer.encode(context + lbl, add_special_tokens=False)

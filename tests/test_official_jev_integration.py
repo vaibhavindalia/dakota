@@ -458,6 +458,93 @@ class TestOfficialJEVIntegration(unittest.TestCase):
         self.assertTrue(hasattr(OfficialSimpleJEVAdapter, "_shared_lock"))
         self.assertIsInstance(OfficialSimpleJEVAdapter._shared_lock, type(threading.Lock()))
 
+    # --------------------------------------------------------------------------
+    # 14. Phase 3 Harness Regression: 6 Classes, Balanced Accuracy & Calibration
+    # --------------------------------------------------------------------------
+    def test_phase3_evaluation_harness_metrics_and_calibration(self):
+        """Evaluation harness supports 6 classes, balanced accuracy, and calibration metrics with explicit ordering."""
+        from scripts.evaluate_financial_evidence import (
+            STANDARD_CLASSES,
+            compute_class_level_metrics,
+            compute_calibration_metrics,
+        )
+        self.assertEqual(len(STANDARD_CLASSES), 6)
+        self.assertIn("Ambiguous", STANDARD_CLASSES)
+        self.assertIn("Insufficient Evidence", STANDARD_CLASSES)
+
+        y_true = ["Bullish", "Bearish", "Ambiguous", "Neutral"]
+        y_pred = ["Bullish", "Bearish", "Ambiguous", "Bullish"]
+        metrics = compute_class_level_metrics(y_true, y_pred, STANDARD_CLASSES)
+
+        self.assertEqual(metrics["accuracy"], 0.75)
+        self.assertIn("balanced_accuracy", metrics)
+        self.assertGreater(metrics["balanced_accuracy"], 0.0)
+        self.assertIn("confusion_matrix", metrics)
+
+        # Calibration test
+        y_probs = [
+            {"Bullish": 0.85, "Bearish": 0.03, "Neutral": 0.04, "Mixed": 0.03, "Ambiguous": 0.03, "Insufficient Evidence": 0.02},
+            {"Bullish": 0.05, "Bearish": 0.80, "Neutral": 0.05, "Mixed": 0.05, "Ambiguous": 0.03, "Insufficient Evidence": 0.02},
+            {"Bullish": 0.10, "Bearish": 0.10, "Neutral": 0.10, "Mixed": 0.10, "Ambiguous": 0.50, "Insufficient Evidence": 0.10},
+            {"Bullish": 0.60, "Bearish": 0.10, "Neutral": 0.10, "Mixed": 0.10, "Ambiguous": 0.05, "Insufficient Evidence": 0.05},
+        ]
+        calib = compute_calibration_metrics(y_true, y_probs, STANDARD_CLASSES, n_bins=5)
+        self.assertIn("brier_score", calib)
+        self.assertIn("ece", calib)
+        self.assertIn("nll", calib)
+        self.assertEqual(calib["class_ordering"], STANDARD_CLASSES)
+        self.assertEqual(calib["binning_method"], "equal_width_5_bins")
+
+    # --------------------------------------------------------------------------
+    # 15. Phase 3 Harness Regression: Separate Abstention Tracking
+    # --------------------------------------------------------------------------
+    def test_phase3_separate_abstention_tracking(self):
+        """Insufficient evidence, ambiguous diagnostics, and low confidence abstentions are distinct."""
+        from scripts.evaluate_financial_evidence import evaluate_dataset, get_default_held_out_dataset
+        from src.intelligence.jev.tasks.sentiment import SentimentDivergenceTask
+        from src.intelligence.jev.adapters.mock_adapter import MockClassifierAdapter
+
+        held_out = get_default_held_out_dataset()
+        self.assertGreaterEqual(len(held_out), 7)
+
+        # Mock adapter
+        adapter = MockClassifierAdapter(
+            model_id="mock-eval-qwen",
+            preset_logits={"sentiment_divergence": {"A": 3.0, "B": 0.5, "C": 0.5, "D": 0.5, "E": 0.2, "F": 0.1}},
+        )
+        task = SentimentDivergenceTask()
+        res = evaluate_dataset(held_out, adapter, task, confidence_abstention_threshold=0.40)
+
+        self.assertIn("insufficient_evidence_count", res)
+        self.assertIn("ambiguous_count", res)
+        self.assertIn("low_confidence_abstentions", res)
+        self.assertIn("coverage_rate", res)
+        self.assertIn("latency", res)
+        self.assertIn("median_ms", res["latency"])
+        self.assertIn("p90_ms", res["latency"])
+        self.assertIn("p95_ms", res["latency"])
+
+    # --------------------------------------------------------------------------
+    # 16. Phase 3 Harness Regression: Split Isolation & Leakage Prevention
+    # --------------------------------------------------------------------------
+    def test_phase3_split_isolation(self):
+        """Held-out dataset items are tagged with split='held_out' and have zero overlap with dev."""
+        from scripts.evaluate_financial_evidence import get_default_held_out_dataset
+        from src.intelligence.jev.dataset import get_curated_indian_equity_dataset
+
+        held_out = get_default_held_out_dataset()
+        dev_bench = get_curated_indian_equity_dataset()
+
+        held_out_ids = {h["sample_id"] for h in held_out}
+        dev_ids = {d.sample_id for d in dev_bench}
+
+        # Zero ID overlap
+        self.assertEqual(len(held_out_ids.intersection(dev_ids)), 0)
+
+        # Verify all held-out samples have split tag
+        for h in held_out:
+            self.assertEqual(h["metadata"].get("split"), "held_out")
+
 
 if __name__ == "__main__":
     unittest.main()

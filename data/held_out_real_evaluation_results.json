@@ -1,0 +1,162 @@
+{
+  "total_samples": 7,
+  "eligible_samples": 7,
+  "skipped_samples": 0,
+  "failed_samples": 0,
+  "coverage_rate": 0.8571,
+  "abstention_rate": 0.1429,
+  "insufficient_evidence_count": 1,
+  "ambiguous_count": 1,
+  "low_confidence_abstentions": 0,
+  "evidence_attribution_rate": 1.0,
+  "latency": {
+    "mean_ms": 84229.75,
+    "median_ms": 63151.79,
+    "p90_ms": 193294.71,
+    "p95_ms": 193294.71
+  },
+  "peak_vram_gib": 7.42,
+  "classification": {
+    "accuracy": 0.8571,
+    "balanced_accuracy": 0.8333,
+    "macro_precision": 0.75,
+    "macro_recall": 0.8333,
+    "macro_f1": 0.7778,
+    "per_class": {
+      "Bullish": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Bearish": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      },
+      "Neutral": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 2
+      },
+      "Mixed": {
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6667,
+        "support": 1
+      },
+      "Ambiguous": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "Insufficient Evidence": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 1
+      }
+    },
+    "confusion_matrix": {
+      "Bullish": {
+        "Bullish": 1,
+        "Bearish": 0,
+        "Neutral": 0,
+        "Mixed": 0,
+        "Ambiguous": 0,
+        "Insufficient Evidence": 0
+      },
+      "Bearish": {
+        "Bullish": 0,
+        "Bearish": 1,
+        "Neutral": 0,
+        "Mixed": 0,
+        "Ambiguous": 0,
+        "Insufficient Evidence": 0
+      },
+      "Neutral": {
+        "Bullish": 0,
+        "Bearish": 0,
+        "Neutral": 2,
+        "Mixed": 0,
+        "Ambiguous": 0,
+        "Insufficient Evidence": 0
+      },
+      "Mixed": {
+        "Bullish": 0,
+        "Bearish": 0,
+        "Neutral": 0,
+        "Mixed": 1,
+        "Ambiguous": 0,
+        "Insufficient Evidence": 0
+      },
+      "Ambiguous": {
+        "Bullish": 0,
+        "Bearish": 0,
+        "Neutral": 0,
+        "Mixed": 1,
+        "Ambiguous": 0,
+        "Insufficient Evidence": 0
+      },
+      "Insufficient Evidence": {
+        "Bullish": 0,
+        "Bearish": 0,
+        "Neutral": 0,
+        "Mixed": 0,
+        "Ambiguous": 0,
+        "Insufficient Evidence": 1
+      }
+    }
+  },
+  "calibration": {
+    "brier_score": 0.1889,
+    "ece": 0.0965,
+    "nll": 0.3645,
+    "binning_method": "equal_width_10_bins",
+    "class_ordering": [
+      "Bullish",
+      "Bearish",
+      "Neutral",
+      "Mixed",
+      "Ambiguous",
+      "Insufficient Evidence"
+    ]
+  },
+  "subgroups": {
+    "scope:company_specific": {
+      "accuracy": 0.8333,
+      "sample_count": 6
+    },
+    "challenge:standard": {
+      "accuracy": 1.0,
+      "sample_count": 2
+    },
+    "challenge:negation": {
+      "accuracy": 1.0,
+      "sample_count": 1
+    },
+    "challenge:conflicting_reports": {
+      "accuracy": 1.0,
+      "sample_count": 1
+    },
+    "scope:macro_wide": {
+      "accuracy": 1.0,
+      "sample_count": 1
+    },
+    "challenge:speculation": {
+      "accuracy": 1.0,
+      "sample_count": 1
+    },
+    "challenge:stale_information": {
+      "accuracy": 1.0,
+      "sample_count": 1
+    },
+    "challenge:ambiguous": {
+      "accuracy": 0.0,
+      "sample_count": 1
+    }
+  }
+}

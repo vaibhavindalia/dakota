@@ -38,6 +38,7 @@ STANDARD_CLASSES = [
     "Bearish",
     "Neutral",
     "Mixed",
+    "Ambiguous",
     "Insufficient Evidence",
 ]
 
@@ -47,7 +48,7 @@ def compute_class_level_metrics(
     y_pred: List[str],
     classes: List[str],
 ) -> Dict[str, Any]:
-    """Compute precision, recall, f1, and support for each class plus macro averages."""
+    """Compute precision, recall, f1, support, and balanced accuracy for each class plus macro averages."""
     confusion = collections.defaultdict(lambda: collections.defaultdict(int))
     for yt, yp in zip(y_true, y_pred):
         confusion[yt][yp] += 1
@@ -81,6 +82,7 @@ def compute_class_level_metrics(
     macro_f1 = sum(f1s) / len(f1s) if f1s else 0.0
     macro_prec = sum(precisions) / len(precisions) if precisions else 0.0
     macro_rec = sum(recalls) / len(recalls) if recalls else 0.0
+    balanced_accuracy = sum(recalls) / len(recalls) if recalls else 0.0
 
     total_correct = sum(confusion[c][c] for c in classes)
     total_samples = len(y_true)
@@ -94,6 +96,7 @@ def compute_class_level_metrics(
 
     return {
         "accuracy": round(accuracy, 4),
+        "balanced_accuracy": round(balanced_accuracy, 4),
         "macro_precision": round(macro_prec, 4),
         "macro_recall": round(macro_rec, 4),
         "macro_f1": round(macro_f1, 4),
@@ -107,11 +110,21 @@ def compute_calibration_metrics(
     y_pred_probs: List[Dict[str, float]],
     classes: List[str],
     n_bins: int = 10,
-) -> Dict[str, float]:
-    """Calculate Multi-Class Brier Score, Expected Calibration Error (ECE), and Negative Log Likelihood (NLL)."""
+) -> Dict[str, Any]:
+    """Calculate Multi-Class Brier Score, Expected Calibration Error (ECE), and Negative Log Likelihood (NLL).
+    
+    Binning method: Equal-width binning partitions max confidence [0.0, 1.0] into n_bins intervals.
+    Class ordering: Explicitly matches `classes` parameter.
+    """
     n_samples = len(y_true)
     if n_samples == 0:
-        return {"brier_score": 0.0, "ece": 0.0, "nll": 0.0}
+        return {
+            "brier_score": 0.0,
+            "ece": 0.0,
+            "nll": 0.0,
+            "binning_method": f"equal_width_{n_bins}_bins",
+            "class_ordering": classes,
+        }
 
     # 1. Multi-class Brier Score: 1/N * sum_i sum_k (p_ik - y_ik)^2
     total_brier = 0.0
@@ -123,8 +136,8 @@ def compute_calibration_metrics(
             y_k = 1.0 if yt == c else 0.0
             total_brier += (p_k - y_k) ** 2
 
-        # NLL on true class probability
-        p_true = max(probs.get(yt, 1e-15), 1e-15)
+        # Epsilon floor of 1e-7 prevents log(0) spikes on unpredicted true classes
+        p_true = max(probs.get(yt, 1e-7), 1e-7)
         total_nll += -math.log(p_true)
 
     mean_brier = total_brier / n_samples
@@ -160,6 +173,8 @@ def compute_calibration_metrics(
         "brier_score": round(mean_brier, 4),
         "ece": round(ece, 4),
         "nll": round(mean_nll, 4),
+        "binning_method": f"equal_width_{n_bins}_bins",
+        "class_ordering": classes,
     }
 
 
@@ -174,8 +189,14 @@ def evaluate_dataset(
     y_pred: List[str] = []
     y_pred_probs: List[Dict[str, float]] = []
 
-    abstentions = 0
+    insufficient_evidence_count = 0
+    ambiguous_count = 0
+    low_confidence_abstentions = 0
     attribution_failures = 0
+    sample_latencies: List[float] = []
+    skipped_count = 0
+    failure_count = 0
+
     subgroup_results: Dict[str, Dict[str, List[int]]] = collections.defaultdict(
         lambda: {"correct": [], "total": []}
     )
@@ -183,7 +204,11 @@ def evaluate_dataset(
     t0 = time.perf_counter()
 
     for item in dataset:
-        target_label = item.get("label", "Neutral")
+        target_label = item.get("label")
+        if not target_label:
+            skipped_count += 1
+            continue
+
         sample_data = item.get("sample", {})
         metadata = item.get("metadata", {})
         evidence_ids = item.get("evidence_ids", [])
@@ -191,25 +216,33 @@ def evaluate_dataset(
             sample_data["evidence_ids"] = evidence_ids
 
         # Run model inference
-        pred: PredictionResult = task.classify(adapter, sample_data)
+        t_sample_start = time.perf_counter()
+        try:
+            pred: PredictionResult = task.classify(adapter, sample_data)
+            sample_ms = pred.latency_ms if (pred.latency_ms is not None and pred.latency_ms > 0) else (time.perf_counter() - t_sample_start) * 1000.0
+            sample_latencies.append(round(sample_ms, 2))
+        except Exception as exc:
+            failure_count += 1
+            sample_latencies.append(round((time.perf_counter() - t_sample_start) * 1000.0, 2))
+            continue
 
         # Provenance and evidence attribution check
         if not pred.evidence_ids or len(pred.evidence_ids) == 0:
             attribution_failures += 1
 
-        # Check for abstention: Insufficient Evidence or confidence below threshold
-        is_abstained = (
-            pred.predicted_label == "Insufficient Evidence"
-            or pred.confidence < confidence_abstention_threshold
-        )
-        if is_abstained:
-            abstentions += 1
+        # Separate tracking of insufficient evidence, ambiguous, and low confidence
+        if pred.predicted_label == "Insufficient Evidence":
+            insufficient_evidence_count += 1
+        if pred.predicted_label == "Ambiguous" or (pred.margin is not None and pred.margin < 0.05):
+            ambiguous_count += 1
+        if pred.confidence < confidence_abstention_threshold:
+            low_confidence_abstentions += 1
 
         chosen_label = pred.predicted_label
         y_true.append(target_label)
         y_pred.append(chosen_label)
 
-        # Normalized class scores
+        # Normalized class scores across STANDARD_CLASSES
         scores = pred.class_scores or {c: 1.0 / len(STANDARD_CLASSES) for c in STANDARD_CLASSES}
         y_pred_probs.append(scores)
 
@@ -222,8 +255,26 @@ def evaluate_dataset(
         subgroup_results[f"challenge:{challenge}"]["correct"].append(is_correct)
 
     total_time = time.perf_counter() - t0
-    n_samples = len(dataset)
+    n_samples = len(y_true)
     mean_latency = (total_time / n_samples) * 1000.0 if n_samples > 0 else 0.0
+
+    # Latency percentiles
+    if sample_latencies:
+        sorted_lat = sorted(sample_latencies)
+        median_lat = sorted_lat[int(len(sorted_lat) * 0.50)]
+        p90_lat = sorted_lat[int(len(sorted_lat) * 0.90)]
+        p95_lat = sorted_lat[min(int(len(sorted_lat) * 0.95), len(sorted_lat) - 1)]
+    else:
+        median_lat = p90_lat = p95_lat = 0.0
+
+    # Peak GPU memory
+    peak_vram_gib = 0.0
+    try:
+        import torch
+        if torch.cuda.is_available():
+            peak_vram_gib = round(torch.cuda.max_memory_allocated() / (1024**3), 2)
+    except Exception:
+        pass
 
     # 1. Classification Performance
     class_metrics = compute_class_level_metrics(y_true, y_pred, STANDARD_CLASSES)
@@ -242,14 +293,29 @@ def evaluate_dataset(
             "sample_count": total_g,
         }
 
-    abstention_rate = round(abstentions / n_samples, 4) if n_samples > 0 else 0.0
+    total_abstained = low_confidence_abstentions + insufficient_evidence_count
+    abstention_rate = round(total_abstained / n_samples, 4) if n_samples > 0 else 0.0
+    coverage_rate = round(1.0 - abstention_rate, 4)
     attribution_rate = round(1.0 - (attribution_failures / n_samples), 4) if n_samples > 0 else 1.0
 
     return {
         "total_samples": n_samples,
-        "mean_latency_ms": round(mean_latency, 2),
+        "eligible_samples": len(dataset),
+        "skipped_samples": skipped_count,
+        "failed_samples": failure_count,
+        "coverage_rate": coverage_rate,
         "abstention_rate": abstention_rate,
+        "insufficient_evidence_count": insufficient_evidence_count,
+        "ambiguous_count": ambiguous_count,
+        "low_confidence_abstentions": low_confidence_abstentions,
         "evidence_attribution_rate": attribution_rate,
+        "latency": {
+            "mean_ms": round(mean_latency, 2),
+            "median_ms": round(median_lat, 2),
+            "p90_ms": round(p90_lat, 2),
+            "p95_ms": round(p95_lat, 2),
+        },
+        "peak_vram_gib": peak_vram_gib,
         "classification": class_metrics,
         "calibration": calib_metrics,
         "subgroups": subgroup_summary,
@@ -258,15 +324,20 @@ def evaluate_dataset(
 
 def format_evaluation_report(report: Dict[str, Any], title: str = "Financial Evidence Evaluation Report") -> str:
     """Format evaluation statistics into a readable markdown summary."""
+    lat = report.get("latency", {})
     lines = [
         f"# {title}",
-        f"- **Evaluated Samples**: {report['total_samples']}",
-        f"- **Mean Latency**: {report['mean_latency_ms']} ms/sample",
-        f"- **Abstention Rate**: {report['abstention_rate'] * 100:.2f}%",
+        f"- **Evaluated Samples**: {report['total_samples']} (Eligible: {report.get('eligible_samples', report['total_samples'])}, Skipped: {report.get('skipped_samples', 0)}, Failed: {report.get('failed_samples', 0)})",
+        f"- **Coverage Rate**: {report.get('coverage_rate', 1.0) * 100:.2f}%",
+        f"- **Abstention Rate**: {report['abstention_rate'] * 100:.2f}% (Insufficient Evidence: {report.get('insufficient_evidence_count', 0)}, Low Confidence (<0.40): {report.get('low_confidence_abstentions', 0)}, Ambiguous Diagnosed: {report.get('ambiguous_count', 0)})",
+        f"- **Latency**: Median={lat.get('median_ms', 0.0)} ms | P90={lat.get('p90_ms', 0.0)} ms | P95={lat.get('p95_ms', 0.0)} ms (Mean: {lat.get('mean_ms', 0.0)} ms)",
+        f"- **Peak GPU VRAM**: {report.get('peak_vram_gib', 0.0)} GiB",
         f"- **Evidence Attribution Rate**: {report['evidence_attribution_rate'] * 100:.2f}%",
+        f"- **Class Ordering**: {', '.join(STANDARD_CLASSES)}",
         "",
         "## 1. Classification Metrics",
         f"- **Overall Accuracy**: {report['classification']['accuracy'] * 100:.2f}%",
+        f"- **Balanced Accuracy**: {report['classification'].get('balanced_accuracy', 0.0) * 100:.2f}%",
         f"- **Macro-Precision**: {report['classification']['macro_precision']:.4f}",
         f"- **Macro-Recall**: {report['classification']['macro_recall']:.4f}",
         f"- **Macro-F1**: {report['classification']['macro_f1']:.4f}",
@@ -296,7 +367,8 @@ def format_evaluation_report(report: Dict[str, Any], title: str = "Financial Evi
         "## 2. Calibration Metrics (Separated from Accuracy)",
         f"- **Multi-Class Brier Score**: {report['calibration']['brier_score']:.4f} *(lower is better; quadratic probability error)*",
         f"- **Expected Calibration Error (ECE)**: {report['calibration']['ece']:.4f} *(lower is better; bin gap between confidence and empirical accuracy)*",
-        f"- **Negative Log-Likelihood (NLL)**: {report['calibration']['nll']:.4f}",
+        f"- **Negative Log-Likelihood (NLL)**: {report['calibration']['nll']:.4f} *(with 1e-7 floor)*",
+        f"- **Calibration Binning Method**: {report['calibration'].get('binning_method', 'equal_width_10_bins')}",
         "",
         "## 3. Subgroup & Linguistic Challenge Analysis",
         "| Subgroup / Challenge | Accuracy | Samples |",
@@ -322,7 +394,7 @@ def get_default_held_out_dataset() -> List[Dict[str, Any]]:
             "sample_id": "HELD-001",
             "ticker": "INFY",
             "label": "Bullish",
-            "metadata": {"scope": "company_specific", "linguistic_challenge": "standard"},
+            "metadata": {"scope": "company_specific", "linguistic_challenge": "standard", "split": "held_out"},
             "evidence_ids": ["E_MKT_INFY", "E_BSE_INFY_Q3"],
             "sample": {
                 "ticker": "INFY",
@@ -343,7 +415,7 @@ def get_default_held_out_dataset() -> List[Dict[str, Any]]:
             "sample_id": "HELD-002",
             "ticker": "VEDL",
             "label": "Bearish",
-            "metadata": {"scope": "company_specific", "linguistic_challenge": "negation"},
+            "metadata": {"scope": "company_specific", "linguistic_challenge": "negation", "split": "held_out"},
             "evidence_ids": ["E_MKT_VEDL", "E_NEWS_SEBI"],
             "sample": {
                 "ticker": "VEDL",
@@ -364,7 +436,7 @@ def get_default_held_out_dataset() -> List[Dict[str, Any]]:
             "sample_id": "HELD-003",
             "ticker": "SUZLON",
             "label": "Mixed",
-            "metadata": {"scope": "company_specific", "linguistic_challenge": "conflicting_reports"},
+            "metadata": {"scope": "company_specific", "linguistic_challenge": "conflicting_reports", "split": "held_out"},
             "evidence_ids": ["E_MKT_SUZLON", "E_TG_PROMO", "E_DISCLOSURE"],
             "sample": {
                 "ticker": "SUZLON",
@@ -385,7 +457,7 @@ def get_default_held_out_dataset() -> List[Dict[str, Any]]:
             "sample_id": "HELD-004",
             "ticker": "HDFCBANK",
             "label": "Neutral",
-            "metadata": {"scope": "macro_wide", "linguistic_challenge": "standard"},
+            "metadata": {"scope": "macro_wide", "linguistic_challenge": "standard", "split": "held_out"},
             "evidence_ids": ["E_MKT_HDFCBANK", "E_RBI_BULLETIN"],
             "sample": {
                 "ticker": "HDFCBANK",
@@ -406,7 +478,7 @@ def get_default_held_out_dataset() -> List[Dict[str, Any]]:
             "sample_id": "HELD-005",
             "ticker": "UNKNOWN_SHELL",
             "label": "Insufficient Evidence",
-            "metadata": {"scope": "company_specific", "linguistic_challenge": "speculation"},
+            "metadata": {"scope": "company_specific", "linguistic_challenge": "speculation", "split": "held_out"},
             "evidence_ids": ["E_TG_SPAM"],
             "sample": {
                 "ticker": "UNKNOWN_SHELL",
@@ -427,7 +499,7 @@ def get_default_held_out_dataset() -> List[Dict[str, Any]]:
             "sample_id": "HELD-006",
             "ticker": "TATASTEEL",
             "label": "Neutral",
-            "metadata": {"scope": "company_specific", "linguistic_challenge": "stale_information"},
+            "metadata": {"scope": "company_specific", "linguistic_challenge": "stale_information", "split": "held_out"},
             "evidence_ids": ["E_MKT_TATASTEEL", "E_STALE_NEWS"],
             "sample": {
                 "ticker": "TATASTEEL",
@@ -443,13 +515,45 @@ def get_default_held_out_dataset() -> List[Dict[str, Any]]:
                 "social_signals": ["Breaking! Tata Steel gets grant from UK Government (circulating old news from last month)"],
             },
         },
+        # --- Group 7: Ambiguous - Contradictory Analyst Split ---
+        {
+            "sample_id": "HELD-007",
+            "ticker": "WIPRO",
+            "label": "Ambiguous",
+            "metadata": {"scope": "company_specific", "linguistic_challenge": "ambiguous", "split": "held_out"},
+            "evidence_ids": ["E_MKT_WIPRO", "E_ANALYST_SPLIT"],
+            "sample": {
+                "ticker": "WIPRO",
+                "as_of": "2026-10-17T15:30:00Z",
+                "latest_price": 545.00,
+                "change_pct": 0.02,
+                "volume": 2100000,
+                "delivery_pct": 48.0,
+                "technicals": {"trend_vs_ema20": "neutral_convergence"},
+                "risk_score": 20.0,
+                "is_surveillance": False,
+                "news_headlines": [
+                    "Goldman Sachs upgrades Wipro to Buy citing deal win ramp-up; Nomura simultaneously downgrades to Reduce citing margin pressure"
+                ],
+                "social_signals": [
+                    "Broker research desks sharply divided with equal conviction and contradictory price targets"
+                ],
+            },
+        },
     ]
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Evaluate financial evidence on held-out dataset.")
+    parser = argparse.ArgumentParser(description="Evaluate financial evidence on held-out or development datasets.")
     parser.add_argument("--dataset", type=str, default=None, help="Path to evaluation dataset JSON.")
-    parser.add_argument("--held-out", action="store_true", help="Force evaluation on held-out test split.")
+    parser.add_argument("--held-out", action="store_true", help="Force evaluation strictly on held-out test split.")
+    parser.add_argument(
+        "--split",
+        type=str,
+        default=None,
+        choices=["held_out", "dev", "all"],
+        help="Specify evaluation split (held_out, dev, or all).",
+    )
     parser.add_argument(
         "--adapter",
         type=str,
@@ -460,14 +564,53 @@ def main():
     parser.add_argument("--output", type=str, default=None, help="Path to write evaluation JSON report.")
     args = parser.parse_args()
 
+    # Determine requested split
+    target_split = "held_out" if args.held_out else args.split
+
     # Load dataset
     if args.dataset and os.path.isfile(args.dataset):
         with open(args.dataset, "r", encoding="utf-8") as f:
-            dataset = json.load(f)
+            raw_data = json.load(f)
         dataset_name = os.path.basename(args.dataset)
+        if isinstance(raw_data, list):
+            dataset = raw_data
+        elif isinstance(raw_data, dict) and "samples" in raw_data:
+            dataset = raw_data["samples"]
+        else:
+            dataset = [raw_data]
+
+        if target_split in ("held_out", "dev"):
+            filtered = [
+                d for d in dataset
+                if d.get("metadata", {}).get("split") == target_split
+                or d.get("split") == target_split
+            ]
+            if filtered:
+                dataset = filtered
+                dataset_name += f" [Split: {target_split}]"
+            elif target_split == "held_out":
+                # Ensure user intended whole file if no split tags present
+                print(f"Notice: No explicit split='{target_split}' tags found in {args.dataset}. Evaluating all records.")
     else:
-        dataset = get_default_held_out_dataset()
-        dataset_name = "Default Held-Out Dataset (Indian Equity Benchmarks)"
+        if target_split == "dev":
+            from src.intelligence.jev.dataset import get_curated_indian_equity_dataset
+            dev_bench = get_curated_indian_equity_dataset()
+            dataset = [
+                {
+                    "sample_id": s.sample_id,
+                    "ticker": s.ticker,
+                    "label": s.label,
+                    "metadata": {"scope": "company_specific", "linguistic_challenge": "standard", "split": "dev"},
+                    "evidence_ids": s.evidence_ids,
+                    "sample": s.sample,
+                    "rationale": s.rationale,
+                }
+                for s in dev_bench
+            ]
+            dataset_name = "Curated Indian Equity Development Benchmark (15 samples)"
+        else:
+            dataset = get_default_held_out_dataset()
+            dataset_name = "Curated Held-Out Benchmark Dataset (Indian Equity, 7 samples)"
 
     # Resolve adapter
     if args.adapter == "official_jev":
@@ -482,7 +625,8 @@ def main():
                     "B": 0.5,
                     "C": 0.3,
                     "D": 0.2,
-                    "E": 0.1,
+                    "E": 0.1,  # Ambiguous
+                    "F": 0.05, # Insufficient Evidence
                 }
             },
         )

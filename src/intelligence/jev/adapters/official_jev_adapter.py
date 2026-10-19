@@ -209,6 +209,7 @@ class OfficialSimpleJEVAdapter(BaseClassifierAdapter):
                 OfficialSimpleJEVAdapter._is_loaded = True
                 OfficialSimpleJEVAdapter._load_error = None
 
+                torch.cuda.empty_cache()
                 elapsed = time.perf_counter() - start_load
                 mem_gib = torch.cuda.memory_allocated() / (1024**3)
                 logger.info("Qwen3.5-9B 4-bit NF4 loaded in %.2fs. VRAM allocated: %.2f GiB", elapsed, mem_gib)
@@ -432,6 +433,7 @@ class OfficialSimpleJEVAdapter(BaseClassifierAdapter):
                 mask = torch.ones_like(input_tensor)
 
                 try:
+                    torch.cuda.empty_cache()
                     with OfficialSimpleJEVAdapter._shared_lock:
                         with torch.inference_mode():
                             out = model(input_ids=input_tensor, attention_mask=mask, logits_to_keep=1, use_cache=False)
@@ -439,6 +441,7 @@ class OfficialSimpleJEVAdapter(BaseClassifierAdapter):
                             raw_selected = last_logits[branch.output_ids].float().cpu()
 
                     del out, input_tensor, mask, last_logits
+                    torch.cuda.empty_cache()
 
                 except torch.cuda.OutOfMemoryError as oom:
                     logger.error("CUDA OOM in JEV predict_choice: %s", oom)

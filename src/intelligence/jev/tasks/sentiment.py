@@ -23,6 +23,7 @@ class SentimentDivergenceTask(BaseFinancialTask):
             "Bearish": "Evidence demonstrates deteriorating financial fundamentals, exchange surveillance placement, regulatory scrutiny, or breakdown.",
             "Neutral": "Evidence demonstrates balanced, range-bound trading activity, ordinary corporate updates, or normal market operations.",
             "Mixed": "Prominent conflict between sources (e.g. intense promotional social media touting occurring alongside declining delivery volume or negative earnings).",
+            "Ambiguous": "Available context contains contradictory indicators of comparable strength or undecidable statements where neither bullish nor bearish can be established.",
             "Insufficient Evidence": "Available context lacks adequate information or verified market/news disclosures to form a grounded assessment.",
         }
 
@@ -32,7 +33,8 @@ class SentimentDivergenceTask(BaseFinancialTask):
             "Analyze the verified stock telemetry, recent news, and social signals provided in the context.\n"
             "Determine the prevailing sentiment classification. Pay specific attention to contradictions: "
             "if high-frequency social media touting promises massive gains while exchange data shows delivery volume collapse "
-            "or exchange surveillance (GSM/ASM), classify strictly as 'Mixed' rather than 'Bullish'."
+            "or exchange surveillance (GSM/ASM), classify strictly as 'Mixed'. If available context contains conflicting or undecidable statements of equal weight, classify as 'Ambiguous'. "
+            "If context has no verifiable disclosures or telemetry, classify as 'Insufficient Evidence'."
         )
 
     def build_evidence_state(self, sample: Dict[str, Any]) -> Tuple[Dict[str, Any], List[str]]:
