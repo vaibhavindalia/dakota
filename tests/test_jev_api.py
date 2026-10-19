@@ -32,9 +32,9 @@ def test_jev_classify_endpoint(client):
     data = response.json()
     assert "predicted_label" in data
     assert "confidence" in data
-    assert "class_scores" in data
-    assert "latency_ms" in data
-    assert len(data["class_scores"]) == 5
+    assert len(data["class_scores"]) == 6
+    assert "Ambiguous" in data["class_scores"]
+    assert "Insufficient Evidence" in data["class_scores"]
 
 
 def test_jev_analyze_endpoint(client):

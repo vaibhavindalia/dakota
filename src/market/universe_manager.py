@@ -19,9 +19,45 @@ logger = logging.getLogger(__name__)
 
 
 def _get_connection() -> sqlite3.Connection:
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(str(DB_PATH), timeout=10.0)
     conn.row_factory = sqlite3.Row
     return conn
+
+
+def _ensure_schema() -> None:
+    """Ensure SQLite database and stock_assessments schema exist idempotently."""
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
+    conn = _get_connection()
+    try:
+        cur = conn.cursor()
+        cur.execute("""
+        CREATE TABLE IF NOT EXISTS stock_assessments (
+            ticker TEXT PRIMARY KEY,
+            name TEXT,
+            exchange TEXT,
+            segment TEXT,
+            role TEXT,
+            score REAL,
+            band TEXT,
+            verdict TEXT,
+            latest_price REAL,
+            change_pct REAL,
+            high_52w REAL,
+            low_52w REAL,
+            volume INTEGER,
+            is_surveillance INTEGER DEFAULT 0,
+            status TEXT DEFAULT 'pending',
+            updated_at TEXT
+        );
+        """)
+        cur.execute("CREATE INDEX IF NOT EXISTS idx_stock_segment ON stock_assessments(segment);")
+        cur.execute("CREATE INDEX IF NOT EXISTS idx_stock_band ON stock_assessments(band);")
+        cur.execute("CREATE INDEX IF NOT EXISTS idx_stock_status ON stock_assessments(status);")
+        cur.execute("CREATE INDEX IF NOT EXISTS idx_stock_score ON stock_assessments(score DESC);")
+        conn.commit()
+    finally:
+        conn.close()
 
 
 def query_stocks(
