@@ -19,9 +19,11 @@ FEATURE_FLAG_ENV_VAR = "DAKOTA_USE_JEV"
 
 
 def is_jev_enabled() -> bool:
-    """Return True if the JEV feature flag is explicitly activated via environment."""
-    val = os.environ.get(FEATURE_FLAG_ENV_VAR, "0").strip().lower()
-    return val in ("1", "true", "yes", "on")
+    """Return True if JEV is enabled (default: True, disabled via DAKOTA_USE_JEV=0 or DAKOTA_USE_MOCK=1)."""
+    if os.environ.get("DAKOTA_USE_MOCK", "0").strip().lower() in ("1", "true", "yes", "on"):
+        return False
+    val = os.environ.get(FEATURE_FLAG_ENV_VAR, "1").strip().lower()
+    return val not in ("0", "false", "no", "off")
 
 
 # Global singleton adapter for Dakota pipeline classification

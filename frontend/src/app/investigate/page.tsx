@@ -94,7 +94,9 @@ type LiveItem = {
       tickers_scored?: string[];
       as_of?: string;
     };
+    jev?: any;
   };
+  jev?: any;
   risk?: Risk | null;
   status?: string;
   disclaimer?: string;
@@ -256,6 +258,11 @@ function FeedCard({ item, onOpen }: { item: LiveItem; onOpen: (item: LiveItem) =
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-lg font-semibold text-white">{human(ticker)}</span>
             <RiskBadge risk={risk} />
+            {Boolean((item.jev || item.investigation?.jev)?.prediction?.predicted_label) && (
+              <span className="rounded-full border border-sky-400/30 bg-sky-400/10 px-2.5 py-0.5 text-xs font-mono text-sky-200">
+                JEV: {(item.jev || item.investigation?.jev).prediction.predicted_label.toUpperCase()} ({Math.round((item.jev || item.investigation?.jev).prediction.confidence * 100)}%)
+              </span>
+            )}
           </div>
           <div className="mt-1 text-xs text-white/35">
             {item.channel_username || item.channel || "Telegram"} · {timeAgo(item.telegram_timestamp || item.captured_at)}
@@ -317,6 +324,144 @@ function ProviderDetail({ label, provider }: { label: string; provider?: Provide
   );
 }
 
+function JevForensicPanel({ jev }: { jev?: any }) {
+  if (!jev) return null;
+  const pred = jev.prediction;
+  const analysis = jev.analysis;
+  const isReal = jev.is_real_model;
+  const modelId = jev.model_id || pred?.model_id || "Qwen3.5-9B";
+  const status = jev.status;
+
+  if (status === "error") {
+    return (
+      <div className="rounded-2xl border border-red-500/30 bg-red-950/20 p-5 font-mono text-xs text-red-300">
+        <div className="flex items-center justify-between">
+          <span className="font-bold uppercase tracking-wider text-red-200">JEV CLASSIFIER NOTICE</span>
+          <span className="rounded bg-red-900/50 px-2 py-0.5 text-[10px]">DIAGNOSTIC STATE</span>
+        </div>
+        <p className="mt-2 text-zinc-300">{jev.error || "Inference service encountered an issue."}</p>
+      </div>
+    );
+  }
+
+  if (!pred) return null;
+
+  const classes = [
+    { label: "Bullish", color: "bg-emerald-500" },
+    { label: "Bearish", color: "bg-red-500" },
+    { label: "Neutral", color: "bg-zinc-500" },
+    { label: "Mixed", color: "bg-amber-500" },
+    { label: "Ambiguous", color: "bg-purple-500" },
+    { label: "Insufficient Evidence", color: "bg-zinc-700" },
+  ];
+
+  return (
+    <div className="rounded-2xl border border-sky-500/30 bg-[#090f1d] p-5 shadow-xl">
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+        <div>
+          <div className="font-mono text-[10px] uppercase tracking-widest text-sky-400 font-semibold">
+            FEATHERLESS AI • SIMPLE JEV
+          </div>
+          <div className="font-mono text-lg font-bold text-white">
+            FORENSIC SENTIMENT DIVERGENCE
+          </div>
+        </div>
+        <div className="flex items-center gap-2 font-mono text-[10px]">
+          <span className="rounded-full border border-sky-400/40 bg-sky-400/10 px-2.5 py-1 text-sky-200">
+            MODEL: {modelId}
+          </span>
+          <span className={`rounded-full px-2 py-0.5 font-semibold ${isReal ? "bg-emerald-950 text-emerald-300 border border-emerald-800" : "bg-amber-950 text-amber-300 border border-amber-800"}`}>
+            {isReal ? "REAL IN-PROCESS MODEL" : "MOCK PROFILE"}
+          </span>
+        </div>
+      </div>
+
+      <div className="mt-4 grid gap-4 md:grid-cols-3">
+        {/* Top Class Decision */}
+        <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 md:col-span-1">
+          <div className="font-mono text-[10px] uppercase tracking-wider text-zinc-400">STRUCTURED VERDICT</div>
+          <div className="mt-2 font-mono text-2xl font-black text-sky-300">
+            {pred.predicted_label}
+          </div>
+          <div className="mt-1 font-mono text-xs text-zinc-300">
+            {(pred.confidence * 100).toFixed(1)}% Winner Confidence
+          </div>
+          {pred.margin != null && (
+            <div className="mt-3 space-y-1 font-mono text-[11px] text-zinc-400 border-t border-white/5 pt-2">
+              <div>Margin: <span className="text-zinc-200">{pred.margin.toFixed(3)}</span></div>
+              <div>Entropy: <span className="text-zinc-200">{pred.entropy?.toFixed(3) || "—"} nats</span></div>
+              <div>Latency: <span className="text-zinc-200">{pred.latency_ms?.toFixed(0) || "—"} ms</span></div>
+            </div>
+          )}
+        </div>
+
+        {/* 6-Class Normalized Distribution */}
+        <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4 md:col-span-2">
+          <div className="mb-3 font-mono text-xs text-zinc-400 uppercase tracking-wider">
+            6-Class Normalized Logit Probability Distribution
+          </div>
+          <div className="space-y-2">
+            {classes.map((cls) => {
+              const score = pred.class_scores?.[cls.label] || 0;
+              const pct = (score * 100).toFixed(1);
+              return (
+                <div key={cls.label}>
+                  <div className="flex justify-between font-mono text-[11px]">
+                    <span className="text-zinc-300">{cls.label}</span>
+                    <span className="text-zinc-400">{pct}%</span>
+                  </div>
+                  <div className="mt-1 h-1.5 w-full rounded-full bg-zinc-800 overflow-hidden">
+                    <div
+                      className={`h-full ${cls.color}`}
+                      style={{ width: `${Math.max(Number(pct), 1)}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Grounded Factual Synthesis & Citations */}
+      {analysis && (
+        <div className="mt-4 rounded-xl border border-white/10 bg-black/40 p-4">
+          <div className="font-mono text-[10px] uppercase tracking-wider text-zinc-400">
+            EVIDENCE-GROUNDED FACTUAL ANALYSIS
+          </div>
+          <p className="mt-2 text-xs leading-relaxed text-zinc-300 font-sans">
+            {analysis.executive_summary}
+          </p>
+
+          {analysis.citations?.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-1.5 font-mono text-[10px]">
+              {analysis.citations.map((c: any, i: number) => (
+                <span
+                  key={i}
+                  className="rounded border border-sky-500/30 bg-sky-950/40 px-2 py-0.5 text-sky-300"
+                  title={c.summary}
+                >
+                  [{c.citation_id} • {c.source}]
+                </span>
+              ))}
+            </div>
+          )}
+
+          {analysis.uncertainty_flag && analysis.uncertainty_note && (
+            <div className="mt-3 rounded-lg border border-amber-500/30 bg-amber-950/30 p-2.5 font-mono text-[11px] text-amber-200">
+              ⚠️ {analysis.uncertainty_note}
+            </div>
+          )}
+        </div>
+      )}
+
+      <p className="mt-3 font-mono text-[10px] text-zinc-500">
+        Dakota reports structured evidence signals. Signals are investigative alerts, not proof of unlawful activity.
+      </p>
+    </div>
+  );
+}
+
 function ManualSummary({ manual }: { manual: ManualResult }) {
   const investigation = manual?.investigations?.[0];
   const risk: Risk | null = manual?.risk || investigation?.risk || manual?.stock_verdicts?.[0] || null;
@@ -348,6 +493,8 @@ function ManualSummary({ manual }: { manual: ManualResult }) {
           </div>
         </div>
       </div>
+
+      <JevForensicPanel jev={manual?.jev || manual?.investigation?.jev || manual?.investigations?.[0]?.jev} />
 
       {risk.components ? (
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
@@ -426,6 +573,10 @@ function DetailPanel({ item, onClose }: { item: LiveItem; onClose: () => void })
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {providers.map((provider) => <ProviderPill key={provider.key} provider={provider} />)}
           </div>
+        </div>
+
+        <div className="mt-6">
+          <JevForensicPanel jev={item.jev || item.investigation?.jev} />
         </div>
 
         {risk ? (
