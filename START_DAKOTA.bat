@@ -1,20 +1,18 @@
 @echo off
 setlocal EnableDelayedExpansion
+chcp 65001 >nul 2>&1
 title DAKOTA - SYSTEM LAUNCHER
 color 0B
 cls
 
 echo ====================================================================
 echo.
-echo           ██████╗  █████╗ ██╗  ██╗ ██████╗ ████████╗ █████╗ 
-echo           ██╔══██╗██╔══██╗██║ ██╔╝██╔═══██╗╚══██╔══╝██╔══██╗
-echo           ██║  ██║███████║█████═╝ ██║   ██║   ██║   ███████║
-echo           ██║  ██║██╔══██║██╔═██╗ ██║   ██║   ██║   ██╔══██║
-echo           ██████╔╝██║  ██║██║ ╚██╗╚██████╔╝   ██║   ██║  ██║
-echo           ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝
-echo.
+echo           ==============================================
+echo                         D A K O T A
 echo           Financial Intelligence ^& Scam Investigation Terminal
 echo                         ONE-CLICK SYSTEM LAUNCHER
+echo           ==============================================
+echo.
 echo ====================================================================
 echo.
 
@@ -212,13 +210,13 @@ echo.
 echo [4/4] Verifying Service Initialization...
 
 set "BACKEND_OK=0"
-for /l %%i in (1, 1, 8) do (
+for /l %%i in (1, 1, 15) do (
     if "!BACKEND_OK!"=="0" (
         "%PYTHON_EXE%" "%DAKOTA_ROOT%\scripts\launchers\status_check.py" backend >nul 2>nul
         if !errorlevel! equ 0 (
             set "BACKEND_OK=1"
         ) else (
-            ping 127.0.0.1 -n 2 >nul
+            ping 127.0.0.1 -n 3 >nul
         )
     )
 )
