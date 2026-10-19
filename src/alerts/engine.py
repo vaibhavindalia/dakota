@@ -360,6 +360,13 @@ class AlertEngine:
         )
         self._alerts_generated_count += 1
 
+        # Correlate with active campaigns in the syndicate intelligence engine
+        try:
+            from src.campaign.detector import campaign_detector
+            campaign_detector.correlate_alert(alert)
+        except Exception as camp_exc:
+            logger.debug("Failed correlating alert with campaigns: %s", camp_exc)
+
         # Outbound Telegram Notification
         if rule.notify_telegram:
             res = self.notifier.dispatch(alert)

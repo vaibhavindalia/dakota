@@ -95,6 +95,8 @@ def get_daily_cache_status(ticker: str, max_age_seconds: int = 180) -> dict[str,
         stale_threshold_sec=max_age_seconds,
         provider_error=last_err,
     )
+    if age > max_age_seconds:
+        status = "stale"
     is_fresh = status in ("live", "cached")
     return {
         "exists": True,

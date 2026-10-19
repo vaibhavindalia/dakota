@@ -36,6 +36,12 @@ from src.market.exchange_sync import sync_date
 from src.market.exchange_sync import latest_weekday
 from src.engine.risk_engine import assess
 from src.tipcheck.parser import check_tip
+from src.campaign.models import CampaignStatus, CampaignTier
+from src.campaign.store import campaign_store
+from src.campaign.detector import campaign_detector
+
+class CampaignActionRequest(BaseModel):
+    note: str = ""
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 PORTFOLIO_FILE = BASE_DIR / "data" / "portfolio.json"
@@ -84,6 +90,14 @@ async def lifespan(app: FastAPI):
         alert_store.init_db()
     except Exception as exc:
         logger.warning("Could not pre-init alert database: %s", exc)
+
+    try:
+        from src.campaign.store import campaign_store
+        campaign_store.init_db()
+        from src.campaign.detector import campaign_detector
+        campaign_detector.rebuild_correlations(lookback_limit=150)
+    except Exception as exc:
+        logger.warning("Could not pre-init campaign database: %s", exc)
 
     _bg_monitor_task = asyncio.create_task(_background_risk_monitor_loop())
     try:
@@ -559,16 +573,26 @@ def live_investigation_detail(investigation_id: str) -> dict[str, Any]:
 
 
 @app.get("/api/campaigns")
-def campaigns_overview(limit: int = 200) -> dict[str, Any]:
-    """Aggregate live investigations into channel/actor campaign cards.
+def campaigns_overview(
+    status: str | None = None,
+    tier: str | None = None,
+    ticker: str | None = None,
+    limit: int = 50,
+) -> dict[str, Any]:
+    """Forensic Cross-Scrip Syndicate Campaigns Overview.
     
-    Collapses repeated individual source findings into single actor pattern cards:
-    channel name, total tips, entities touched, first-seen/last-seen window, 
-    and distinct-text vs copy-paste duplicate ratio.
+    Returns structured persistent multi-scrip campaigns with relationship explanations,
+    confidence tiers, linked alerts, and operational summary metrics.
+    Also returns legacy channel pattern groups for seamless client compatibility.
     """
     from collections import defaultdict
-    items = load_live_investigations(limit=limit)
+    items = load_live_investigations(limit=150)
 
+    # 1. Retrieve persistent multi-scrip campaigns
+    campaigns = campaign_store.list_campaigns(status=status, tier=tier, ticker=ticker, limit=limit)
+    summary = campaign_store.get_summary()
+
+    # 2. Backwards-compatible channel grouping
     channel_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for item in items:
         src = (
@@ -589,13 +613,13 @@ def campaigns_overview(limit: int = 200) -> dict[str, Any]:
 
         entities_set = set()
         for t in tips:
-            ticker = t.get("ticker")
-            if ticker:
-                entities_set.add(ticker.upper())
+            tk = t.get("ticker")
+            if tk:
+                entities_set.add(tk.upper())
             tickers = t.get("tickers") or []
-            for tk in tickers:
-                if tk:
-                    entities_set.add(tk.upper())
+            for t_item in tickers:
+                if t_item:
+                    entities_set.add(t_item.upper())
             entity = t.get("impact", {}).get("entity")
             if entity:
                 entities_set.add(entity.upper())
@@ -660,10 +684,98 @@ def campaigns_overview(limit: int = 200) -> dict[str, Any]:
 
     return {
         "status": "ok",
+        "summary": summary.model_dump(),
+        "campaigns": [c.to_dict() for c in campaigns],
+        "total_campaigns": len(campaigns),
         "total_campaign_channels": len(channels_data),
         "total_tips_analyzed": total_tips_count,
         "most_active_channel": most_active,
         "channels": channels_data,
+        "disclaimer": "Dakota correlates available forensic evidence across securities. It does not establish intent or determine legal guilt.",
+    }
+
+
+@app.get("/api/campaigns/summary")
+def campaigns_summary_stats() -> dict[str, Any]:
+    """Operational summary metrics for Dakota campaigns workspace."""
+    summary = campaign_store.get_summary()
+    return {"status": "ok", "summary": summary.model_dump()}
+
+
+@app.get("/api/campaigns/{campaign_id}")
+def campaign_detail(campaign_id: str) -> dict[str, Any]:
+    """Retrieve complete campaign forensic dossier including chronological event timeline."""
+    campaign = campaign_store.get_campaign(campaign_id, include_events=True)
+    if campaign is None:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    
+    # Enrich with linked alerts details
+    alert_details = []
+    from src.alerts.store import alert_store
+    for aid in campaign.alert_ids:
+        alt = alert_store.get_alert(aid)
+        if alt:
+            alert_details.append(alt.model_dump())
+
+    res = campaign.to_dict()
+    res["events"] = [e.model_dump() for e in campaign.events]
+    res["alert_details"] = alert_details
+    return res
+
+
+@app.post("/api/campaigns/{campaign_id}/acknowledge")
+def campaign_acknowledge(campaign_id: str, payload: CampaignActionRequest | None = None) -> dict[str, Any]:
+    note = payload.note if payload else ""
+    ok = campaign_store.update_status(campaign_id, CampaignStatus.ACTIVE, note=note)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    return {"status": "ok", "campaign_id": campaign_id, "state": "acknowledged"}
+
+
+@app.post("/api/campaigns/{campaign_id}/dismiss")
+def campaign_dismiss(campaign_id: str, payload: CampaignActionRequest | None = None) -> dict[str, Any]:
+    note = payload.note if payload else ""
+    ok = campaign_store.update_status(campaign_id, CampaignStatus.DISMISSED, note=note)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    return {"status": "ok", "campaign_id": campaign_id, "state": "dismissed"}
+
+
+@app.post("/api/campaigns/{campaign_id}/monitor")
+def campaign_monitor(campaign_id: str, payload: CampaignActionRequest | None = None) -> dict[str, Any]:
+    note = payload.note if payload else ""
+    ok = campaign_store.update_status(campaign_id, CampaignStatus.MONITORING, note=note)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    return {"status": "ok", "campaign_id": campaign_id, "state": "monitoring"}
+
+
+@app.post("/api/campaigns/{campaign_id}/resolve")
+def campaign_resolve(campaign_id: str, payload: CampaignActionRequest | None = None) -> dict[str, Any]:
+    note = payload.note if payload else ""
+    ok = campaign_store.update_status(campaign_id, CampaignStatus.RESOLVED, note=note)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    return {"status": "ok", "campaign_id": campaign_id, "state": "resolved"}
+
+
+@app.post("/api/campaigns/{campaign_id}/notes")
+def campaign_add_notes(campaign_id: str, payload: CampaignActionRequest) -> dict[str, Any]:
+    ok = campaign_store.add_note(campaign_id, payload.note)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    return {"status": "ok", "campaign_id": campaign_id}
+
+
+@app.post("/api/campaigns/rebuild")
+def campaign_rebuild_scan() -> dict[str, Any]:
+    """Trigger full forensic scan and correlation rebuild across all stored tips and alerts."""
+    count = campaign_detector.rebuild_correlations(lookback_limit=200)
+    summary = campaign_store.get_summary()
+    return {
+        "status": "ok",
+        "events_correlated": count,
+        "summary": summary.model_dump(),
     }
 
 

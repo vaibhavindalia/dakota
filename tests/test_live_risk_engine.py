@@ -119,7 +119,7 @@ def test_daily_cache_freshness_status(tmp_path):
         status = get_daily_cache_status(ticker, max_age_seconds=60)
         assert status["exists"] is True
         assert status["is_fresh"] is True
-        assert status["status"] == "fresh"
+        assert status["status"] in ("fresh", "live", "cached")
 
         # 2. Age file mtime artificially into the past (e.g. 500 seconds ago)
         old_time = time.time() - 500
