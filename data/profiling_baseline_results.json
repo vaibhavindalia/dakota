@@ -1,0 +1,67 @@
+{
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "total_vram_gib": 8.0,
+  "model_load_latency_s": 50.34,
+  "results": [
+    {
+      "case_name": "Short (~150 tokens)",
+      "run": 1,
+      "latency_s": 26.0,
+      "peak_alloc_gib": 7.313,
+      "peak_res_gib": 7.43,
+      "headroom_gib": 0.566,
+      "predicted": "Bullish",
+      "confidence": 0.9738
+    },
+    {
+      "case_name": "Short (~150 tokens)",
+      "run": 2,
+      "latency_s": 25.29,
+      "peak_alloc_gib": 7.313,
+      "peak_res_gib": 7.43,
+      "headroom_gib": 0.566,
+      "predicted": "Bullish",
+      "confidence": 0.9738
+    },
+    {
+      "case_name": "Typical (~400 tokens)",
+      "run": 1,
+      "latency_s": 29.16,
+      "peak_alloc_gib": 7.344,
+      "peak_res_gib": 7.473,
+      "headroom_gib": 0.523,
+      "predicted": "Bullish",
+      "confidence": 0.986
+    },
+    {
+      "case_name": "Typical (~400 tokens)",
+      "run": 2,
+      "latency_s": 31.24,
+      "peak_alloc_gib": 7.344,
+      "peak_res_gib": 7.473,
+      "headroom_gib": 0.523,
+      "predicted": "Bullish",
+      "confidence": 0.986
+    },
+    {
+      "case_name": "Long (~1100 tokens)",
+      "run": 1,
+      "latency_s": 31.13,
+      "peak_alloc_gib": 7.374,
+      "peak_res_gib": 7.504,
+      "headroom_gib": 0.492,
+      "predicted": "Neutral",
+      "confidence": 0.9526
+    },
+    {
+      "case_name": "Long (~1100 tokens)",
+      "run": 2,
+      "latency_s": 30.62,
+      "peak_alloc_gib": 7.374,
+      "peak_res_gib": 7.504,
+      "headroom_gib": 0.492,
+      "predicted": "Neutral",
+      "confidence": 0.9526
+    }
+  ]
+}

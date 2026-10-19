@@ -42,25 +42,45 @@ class SentimentDivergenceTask(BaseFinancialTask):
         ticker = str(sample.get("ticker", "UNKNOWN")).upper()
         as_of = str(sample.get("as_of", ""))
         
-        # Build normalized state object
-        state = {
-            "ticker": ticker,
-            "as_of_date": as_of,
-            "price_summary": {
+        # Build normalized, compact state object preserving all evidence without token bloat
+        price_data = {
+            k: v for k, v in {
                 "latest_price": sample.get("latest_price"),
                 "change_pct": sample.get("change_pct"),
                 "volume": sample.get("volume"),
                 "delivery_pct": sample.get("delivery_pct"),
-            },
-            "technical_indicators": sample.get("technicals", {}),
-            "forensic_signals": {
+            }.items() if v is not None
+        }
+
+        forensic_data = {
+            k: v for k, v in {
                 "risk_score": sample.get("risk_score"),
                 "risk_band": sample.get("risk_band"),
                 "active_surveillance": sample.get("is_surveillance", False),
-            },
-            "recent_news_headlines": sample.get("news_headlines", []),
-            "social_signals": sample.get("social_signals", []),
+            }.items() if v is not None
         }
+
+        # Deduplicate headlines and signals while strictly preserving order
+        raw_headlines = sample.get("news_headlines", [])
+        clean_headlines = list(dict.fromkeys(h.strip() for h in raw_headlines if h and h.strip()))
+
+        raw_signals = sample.get("social_signals", [])
+        clean_signals = list(dict.fromkeys(s.strip() for s in raw_signals if s and s.strip()))
+
+        state: Dict[str, Any] = {
+            "ticker": ticker,
+            "as_of_date": as_of,
+        }
+        if price_data:
+            state["price_summary"] = price_data
+        if sample.get("technicals"):
+            state["technical_indicators"] = sample["technicals"]
+        if forensic_data:
+            state["forensic_signals"] = forensic_data
+        if clean_headlines:
+            state["recent_news_headlines"] = clean_headlines
+        if clean_signals:
+            state["social_signals"] = clean_signals
 
         evidence_ids = sample.get("evidence_ids", [])
         if not evidence_ids:
