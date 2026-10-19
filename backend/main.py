@@ -59,7 +59,9 @@ async def _background_risk_monitor_loop() -> None:
                     try:
                         from src.market.universe_manager import get_or_assess_stock
                         ttl = 60 if is_open else 900
-                        await asyncio.to_thread(get_or_assess_stock, sym, False, ttl)
+                        data = await asyncio.to_thread(get_or_assess_stock, sym, False, ttl)
+                        from src.alerts.engine import alert_engine
+                        await alert_engine.evaluate_ticker(sym, data)
                     except Exception as err:
                         logger.debug("Background assessment tick error for %s: %s", sym, err)
         except asyncio.CancelledError:
@@ -76,6 +78,13 @@ async def lifespan(app: FastAPI):
         _ensure_schema()
     except Exception as exc:
         logger.warning("Could not pre-init database schema: %s", exc)
+
+    try:
+        from src.alerts.store import alert_store
+        alert_store.init_db()
+    except Exception as exc:
+        logger.warning("Could not pre-init alert database: %s", exc)
+
     _bg_monitor_task = asyncio.create_task(_background_risk_monitor_loop())
     try:
         from src.market.auto_sync import market_sync_worker
@@ -208,25 +217,29 @@ def root() -> dict[str, str]:
 @app.get("/health")
 def health() -> dict[str, Any]:
     from src.market.auto_sync import market_sync_worker
+    from src.alerts.engine import alert_engine
     return {
         "status": "ok",
         "raw_data_root_exists": RAW_DATA_ROOT.exists(),
         "universe_exists": UNIVERSE_FILE.exists(),
         "connectors": public_status(),
         "market_sync": market_sync_worker.get_status(),
+        "alerts": alert_engine.get_status(),
     }
 
 
 @app.get("/api/connectors/status")
 def connector_status() -> dict[str, Any]:
     from src.market.auto_sync import market_sync_worker
+    from src.alerts.engine import alert_engine
     return {
         "status": "ok",
         "connectors": public_status(),
         "market_sync": market_sync_worker.get_status(),
+        "alerts": alert_engine.get_status(),
         "notes": {
             "nse_bse": "Automatic bounded polling worker active for live/intraday quotes and indices; daily Bhavcopy via /api/market/sync.",
-            "telegram": "Authorized bot ingestion only.",
+            "telegram": "Authorized bot ingestion and alert dispatch.",
             "whatsapp": "WhatsApp Cloud API webhook only.",
             "reddit": "Official OAuth when credentials exist; RSS fallback otherwise.",
         },
@@ -270,6 +283,154 @@ def market_indices() -> dict[str, Any]:
         "market_time_ist": status.get("market_time_ist", ""),
         "last_sync_timestamp": status.get("last_sync_timestamp"),
     }
+
+
+# ==============================================================================
+# ALERTS & INTELLIGENT MONITORING ENDPOINTS
+# ==============================================================================
+
+@app.get("/api/alerts")
+def get_alerts(
+    status: str = "all",
+    severity: str = "all",
+    ticker: str | None = None,
+    limit: int = 100,
+    offset: int = 0,
+) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    records = alert_store.get_alerts(
+        status=status,
+        severity=severity,
+        ticker=ticker,
+        limit=limit,
+        offset=offset,
+    )
+    return {
+        "status": "ok",
+        "alerts": [r.model_dump() for r in records],
+        "count": len(records),
+    }
+
+
+@app.get("/api/alerts/summary")
+def get_alerts_summary() -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    return {
+        "status": "ok",
+        "summary": alert_store.get_summary().model_dump(),
+    }
+
+
+@app.post("/api/alerts/{alert_id}/acknowledge")
+def acknowledge_alert(alert_id: str) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    from src.alerts.models import AlertStatus
+    ok = alert_store.update_alert_status(alert_id, AlertStatus.ACKNOWLEDGED)
+    if not ok:
+        raise HTTPException(status_code=404, detail=f"Alert {alert_id} not found")
+    return {"status": "ok", "alert_id": alert_id, "alert_status": "acknowledged"}
+
+
+@app.post("/api/alerts/{alert_id}/dismiss")
+def dismiss_alert(alert_id: str) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    from src.alerts.models import AlertStatus
+    ok = alert_store.update_alert_status(alert_id, AlertStatus.DISMISSED)
+    if not ok:
+        raise HTTPException(status_code=404, detail=f"Alert {alert_id} not found")
+    return {"status": "ok", "alert_id": alert_id, "alert_status": "dismissed"}
+
+
+@app.get("/api/alerts/rules")
+def get_alert_rules(enabled_only: bool = False) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    rules = alert_store.get_rules(enabled_only=enabled_only)
+    return {
+        "status": "ok",
+        "rules": [r.model_dump() for r in rules],
+        "count": len(rules),
+    }
+
+
+@app.post("/api/alerts/rules")
+def save_alert_rule(payload: dict[str, Any]) -> dict[str, Any]:
+    import uuid
+    from src.alerts.store import alert_store
+    from src.alerts.models import AlertRule, AlertRuleType, AlertSeverity
+    rule_id = str(payload.get("rule_id") or f"rule_{uuid.uuid4().hex[:8]}")
+    name = str(payload.get("name") or "Custom Alert Rule")
+    ticker = str(payload.get("ticker") or "*").upper().strip()
+    scope = payload.get("scope", "portfolio")
+    rule_type_val = payload.get("rule_type", "risk_threshold")
+    condition = payload.get("condition", ">=")
+    threshold = float(payload["threshold"]) if payload.get("threshold") is not None else None
+    threshold_str = payload.get("threshold_str")
+    severity = payload.get("severity", "warning")
+    cooldown = int(payload.get("cooldown_seconds", 300))
+    enabled = bool(payload.get("enabled", True))
+    notify_terminal = bool(payload.get("notify_terminal", True))
+    notify_telegram = bool(payload.get("notify_telegram", False))
+    auto_investigate = bool(payload.get("auto_investigate", False))
+
+    rule = AlertRule(
+        rule_id=rule_id,
+        name=name,
+        ticker=ticker,
+        scope=scope,
+        rule_type=AlertRuleType(rule_type_val),
+        condition=condition,
+        threshold=threshold,
+        threshold_str=threshold_str,
+        severity=AlertSeverity(severity),
+        enabled=enabled,
+        cooldown_seconds=cooldown,
+        notify_terminal=notify_terminal,
+        notify_telegram=notify_telegram,
+        auto_investigate=auto_investigate,
+    )
+    alert_store.save_rule(rule)
+    return {"status": "ok", "rule": rule.model_dump()}
+
+
+@app.delete("/api/alerts/rules/{rule_id}")
+def delete_alert_rule(rule_id: str) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    ok = alert_store.delete_rule(rule_id)
+    if not ok:
+        raise HTTPException(status_code=404, detail=f"Rule {rule_id} not found")
+    return {"status": "ok", "deleted": True, "rule_id": rule_id}
+
+
+@app.post("/api/alerts/rules/{rule_id}/toggle")
+def toggle_alert_rule(rule_id: str) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    rule = alert_store.get_rule(rule_id)
+    if not rule:
+        raise HTTPException(status_code=404, detail=f"Rule {rule_id} not found")
+    rule.enabled = not rule.enabled
+    alert_store.save_rule(rule)
+    return {"status": "ok", "rule_id": rule_id, "enabled": rule.enabled}
+
+
+@app.post("/api/alerts/evaluate")
+async def evaluate_alerts(ticker: str | None = None) -> dict[str, Any]:
+    from src.alerts.engine import alert_engine
+    if ticker:
+        alts = await alert_engine.evaluate_ticker(ticker)
+        return {
+            "status": "completed",
+            "ticker": ticker.upper().strip(),
+            "alerts_generated": len(alts),
+            "alerts": [a.model_dump() for a in alts],
+        }
+    res = await alert_engine.evaluate_all(force=True)
+    return res
+
+
+@app.get("/api/alerts/status")
+def alerts_status() -> dict[str, Any]:
+    from src.alerts.engine import alert_engine
+    return alert_engine.get_status()
 
 
 @app.post("/api/market/sync")

@@ -69,6 +69,23 @@ INDEX_REGISTRY: dict[str, dict[str, Any]] = {
 }
 
 
+def _parse_iso_timestamp(ts_val: str | None) -> tuple[datetime | None, bool]:
+    """Parse ISO timestamp or date. Returns (datetime_utc, is_date_only)."""
+    if not ts_val:
+        return None, False
+    try:
+        clean = str(ts_val).strip().replace("Z", "+00:00")
+        if len(clean) == 10 and clean.count("-") == 2:
+            dt = datetime.fromisoformat(clean).replace(tzinfo=timezone.utc)
+            return dt, True
+        dt = datetime.fromisoformat(clean)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc), False
+    except Exception:
+        return None, False
+
+
 def compute_freshness_status(
     retrieved_at_iso: str | None,
     market_event_iso: str | None,
@@ -79,10 +96,10 @@ def compute_freshness_status(
 ) -> str:
     """Classify market observation freshness truthfully into one of 5 canonical states:
     
-    - 'live': Fresh observation fetched during an active open market session.
-    - 'delayed': Provider explicitly reports delayed feed.
+    - 'live': Fresh observation (<15m) fetched recently during active open session.
+    - 'delayed': Observation is delayed relative to active market session (15m - 60m).
     - 'cached': Valid past session observation stored locally, within normal non-trading window.
-    - 'stale': Data exceeds configured freshness threshold or provider is failing.
+    - 'stale': Data exceeds configured freshness threshold, observation is >60m old in open market, or provider is failing.
     - 'unavailable': No data recorded or retrieved.
     """
     if not retrieved_at_iso and not market_event_iso:
@@ -90,34 +107,49 @@ def compute_freshness_status(
 
     now_utc = now_fn().astimezone(timezone.utc) if now_fn else datetime.now(timezone.utc)
 
-    # Parse retrieval timestamp
-    try:
-        ts_str = str(retrieved_at_iso).replace("Z", "+00:00") if retrieved_at_iso else None
-        retrieved_dt = datetime.fromisoformat(ts_str) if ts_str else None
-        if retrieved_dt and retrieved_dt.tzinfo is None:
-            retrieved_dt = retrieved_dt.replace(tzinfo=timezone.utc)
-    except Exception:
-        retrieved_dt = None
+    # 1. Parse retrieval timestamp
+    retrieved_dt, _ = _parse_iso_timestamp(retrieved_at_iso)
+    if retrieved_dt is None and market_event_iso:
+        retrieved_dt, _ = _parse_iso_timestamp(market_event_iso)
 
     if retrieved_dt is None:
         return "unavailable"
 
-    age_seconds = max(0.0, (now_utc - retrieved_dt).total_seconds())
+    retrieval_age = max(0.0, (now_utc - retrieved_dt).total_seconds())
+
+    # 2. Parse observation timestamp
+    obs_dt, is_date_only = _parse_iso_timestamp(market_event_iso)
+    if obs_dt is None:
+        obs_dt = retrieved_dt
+
+    obs_age = max(0.0, (now_utc - obs_dt).total_seconds())
+
+    # Provider error always marks feed as stale
+    if provider_error:
+        return "stale"
 
     if is_market_open:
         # During live market hours:
-        if provider_error:
+        if retrieval_age > stale_threshold_sec:
             return "stale"
-        if age_seconds <= stale_threshold_sec:
+
+        # If observation is date-only (daily bar) or > 16 hours old:
+        # It represents yesterday's or an older closing bar retrieved during open trading.
+        # It must NOT be labeled as "live"!
+        if is_date_only or obs_age > 16 * 3600:
+            return "cached"
+
+        if obs_age <= 900.0:  # <= 15 minutes
             return "live"
-        return "stale"
+        elif obs_age <= 3600.0:  # 15m to 60m
+            return "delayed"
+        else:
+            return "stale"
     else:
         # When market is closed (evenings, weekends, holidays):
         # A valid session close observation from the most recent trading days is "cached".
-        # If older than 7 calendar days or marked with error, it becomes "stale".
-        if provider_error and age_seconds > (stale_threshold_sec * 5):
-            return "stale"
-        if age_seconds <= 7 * 86400:
+        # If older than 15 calendar days, it becomes "stale".
+        if obs_age <= 15 * 86400 and retrieval_age <= 15 * 86400:
             return "cached"
         return "stale"
 
@@ -492,6 +524,29 @@ class MarketSyncWorker:
         except Exception as exc:
             logger.debug("Database update error for %s: %s", clean_ticker, exc)
 
+        # Trigger alert evaluation for this stock
+        try:
+            from src.alerts.engine import alert_engine
+            data_dict = {
+                "ticker": clean_ticker,
+                "latest_price": last_price,
+                "change_pct": change_pct,
+                "high_52w": high_52w,
+                "low_52w": low_52w,
+                "volume": volume,
+                "delivery_pct": float(last_row.get("delivery_pct", 0.0)) if "delivery_pct" in last_row else None,
+                "data_freshness": freshness,
+                "observation_timestamp": candle_iso,
+                "market_event_timestamp": candle_iso,
+                "retrieved_at": now_iso,
+                "feed_type": "intraday_snapshot_5m",
+            }
+            rules = alert_engine.store.get_rules(enabled_only=True)
+            for r in rules:
+                alert_engine.evaluate_rule(r, clean_ticker, data_dict)
+        except Exception as alt_exc:
+            logger.debug("Alert evaluation error for %s: %s", clean_ticker, alt_exc)
+
     def get_indices(self) -> dict[str, dict[str, Any]]:
         """Return cached index quotes with freshness metadata."""
         with self._cache_lock:
@@ -560,7 +615,15 @@ class MarketSyncWorker:
             ],
             "monitored_tickers": monitored,
             "indices_tracked": indices_count,
+            "alerts": self._get_alerts_telemetry(),
         }
+
+    def _get_alerts_telemetry(self) -> dict[str, Any]:
+        try:
+            from src.alerts.engine import alert_engine
+            return alert_engine.get_status()
+        except Exception:
+            return {"status": "uninitialized"}
 
 
 # Global Worker Instance

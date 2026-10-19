@@ -16,6 +16,7 @@ import {
   Activity,
   ChevronRight,
   Sparkles,
+  Bell,
 } from "lucide-react";
 import CommandPalette from "./CommandPalette";
 
@@ -70,15 +71,20 @@ function NavbarInner() {
   }, []);
 
   const [indices, setIndices] = useState<Record<string, any>>({});
+  const [unreadAlerts, setUnreadAlerts] = useState<number>(0);
 
-  // Dynamic Market Indices Auto-Sync
+  // Dynamic Market Indices & Alert Summary Auto-Sync
   useEffect(() => {
     const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-    async function loadIndices() {
+    async function loadIndicesAndAlerts() {
       try {
-        const res = await fetch(`${API}/api/market/indices`, { cache: "no-store" });
-        if (res.ok) {
-          const data = await res.json();
+        const [mktRes, altRes] = await Promise.all([
+          fetch(`${API}/api/market/indices`, { cache: "no-store" }).catch(() => null),
+          fetch(`${API}/api/alerts/summary`, { cache: "no-store" }).catch(() => null),
+        ]);
+
+        if (mktRes && mktRes.ok) {
+          const data = await mktRes.json();
           if (data?.indices) {
             setIndices(data.indices);
           }
@@ -86,12 +92,17 @@ function NavbarInner() {
             setMarketStatus(data.session_status);
           }
         }
+
+        if (altRes && altRes.ok) {
+          const d = await altRes.json();
+          setUnreadAlerts(d?.summary?.active_alerts ?? 0);
+        }
       } catch {
         // Fallback to local clock status
       }
     }
-    loadIndices();
-    const interval = setInterval(loadIndices, 30000);
+    loadIndicesAndAlerts();
+    const interval = setInterval(loadIndicesAndAlerts, 20000);
     return () => clearInterval(interval);
   }, []);
 
@@ -206,6 +217,7 @@ function NavbarInner() {
               {NAV_LINKS.map((item) => {
                 const Icon = item.icon;
                 const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+                const badgeText = item.href === "/watcher" && unreadAlerts > 0 ? `${unreadAlerts}` : item.badge;
 
                 return (
                   <Link
@@ -219,9 +231,11 @@ function NavbarInner() {
                   >
                     <Icon className={`h-3.5 w-3.5 ${isActive ? "text-cyan-400" : "text-slate-500"}`} />
                     <span>{item.label}</span>
-                    {item.badge && (
+                    {badgeText && (
                       <span className={`text-[9px] px-1.5 py-0.2 rounded font-mono font-bold ${
-                        item.badge === "LIVE"
+                        item.href === "/watcher" && unreadAlerts > 0
+                          ? "bg-rose-500/25 text-rose-300 border border-rose-500/40 shadow-sm shadow-rose-500/30 animate-pulse"
+                          : item.badge === "LIVE"
                           ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
                           : item.badge === "CARTEL"
                           ? "bg-rose-500/20 text-rose-300 border border-rose-500/30"
@@ -229,7 +243,7 @@ function NavbarInner() {
                           ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-sm shadow-cyan-500/20"
                           : "bg-white/10 text-slate-400"
                       }`}>
-                        {item.badge}
+                        {badgeText}
                       </span>
                     )}
                   </Link>
@@ -240,6 +254,20 @@ function NavbarInner() {
 
           {/* Right: Global Command Search & Actions */}
           <div className="flex items-center gap-2.5">
+            {/* Watcher Notification Bell */}
+            <Link
+              href="/watcher"
+              className="relative flex items-center justify-center h-8 w-8 rounded-xl border border-white/[0.08] bg-white/[0.03] text-slate-400 hover:text-white hover:border-rose-500/40 transition"
+              title="Surveillance Watcher & Alerts"
+            >
+              <Bell className="h-4 w-4" />
+              {unreadAlerts > 0 && (
+                <span className="absolute -top-1 -right-1 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-mono font-bold text-white shadow-sm shadow-rose-500/50 animate-pulse">
+                  {unreadAlerts > 9 ? "9+" : unreadAlerts}
+                </span>
+              )}
+            </Link>
+
             {/* Direct AI Copilot Link */}
             <Link
               href="/intelligence"
