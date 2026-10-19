@@ -53,6 +53,11 @@ type Holding = {
   unrealized_return_pct: number | null;
   quote_status: string;
   quote_timestamp?: string | null;
+  data_status?: string | null;
+  provider?: string | null;
+  retrieved_at?: string | null;
+  market_event_timestamp?: string | null;
+  last_successful_sync?: string | null;
   change?: number;
   change_pct?: number;
   currency?: string;
@@ -570,6 +575,24 @@ export default function PortfolioPage() {
                             <span className="rounded bg-white/[0.06] border border-white/[0.08] px-2 py-0.5 text-[10px] font-mono text-slate-400">
                               {holding.exchange}
                             </span>
+
+                            {holding.data_status && (
+                              <span
+                                className={`rounded px-1.5 py-0.5 text-[9px] font-mono font-bold ${
+                                  holding.data_status === "live"
+                                    ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                                    : holding.data_status === "stale"
+                                    ? "bg-amber-500/15 text-amber-300 border border-amber-500/30"
+                                    : holding.data_status === "delayed"
+                                    ? "bg-cyan-500/15 text-cyan-300 border border-cyan-500/30"
+                                    : holding.data_status === "unavailable"
+                                    ? "bg-rose-500/15 text-rose-300 border border-rose-500/30"
+                                    : "bg-sky-500/10 text-sky-300 border border-sky-500/20"
+                                }`}
+                              >
+                                {holding.data_status.toUpperCase()}
+                              </span>
+                            )}
 
                             {holding.risk?.band && (
                               <span

@@ -125,7 +125,12 @@ def get_holding_quote(
                 last_dt_str = str(last_dt)[:19]
 
                 src = str(df.get("source", pd.Series(["cache"])).iloc[0]) if "source" in df.columns else "yfinance"
-                quote_status = "synthetic" if "synthetic" in src else "fresh"
+                from src.ingest.market_data import get_daily_cache_status
+                cache_stat = get_daily_cache_status(clean_ticker)
+                freshness_status = cache_stat.get("status", "cached")
+                meta_info = cache_stat.get("meta", {})
+                retrieved_at = meta_info.get("retrieved_at")
+                last_sync = meta_info.get("last_successful_sync") or retrieved_at
 
                 quote_data = {
                     "ticker": clean_ticker,
@@ -133,7 +138,12 @@ def get_holding_quote(
                     "change": change,
                     "change_pct": change_pct,
                     "last_traded_at": last_dt_str,
-                    "quote_status": quote_status,
+                    "quote_status": freshness_status,
+                    "data_status": freshness_status,
+                    "provider": meta_info.get("provider", "yfinance"),
+                    "retrieved_at": retrieved_at,
+                    "market_event_timestamp": last_dt_str,
+                    "last_successful_sync": last_sync,
                     "source": src,
                     "currency": "INR",
                 }
@@ -379,9 +389,14 @@ def enrich_and_value_portfolio(
             bse_code=bse_code,
         )
 
-        # Incorporate price change info from quote
+        # Incorporate price change and market freshness info from quote
         metrics["change"] = quote.get("change", 0.0)
         metrics["change_pct"] = quote.get("change_pct", 0.0)
+        metrics["data_status"] = quote.get("data_status", quote_status)
+        metrics["provider"] = quote.get("provider", "yfinance")
+        metrics["retrieved_at"] = quote.get("retrieved_at")
+        metrics["market_event_timestamp"] = quote.get("market_event_timestamp")
+        metrics["last_successful_sync"] = quote.get("last_successful_sync")
 
         # Risk assessment
         if risk_assessor:

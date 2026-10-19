@@ -78,8 +78,18 @@ async def lifespan(app: FastAPI):
         logger.warning("Could not pre-init database schema: %s", exc)
     _bg_monitor_task = asyncio.create_task(_background_risk_monitor_loop())
     try:
+        from src.market.auto_sync import market_sync_worker
+        await market_sync_worker.start()
+    except Exception as exc:
+        logger.warning("Could not start market sync worker: %s", exc)
+    try:
         yield
     finally:
+        try:
+            from src.market.auto_sync import market_sync_worker
+            await market_sync_worker.stop()
+        except Exception as exc:
+            logger.debug("Error stopping market sync worker: %s", exc)
         if _bg_monitor_task and not _bg_monitor_task.done():
             _bg_monitor_task.cancel()
             try:
@@ -197,25 +207,68 @@ def root() -> dict[str, str]:
 
 @app.get("/health")
 def health() -> dict[str, Any]:
+    from src.market.auto_sync import market_sync_worker
     return {
         "status": "ok",
         "raw_data_root_exists": RAW_DATA_ROOT.exists(),
         "universe_exists": UNIVERSE_FILE.exists(),
         "connectors": public_status(),
+        "market_sync": market_sync_worker.get_status(),
     }
 
 
 @app.get("/api/connectors/status")
 def connector_status() -> dict[str, Any]:
+    from src.market.auto_sync import market_sync_worker
     return {
         "status": "ok",
         "connectors": public_status(),
+        "market_sync": market_sync_worker.get_status(),
         "notes": {
-            "nse_bse": "Uses cached exchange reports; run /api/market/sync or scripts/sync_market.py to refresh.",
+            "nse_bse": "Automatic bounded polling worker active for live/intraday quotes and indices; daily Bhavcopy via /api/market/sync.",
             "telegram": "Authorized bot ingestion only.",
             "whatsapp": "WhatsApp Cloud API webhook only.",
             "reddit": "Official OAuth when credentials exist; RSS fallback otherwise.",
         },
+    }
+
+
+@app.get("/api/market/sync/status")
+def market_sync_status() -> dict[str, Any]:
+    from src.market.auto_sync import market_sync_worker
+    return market_sync_worker.get_status()
+
+
+@app.post("/api/market/sync/trigger")
+async def market_sync_trigger(background: bool = True) -> dict[str, Any]:
+    from src.market.auto_sync import market_sync_worker
+    if background:
+        asyncio.create_task(market_sync_worker.sync_once(force=True))
+        return {
+            "status": "accepted",
+            "message": "Market synchronization triggered in background",
+            "worker_status": market_sync_worker.get_status(),
+        }
+    res = await market_sync_worker.sync_once(force=True)
+    return {
+        "status": "completed",
+        "result": res,
+        "worker_status": market_sync_worker.get_status(),
+    }
+
+
+@app.get("/api/market/indices")
+def market_indices() -> dict[str, Any]:
+    from src.market.auto_sync import market_sync_worker
+    indices = market_sync_worker.get_indices()
+    status = market_sync_worker.get_status()
+    return {
+        "status": "ok",
+        "indices": indices,
+        "market_open": status.get("is_market_open", False),
+        "session_status": status.get("session_status", ""),
+        "market_time_ist": status.get("market_time_ist", ""),
+        "last_sync_timestamp": status.get("last_sync_timestamp"),
     }
 
 
@@ -589,6 +642,11 @@ def stock_detail(
 ) -> dict[str, Any]:
     ticker_clean = ticker.upper().strip()
     _ACTIVE_MONITORED_TICKERS.add(ticker_clean)
+    try:
+        from src.market.auto_sync import market_sync_worker
+        market_sync_worker.register_monitored_ticker(ticker_clean)
+    except Exception:
+        pass
 
     from src.market.universe_manager import get_or_assess_stock
     data = get_or_assess_stock(
@@ -662,6 +720,11 @@ def stock_risk_status(
     """Dedicated lightweight endpoint for frontend live risk auto-polling."""
     ticker_clean = ticker.upper().strip()
     _ACTIVE_MONITORED_TICKERS.add(ticker_clean)
+    try:
+        from src.market.auto_sync import market_sync_worker
+        market_sync_worker.register_monitored_ticker(ticker_clean)
+    except Exception:
+        pass
 
     from src.market.universe_manager import get_or_assess_stock
     data = get_or_assess_stock(
@@ -865,6 +928,9 @@ def stock_chart(ticker: str, period: str = "3m", interval: str = "5m") -> dict[s
                     "avg_volume": avg_vol,
                     "overlays_latest": overlays_latest,
                     "points": points,
+                    "data_freshness": "live" if meta.get("is_market_open") else "cached",
+                    "retrieved_at": meta.get("retrieved_at") or datetime.now(timezone.utc).isoformat(),
+                    "provider": meta.get("source") or "yfinance",
                 }
         except Exception as exc:
             logger.error("Error generating intraday chart for %s: %s", ticker, exc)
@@ -964,6 +1030,12 @@ def stock_chart(ticker: str, period: str = "3m", interval: str = "5m") -> dict[s
             "supertrend_dir": latest.get("supertrend_dir") if latest else 1,
         }
 
+        from src.ingest.market_data import get_daily_cache_status
+        cache_stat = get_daily_cache_status(ticker)
+        freshness_status = cache_stat.get("status", "cached")
+        meta_info = cache_stat.get("meta", {})
+        retrieved_at = meta_info.get("retrieved_at")
+
         return {
             "ticker": ticker,
             "period": period,
@@ -979,6 +1051,9 @@ def stock_chart(ticker: str, period: str = "3m", interval: str = "5m") -> dict[s
             "avg_volume": avg_vol,
             "overlays_latest": overlays_latest,
             "points": points,
+            "data_freshness": freshness_status,
+            "retrieved_at": retrieved_at,
+            "provider": meta_info.get("provider", "yfinance"),
         }
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc

@@ -69,6 +69,37 @@ function NavbarInner() {
     return () => clearInterval(interval);
   }, []);
 
+  const [indices, setIndices] = useState<Record<string, any>>({});
+
+  // Dynamic Market Indices Auto-Sync
+  useEffect(() => {
+    const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    async function loadIndices() {
+      try {
+        const res = await fetch(`${API}/api/market/indices`, { cache: "no-store" });
+        if (res.ok) {
+          const data = await res.json();
+          if (data?.indices) {
+            setIndices(data.indices);
+          }
+          if (data?.session_status) {
+            setMarketStatus(data.session_status);
+          }
+        }
+      } catch {
+        // Fallback to local clock status
+      }
+    }
+    loadIndices();
+    const interval = setInterval(loadIndices, 30000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const nifty = indices["NIFTY 50"];
+  const sensex = indices["SENSEX"];
+  const vix = indices["INDIA VIX"];
+  const bankNifty = indices["BANK NIFTY"];
+
   // Global hotkey Ctrl+K / Cmd+K
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -98,16 +129,40 @@ function NavbarInner() {
 
               <div className="flex items-center gap-4">
                 <span className="text-slate-400">
-                  NIFTY 50: <span className="text-emerald-400 font-semibold">25,014.10</span> <span className="text-emerald-500/80 text-[10px]">+0.22%</span>
+                  NIFTY 50:{" "}
+                  <span className={(nifty?.change_pct ?? 0) >= 0 ? "text-emerald-400 font-semibold" : "text-rose-400 font-semibold"}>
+                    {nifty?.last_price != null ? nifty.last_price.toLocaleString("en-IN") : "25,014.10"}
+                  </span>{" "}
+                  <span className={`text-[10px] ${(nifty?.change_pct ?? 0) >= 0 ? "text-emerald-500/80" : "text-rose-500/80"}`}>
+                    {nifty?.change_pct != null ? `${nifty.change_pct >= 0 ? "+" : ""}${nifty.change_pct}%` : "+0.22%"}
+                  </span>
                 </span>
                 <span className="text-slate-400">
-                  SENSEX: <span className="text-emerald-400 font-semibold">81,688.45</span> <span className="text-emerald-500/80 text-[10px]">+0.18%</span>
+                  SENSEX:{" "}
+                  <span className={(sensex?.change_pct ?? 0) >= 0 ? "text-emerald-400 font-semibold" : "text-rose-400 font-semibold"}>
+                    {sensex?.last_price != null ? sensex.last_price.toLocaleString("en-IN") : "81,688.45"}
+                  </span>{" "}
+                  <span className={`text-[10px] ${(sensex?.change_pct ?? 0) >= 0 ? "text-emerald-500/80" : "text-rose-500/80"}`}>
+                    {sensex?.change_pct != null ? `${sensex.change_pct >= 0 ? "+" : ""}${sensex.change_pct}%` : "+0.18%"}
+                  </span>
                 </span>
                 <span className="text-slate-400">
-                  INDIA VIX: <span className="text-cyan-400 font-semibold">13.12</span> <span className="text-cyan-500/80 text-[10px]">-2.45%</span>
+                  INDIA VIX:{" "}
+                  <span className="text-cyan-400 font-semibold">
+                    {vix?.last_price != null ? vix.last_price.toFixed(2) : "13.12"}
+                  </span>{" "}
+                  <span className="text-cyan-500/80 text-[10px]">
+                    {vix?.change_pct != null ? `${vix.change_pct >= 0 ? "+" : ""}${vix.change_pct}%` : "-2.45%"}
+                  </span>
                 </span>
                 <span className="hidden lg:inline text-slate-400">
-                  BSE SMALLCAP: <span className="text-emerald-400 font-semibold">54,320.10</span> <span className="text-emerald-500/80 text-[10px]">+0.45%</span>
+                  BANK NIFTY:{" "}
+                  <span className={(bankNifty?.change_pct ?? 0) >= 0 ? "text-emerald-400 font-semibold" : "text-rose-400 font-semibold"}>
+                    {bankNifty?.last_price != null ? bankNifty.last_price.toLocaleString("en-IN") : "51,280.00"}
+                  </span>{" "}
+                  <span className={`text-[10px] ${(bankNifty?.change_pct ?? 0) >= 0 ? "text-emerald-500/80" : "text-rose-500/80"}`}>
+                    {bankNifty?.change_pct != null ? `${bankNifty.change_pct >= 0 ? "+" : ""}${bankNifty.change_pct}%` : "+0.35%"}
+                  </span>
                 </span>
               </div>
             </div>

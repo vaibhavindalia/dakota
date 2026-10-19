@@ -98,11 +98,13 @@ class EvidenceGroundedAnalyzer:
                 price = sample.get("latest_price", "N/A")
                 vol = sample.get("volume", "N/A")
                 deliv = sample.get("delivery_pct", "N/A")
+                freshness = sample.get("data_freshness", "unverified")
+                retrieved_ts = sample.get("retrieved_at", as_of)
                 citations.append(EvidenceCitation(
                     citation_id=cit_tag,
-                    source="Exchange Market Telemetry (NSE/BSE)",
-                    timestamp=as_of,
-                    summary=f"Last trade: ₹{price}, Volume: {vol}, Delivery: {deliv}%",
+                    source=f"Exchange Market Telemetry (NSE/BSE) [{freshness.upper()}]",
+                    timestamp=retrieved_ts,
+                    summary=f"Last trade: ₹{price}, Volume: {vol}, Delivery: {deliv}% (Status: {freshness})",
                 ))
             elif "FILING" in eid or "BSE" in eid or "REG" in eid:
                 news = sample.get("news_headlines", [])
@@ -132,6 +134,12 @@ class EvidenceGroundedAnalyzer:
 
         # 3. Detect forensic warning signals
         forensic_signals: List[str] = []
+        freshness = sample.get("data_freshness")
+        if freshness in ("stale", "unavailable"):
+            forensic_signals.append(
+                f"Market Data Freshness Advisory: Telemetry is {freshness.upper()} "
+                f"(Retrieved: {sample.get('retrieved_at', 'unknown')}). Live conditions unverified."
+            )
         if sample.get("is_surveillance"):
             forensic_signals.append("Active exchange surveillance measure (GSM/ASM/ESM) in place.")
         delivery = sample.get("delivery_pct")
@@ -169,6 +177,9 @@ class EvidenceGroundedAnalyzer:
                 f"Available information for {ticker} is inadequate to form a substantiated market assessment {cit_tokens}. "
                 f"Reported claims lack corroborating corporate filings, liquid order-book depth, or verifiable exchange telemetry."
             )
+
+        if freshness in ("stale", "unavailable"):
+            summary += f" [Data Advisory: Exchange telemetry is {freshness}; live trading session conditions could not be verified.]"
 
         # 5. Determine actionable next steps
         next_steps = [
