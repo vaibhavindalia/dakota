@@ -13,6 +13,7 @@ Strict safety invariants:
 """
 from __future__ import annotations
 
+import gc
 import hashlib
 import logging
 import math
@@ -209,6 +210,7 @@ class OfficialSimpleJEVAdapter(BaseClassifierAdapter):
                 OfficialSimpleJEVAdapter._is_loaded = True
                 OfficialSimpleJEVAdapter._load_error = None
 
+                torch.cuda.empty_cache()
                 elapsed = time.perf_counter() - start_load
                 mem_gib = torch.cuda.memory_allocated() / (1024**3)
                 logger.info("Qwen3.5-9B 4-bit NF4 loaded in %.2fs. VRAM allocated: %.2f GiB", elapsed, mem_gib)
@@ -323,6 +325,11 @@ class OfficialSimpleJEVAdapter(BaseClassifierAdapter):
         attention_mask = torch.ones_like(input_tensor)
 
         try:
+            gc.collect()
+            torch.cuda.empty_cache()
+            if torch.cuda.is_available():
+                torch.cuda.synchronize()
+
             with OfficialSimpleJEVAdapter._shared_lock:
                 with torch.inference_mode():
                     out = model(
@@ -332,7 +339,6 @@ class OfficialSimpleJEVAdapter(BaseClassifierAdapter):
                         use_cache=False,
                     )
                     last_logits = out.logits[0, -1]  # shape: (vocab_size,)
-
 
             # Verify BPE boundary and resolve token IDs
             results: Dict[str, float] = {}
@@ -346,10 +352,15 @@ class OfficialSimpleJEVAdapter(BaseClassifierAdapter):
                 results[lbl] = float(last_logits[t_id].detach().cpu().item())
 
             del out, input_tensor, attention_mask, last_logits
+            gc.collect()
+            torch.cuda.empty_cache()
+            if torch.cuda.is_available():
+                torch.cuda.synchronize()
             return results
 
         except torch.cuda.OutOfMemoryError as oom_err:
             logger.error("GPU Out-of-Memory during JEV logit extraction: %s", oom_err)
+            gc.collect()
             torch.cuda.empty_cache()
             raise RuntimeError(f"GPU OOM during JEV inference: {oom_err}") from oom_err
 
@@ -432,16 +443,26 @@ class OfficialSimpleJEVAdapter(BaseClassifierAdapter):
                 mask = torch.ones_like(input_tensor)
 
                 try:
+                    gc.collect()
+                    torch.cuda.empty_cache()
+                    if torch.cuda.is_available():
+                        torch.cuda.synchronize()
+
                     with OfficialSimpleJEVAdapter._shared_lock:
                         with torch.inference_mode():
                             out = model(input_ids=input_tensor, attention_mask=mask, logits_to_keep=1, use_cache=False)
                             last_logits = out.logits[0, -1]
-                            raw_selected = last_logits[branch.output_ids].float().cpu()
+                            raw_selected = last_logits[branch.output_ids].float().cpu().clone()
 
                     del out, input_tensor, mask, last_logits
+                    gc.collect()
+                    torch.cuda.empty_cache()
+                    if torch.cuda.is_available():
+                        torch.cuda.synchronize()
 
                 except torch.cuda.OutOfMemoryError as oom:
                     logger.error("CUDA OOM in JEV predict_choice: %s", oom)
+                    gc.collect()
                     torch.cuda.empty_cache()
                     latency = (time.perf_counter() - t0) * 1000.0
                     return PredictionResult(
