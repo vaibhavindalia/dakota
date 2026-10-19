@@ -206,3 +206,126 @@ def test_mock_adapter_end_to_end_sentiment_task():
     assert len(pred.prompt_hash) == 64
     assert pred.latency_ms > 0.0
     assert pred.error_status is None
+
+
+def _get_local_qwen_path():
+    import os
+    for p in [
+        os.environ.get("QWEN_MODEL_DIR"),
+        r"C:\Users\vdish\.cache\huggingface\hub\models--Qwen--Qwen3.5-9B\snapshots\c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+        "/mnt/c/Users/vdish/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    ]:
+        if p and os.path.exists(p):
+            return p
+    return None
+
+
+def test_contextual_bpe_token_alignment_qwen():
+    """Verify context-aware token alignment matching simple-jev using Qwen tokenizer.
+
+    Proves that for labels 'A' through 'E' following 'Answer: (', each label is
+    guaranteed to be an exact single-token boundary transition without BPE merge distortion.
+    """
+    try:
+        from transformers import AutoTokenizer
+    except ImportError:
+        pytest.skip("Transformers not installed")
+
+    local_path = _get_local_qwen_path()
+    if not local_path:
+        pytest.skip("Local Qwen checkpoint not found; skipping offline tokenizer test")
+
+    tokenizer = AutoTokenizer.from_pretrained(local_path, local_files_only=True)
+    from src.intelligence.jev.adapters.hf_adapter import HuggingFaceQwenAdapter
+
+    adapter = HuggingFaceQwenAdapter(model_id=local_path)
+    adapter._tokenizer = tokenizer
+
+    # Context with Dakota JEV standard answer_prefix
+    context = "System: Analyze financial sentiment.\nUser: Ticker CDSL.\nAnswer: ("
+    base_ids = tokenizer.encode(context, add_special_tokens=False)
+
+    expected_ids = {"A": 32, "B": 33, "C": 34, "D": 35, "E": 36}
+
+    for lbl, exp_id in expected_ids.items():
+        appended_ids = tokenizer.encode(context + lbl, add_special_tokens=False)
+        # 1. Verify single token boundary addition
+        assert len(appended_ids) == len(base_ids) + 1, f"BPE merge occurred for label {lbl}"
+        # 2. Verify exact prefix match
+        assert appended_ids[:-1] == base_ids, f"Prefix corruption occurred for label {lbl}"
+        # 3. Verify adapter contextual token extraction
+        resolved_id = adapter._get_token_id(lbl, context_text=context)
+        assert resolved_id == exp_id, f"Resolved token ID {resolved_id} != expected {exp_id}"
+
+
+def test_contextual_bpe_token_alignment_qwen3_5_9b():
+    """Verify context-aware token alignment for Qwen/Qwen3.5-9B tokenizer.
+
+    Validates that:
+    1. Each candidate label ('A' through 'E') following 'Answer: (' is an exact
+       single-token append (len == base_len + 1, appended[:-1] == base).
+    2. Contextual verification raises a clear ValueError when alignment fails.
+    """
+    try:
+        from transformers import AutoTokenizer
+    except ImportError:
+        pytest.skip("Transformers not installed")
+
+    local_path = _get_local_qwen_path()
+    if not local_path:
+        pytest.skip("Local Qwen checkpoint not found; skipping offline tokenizer test")
+
+    tokenizer = AutoTokenizer.from_pretrained(local_path, local_files_only=True)
+    from src.intelligence.jev.adapters.hf_adapter import HuggingFaceQwenAdapter
+
+    adapter = HuggingFaceQwenAdapter(model_id=local_path)
+    adapter._tokenizer = tokenizer
+
+    context = "System: You are an equity analyst.\nUser: Analyze RELIANCE.\nAnswer: ("
+    base_ids = tokenizer.encode(context, add_special_tokens=False)
+
+    expected_ids = {"A": 32, "B": 33, "C": 34, "D": 35, "E": 36}
+
+    for lbl, exp_id in expected_ids.items():
+        appended_ids = tokenizer.encode(context + lbl, add_special_tokens=False)
+        assert len(appended_ids) == len(base_ids) + 1, f"Qwen3.5 BPE merge for {lbl}"
+        assert appended_ids[:-1] == base_ids, f"Qwen3.5 prefix corruption for {lbl}"
+        resolved = adapter._get_token_id(lbl, context_text=context)
+        assert resolved == exp_id, f"Resolved {resolved} != expected {exp_id}"
+
+    # Verify that corrupted/multi-token boundary raises ValueError
+    with pytest.raises(ValueError, match="Contextual BPE verification failed"):
+        # Multi-word label that cannot be a single token
+        adapter._get_token_id("INVALID_MULTI_TOKEN_LABEL", context_text=context)
+
+
+def test_text_only_adapter_configuration():
+    """Verify HuggingFaceQwenAdapter default text-only and prefix-cache settings."""
+    from src.intelligence.jev.adapters.hf_adapter import HuggingFaceQwenAdapter
+
+    adapter = HuggingFaceQwenAdapter(model_id="Qwen/Qwen3.5-9B")
+    assert adapter.text_only is True
+    assert adapter.enable_prefix_cache is False
+
+    info = adapter.get_model_info()
+    assert info["text_only"] is True
+    assert info["enable_prefix_cache"] is False
+    assert info["model_id"] == "Qwen/Qwen3.5-9B"
+
+
+def test_prefix_cache_eviction_on_clear():
+    """Verify prefix cache clear method resets all internal state."""
+    from src.intelligence.jev.adapters.hf_adapter import HuggingFaceQwenAdapter
+
+    adapter = HuggingFaceQwenAdapter(model_id="Qwen/Qwen3.5-9B", enable_prefix_cache=True)
+    adapter._prefix_cache = {"dummy": "cache"}
+    adapter._cached_prefix_text = "sample text"
+    adapter._cached_prefix_len = 100
+
+    adapter.clear_prefix_cache()
+    assert adapter._prefix_cache is None
+    assert adapter._cached_prefix_text is None
+    assert adapter._cached_prefix_len == 0
+
+
+

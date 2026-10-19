@@ -1,0 +1,64 @@
+{
+  "cold_load_time_s": 27.93590869999025,
+  "post_load_alloc_mib": 7292.263671875,
+  "post_load_res_mib": 7386.0,
+  "bench_results": [
+    {
+      "tier": "Short (174 tokens)",
+      "sample_ticker": "SHREEPENNY",
+      "tokens": 389,
+      "median_latency_ms": 21392.841099994257,
+      "min_latency_ms": 21318.312399991555,
+      "max_latency_ms": 21527.51869999338,
+      "p95_latency_ms": 21502.40837999154,
+      "peak_alloc_mib": 7671.9208984375,
+      "peak_res_mib": 7916.0,
+      "headroom_mib": 275.5,
+      "logits": {
+        "A": 19.125,
+        "B": 21.625,
+        "C": 17.625,
+        "D": 21.75,
+        "E": 21.125
+      }
+    },
+    {
+      "tier": "Medium (310 tokens)",
+      "sample_ticker": "PAYTM",
+      "tokens": 410,
+      "median_latency_ms": 20205.684000015026,
+      "min_latency_ms": 20169.862899987493,
+      "max_latency_ms": 20293.040100019425,
+      "p95_latency_ms": 20287.846160010668,
+      "peak_alloc_mib": 7691.9775390625,
+      "peak_res_mib": 8310.0,
+      "headroom_mib": -118.5,
+      "logits": {
+        "A": 19.625,
+        "B": 23.375,
+        "C": 19.25,
+        "D": 21.375,
+        "E": 19.0
+      }
+    },
+    {
+      "tier": "Long (429 tokens)",
+      "sample_ticker": "CDSL",
+      "tokens": 429,
+      "median_latency_ms": 20252.847499999916,
+      "min_latency_ms": 20173.267100006342,
+      "max_latency_ms": 20376.587999984622,
+      "p95_latency_ms": 20353.292639990104,
+      "peak_alloc_mib": 7711.7470703125,
+      "peak_res_mib": 8718.0,
+      "headroom_mib": -526.5,
+      "logits": {
+        "A": 20.25,
+        "B": 18.5,
+        "C": 22.625,
+        "D": 21.375,
+        "E": 21.625
+      }
+    }
+  ]
+}

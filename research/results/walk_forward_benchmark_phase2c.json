@@ -1,0 +1,244 @@
+{
+  "total_samples": 15,
+  "n_folds": 2,
+  "purge_window_hours": 24.0,
+  "evaluated_models": [
+    "Majority Baseline",
+    "TF-IDF + LogReg",
+    "JEV (Qwen/Qwen3.5-9B)",
+    "Qwen Generative (Fair Direct, Thinking-Off)",
+    "Qwen Generative (Constrained 30-tok Diagnostic)"
+  ],
+  "model_summaries": {
+    "Majority Baseline": {
+      "accuracy": 0.2222,
+      "macro_f1": 0.0727,
+      "weighted_f1": 0.0808,
+      "brier_score": 0.8088,
+      "ece": 0.0471,
+      "nll": 1.633,
+      "per_class": {
+        "Bullish": {
+          "precision": 0.2222,
+          "recall": 1.0,
+          "f1": 0.3636,
+          "support": 2
+        },
+        "Bearish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "Mixed": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "Insufficient Evidence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        }
+      },
+      "sample_count": 9,
+      "mean_latency_ms": 0.0,
+      "p95_latency_ms": 0.0,
+      "tokens_generated_per_sample": 0.0
+    },
+    "TF-IDF + LogReg": {
+      "accuracy": 0.3333,
+      "macro_f1": 0.2571,
+      "weighted_f1": 0.3175,
+      "brier_score": 0.782,
+      "ece": 0.1007,
+      "nll": 1.5653,
+      "per_class": {
+        "Bullish": {
+          "precision": 0.25,
+          "recall": 0.5,
+          "f1": 0.3333,
+          "support": 2
+        },
+        "Bearish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Neutral": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667,
+          "support": 2
+        },
+        "Mixed": {
+          "precision": 0.25,
+          "recall": 0.3333,
+          "f1": 0.2857,
+          "support": 3
+        },
+        "Insufficient Evidence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        }
+      },
+      "sample_count": 9,
+      "mean_latency_ms": 0.51,
+      "p95_latency_ms": 0.68,
+      "tokens_generated_per_sample": 0.0
+    },
+    "JEV (Qwen/Qwen3.5-9B)": {
+      "accuracy": 0.7778,
+      "macro_f1": 0.6933,
+      "weighted_f1": 0.7333,
+      "brier_score": 0.3552,
+      "ece": 0.0617,
+      "nll": 0.8218,
+      "per_class": {
+        "Bullish": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2
+        },
+        "Bearish": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 1
+        },
+        "Neutral": {
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "support": 2
+        },
+        "Mixed": {
+          "precision": 0.6667,
+          "recall": 0.6667,
+          "f1": 0.6667,
+          "support": 3
+        },
+        "Insufficient Evidence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        }
+      },
+      "sample_count": 9,
+      "mean_latency_ms": 21966.64,
+      "p95_latency_ms": 22150.7,
+      "tokens_generated_per_sample": 0.0
+    },
+    "Qwen Generative (Fair Direct, Thinking-Off)": {
+      "accuracy": 0.6667,
+      "macro_f1": 0.5533,
+      "weighted_f1": 0.5963,
+      "brier_score": 0.5292,
+      "ece": 0.0333,
+      "nll": 1.1012,
+      "per_class": {
+        "Bullish": {
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "support": 2
+        },
+        "Bearish": {
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6667,
+          "support": 1
+        },
+        "Neutral": {
+          "precision": 0.6667,
+          "recall": 1.0,
+          "f1": 0.8,
+          "support": 2
+        },
+        "Mixed": {
+          "precision": 1.0,
+          "recall": 0.3333,
+          "f1": 0.5,
+          "support": 3
+        },
+        "Insufficient Evidence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        }
+      },
+      "sample_count": 9,
+      "mean_latency_ms": 3108.36,
+      "p95_latency_ms": 5448.91,
+      "tokens_generated_per_sample": 4.89
+    },
+    "Qwen Generative (Constrained 30-tok Diagnostic)": {
+      "accuracy": 0.0,
+      "macro_f1": 0.0,
+      "weighted_f1": 0.0,
+      "brier_score": 0.8,
+      "ece": 0.2,
+      "nll": 1.6094,
+      "per_class": {
+        "Bullish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "Bearish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "Mixed": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "Insufficient Evidence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        }
+      },
+      "sample_count": 9,
+      "mean_latency_ms": 5916.41,
+      "p95_latency_ms": 8184.2,
+      "tokens_generated_per_sample": 30.0
+    }
+  },
+  "fold_evaluations": [],
+  "classes": [
+    "Bullish",
+    "Bearish",
+    "Neutral",
+    "Mixed",
+    "Insufficient Evidence"
+  ],
+  "peak_vram_allocated_mb": 7742.14892578125,
+  "peak_vram_reserved_mb": 8178.0
+}

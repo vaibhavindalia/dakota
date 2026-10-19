@@ -5,8 +5,8 @@
   "evaluated_models": [
     "Majority Baseline",
     "TF-IDF + LogReg",
-    "JEV (Qwen/Qwen2.5-7B-Instruct (JEV v1.0))",
-    "Frontier Reference (GPT-4o)"
+    "JEV (Qwen/Qwen3.5-9B)",
+    "Qwen Generative (Qwen/Qwen3.5-9B)"
   ],
   "model_summaries": {
     "Majority Baseline": {
@@ -93,61 +93,17 @@
         }
       },
       "sample_count": 9,
-      "mean_latency_ms": 0.49,
-      "p95_latency_ms": 0.61,
+      "mean_latency_ms": 0.53,
+      "p95_latency_ms": 0.69,
       "tokens_generated_per_sample": 0.0
     },
-    "JEV (Qwen/Qwen2.5-7B-Instruct (JEV v1.0))": {
-      "accuracy": 0.3333,
-      "macro_f1": 0.1,
-      "weighted_f1": 0.1667,
-      "brier_score": 0.804,
-      "ece": 0.0732,
-      "nll": 1.6669,
-      "per_class": {
-        "Bullish": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 2
-        },
-        "Bearish": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 1
-        },
-        "Neutral": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 2
-        },
-        "Mixed": {
-          "precision": 0.3333,
-          "recall": 1.0,
-          "f1": 0.5,
-          "support": 3
-        },
-        "Insufficient Evidence": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0,
-          "support": 1
-        }
-      },
-      "sample_count": 9,
-      "mean_latency_ms": 5.51,
-      "p95_latency_ms": 5.71,
-      "tokens_generated_per_sample": 0.0
-    },
-    "Frontier Reference (GPT-4o)": {
-      "accuracy": 0.6667,
-      "macro_f1": 0.66,
-      "weighted_f1": 0.7111,
-      "brier_score": 0.619,
-      "ece": 0.3411,
-      "nll": 1.4266,
+    "JEV (Qwen/Qwen3.5-9B)": {
+      "accuracy": 0.7778,
+      "macro_f1": 0.6933,
+      "weighted_f1": 0.7333,
+      "brier_score": 0.3729,
+      "ece": 0.2036,
+      "nll": 0.8294,
       "per_class": {
         "Bullish": {
           "precision": 1.0,
@@ -162,15 +118,15 @@
           "support": 1
         },
         "Neutral": {
-          "precision": 0.5,
-          "recall": 0.5,
-          "f1": 0.5,
-          "support": 2
-        },
-        "Mixed": {
-          "precision": 1.0,
-          "recall": 0.6667,
+          "precision": 0.6667,
+          "recall": 1.0,
           "f1": 0.8,
+          "support": 2
+        },
+        "Mixed": {
+          "precision": 0.6667,
+          "recall": 0.6667,
+          "f1": 0.6667,
           "support": 3
         },
         "Insufficient Evidence": {
@@ -181,9 +137,53 @@
         }
       },
       "sample_count": 9,
-      "mean_latency_ms": 580.78,
-      "p95_latency_ms": 721.8,
-      "tokens_generated_per_sample": 15.0
+      "mean_latency_ms": 22179.22,
+      "p95_latency_ms": 23366.08,
+      "tokens_generated_per_sample": 0.0
+    },
+    "Qwen Generative (Qwen/Qwen3.5-9B)": {
+      "accuracy": 0.1111,
+      "macro_f1": 0.04,
+      "weighted_f1": 0.0222,
+      "brier_score": 1.2236,
+      "ece": 0.5889,
+      "nll": 2.3421,
+      "per_class": {
+        "Bullish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "Bearish": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 1
+        },
+        "Neutral": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 2
+        },
+        "Mixed": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "Insufficient Evidence": {
+          "precision": 0.1111,
+          "recall": 1.0,
+          "f1": 0.2,
+          "support": 1
+        }
+      },
+      "sample_count": 9,
+      "mean_latency_ms": 5881.92,
+      "p95_latency_ms": 8030.27,
+      "tokens_generated_per_sample": 30.0
     }
   },
   "fold_evaluations": [],

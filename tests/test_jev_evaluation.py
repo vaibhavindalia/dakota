@@ -120,8 +120,23 @@ def test_benchmark_runner_end_to_end_walk_forward():
     assert report.n_folds >= 1
     assert "Majority Baseline" in report.model_summaries
     assert "TF-IDF + LogReg" in report.model_summaries
-    assert "Frontier Reference (GPT-4o)" in report.model_summaries
+    assert f"JEV ({adapter.model_id})" in report.model_summaries
 
     md_table = report.to_markdown_table()
     assert "| Model | Accuracy | Macro-F1 |" in md_table
-    assert "Frontier Reference (GPT-4o)" in md_table
+    assert f"JEV ({adapter.model_id})" in md_table
+
+
+def test_frontier_reference_baseline_requires_api_key_or_raises():
+    """Verify FrontierReferenceBaseline refuses to peek at ground truth without an API key."""
+    import os
+    orig = os.environ.get("OPENAI_API_KEY")
+    try:
+        os.environ.pop("OPENAI_API_KEY", None)
+        baseline = FrontierReferenceBaseline()
+        with pytest.raises(ValueError, match="OPENAI_API_KEY is not configured"):
+            baseline.predict_one({"claim": "Test claim"})
+    finally:
+        if orig is not None:
+            os.environ["OPENAI_API_KEY"] = orig
+
