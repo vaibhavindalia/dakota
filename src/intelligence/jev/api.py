@@ -37,6 +37,7 @@ _ACTIVE_ADAPTER: BaseClassifierAdapter = MockClassifierAdapter(
             "C": 1.8,
             "D": 4.6,
             "E": 2.1,
+            "F": 0.1,
         }
     }
 )
