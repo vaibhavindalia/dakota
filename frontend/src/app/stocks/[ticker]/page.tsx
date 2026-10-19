@@ -318,7 +318,8 @@ function StockDetailContent() {
   }
 
   function freshnessBadge(status?: string) {
-    if (status === "live") {
+    const s = (status || "").toLowerCase();
+    if (s === "live") {
       return (
         <span className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-300">
           <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -326,18 +327,34 @@ function StockDetailContent() {
         </span>
       );
     }
-    if (status === "stale") {
+    if (s === "delayed") {
+      return (
+        <span className="flex items-center gap-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/15 px-2.5 py-0.5 text-[11px] font-semibold text-cyan-300">
+          <Clock className="h-3 w-3 text-cyan-400" />
+          DELAYED (Exchange Feed)
+        </span>
+      );
+    }
+    if (s === "stale") {
       return (
         <span className="flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/15 px-2.5 py-0.5 text-[11px] font-semibold text-amber-300">
           <AlertTriangle className="h-3 w-3 text-amber-400" />
-          STALE (Cached Observations)
+          STALE (Awaiting Refresh)
+        </span>
+      );
+    }
+    if (s === "unavailable" || s === "missing") {
+      return (
+        <span className="flex items-center gap-1.5 rounded-full border border-rose-500/30 bg-rose-500/15 px-2.5 py-0.5 text-[11px] font-semibold text-rose-300">
+          <AlertTriangle className="h-3 w-3 text-rose-400" />
+          UNAVAILABLE (No Feed)
         </span>
       );
     }
     return (
       <span className="flex items-center gap-1.5 rounded-full border border-sky-500/30 bg-sky-500/15 px-2.5 py-0.5 text-[11px] font-semibold text-sky-300">
         <CheckCircle2 className="h-3 w-3 text-sky-400" />
-        VERIFIED (Session Cache)
+        CACHED (Session Close)
       </span>
     );
   }

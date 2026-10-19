@@ -54,7 +54,7 @@ def _meta_path(ticker: str) -> Path:
     return CACHE_DIR / f"ohlcv_{ticker}.meta.json"
 
 
-def get_daily_cache_status(ticker: str, max_age_seconds: int = 86400) -> dict[str, Any]:
+def get_daily_cache_status(ticker: str, max_age_seconds: int = 180) -> dict[str, Any]:
     """Inspect local cache freshness and metadata for a ticker."""
     clean_ticker = ticker.upper().strip()
     c_path = _cache_path(clean_ticker)
@@ -64,7 +64,7 @@ def get_daily_cache_status(ticker: str, max_age_seconds: int = 86400) -> dict[st
         return {
             "exists": False,
             "is_fresh": False,
-            "status": "missing",
+            "status": "unavailable",
             "age_seconds": None,
             "meta": {},
         }
@@ -82,8 +82,22 @@ def get_daily_cache_status(ticker: str, max_age_seconds: int = 86400) -> dict[st
         except Exception:
             meta = {}
 
-    is_fresh = age <= max_age_seconds
-    status = "fresh" if is_fresh else "stale"
+    from src.market.auto_sync import compute_freshness_status
+    is_open, _, _ = is_indian_market_open()
+    retrieved_at = meta.get("retrieved_at")
+    market_event = meta.get("market_event_timestamp")
+    last_err = meta.get("last_error")
+
+    status = compute_freshness_status(
+        retrieved_at_iso=retrieved_at,
+        market_event_iso=market_event,
+        is_market_open=is_open,
+        stale_threshold_sec=max_age_seconds,
+        provider_error=last_err,
+    )
+    if age > max_age_seconds:
+        status = "stale"
+    is_fresh = status in ("live", "cached")
     return {
         "exists": True,
         "is_fresh": is_fresh,
@@ -204,15 +218,23 @@ def load_ohlcv(
     try:
         df = fetch_ohlcv(clean_ticker, pd.Timestamp(start).date(),
                          pd.Timestamp(end).date() if end else date.today())
+        if df is None or df.empty or "date" not in df.columns:
+            raise RuntimeError(f"Malformed or empty OHLCV dataframe returned for {clean_ticker}")
         df.to_parquet(cache)
         try:
+            is_open, _, _ = is_indian_market_open()
+            freshness_status = "live" if is_open else "cached"
+            last_date_str = str(df["date"].max())[:10] if not df.empty and "date" in df else None
             meta = {
                 "ticker": clean_ticker,
+                "exchange": "NSE",
                 "retrieved_at": datetime.now(timezone.utc).isoformat(),
-                "status": "fresh",
+                "market_event_timestamp": last_date_str,
+                "status": freshness_status,
                 "source": "yfinance",
+                "last_successful_sync": datetime.now(timezone.utc).isoformat(),
             }
-            meta_file.write_text(json.dumps(meta), encoding="utf-8")
+            meta_file.write_text(json.dumps(meta, indent=2), encoding="utf-8")
         except Exception:
             pass
     except Exception as exc:

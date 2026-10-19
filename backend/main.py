@@ -36,6 +36,12 @@ from src.market.exchange_sync import sync_date
 from src.market.exchange_sync import latest_weekday
 from src.engine.risk_engine import assess
 from src.tipcheck.parser import check_tip
+from src.campaign.models import CampaignStatus, CampaignTier
+from src.campaign.store import campaign_store
+from src.campaign.detector import campaign_detector
+
+class CampaignActionRequest(BaseModel):
+    note: str = ""
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 PORTFOLIO_FILE = BASE_DIR / "data" / "portfolio.json"
@@ -59,7 +65,9 @@ async def _background_risk_monitor_loop() -> None:
                     try:
                         from src.market.universe_manager import get_or_assess_stock
                         ttl = 60 if is_open else 900
-                        await asyncio.to_thread(get_or_assess_stock, sym, False, ttl)
+                        data = await asyncio.to_thread(get_or_assess_stock, sym, False, ttl)
+                        from src.alerts.engine import alert_engine
+                        await alert_engine.evaluate_ticker(sym, data)
                     except Exception as err:
                         logger.debug("Background assessment tick error for %s: %s", sym, err)
         except asyncio.CancelledError:
@@ -76,10 +84,35 @@ async def lifespan(app: FastAPI):
         _ensure_schema()
     except Exception as exc:
         logger.warning("Could not pre-init database schema: %s", exc)
+
+    try:
+        from src.alerts.store import alert_store
+        alert_store.init_db()
+    except Exception as exc:
+        logger.warning("Could not pre-init alert database: %s", exc)
+
+    try:
+        from src.campaign.store import campaign_store
+        campaign_store.init_db()
+        from src.campaign.detector import campaign_detector
+        campaign_detector.rebuild_correlations(lookback_limit=150)
+    except Exception as exc:
+        logger.warning("Could not pre-init campaign database: %s", exc)
+
     _bg_monitor_task = asyncio.create_task(_background_risk_monitor_loop())
+    try:
+        from src.market.auto_sync import market_sync_worker
+        await market_sync_worker.start()
+    except Exception as exc:
+        logger.warning("Could not start market sync worker: %s", exc)
     try:
         yield
     finally:
+        try:
+            from src.market.auto_sync import market_sync_worker
+            await market_sync_worker.stop()
+        except Exception as exc:
+            logger.debug("Error stopping market sync worker: %s", exc)
         if _bg_monitor_task and not _bg_monitor_task.done():
             _bg_monitor_task.cancel()
             try:
@@ -197,26 +230,221 @@ def root() -> dict[str, str]:
 
 @app.get("/health")
 def health() -> dict[str, Any]:
+    from src.market.auto_sync import market_sync_worker
+    from src.alerts.engine import alert_engine
     return {
         "status": "ok",
         "raw_data_root_exists": RAW_DATA_ROOT.exists(),
         "universe_exists": UNIVERSE_FILE.exists(),
         "connectors": public_status(),
+        "market_sync": market_sync_worker.get_status(),
+        "alerts": alert_engine.get_status(),
     }
 
 
 @app.get("/api/connectors/status")
 def connector_status() -> dict[str, Any]:
+    from src.market.auto_sync import market_sync_worker
+    from src.alerts.engine import alert_engine
     return {
         "status": "ok",
         "connectors": public_status(),
+        "market_sync": market_sync_worker.get_status(),
+        "alerts": alert_engine.get_status(),
         "notes": {
-            "nse_bse": "Uses cached exchange reports; run /api/market/sync or scripts/sync_market.py to refresh.",
-            "telegram": "Authorized bot ingestion only.",
+            "nse_bse": "Automatic bounded polling worker active for live/intraday quotes and indices; daily Bhavcopy via /api/market/sync.",
+            "telegram": "Authorized bot ingestion and alert dispatch.",
             "whatsapp": "WhatsApp Cloud API webhook only.",
             "reddit": "Official OAuth when credentials exist; RSS fallback otherwise.",
         },
     }
+
+
+@app.get("/api/market/sync/status")
+def market_sync_status() -> dict[str, Any]:
+    from src.market.auto_sync import market_sync_worker
+    return market_sync_worker.get_status()
+
+
+@app.post("/api/market/sync/trigger")
+async def market_sync_trigger(background: bool = True) -> dict[str, Any]:
+    from src.market.auto_sync import market_sync_worker
+    if background:
+        asyncio.create_task(market_sync_worker.sync_once(force=True))
+        return {
+            "status": "accepted",
+            "message": "Market synchronization triggered in background",
+            "worker_status": market_sync_worker.get_status(),
+        }
+    res = await market_sync_worker.sync_once(force=True)
+    return {
+        "status": "completed",
+        "result": res,
+        "worker_status": market_sync_worker.get_status(),
+    }
+
+
+@app.get("/api/market/indices")
+def market_indices() -> dict[str, Any]:
+    from src.market.auto_sync import market_sync_worker
+    indices = market_sync_worker.get_indices()
+    status = market_sync_worker.get_status()
+    return {
+        "status": "ok",
+        "indices": indices,
+        "market_open": status.get("is_market_open", False),
+        "session_status": status.get("session_status", ""),
+        "market_time_ist": status.get("market_time_ist", ""),
+        "last_sync_timestamp": status.get("last_sync_timestamp"),
+    }
+
+
+# ==============================================================================
+# ALERTS & INTELLIGENT MONITORING ENDPOINTS
+# ==============================================================================
+
+@app.get("/api/alerts")
+def get_alerts(
+    status: str = "all",
+    severity: str = "all",
+    ticker: str | None = None,
+    limit: int = 100,
+    offset: int = 0,
+) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    records = alert_store.get_alerts(
+        status=status,
+        severity=severity,
+        ticker=ticker,
+        limit=limit,
+        offset=offset,
+    )
+    return {
+        "status": "ok",
+        "alerts": [r.model_dump() for r in records],
+        "count": len(records),
+    }
+
+
+@app.get("/api/alerts/summary")
+def get_alerts_summary() -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    return {
+        "status": "ok",
+        "summary": alert_store.get_summary().model_dump(),
+    }
+
+
+@app.post("/api/alerts/{alert_id}/acknowledge")
+def acknowledge_alert(alert_id: str) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    from src.alerts.models import AlertStatus
+    ok = alert_store.update_alert_status(alert_id, AlertStatus.ACKNOWLEDGED)
+    if not ok:
+        raise HTTPException(status_code=404, detail=f"Alert {alert_id} not found")
+    return {"status": "ok", "alert_id": alert_id, "alert_status": "acknowledged"}
+
+
+@app.post("/api/alerts/{alert_id}/dismiss")
+def dismiss_alert(alert_id: str) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    from src.alerts.models import AlertStatus
+    ok = alert_store.update_alert_status(alert_id, AlertStatus.DISMISSED)
+    if not ok:
+        raise HTTPException(status_code=404, detail=f"Alert {alert_id} not found")
+    return {"status": "ok", "alert_id": alert_id, "alert_status": "dismissed"}
+
+
+@app.get("/api/alerts/rules")
+def get_alert_rules(enabled_only: bool = False) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    rules = alert_store.get_rules(enabled_only=enabled_only)
+    return {
+        "status": "ok",
+        "rules": [r.model_dump() for r in rules],
+        "count": len(rules),
+    }
+
+
+@app.post("/api/alerts/rules")
+def save_alert_rule(payload: dict[str, Any]) -> dict[str, Any]:
+    import uuid
+    from src.alerts.store import alert_store
+    from src.alerts.models import AlertRule, AlertRuleType, AlertSeverity
+    rule_id = str(payload.get("rule_id") or f"rule_{uuid.uuid4().hex[:8]}")
+    name = str(payload.get("name") or "Custom Alert Rule")
+    ticker = str(payload.get("ticker") or "*").upper().strip()
+    scope = payload.get("scope", "portfolio")
+    rule_type_val = payload.get("rule_type", "risk_threshold")
+    condition = payload.get("condition", ">=")
+    threshold = float(payload["threshold"]) if payload.get("threshold") is not None else None
+    threshold_str = payload.get("threshold_str")
+    severity = payload.get("severity", "warning")
+    cooldown = int(payload.get("cooldown_seconds", 300))
+    enabled = bool(payload.get("enabled", True))
+    notify_terminal = bool(payload.get("notify_terminal", True))
+    notify_telegram = bool(payload.get("notify_telegram", False))
+    auto_investigate = bool(payload.get("auto_investigate", False))
+
+    rule = AlertRule(
+        rule_id=rule_id,
+        name=name,
+        ticker=ticker,
+        scope=scope,
+        rule_type=AlertRuleType(rule_type_val),
+        condition=condition,
+        threshold=threshold,
+        threshold_str=threshold_str,
+        severity=AlertSeverity(severity),
+        enabled=enabled,
+        cooldown_seconds=cooldown,
+        notify_terminal=notify_terminal,
+        notify_telegram=notify_telegram,
+        auto_investigate=auto_investigate,
+    )
+    alert_store.save_rule(rule)
+    return {"status": "ok", "rule": rule.model_dump()}
+
+
+@app.delete("/api/alerts/rules/{rule_id}")
+def delete_alert_rule(rule_id: str) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    ok = alert_store.delete_rule(rule_id)
+    if not ok:
+        raise HTTPException(status_code=404, detail=f"Rule {rule_id} not found")
+    return {"status": "ok", "deleted": True, "rule_id": rule_id}
+
+
+@app.post("/api/alerts/rules/{rule_id}/toggle")
+def toggle_alert_rule(rule_id: str) -> dict[str, Any]:
+    from src.alerts.store import alert_store
+    rule = alert_store.get_rule(rule_id)
+    if not rule:
+        raise HTTPException(status_code=404, detail=f"Rule {rule_id} not found")
+    rule.enabled = not rule.enabled
+    alert_store.save_rule(rule)
+    return {"status": "ok", "rule_id": rule_id, "enabled": rule.enabled}
+
+
+@app.post("/api/alerts/evaluate")
+async def evaluate_alerts(ticker: str | None = None) -> dict[str, Any]:
+    from src.alerts.engine import alert_engine
+    if ticker:
+        alts = await alert_engine.evaluate_ticker(ticker)
+        return {
+            "status": "completed",
+            "ticker": ticker.upper().strip(),
+            "alerts_generated": len(alts),
+            "alerts": [a.model_dump() for a in alts],
+        }
+    res = await alert_engine.evaluate_all(force=True)
+    return res
+
+
+@app.get("/api/alerts/status")
+def alerts_status() -> dict[str, Any]:
+    from src.alerts.engine import alert_engine
+    return alert_engine.get_status()
 
 
 @app.post("/api/market/sync")
@@ -345,16 +573,26 @@ def live_investigation_detail(investigation_id: str) -> dict[str, Any]:
 
 
 @app.get("/api/campaigns")
-def campaigns_overview(limit: int = 200) -> dict[str, Any]:
-    """Aggregate live investigations into channel/actor campaign cards.
+def campaigns_overview(
+    status: str | None = None,
+    tier: str | None = None,
+    ticker: str | None = None,
+    limit: int = 50,
+) -> dict[str, Any]:
+    """Forensic Cross-Scrip Syndicate Campaigns Overview.
     
-    Collapses repeated individual source findings into single actor pattern cards:
-    channel name, total tips, entities touched, first-seen/last-seen window, 
-    and distinct-text vs copy-paste duplicate ratio.
+    Returns structured persistent multi-scrip campaigns with relationship explanations,
+    confidence tiers, linked alerts, and operational summary metrics.
+    Also returns legacy channel pattern groups for seamless client compatibility.
     """
     from collections import defaultdict
-    items = load_live_investigations(limit=limit)
+    items = load_live_investigations(limit=150)
 
+    # 1. Retrieve persistent multi-scrip campaigns
+    campaigns = campaign_store.list_campaigns(status=status, tier=tier, ticker=ticker, limit=limit)
+    summary = campaign_store.get_summary()
+
+    # 2. Backwards-compatible channel grouping
     channel_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for item in items:
         src = (
@@ -375,13 +613,13 @@ def campaigns_overview(limit: int = 200) -> dict[str, Any]:
 
         entities_set = set()
         for t in tips:
-            ticker = t.get("ticker")
-            if ticker:
-                entities_set.add(ticker.upper())
+            tk = t.get("ticker")
+            if tk:
+                entities_set.add(tk.upper())
             tickers = t.get("tickers") or []
-            for tk in tickers:
-                if tk:
-                    entities_set.add(tk.upper())
+            for t_item in tickers:
+                if t_item:
+                    entities_set.add(t_item.upper())
             entity = t.get("impact", {}).get("entity")
             if entity:
                 entities_set.add(entity.upper())
@@ -446,10 +684,98 @@ def campaigns_overview(limit: int = 200) -> dict[str, Any]:
 
     return {
         "status": "ok",
+        "summary": summary.model_dump(),
+        "campaigns": [c.to_dict() for c in campaigns],
+        "total_campaigns": len(campaigns),
         "total_campaign_channels": len(channels_data),
         "total_tips_analyzed": total_tips_count,
         "most_active_channel": most_active,
         "channels": channels_data,
+        "disclaimer": "Dakota correlates available forensic evidence across securities. It does not establish intent or determine legal guilt.",
+    }
+
+
+@app.get("/api/campaigns/summary")
+def campaigns_summary_stats() -> dict[str, Any]:
+    """Operational summary metrics for Dakota campaigns workspace."""
+    summary = campaign_store.get_summary()
+    return {"status": "ok", "summary": summary.model_dump()}
+
+
+@app.get("/api/campaigns/{campaign_id}")
+def campaign_detail(campaign_id: str) -> dict[str, Any]:
+    """Retrieve complete campaign forensic dossier including chronological event timeline."""
+    campaign = campaign_store.get_campaign(campaign_id, include_events=True)
+    if campaign is None:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    
+    # Enrich with linked alerts details
+    alert_details = []
+    from src.alerts.store import alert_store
+    for aid in campaign.alert_ids:
+        alt = alert_store.get_alert(aid)
+        if alt:
+            alert_details.append(alt.model_dump())
+
+    res = campaign.to_dict()
+    res["events"] = [e.model_dump() for e in campaign.events]
+    res["alert_details"] = alert_details
+    return res
+
+
+@app.post("/api/campaigns/{campaign_id}/acknowledge")
+def campaign_acknowledge(campaign_id: str, payload: CampaignActionRequest | None = None) -> dict[str, Any]:
+    note = payload.note if payload else ""
+    ok = campaign_store.update_status(campaign_id, CampaignStatus.ACTIVE, note=note)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    return {"status": "ok", "campaign_id": campaign_id, "state": "acknowledged"}
+
+
+@app.post("/api/campaigns/{campaign_id}/dismiss")
+def campaign_dismiss(campaign_id: str, payload: CampaignActionRequest | None = None) -> dict[str, Any]:
+    note = payload.note if payload else ""
+    ok = campaign_store.update_status(campaign_id, CampaignStatus.DISMISSED, note=note)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    return {"status": "ok", "campaign_id": campaign_id, "state": "dismissed"}
+
+
+@app.post("/api/campaigns/{campaign_id}/monitor")
+def campaign_monitor(campaign_id: str, payload: CampaignActionRequest | None = None) -> dict[str, Any]:
+    note = payload.note if payload else ""
+    ok = campaign_store.update_status(campaign_id, CampaignStatus.MONITORING, note=note)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    return {"status": "ok", "campaign_id": campaign_id, "state": "monitoring"}
+
+
+@app.post("/api/campaigns/{campaign_id}/resolve")
+def campaign_resolve(campaign_id: str, payload: CampaignActionRequest | None = None) -> dict[str, Any]:
+    note = payload.note if payload else ""
+    ok = campaign_store.update_status(campaign_id, CampaignStatus.RESOLVED, note=note)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    return {"status": "ok", "campaign_id": campaign_id, "state": "resolved"}
+
+
+@app.post("/api/campaigns/{campaign_id}/notes")
+def campaign_add_notes(campaign_id: str, payload: CampaignActionRequest) -> dict[str, Any]:
+    ok = campaign_store.add_note(campaign_id, payload.note)
+    if not ok:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    return {"status": "ok", "campaign_id": campaign_id}
+
+
+@app.post("/api/campaigns/rebuild")
+def campaign_rebuild_scan() -> dict[str, Any]:
+    """Trigger full forensic scan and correlation rebuild across all stored tips and alerts."""
+    count = campaign_detector.rebuild_correlations(lookback_limit=200)
+    summary = campaign_store.get_summary()
+    return {
+        "status": "ok",
+        "events_correlated": count,
+        "summary": summary.model_dump(),
     }
 
 
@@ -589,6 +915,11 @@ def stock_detail(
 ) -> dict[str, Any]:
     ticker_clean = ticker.upper().strip()
     _ACTIVE_MONITORED_TICKERS.add(ticker_clean)
+    try:
+        from src.market.auto_sync import market_sync_worker
+        market_sync_worker.register_monitored_ticker(ticker_clean)
+    except Exception:
+        pass
 
     from src.market.universe_manager import get_or_assess_stock
     data = get_or_assess_stock(
@@ -662,6 +993,11 @@ def stock_risk_status(
     """Dedicated lightweight endpoint for frontend live risk auto-polling."""
     ticker_clean = ticker.upper().strip()
     _ACTIVE_MONITORED_TICKERS.add(ticker_clean)
+    try:
+        from src.market.auto_sync import market_sync_worker
+        market_sync_worker.register_monitored_ticker(ticker_clean)
+    except Exception:
+        pass
 
     from src.market.universe_manager import get_or_assess_stock
     data = get_or_assess_stock(
@@ -865,6 +1201,9 @@ def stock_chart(ticker: str, period: str = "3m", interval: str = "5m") -> dict[s
                     "avg_volume": avg_vol,
                     "overlays_latest": overlays_latest,
                     "points": points,
+                    "data_freshness": "live" if meta.get("is_market_open") else "cached",
+                    "retrieved_at": meta.get("retrieved_at") or datetime.now(timezone.utc).isoformat(),
+                    "provider": meta.get("source") or "yfinance",
                 }
         except Exception as exc:
             logger.error("Error generating intraday chart for %s: %s", ticker, exc)
@@ -964,6 +1303,12 @@ def stock_chart(ticker: str, period: str = "3m", interval: str = "5m") -> dict[s
             "supertrend_dir": latest.get("supertrend_dir") if latest else 1,
         }
 
+        from src.ingest.market_data import get_daily_cache_status
+        cache_stat = get_daily_cache_status(ticker)
+        freshness_status = cache_stat.get("status", "cached")
+        meta_info = cache_stat.get("meta", {})
+        retrieved_at = meta_info.get("retrieved_at")
+
         return {
             "ticker": ticker,
             "period": period,
@@ -979,6 +1324,9 @@ def stock_chart(ticker: str, period: str = "3m", interval: str = "5m") -> dict[s
             "avg_volume": avg_vol,
             "overlays_latest": overlays_latest,
             "points": points,
+            "data_freshness": freshness_status,
+            "retrieved_at": retrieved_at,
+            "provider": meta_info.get("provider", "yfinance"),
         }
     except Exception as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc

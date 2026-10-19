@@ -526,10 +526,24 @@ def _attach_jev_assessment(
         )
         ticker = str(ticker).upper().strip()
 
-        # Extract market telemetry
+        # Extract market telemetry & freshness
         market = first_inv.get("market") or {}
         snapshot = market.get("snapshot") or {}
         risk = result.get("risk") or first_inv.get("risk") or {}
+
+        from src.ingest.market_data import get_daily_cache_status
+        cache_status = get_daily_cache_status(ticker)
+        data_freshness = cache_status.get("status", "unavailable")
+        meta_info = cache_status.get("meta", {})
+        retrieved_at = meta_info.get("retrieved_at") or timestamp or datetime.now(timezone.utc).isoformat(timespec="seconds")
+        market_event_timestamp = meta_info.get("market_event_timestamp") or snapshot.get("date") or "N/A"
+
+        market_disclosure = None
+        if data_freshness in ("stale", "unavailable"):
+            market_disclosure = (
+                f"MARKET DATA ADVISORY: Market data for {ticker} is {data_freshness.upper()} "
+                f"(Retrieved: {retrieved_at}). Live trading session conditions cannot be verified."
+            )
 
         # Extract news headlines
         news_obj = result.get("evidence", {}).get("news", {})
@@ -551,7 +565,8 @@ def _attach_jev_assessment(
         }
 
         # Build verified evidence IDs
-        evidence_ids = [f"E_MKT_{ticker}"]
+        mkt_tag = f"E_MKT_{ticker}" if data_freshness in ("live", "cached") else f"E_MKT_{data_freshness.upper()}_{ticker}"
+        evidence_ids = [mkt_tag]
         if headlines:
             evidence_ids.append(f"E_NEWS_{ticker}")
         evidence_ids.append(f"E_SOC_{source_label.upper()}")
@@ -570,6 +585,10 @@ def _attach_jev_assessment(
             "news_headlines": headlines[:6],
             "social_signals": [raw_text],
             "evidence_ids": evidence_ids,
+            "data_freshness": data_freshness,
+            "retrieved_at": retrieved_at,
+            "market_event_timestamp": market_event_timestamp,
+            "market_freshness_disclosure": market_disclosure,
         }
 
         pred = task.classify(adapter, sample_context)
@@ -583,6 +602,8 @@ def _attach_jev_assessment(
             "backend": "official_simple_jev_transformers" if is_real else "mock_adapter",
             "prediction": pred.model_dump(),
             "analysis": report.model_dump(),
+            "data_freshness": data_freshness,
+            "market_disclosure": market_disclosure,
         }
     except Exception as exc:
         jev_payload = {

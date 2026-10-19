@@ -16,6 +16,7 @@ import {
   Activity,
   ChevronRight,
   Sparkles,
+  Bell,
 } from "lucide-react";
 import CommandPalette from "./CommandPalette";
 
@@ -69,6 +70,47 @@ function NavbarInner() {
     return () => clearInterval(interval);
   }, []);
 
+  const [indices, setIndices] = useState<Record<string, any>>({});
+  const [unreadAlerts, setUnreadAlerts] = useState<number>(0);
+
+  // Dynamic Market Indices & Alert Summary Auto-Sync
+  useEffect(() => {
+    const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    async function loadIndicesAndAlerts() {
+      try {
+        const [mktRes, altRes] = await Promise.all([
+          fetch(`${API}/api/market/indices`, { cache: "no-store" }).catch(() => null),
+          fetch(`${API}/api/alerts/summary`, { cache: "no-store" }).catch(() => null),
+        ]);
+
+        if (mktRes && mktRes.ok) {
+          const data = await mktRes.json();
+          if (data?.indices) {
+            setIndices(data.indices);
+          }
+          if (data?.session_status) {
+            setMarketStatus(data.session_status);
+          }
+        }
+
+        if (altRes && altRes.ok) {
+          const d = await altRes.json();
+          setUnreadAlerts(d?.summary?.active_alerts ?? 0);
+        }
+      } catch {
+        // Fallback to local clock status
+      }
+    }
+    loadIndicesAndAlerts();
+    const interval = setInterval(loadIndicesAndAlerts, 20000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const nifty = indices["NIFTY 50"];
+  const sensex = indices["SENSEX"];
+  const vix = indices["INDIA VIX"];
+  const bankNifty = indices["BANK NIFTY"];
+
   // Global hotkey Ctrl+K / Cmd+K
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -98,16 +140,40 @@ function NavbarInner() {
 
               <div className="flex items-center gap-4">
                 <span className="text-slate-400">
-                  NIFTY 50: <span className="text-emerald-400 font-semibold">25,014.10</span> <span className="text-emerald-500/80 text-[10px]">+0.22%</span>
+                  NIFTY 50:{" "}
+                  <span className={(nifty?.change_pct ?? 0) >= 0 ? "text-emerald-400 font-semibold" : "text-rose-400 font-semibold"}>
+                    {nifty?.last_price != null ? nifty.last_price.toLocaleString("en-IN") : "25,014.10"}
+                  </span>{" "}
+                  <span className={`text-[10px] ${(nifty?.change_pct ?? 0) >= 0 ? "text-emerald-500/80" : "text-rose-500/80"}`}>
+                    {nifty?.change_pct != null ? `${nifty.change_pct >= 0 ? "+" : ""}${nifty.change_pct}%` : "+0.22%"}
+                  </span>
                 </span>
                 <span className="text-slate-400">
-                  SENSEX: <span className="text-emerald-400 font-semibold">81,688.45</span> <span className="text-emerald-500/80 text-[10px]">+0.18%</span>
+                  SENSEX:{" "}
+                  <span className={(sensex?.change_pct ?? 0) >= 0 ? "text-emerald-400 font-semibold" : "text-rose-400 font-semibold"}>
+                    {sensex?.last_price != null ? sensex.last_price.toLocaleString("en-IN") : "81,688.45"}
+                  </span>{" "}
+                  <span className={`text-[10px] ${(sensex?.change_pct ?? 0) >= 0 ? "text-emerald-500/80" : "text-rose-500/80"}`}>
+                    {sensex?.change_pct != null ? `${sensex.change_pct >= 0 ? "+" : ""}${sensex.change_pct}%` : "+0.18%"}
+                  </span>
                 </span>
                 <span className="text-slate-400">
-                  INDIA VIX: <span className="text-cyan-400 font-semibold">13.12</span> <span className="text-cyan-500/80 text-[10px]">-2.45%</span>
+                  INDIA VIX:{" "}
+                  <span className="text-cyan-400 font-semibold">
+                    {vix?.last_price != null ? vix.last_price.toFixed(2) : "13.12"}
+                  </span>{" "}
+                  <span className="text-cyan-500/80 text-[10px]">
+                    {vix?.change_pct != null ? `${vix.change_pct >= 0 ? "+" : ""}${vix.change_pct}%` : "-2.45%"}
+                  </span>
                 </span>
                 <span className="hidden lg:inline text-slate-400">
-                  BSE SMALLCAP: <span className="text-emerald-400 font-semibold">54,320.10</span> <span className="text-emerald-500/80 text-[10px]">+0.45%</span>
+                  BANK NIFTY:{" "}
+                  <span className={(bankNifty?.change_pct ?? 0) >= 0 ? "text-emerald-400 font-semibold" : "text-rose-400 font-semibold"}>
+                    {bankNifty?.last_price != null ? bankNifty.last_price.toLocaleString("en-IN") : "51,280.00"}
+                  </span>{" "}
+                  <span className={`text-[10px] ${(bankNifty?.change_pct ?? 0) >= 0 ? "text-emerald-500/80" : "text-rose-500/80"}`}>
+                    {bankNifty?.change_pct != null ? `${bankNifty.change_pct >= 0 ? "+" : ""}${bankNifty.change_pct}%` : "+0.35%"}
+                  </span>
                 </span>
               </div>
             </div>
@@ -151,6 +217,7 @@ function NavbarInner() {
               {NAV_LINKS.map((item) => {
                 const Icon = item.icon;
                 const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+                const badgeText = item.href === "/watcher" && unreadAlerts > 0 ? `${unreadAlerts}` : item.badge;
 
                 return (
                   <Link
@@ -164,9 +231,11 @@ function NavbarInner() {
                   >
                     <Icon className={`h-3.5 w-3.5 ${isActive ? "text-cyan-400" : "text-slate-500"}`} />
                     <span>{item.label}</span>
-                    {item.badge && (
+                    {badgeText && (
                       <span className={`text-[9px] px-1.5 py-0.2 rounded font-mono font-bold ${
-                        item.badge === "LIVE"
+                        item.href === "/watcher" && unreadAlerts > 0
+                          ? "bg-rose-500/25 text-rose-300 border border-rose-500/40 shadow-sm shadow-rose-500/30 animate-pulse"
+                          : item.badge === "LIVE"
                           ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
                           : item.badge === "CARTEL"
                           ? "bg-rose-500/20 text-rose-300 border border-rose-500/30"
@@ -174,7 +243,7 @@ function NavbarInner() {
                           ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-sm shadow-cyan-500/20"
                           : "bg-white/10 text-slate-400"
                       }`}>
-                        {item.badge}
+                        {badgeText}
                       </span>
                     )}
                   </Link>
@@ -185,6 +254,20 @@ function NavbarInner() {
 
           {/* Right: Global Command Search & Actions */}
           <div className="flex items-center gap-2.5">
+            {/* Watcher Notification Bell */}
+            <Link
+              href="/watcher"
+              className="relative flex items-center justify-center h-8 w-8 rounded-xl border border-white/[0.08] bg-white/[0.03] text-slate-400 hover:text-white hover:border-rose-500/40 transition"
+              title="Surveillance Watcher & Alerts"
+            >
+              <Bell className="h-4 w-4" />
+              {unreadAlerts > 0 && (
+                <span className="absolute -top-1 -right-1 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-mono font-bold text-white shadow-sm shadow-rose-500/50 animate-pulse">
+                  {unreadAlerts > 9 ? "9+" : unreadAlerts}
+                </span>
+              )}
+            </Link>
+
             {/* Direct AI Copilot Link */}
             <Link
               href="/intelligence"

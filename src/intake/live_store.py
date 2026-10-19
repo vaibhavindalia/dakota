@@ -39,6 +39,11 @@ def save_live_investigation(record: dict[str, Any]) -> dict[str, Any]:
     with _LOCK:
         with STORE_FILE.open("a", encoding="utf-8") as fh:
             fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
+    try:
+        from src.campaign.detector import campaign_detector
+        campaign_detector.correlate_tip(payload)
+    except Exception:
+        pass
     return payload
 
 
