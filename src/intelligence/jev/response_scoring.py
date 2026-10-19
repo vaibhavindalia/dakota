@@ -63,12 +63,12 @@ def score_branch_logits(
     prob_dict = {cand: float(prob) for cand, prob in zip(answer_labels, p)}
     raw_dict = {cand: float(val) for cand, val in zip(answer_labels, z)} if raw_logits_flag else None
 
-    # 4. Question-type specific scoring
     if question.type == QuestionType.CHOICE:
         winner_idx = int(np.argmax(z))
         winner_label = answer_labels[winner_idx]
         sorted_probs = np.sort(p)
         margin = float(sorted_probs[-1] - sorted_probs[-2]) if len(sorted_probs) > 1 else 0.0
+        entropy = -float(np.sum(p * np.log(p + 1e-12)))
 
         return {
             "type": "choice",
@@ -76,6 +76,7 @@ def score_branch_logits(
             "confidence": float(p[winner_idx]),
             "probabilities": prob_dict,
             "margin": margin,
+            "entropy": entropy,
             "raw_logits": raw_dict,
             "scoring_method": "direct_label_logits",
             "is_calibrated": False,

@@ -20,6 +20,8 @@ from .schemas import (
 )
 from .tasks.base import BaseFinancialTask
 from .tasks.sentiment import SentimentDivergenceTask
+from .analysis_layer import EvidenceGroundedAnalyzer, FactualAnalysisReport, EvidenceCitation
+from .dataset import FinancialBenchmarkSample, get_curated_indian_equity_dataset
 
 __all__ = [
     "BaseClassifierAdapter",
@@ -37,4 +39,9 @@ __all__ = [
     "compute_prompt_hash",
     "BaseFinancialTask",
     "SentimentDivergenceTask",
+    "EvidenceGroundedAnalyzer",
+    "FactualAnalysisReport",
+    "EvidenceCitation",
+    "FinancialBenchmarkSample",
+    "get_curated_indian_equity_dataset",
 ]

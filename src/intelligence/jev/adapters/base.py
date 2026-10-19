@@ -102,6 +102,8 @@ class BaseClassifierAdapter(ABC):
             confidence=scored["confidence"],
             is_calibrated=scored["is_calibrated"],
             margin=scored["margin"],
+            variance=scored.get("variance"),
+            entropy=scored.get("entropy"),
             raw_logits=scored.get("raw_logits"),
             evidence_ids=evidence_ids or [],
             model_id=self.model_id,

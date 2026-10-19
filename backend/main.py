@@ -1289,3 +1289,13 @@ def intelligence_submit_feedback(request: FeedbackItem) -> dict[str, Any]:
     )
     return {"status": "recorded"}
 
+
+# --- JEV Financial Intelligence Subsystem ---
+try:
+    from src.intelligence.jev.api import router as jev_router
+    app.include_router(jev_router)
+    logger.info("Mounted JEV intelligence subsystem router at /api/intelligence/jev")
+except Exception as exc:
+    logger.warning("Could not mount JEV intelligence router: %s", exc)
+
+

@@ -48,13 +48,26 @@ class MockClassifierAdapter(BaseClassifierAdapter):
         })
 
         if self.preset_logits is not None:
-            # Return configured logits or slice matching output_labels
+            active_logits = self.preset_logits
+            if any(isinstance(v, dict) for v in self.preset_logits.values()):
+                # Check for matching key in question or prompt
+                for k, sub_dict in self.preset_logits.items():
+                    if isinstance(sub_dict, dict) and (k.lower() in question_text.lower() or k.lower() in prompt_prefix.lower()):
+                        active_logits = sub_dict
+                        break
+                else:
+                    # Default to first subdict if none matched
+                    for sub_dict in self.preset_logits.values():
+                        if isinstance(sub_dict, dict):
+                            active_logits = sub_dict
+                            break
+
             result = {}
             for idx, lbl in enumerate(output_labels):
-                if lbl in self.preset_logits:
-                    result[lbl] = float(self.preset_logits[lbl])
-                elif str(idx) in self.preset_logits:
-                    result[lbl] = float(self.preset_logits[str(idx)])
+                if lbl in active_logits:
+                    result[lbl] = float(active_logits[lbl])
+                elif str(idx) in active_logits:
+                    result[lbl] = float(active_logits[str(idx)])
                 else:
                     result[lbl] = 0.0
             return result
