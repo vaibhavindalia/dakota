@@ -16,6 +16,7 @@ from .baselines import (
     MajorityClassBaseline,
     TfidfLogisticRegressionBaseline,
     FrontierReferenceBaseline,
+    QwenGenerativeBaseline,
 )
 from ..adapters.base import BaseClassifierAdapter
 from ..tasks.sentiment import SentimentDivergenceTask
@@ -95,12 +96,44 @@ class BenchmarkRunner:
         folds = self.splitter.split(records, timestamp_key="timestamp")
         logger.info("Generated %d walk-forward folds from %d observations", len(folds), len(records))
 
+        jev_key = f"JEV ({jev_adapter.model_id})"
+        gen_fair_key = f"Qwen Generative (Fair Direct, Thinking-Off)"
+        gen_constrained_key = f"Qwen Generative (Constrained 30-tok Diagnostic)"
+
         model_preds: Dict[str, Dict[str, Any]] = {
             "Majority Baseline": {"y_true": [], "y_pred": [], "y_probs": [], "y_confs": [], "latencies": [], "tokens": []},
             "TF-IDF + LogReg": {"y_true": [], "y_pred": [], "y_probs": [], "y_confs": [], "latencies": [], "tokens": []},
-            f"JEV ({jev_adapter.model_id})": {"y_true": [], "y_pred": [], "y_probs": [], "y_confs": [], "latencies": [], "tokens": []},
-            "Frontier Reference (GPT-4o)": {"y_true": [], "y_pred": [], "y_probs": [], "y_confs": [], "latencies": [], "tokens": []},
+            jev_key: {"y_true": [], "y_pred": [], "y_probs": [], "y_confs": [], "latencies": [], "tokens": []},
         }
+
+        # Wire authentic QwenGenerativeBaseline if real adapter or checkpoint is provided
+        qwen_gen_fair = None
+        qwen_gen_constrained = None
+        from ..adapters.hf_adapter import HuggingFaceQwenAdapter
+        if isinstance(jev_adapter, HuggingFaceQwenAdapter):
+            qwen_gen_fair = QwenGenerativeBaseline(
+                adapter=jev_adapter,
+                classes=self.classes,
+                enable_thinking=False,
+                max_new_tokens=64,
+                baseline_label="fair_direct",
+            )
+            model_preds[gen_fair_key] = {"y_true": [], "y_pred": [], "y_probs": [], "y_confs": [], "latencies": [], "tokens": []}
+
+            qwen_gen_constrained = QwenGenerativeBaseline(
+                adapter=jev_adapter,
+                classes=self.classes,
+                enable_thinking=True,
+                max_new_tokens=30,
+                baseline_label="constrained_30tok",
+            )
+            model_preds[gen_constrained_key] = {"y_true": [], "y_pred": [], "y_probs": [], "y_confs": [], "latencies": [], "tokens": []}
+
+        import os
+        frontier_model = None
+        if os.getenv("OPENAI_API_KEY"):
+            frontier_model = FrontierReferenceBaseline(classes=self.classes)
+            model_preds["Frontier Reference (GPT-4o)"] = {"y_true": [], "y_pred": [], "y_probs": [], "y_confs": [], "latencies": [], "tokens": []}
 
         fold_evaluations: List[ModelFoldEvaluation] = []
 
@@ -115,8 +148,6 @@ class BenchmarkRunner:
 
             tfidf_model = TfidfLogisticRegressionBaseline(classes=self.classes)
             tfidf_model.fit(train_recs)
-
-            frontier_model = FrontierReferenceBaseline(classes=self.classes)
 
             # Evaluate each model on test records
             test_true = [r["label"] for r in test_recs]
@@ -139,7 +170,33 @@ class BenchmarkRunner:
                 tokens=0,
             )
 
-            # --- JEV + Qwen ---
+            # --- Qwen Generative Fair (Thinking-Off, 64-tok) ---
+            if qwen_gen_fair is not None:
+                for r in test_recs:
+                    sample_data = dict(r["sample"])
+                    sample_data["evidence_ids"] = r["evidence_ids"]
+                    gen_res, n_tokens = qwen_gen_fair.predict_one(sample_data)
+                    self._accumulate_predictions(
+                        model_preds[gen_fair_key],
+                        [r["label"]],
+                        [gen_res],
+                        tokens=n_tokens,
+                    )
+
+            # --- Qwen Generative Constrained Diagnostic (Thinking-On, 30-tok) ---
+            if qwen_gen_constrained is not None:
+                for r in test_recs:
+                    sample_data = dict(r["sample"])
+                    sample_data["evidence_ids"] = r["evidence_ids"]
+                    gen_res, n_tokens = qwen_gen_constrained.predict_one(sample_data)
+                    self._accumulate_predictions(
+                        model_preds[gen_constrained_key],
+                        [r["label"]],
+                        [gen_res],
+                        tokens=n_tokens,
+                    )
+
+            # --- JEV + Qwen (N = 0 logit extraction) ---
             jev_results = []
             for r in test_recs:
                 sample_data = dict(r["sample"])
@@ -147,7 +204,6 @@ class BenchmarkRunner:
                 res = self.task.classify(jev_adapter, sample_data)
                 jev_results.append(res)
 
-            jev_key = f"JEV ({jev_adapter.model_id})"
             self._accumulate_predictions(
                 model_preds[jev_key],
                 test_true,
@@ -155,14 +211,15 @@ class BenchmarkRunner:
                 tokens=0,  # JEV evaluates prefix logits: exactly 0 output tokens generated!
             )
 
-            # --- Frontier Reference ---
-            frontier_results = frontier_model.predict_batch(test_recs, ground_truths=test_true)
-            self._accumulate_predictions(
-                model_preds["Frontier Reference (GPT-4o)"],
-                test_true,
-                frontier_results,
-                tokens=15,  # Generative models generate ~15-30 tokens for answer
-            )
+            # --- Frontier Reference (Live API only) ---
+            if frontier_model is not None:
+                frontier_results = frontier_model.predict_batch(test_recs)
+                self._accumulate_predictions(
+                    model_preds["Frontier Reference (GPT-4o)"],
+                    test_true,
+                    frontier_results,
+                    tokens=15,
+                )
 
         # Compute aggregate metrics across all folds
         summaries: Dict[str, ClassificationMetrics] = {}

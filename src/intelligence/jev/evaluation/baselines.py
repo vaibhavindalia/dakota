@@ -177,8 +177,8 @@ class TfidfLogisticRegressionBaseline:
 class FrontierReferenceBaseline:
     """Frontier Reference Model (OpenAI GPT-4o / GPT-5.5).
     
-    If OPENAI_API_KEY is available, issues standard zero-shot / few-shot prompts.
-    Otherwise, provides calibrated reference predictions for reproducible offline benchmarking.
+    If OPENAI_API_KEY is available, issues standard zero-shot / few-shot prompts to the live API.
+    Does NOT peek at ground truth. Raises an explicit error if OPENAI_API_KEY is not configured.
     """
 
     def __init__(self, model_id: str = "gpt-4o", classes: Optional[Sequence[str]] = None):
@@ -188,88 +188,197 @@ class FrontierReferenceBaseline:
         ]
         self.api_key = os.getenv("OPENAI_API_KEY")
 
-    def predict_one(self, sample: Dict[str, Any], ground_truth: Optional[str] = None) -> PredictionResult:
+    def predict_one(self, sample: Dict[str, Any]) -> PredictionResult:
         t0 = time.perf_counter()
 
-        # If API key is available, run live OpenAI API
-        if self.api_key:
-            try:
-                import openai
-                client = openai.OpenAI(api_key=self.api_key)
-                text = extract_sample_text(sample)
-                prompt = (
-                    f"Analyze the following Indian equity evidence and classify sentiment into exactly one of: "
-                    f"{', '.join(self.classes)}.\n\nContext:\n{text}\n\nClassification:"
-                )
-                resp = client.chat.completions.create(
-                    model=self.model_id,
-                    messages=[{"role": "user", "content": prompt}],
-                    max_tokens=10,
-                    temperature=0.0,
-                )
-                pred_label = resp.choices[0].message.content.strip()
-                # Find matching candidate
-                matched = self.classes[0]
-                for c in self.classes:
-                    if c.lower() in pred_label.lower():
-                        matched = c
-                        break
+        if not self.api_key:
+            raise ValueError(
+                "OPENAI_API_KEY is not configured. Deceptive ground-truth peeking has been removed. "
+                "For authentic local GPU comparative evaluation, use QwenGenerativeBaseline instead."
+            )
 
-                lat = (time.perf_counter() - t0) * 1000.0
-                return PredictionResult(
-                    task_name="frontier_reference",
-                    predicted_label=matched,
-                    class_scores={c: (0.85 if c == matched else 0.15 / (len(self.classes) - 1)) for c in self.classes},
-                    confidence=0.85,
-                    is_calibrated=False,
-                    margin=0.70,
-                    model_id=f"frontier:{self.model_id}",
-                    classifier_version="frontier-v1.0",
-                    prompt_hash=compute_prompt_hash(prompt),
-                    dataset_version="frontier",
-                    latency_ms=round(lat, 2),
-                )
-            except Exception:
-                pass
-
-        # Calibrated reference baseline (simulating empirical GPT-4o performance: ~82% accuracy on complex domain tasks)
-        # Uses deterministic hash of sample content
+        import openai
+        client = openai.OpenAI(api_key=self.api_key)
         text = extract_sample_text(sample)
-        h = int(compute_prompt_hash(text)[:8], 16)
-        
-        # Ground truth alignment with realistic frontier error rate (~18% error)
-        if ground_truth and (h % 100 < 82):
-            pred_label = ground_truth
-        else:
-            # Deterministic alternate class
-            alt_idx = h % len(self.classes)
-            pred_label = self.classes[alt_idx]
+        prompt = (
+            f"Analyze the following Indian equity evidence and classify sentiment into exactly one of: "
+            f"{', '.join(self.classes)}.\n\nContext:\n{text}\n\nClassification:"
+        )
+        resp = client.chat.completions.create(
+            model=self.model_id,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=10,
+            temperature=0.0,
+        )
+        pred_label = resp.choices[0].message.content.strip()
+        matched = self.classes[0]
+        for c in self.classes:
+            if c.lower() in pred_label.lower():
+                matched = c
+                break
 
-        # Frontier models typically exhibit overconfidence (~0.88-0.94)
-        top_conf = 0.88 + ((h % 10) * 0.01)
-        remaining_p = (1.0 - top_conf) / (len(self.classes) - 1)
-        prob_dict = {c: round(top_conf if c == pred_label else remaining_p, 4) for c in self.classes}
-        sorted_probs = sorted(prob_dict.values(), reverse=True)
-        margin = round(sorted_probs[0] - sorted_probs[1], 4)
-
-        # Frontier API typical latency ~450ms - 850ms
-        simulated_lat = 450.0 + (h % 300)
-
+        lat = (time.perf_counter() - t0) * 1000.0
         return PredictionResult(
             task_name="frontier_reference",
-            predicted_label=pred_label,
-            class_scores=prob_dict,
-            confidence=round(top_conf, 4),
+            predicted_label=matched,
+            class_scores={c: (0.85 if c == matched else 0.15 / (len(self.classes) - 1)) for c in self.classes},
+            confidence=0.85,
             is_calibrated=False,
-            margin=margin,
-            model_id=f"frontier:{self.model_id}_reference",
+            margin=0.70,
+            model_id=f"frontier:{self.model_id}",
             classifier_version="frontier-v1.0",
-            prompt_hash=compute_prompt_hash(text),
-            dataset_version="reference-benchmark",
-            latency_ms=round(simulated_lat, 2),
+            prompt_hash=compute_prompt_hash(prompt),
+            dataset_version="frontier",
+            latency_ms=round(lat, 2),
         )
 
-    def predict_batch(self, samples: Sequence[Dict[str, Any]], ground_truths: Optional[Sequence[str]] = None) -> List[PredictionResult]:
-        if ground_truths is None:
-            ground_truths = [s.get("label") for s in samples]
-        return [self.predict_one(s, gt) for s, gt in zip(samples, ground_truths)]
+    def predict_batch(self, samples: Sequence[Dict[str, Any]]) -> List[PredictionResult]:
+        return [self.predict_one(s) for s in samples]
+
+
+class QwenGenerativeBaseline:
+    """Authentic Local Generative Baseline running autoregressive token generation (N > 0).
+
+    Uses the exact same local Qwen model checkpoint as JEV, but executes standard
+    autoregressive decoding (model.generate(max_new_tokens=25)) on the RTX 4060 GPU.
+    Provides a scientifically fair head-to-head comparison:
+    - JEV ($N = 0$ tokens generated, single prefix forward pass) vs.
+    - Generative ($N \\approx 15-25$ tokens generated, sequential autoregressive decode loops).
+    """
+
+    def __init__(
+        self,
+        model_id: str = "Qwen/Qwen2.5-0.5B-Instruct",
+        classes: Optional[Sequence[str]] = None,
+        adapter: Optional[Any] = None,
+        device: str = "cuda",
+        load_in_4bit: bool = False,
+        enable_thinking: bool = False,
+        max_new_tokens: int = 64,
+        baseline_label: str = "fair_generative",
+    ):
+        self.model_id = model_id
+        self.classes = list(classes) if classes else [
+            "Bullish", "Bearish", "Neutral", "Mixed", "Insufficient Evidence"
+        ]
+        self._adapter = adapter
+        self.device = device
+        self.load_in_4bit = load_in_4bit
+        self.enable_thinking = enable_thinking
+        self.max_new_tokens = max_new_tokens
+        self.baseline_label = baseline_label
+        self._model = None
+        self._tokenizer = None
+
+    def _ensure_loaded(self) -> None:
+        if self._adapter is not None:
+            if not self._adapter.is_loaded():
+                self._adapter.load_model()
+            self._model = self._adapter._model
+            self._tokenizer = self._adapter._tokenizer
+            return
+
+        if self._model is None:
+            from ..adapters.hf_adapter import HuggingFaceQwenAdapter
+            self._adapter = HuggingFaceQwenAdapter(
+                model_id=self.model_id,
+                device=self.device,
+                load_in_4bit=self.load_in_4bit,
+            )
+            self._adapter.load_model()
+            self._model = self._adapter._model
+            self._tokenizer = self._adapter._tokenizer
+
+    def predict_one(self, sample: Dict[str, Any]) -> Tuple[PredictionResult, int]:
+        """Runs autoregressive generation on the Qwen model. Returns (PredictionResult, tokens_generated)."""
+        self._ensure_loaded()
+        import torch
+
+        t0 = time.perf_counter()
+        text = extract_sample_text(sample)
+        prompt = (
+            f"Analyze the following Indian equity market evidence and classify the prevailing sentiment "
+            f"into exactly one of the candidate classes: {', '.join(self.classes)}.\n\n"
+            f"Context:\n{text}\n\n"
+            f"Reply with the single candidate class name only:"
+        )
+
+        messages = [
+            {"role": "system", "content": "You are a professional financial equity analyst."},
+            {"role": "user", "content": prompt},
+        ]
+        chat_kwargs = {"tokenize": False, "add_generation_prompt": True}
+        try:
+            formatted = self._tokenizer.apply_chat_template(
+                messages,
+                enable_thinking=self.enable_thinking,
+                **chat_kwargs,
+            )
+        except TypeError:
+            # Tokenizer does not support enable_thinking argument
+            formatted = self._tokenizer.apply_chat_template(messages, **chat_kwargs)
+
+        inputs = self._tokenizer(formatted, return_tensors="pt")
+        dev = next(self._model.parameters()).device
+        input_ids = inputs["input_ids"].to(dev)
+        attention_mask = inputs["attention_mask"].to(dev)
+
+        with torch.no_grad():
+            output_tokens = self._model.generate(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                max_new_tokens=self.max_new_tokens,
+                temperature=0.0,
+                do_sample=False,
+                pad_token_id=self._tokenizer.pad_token_id or self._tokenizer.eos_token_id,
+            )
+
+        gen_tokens = output_tokens[0][input_ids.shape[1]:]
+        n_tokens_gen = len(gen_tokens)
+        gen_text = self._tokenizer.decode(gen_tokens, skip_special_tokens=True).strip()
+
+        # Parse generated answer strictly against permitted candidate classes
+        gen_lower = gen_text.lower()
+        matched: Optional[str] = None
+        for c in self.classes:
+            if c.lower() in gen_lower:
+                matched = c
+                break
+
+        lat = (time.perf_counter() - t0) * 1000.0
+
+        if matched is not None:
+            top_conf = 0.70
+            rem_p = (1.0 - top_conf) / (len(self.classes) - 1)
+            prob_dict = {c: (top_conf if c == matched else rem_p) for c in self.classes}
+            pred_label = matched
+        else:
+            # Genuine malformed or unanswered response: mark as abstained/malformed, do not invent class
+            uniform_p = 1.0 / len(self.classes)
+            prob_dict = {c: uniform_p for c in self.classes}
+            pred_label = "Malformed/Abstained"
+            top_conf = uniform_p
+
+        res = PredictionResult(
+            task_name=f"qwen_{self.baseline_label}",
+            predicted_label=pred_label,
+            class_scores=prob_dict,
+            confidence=top_conf,
+            is_calibrated=False,
+            margin=0.0 if pred_label not in self.classes else round(top_conf - ((1.0 - top_conf)/(len(self.classes)-1)), 4),
+            model_id=f"generative:{self.model_id}:{self.baseline_label}",
+            classifier_version="generative-v2.0",
+            prompt_hash=compute_prompt_hash(formatted),
+            dataset_version="baseline",
+            latency_ms=round(lat, 2),
+        )
+        return res, n_tokens_gen
+
+    def predict_batch(self, samples: Sequence[Dict[str, Any]]) -> Tuple[List[PredictionResult], List[int]]:
+        results = []
+        token_counts = []
+        for s in samples:
+            res, n_tok = self.predict_one(s)
+            results.append(res)
+            token_counts.append(n_tok)
+        return results, token_counts

@@ -197,5 +197,27 @@ def ml_classify(text: str) -> dict[str, Any]:
 
 
 def classify_message(text: str) -> dict[str, Any]:
+    # Feature flag: enable JEV classification when DAKOTA_USE_JEV is active
+    import os
+    if os.environ.get("DAKOTA_USE_JEV", "0").strip().lower() in ("1", "true", "yes", "on"):
+        try:
+            from src.classification.jev_classifier import classify_message_jev
+            res = classify_message_jev(text)
+            res.setdefault("fallback_used", False)
+            return res
+        except Exception as exc:
+            import logging
+            logging.getLogger("dakota.classifier").warning(
+                "JEV classification failed (%s); falling back to local rule/ML classifier.", exc
+            )
+            rules = rule_classify(text)
+            fallback_res = dict(rules if rules else ml_classify(text))
+            fallback_res["fallback_used"] = True
+            fallback_res["fallback_reason"] = str(exc)
+            fallback_res["original_classifier"] = "jev_qwen3.5_4bit"
+            fallback_res.setdefault("evidence_ids", [f"E_MSG_{hash(text) & 0xFFFFFFFF:08x}"])
+            return fallback_res
+
     rules = rule_classify(text)
     return rules if rules else ml_classify(text)
+

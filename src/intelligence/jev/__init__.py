@@ -8,6 +8,7 @@ from __future__ import annotations
 from .adapters.base import BaseClassifierAdapter
 from .adapters.mock_adapter import MockClassifierAdapter
 from .adapters.hf_adapter import HuggingFaceQwenAdapter
+from .adapters.official_jev_adapter import OfficialSimpleJEVAdapter
 from .prompt_builder import PromptPlan, prepare_prompt
 from .response_scoring import score_branch_logits, score_plan_responses
 from .schemas import (
@@ -27,6 +28,7 @@ __all__ = [
     "BaseClassifierAdapter",
     "MockClassifierAdapter",
     "HuggingFaceQwenAdapter",
+    "OfficialSimpleJEVAdapter",
     "PromptPlan",
     "prepare_prompt",
     "score_branch_logits",

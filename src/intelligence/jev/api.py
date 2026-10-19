@@ -47,7 +47,18 @@ _CACHED_BENCHMARK: Optional[BenchmarkReport] = None
 
 def get_active_adapter() -> BaseClassifierAdapter:
     global _ACTIVE_ADAPTER
+    if os.environ.get("DAKOTA_USE_JEV", "0").strip().lower() in ("1", "true", "yes", "on"):
+        if isinstance(_ACTIVE_ADAPTER, MockClassifierAdapter):
+            try:
+                from .adapters.official_jev_adapter import OfficialSimpleJEVAdapter
+                _ACTIVE_ADAPTER = OfficialSimpleJEVAdapter()
+            except Exception as e:
+                logger.warning("Could not activate OfficialSimpleJEVAdapter: %s", e)
+    else:
+        if not isinstance(_ACTIVE_ADAPTER, MockClassifierAdapter):
+            _ACTIVE_ADAPTER = MockClassifierAdapter(model_id="mock-qwen2.5-7b-instruct")
     return _ACTIVE_ADAPTER
+
 
 
 def set_active_adapter(adapter: BaseClassifierAdapter) -> None:
