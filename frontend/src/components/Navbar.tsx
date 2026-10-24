@@ -27,7 +27,7 @@ const NAV_LINKS = [
   { label: "Portfolio", href: "/portfolio", icon: Briefcase, badge: null },
   { label: "Forensic Wire", href: "/investigate", icon: Radio, badge: "LIVE" },
   { label: "Syndicate Campaigns", href: "/campaigns", icon: Users, badge: "CARTEL" },
-  { label: "QN Surveillance", href: "/surveillance", icon: Activity, badge: "RESEARCH" },
+  { label: "JAV / QN Surveillance", href: "/surveillance", icon: Activity, badge: "AI SURV" },
   { label: "Watcher Radar", href: "/watcher", icon: Eye, badge: null },
 ];
 

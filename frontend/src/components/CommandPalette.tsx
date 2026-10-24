@@ -29,7 +29,7 @@ type SearchStock = {
 
 const QUICK_ACTIONS = [
   { label: "Dakota AI Copilot", href: "/intelligence", icon: Sparkles, desc: "Grounded investigative AI assistant & intelligence reports" },
-  { label: "QN Surveillance", href: "/surveillance", icon: Activity, desc: "Quantitative manipulation pipeline & 500-stock benchmark" },
+  { label: "JAV / QN Surveillance", href: "/surveillance", icon: Activity, desc: "Quantitative manipulation detection & JAV logit intelligence" },
   { label: "Equities Screener", href: "/stocks", icon: TrendingUp, desc: "Search 2,615+ Indian stocks and indicators" },
   { label: "Tip Forensic Analyzer", href: "/", icon: ShieldAlert, desc: "Analyze WhatsApp/Telegram stock tips for fraud" },
   { label: "Portfolio Intelligence", href: "/portfolio", icon: Briefcase, desc: "Track portfolio holdings and forensic risk" },

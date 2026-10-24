@@ -199,6 +199,66 @@ class IntelligenceRetriever:
                     )
                     counter += 1
 
+                # 4. QN Quantitative Surveillance Model Retrieval
+                try:
+                    from src.surveillance.model import qn_inference
+                    qn_pred = qn_inference.analyze_ticker(ticker)
+                    if qn_pred and qn_pred.is_real_model:
+                        qn_snip = (
+                            f"QN Quantitative Manipulation Surveillance: Model Version {qn_pred.model_version} | "
+                            f"Suspicious Probability: {qn_pred.manipulation_probability*100:.2f}% | "
+                            f"Effective Decision Threshold: {qn_pred.effective_threshold*100:.2f}% | "
+                            f"Alert Triggered: {'YES' if qn_pred.alert_triggered else 'NO'} ({qn_pred.risk_band} Risk Band). "
+                            f"Top factors: {'; '.join(qn_pred.top_factor_reasons[:2])}."
+                        )
+                        items.append(
+                            EvidenceItem(
+                                id=f"E{counter}",
+                                type=EvidenceType.REGULATORY,
+                                title=f"QN Quantitative Manipulation Model — {ticker}",
+                                snippet=qn_snip,
+                                source_name=f"Dakota QN Surveillance Pipeline ({qn_pred.model_version})",
+                                source_url="/surveillance",
+                                entity_id=ticker,
+                                confidence=qn_pred.confidence,
+                                verified=True,
+                                observation_type=ObservationType.MODEL_INFERRED,
+                                metadata=qn_pred.to_dict(),
+                            )
+                        )
+                        counter += 1
+                except Exception as qn_exc:
+                    logger.debug("QN retrieval in copilot failed: %s", qn_exc)
+
+                # 5. Official Regulatory Enforcement Orders & Surveillance Flags
+                try:
+                    from src.surveillance.evidence import evidence_registry
+                    events = evidence_registry.get_events_for_ticker(ticker)
+                    for ev in events[:2]:
+                        ev_snip = (
+                            f"Official Regulatory Finding [{ev.label.value}]: {ev.summary} | "
+                            f"Authority: {ev.regulator_or_authority} | Order Ref: {ev.order_reference or ev.event_id} | "
+                            f"Period: {ev.start_date} to {ev.end_date}. Caveats: {ev.caveats}"
+                        )
+                        items.append(
+                            EvidenceItem(
+                                id=f"E{counter}",
+                                type=EvidenceType.REGULATORY,
+                                title=f"Official Regulatory Enforcement — {ticker} ({ev.regulator_or_authority})",
+                                snippet=ev_snip,
+                                source_name=f"Official Enforcement Archive ({ev.regulator_or_authority})",
+                                source_url=ev.source_url_or_id or "/surveillance",
+                                entity_id=ticker,
+                                confidence=1.0 if ev.evidence_strength.value == "HIGH" else 0.85,
+                                verified=True,
+                                observation_type=ObservationType.DIRECTLY_OBSERVED,
+                                metadata=ev.to_dict(),
+                            )
+                        )
+                        counter += 1
+                except Exception as ev_exc:
+                    logger.debug("Evidence registry retrieval in copilot failed: %s", ev_exc)
+
             except Exception as exc:
                 logger.debug("Market retrieval exception for %s: %s", ticker, exc)
 

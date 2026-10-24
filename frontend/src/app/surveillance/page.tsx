@@ -150,8 +150,34 @@ type ExperimentData = {
   research_limitations: Record<string, string>;
 };
 
+type JevModelProfile = {
+  active_model_id: string;
+  backend: string;
+  device: string;
+  cuda_available: boolean;
+  torch_version: string;
+  ram_total_gb?: number;
+  devices: Array<{ id: number; name: string; total_vram_mb: number }>;
+  supported_tasks: string[];
+};
+
+type JevPrediction = {
+  task_name: string;
+  model_id: string;
+  winning_label: string;
+  winning_label_display?: string;
+  probabilities: Record<string, number>;
+  raw_logits: Record<string, number>;
+  margin: number;
+  confidence_score: number;
+  zero_generated_tokens: boolean;
+  execution_latency_ms: number;
+  heuristic_fallback_used: boolean;
+  disclaimer: string;
+};
+
 export default function SurveillancePage() {
-  const [activeTab, setActiveTab] = useState<"terminal" | "universe" | "evidence" | "research">("terminal");
+  const [activeTab, setActiveTab] = useState<"terminal" | "universe" | "evidence" | "research" | "jav">("terminal");
 
   // Summary and Universe state
   const [universe, setUniverse] = useState<UniverseSummary | null>(null);
@@ -162,6 +188,7 @@ export default function SurveillancePage() {
 
   // Analysis Terminal state
   const [selectedTicker, setSelectedTicker] = useState("CLOUD");
+  const [asOfDate, setAsOfDate] = useState("");
   const [analysis, setAnalysis] = useState<StockAnalysis | null>(null);
   const [loadingAnalysis, setLoadingAnalysis] = useState(false);
   const [analysisError, setAnalysisError] = useState("");
@@ -176,6 +203,15 @@ export default function SurveillancePage() {
   const [loadingExperiment, setLoadingExperiment] = useState(false);
   const [trainingInProgress, setTrainingInProgress] = useState(false);
   const [trainingMessage, setTrainingMessage] = useState("");
+
+  // JAV / JEV Interactive state
+  const [jevModel, setJevModel] = useState<JevModelProfile | null>(null);
+  const [loadingJevModel, setLoadingJevModel] = useState(false);
+  const [jevTicker, setJevTicker] = useState("CDSL");
+  const [jevClaim, setJevClaim] = useState("CDSL target ₹1,500 by Friday! Guaranteed 40% returns, join VIP pump channel.");
+  const [jevPrediction, setJevPrediction] = useState<JevPrediction | null>(null);
+  const [loadingJevClassify, setLoadingJevClassify] = useState(false);
+  const [jevError, setJevError] = useState("");
 
   // Load Initial Universe Overview
   useEffect(() => {
@@ -194,11 +230,15 @@ export default function SurveillancePage() {
   }, []);
 
   // Run Analysis on Selected Ticker
-  const runAnalysis = async (ticker: string) => {
+  const runAnalysis = async (ticker: string, dateOverride?: string) => {
     setLoadingAnalysis(true);
     setAnalysisError("");
     try {
-      const res = await fetch(`${API}/api/surveillance/qn/analyze/${ticker}`);
+      const targetDate = dateOverride !== undefined ? dateOverride : asOfDate;
+      const url = targetDate.trim()
+        ? `${API}/api/surveillance/qn/analyze/${ticker}?as_of_date=${encodeURIComponent(targetDate.trim())}`
+        : `${API}/api/surveillance/qn/analyze/${ticker}`;
+      const res = await fetch(url);
       if (!res.ok) {
         const err = await res.json();
         throw new Error(err.detail || "Analysis request failed");
@@ -213,8 +253,45 @@ export default function SurveillancePage() {
   };
 
   useEffect(() => {
-    runAnalysis(selectedTicker);
+    runAnalysis(selectedTicker, asOfDate);
   }, [selectedTicker]);
+
+  // Load JEV Model Telemetry when JAV tab is opened
+  useEffect(() => {
+    if (activeTab === "jav") {
+      setLoadingJevModel(true);
+      fetch(`${API}/api/intelligence/jev/models`)
+        .then((r) => r.json())
+        .then((d) => setJevModel(d))
+        .catch((e) => console.error("Failed to load JEV model profile:", e))
+        .finally(() => setLoadingJevModel(false));
+    }
+  }, [activeTab]);
+
+  const runJevClassification = async () => {
+    setLoadingJevClassify(true);
+    setJevError("");
+    try {
+      const res = await fetch(`${API}/api/intelligence/jev/classify`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ticker: jevTicker.trim().toUpperCase() || "CDSL",
+          claim: jevClaim.trim(),
+        }),
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.detail || "JEV logit computation failed");
+      }
+      const data = await res.json();
+      setJevPrediction(data);
+    } catch (err) {
+      setJevError(err instanceof Error ? err.message : "JEV logit computation error");
+    } finally {
+      setLoadingJevClassify(false);
+    }
+  };
 
   // Load Stocks when Universe tab is opened
   useEffect(() => {
@@ -371,6 +448,18 @@ export default function SurveillancePage() {
               <BarChart3 className="h-4 w-4" />
               <span>Research Manifesto &amp; Calibration</span>
             </button>
+
+            <button
+              onClick={() => setActiveTab("jav")}
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all ${
+                activeTab === "jav"
+                  ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-lg shadow-emerald-950/30"
+                  : "bg-slate-900/60 text-slate-400 border border-white/[0.06] hover:text-white"
+              }`}
+            >
+              <Sparkles className="h-4 w-4" />
+              <span>JAV Causal Logits &amp; Qwen</span>
+            </button>
           </div>
         </header>
 
@@ -396,13 +485,57 @@ export default function SurveillancePage() {
                       />
                     </div>
                     <button
-                      onClick={() => runAnalysis(selectedTicker)}
+                      onClick={() => runAnalysis(selectedTicker, asOfDate)}
                       disabled={loadingAnalysis}
                       className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-xs font-mono font-bold text-rose-300 transition-colors shadow-sm disabled:opacity-50"
                     >
                       <RefreshCw className={`h-3.5 w-3.5 ${loadingAnalysis ? "animate-spin" : ""}`} />
                       <span>Execute Forensic Probe</span>
                     </button>
+                  </div>
+
+                  {/* Historical As-Of Date Selection */}
+                  <div className="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-white/[0.05]">
+                    <div className="flex items-center gap-2 flex-1 min-w-[200px]">
+                      <Clock className="h-3.5 w-3.5 text-slate-500 shrink-0" />
+                      <input
+                        type="text"
+                        value={asOfDate}
+                        onChange={(e) => setAsOfDate(e.target.value)}
+                        placeholder="As-Of Date YYYY-MM-DD (e.g. 2026-04-15)..."
+                        className="w-full px-3 py-1.5 rounded-lg bg-black/40 border border-white/[0.08] text-xs font-mono text-white placeholder-slate-600 focus:outline-none focus:border-rose-500/50"
+                      />
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setAsOfDate("");
+                          runAnalysis(selectedTicker, "");
+                        }}
+                        className={`px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold transition-all ${
+                          !asOfDate
+                            ? "bg-rose-500/20 text-rose-300 border border-rose-500/40"
+                            : "bg-slate-850 text-slate-400 hover:text-white border border-white/[0.05]"
+                        }`}
+                      >
+                        Live Tail
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setAsOfDate("2026-04-15");
+                          runAnalysis(selectedTicker, "2026-04-15");
+                        }}
+                        className={`px-2.5 py-1 rounded-lg text-[10px] font-mono font-semibold transition-all ${
+                          asOfDate === "2026-04-15"
+                            ? "bg-rose-500/20 text-rose-300 border border-rose-500/40"
+                            : "bg-slate-850 text-slate-400 hover:text-white border border-white/[0.05]"
+                        }`}
+                      >
+                        2026-04-15 (SEBI Order Window)
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -1012,6 +1145,279 @@ export default function SurveillancePage() {
                 </div>
               </div>
             ) : null}
+          </div>
+        )}
+
+        {/* TAB 5: JAV / JEV CAUSAL LOGITS & QWEN INTELLIGENCE */}
+        {activeTab === "jav" && (
+          <div className="space-y-6">
+            {/* Architecture Explanation Banner */}
+            <div className="rounded-2xl border border-emerald-500/30 bg-[#071311] p-6 shadow-xl">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-white/[0.08] pb-4 mb-4">
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-0.5 text-xs font-mono font-semibold text-emerald-300 mb-2">
+                    <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
+                    <span>ZERO-GENERATION CAUSAL LM BOUNDARY LOGITS</span>
+                  </div>
+                  <h2 className="text-xl font-bold text-white tracking-tight">
+                    JAV / JEV: Joint Expected-Value Logit Extraction
+                  </h2>
+                  <p className="text-xs text-slate-300 mt-1 max-w-3xl leading-relaxed">
+                    Unlike generative LLMs that generate conversational text token-by-token (prone to hallucinations and drift),
+                    JAV extracts <strong className="text-emerald-300">unnormalized causal language model logits</strong> directly at the
+                    prompt-completion decision boundary for discrete hypotheses. Zero tokens are generated, yielding deterministic softmax
+                    probabilities and verifiable confidence margins.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                  <div className="rounded-xl border border-white/[0.08] bg-black/40 px-3 py-2 font-mono text-xs">
+                    <div className="text-[10px] text-slate-500 uppercase">MODEL RUNTIME</div>
+                    <div className="font-bold text-white">{jevModel?.active_model_id || "Loading..."}</div>
+                  </div>
+                  <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 font-mono text-xs text-emerald-300">
+                    <div className="text-[10px] text-emerald-400/80 uppercase">BACKEND ADAPTER</div>
+                    <div className="font-bold uppercase">{jevModel?.backend || "PROBING..."}</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Hardware Profile & Execution Integrity */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
+                <div className="rounded-xl border border-white/[0.06] bg-black/30 p-3">
+                  <div className="text-[10px] text-slate-500 uppercase">DEVICE</div>
+                  <div className="font-bold text-white mt-0.5 uppercase">{jevModel?.device || "cpu"}</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">
+                    CUDA: {jevModel?.cuda_available ? "Active" : "Disabled / CPU"}
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-white/[0.06] bg-black/30 p-3">
+                  <div className="text-[10px] text-slate-500 uppercase">COMPUTE ACCELERATOR</div>
+                  <div className="font-bold text-white mt-0.5 truncate">
+                    {jevModel?.devices?.[0]?.name || "Host CPU"}
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">
+                    {jevModel?.devices?.[0]?.total_vram_mb
+                      ? `${(jevModel.devices[0].total_vram_mb / 1024).toFixed(1)} GB VRAM`
+                      : `${jevModel?.ram_total_gb || "—"} GB System RAM`}
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-white/[0.06] bg-black/30 p-3">
+                  <div className="text-[10px] text-slate-500 uppercase">TORCH ENGINE</div>
+                  <div className="font-bold text-white mt-0.5">{jevModel?.torch_version || "—"}</div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">NF4 Quantization Ready</div>
+                </div>
+
+                <div className="rounded-xl border border-white/[0.06] bg-black/30 p-3">
+                  <div className="text-[10px] text-slate-500 uppercase">INFERENCE INTEGRITY</div>
+                  <div className={`font-bold mt-0.5 ${jevModel?.backend === "mock" ? "text-amber-400" : "text-emerald-400"}`}>
+                    {jevModel?.backend === "mock" ? "MOCK FALLBACK" : "LIVE QWEN INFERENCE"}
+                  </div>
+                  <div className="text-[10px] text-slate-500 mt-0.5">Zero Hallucination Mode</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Interactive Classification Console */}
+            <div className="rounded-2xl border border-white/[0.08] bg-[#090d16] p-6 shadow-xl">
+              <h3 className="text-sm font-mono uppercase tracking-wider text-slate-300 font-bold mb-4 flex items-center gap-2">
+                <Search className="h-4 w-4 text-emerald-400" />
+                <span>Interactive JAV Causal Boundary Probe</span>
+              </h3>
+
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div>
+                    <label className="text-xs font-mono uppercase text-slate-400 block mb-1.5">
+                      Target Ticker
+                    </label>
+                    <input
+                      type="text"
+                      value={jevTicker}
+                      onChange={(e) => setJevTicker(e.target.value.toUpperCase())}
+                      placeholder="e.g. CDSL, RELIANCE..."
+                      className="w-full px-3 py-2 rounded-xl bg-black/40 border border-white/[0.1] text-xs font-mono text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500/50"
+                    />
+                  </div>
+
+                  <div className="md:col-span-3">
+                    <label className="text-xs font-mono uppercase text-slate-400 block mb-1.5">
+                      Market Tip, Claim, or Social Signal to Evaluate
+                    </label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={jevClaim}
+                        onChange={(e) => setJevClaim(e.target.value)}
+                        placeholder="Enter pump claim, target rumor, or social media post..."
+                        className="flex-1 px-3 py-2 rounded-xl bg-black/40 border border-white/[0.1] text-xs font-mono text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500/50"
+                      />
+                      <button
+                        onClick={runJevClassification}
+                        disabled={loadingJevClassify}
+                        className="inline-flex items-center gap-1.5 px-5 py-2 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-xs font-mono font-bold text-emerald-300 transition-colors shadow-sm disabled:opacity-50 shrink-0"
+                      >
+                        <RefreshCw className={`h-3.5 w-3.5 ${loadingJevClassify ? "animate-spin" : ""}`} />
+                        <span>Compute Logits</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Scenario Presets */}
+                <div className="pt-2 border-t border-white/[0.05]">
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-slate-500 mb-2">
+                    Test Scenarios (Exemplars)
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setJevTicker("CDSL");
+                        setJevClaim("CDSL target ₹1,500 by Friday! Guaranteed 40% returns, join VIP pump channel.");
+                      }}
+                      className="px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-800 border border-white/[0.05] text-xs font-mono text-slate-300 hover:text-white transition-colors"
+                    >
+                      Scenario 1: Telegram Pump Channel Tip
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setJevTicker("CLOUD");
+                        setJevClaim("CONFIDENTIAL: Secret promoter meeting approved board resolution for 100% buyback at ₹2,400 per share!");
+                      }}
+                      className="px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-800 border border-white/[0.05] text-xs font-mono text-slate-300 hover:text-white transition-colors"
+                    >
+                      Scenario 2: Unverified Acquisition Rumor
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setJevTicker("RELIANCE");
+                        setJevClaim("BSE Filing: Certificate under Regulation 74(5) of SEBI (DP) Regulations, 2018 for quarter ended Sept 30, 2026.");
+                      }}
+                      className="px-3 py-1.5 rounded-lg bg-slate-800/60 hover:bg-slate-800 border border-white/[0.05] text-xs font-mono text-slate-300 hover:text-white transition-colors"
+                    >
+                      Scenario 3: Routine Regulatory Compliance
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Error Message */}
+            {jevError && (
+              <div className="rounded-2xl border border-rose-500/30 bg-rose-500/10 p-5 text-rose-300 text-xs font-mono">
+                <div className="font-bold mb-1">JEV Execution Error:</div>
+                <div>{jevError}</div>
+              </div>
+            )}
+
+            {/* Prediction Results */}
+            {jevPrediction && (
+              <div className="space-y-6">
+                {/* Decision Summary Card */}
+                <div className="rounded-2xl border border-emerald-500/30 bg-[#071311] p-6 shadow-xl">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/[0.08] pb-4 mb-4">
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 px-3 py-0.5 text-xs font-mono font-bold text-emerald-400 mb-2">
+                        <CheckCircle2 className="h-3.5 w-3.5" />
+                        <span>ZERO GENERATED TOKENS VERIFIED</span>
+                      </div>
+                      <h3 className="text-2xl font-bold text-white tracking-tight">
+                        Winning Classification: {jevPrediction.winning_label_display || jevPrediction.winning_label}
+                      </h3>
+                      <p className="text-xs font-mono text-slate-400 mt-1">
+                        Task: <span className="text-emerald-300">{jevPrediction.task_name}</span> • Latency: {jevPrediction.execution_latency_ms} ms
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 font-mono text-xs">
+                      <div className="rounded-xl border border-white/[0.08] bg-black/40 p-3 text-center min-w-[120px]">
+                        <div className="text-[10px] text-slate-500 uppercase">CONFIDENCE MARGIN</div>
+                        <div className="text-xl font-bold text-emerald-400 mt-0.5">
+                          {(jevPrediction.margin * 100).toFixed(1)}%
+                        </div>
+                        <div className="text-[10px] text-slate-500 mt-0.5">p1 - p2 spread</div>
+                      </div>
+
+                      <div className="rounded-xl border border-white/[0.08] bg-black/40 p-3 text-center min-w-[120px]">
+                        <div className="text-[10px] text-slate-500 uppercase">CALCULATED SCORE</div>
+                        <div className="text-xl font-bold text-sky-400 mt-0.5">
+                          {(jevPrediction.confidence_score * 100).toFixed(1)}%
+                        </div>
+                        <div className="text-[10px] text-slate-500 mt-0.5">winning prob</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Softmax Probability Distribution */}
+                  <div className="space-y-3 font-mono text-xs">
+                    <div className="text-xs text-slate-400 uppercase tracking-wider font-bold">
+                      Hypothesis Candidate Probability Distribution (Softmax):
+                    </div>
+                    <div className="space-y-2">
+                      {Object.entries(jevPrediction.probabilities).map(([cand, prob]) => {
+                        const isWinner = cand === jevPrediction.winning_label;
+                        const pct = (prob * 100).toFixed(1);
+                        return (
+                          <div key={cand} className="space-y-1">
+                            <div className="flex items-center justify-between text-xs">
+                              <span className={isWinner ? "font-bold text-emerald-300" : "text-slate-400"}>
+                                Option {cand} {isWinner ? "★ (Winning Boundary Token)" : ""}
+                              </span>
+                              <span className={isWinner ? "font-bold text-emerald-400" : "text-slate-400"}>
+                                {pct}%
+                              </span>
+                            </div>
+                            <div className="h-2 w-full rounded-full bg-slate-950 overflow-hidden border border-white/[0.05]">
+                              <div
+                                className={`h-full rounded-full transition-all duration-500 ${
+                                  isWinner
+                                    ? "bg-gradient-to-r from-emerald-500 to-cyan-500"
+                                    : "bg-slate-700/50"
+                                }`}
+                                style={{ width: `${Math.max(Number(pct), 1)}%` }}
+                              />
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Raw Unnormalized Causal LM Logits Table */}
+                  <div className="mt-6 pt-4 border-t border-white/[0.08]">
+                    <div className="text-xs font-mono text-slate-400 uppercase tracking-wider font-bold mb-3">
+                      Raw Unnormalized Boundary Logits (zi):
+                    </div>
+                    <div className="grid grid-cols-2 sm:grid-cols-6 gap-2 font-mono text-xs">
+                      {Object.entries(jevPrediction.raw_logits).map(([token, logit]) => (
+                        <div key={token} className="rounded-lg border border-white/[0.06] bg-black/40 p-2.5 text-center">
+                          <div className="text-[10px] text-slate-500">TOKEN &apos;{token}&apos;</div>
+                          <div className="text-sm font-bold text-slate-200 mt-0.5">{logit.toFixed(3)}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Heuristic / Fallback Indicator */}
+                  {jevPrediction.heuristic_fallback_used && (
+                    <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-950/20 p-3 text-xs font-mono text-amber-300">
+                      <strong>NOTE:</strong> Heuristic fallback adapter was used for this inference because local GPU weights were not engaged.
+                      Logits represent calibrated prior distributions rather than live FP16/NF4 tensor contractions.
+                    </div>
+                  )}
+
+                  {/* Statutory Disclaimer */}
+                  <div className="mt-4 text-[11px] font-mono text-slate-500 leading-relaxed">
+                    {jevPrediction.disclaimer}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

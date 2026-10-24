@@ -608,6 +608,24 @@ export default function IntelligencePage() {
         </div>
       </div>
 
+      {/* Architectural Scope Clarification Ribbon */}
+      <div className="flex flex-wrap items-center justify-between border-b border-white/[0.06] bg-[#060a12] px-4 py-1.5 text-xs font-mono text-slate-400 shrink-0">
+        <div className="flex items-center gap-2">
+          <Info className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+          <span>
+            <strong className="text-slate-200">AI Copilot Architecture:</strong> Grounded RAG research synthesizer, source citations, and printable PDF briefs.
+            It does <span className="text-rose-400 font-semibold">not</span> compute next-token causal logits (JAV) or quantitative manipulation models (QN).
+          </span>
+        </div>
+        <Link
+          href="/surveillance"
+          className="inline-flex items-center gap-1 text-[11px] font-bold text-rose-400 hover:text-rose-300 transition-colors shrink-0 ml-auto"
+        >
+          <span>Open JAV / QN Surveillance</span>
+          <ChevronRight className="h-3 w-3" />
+        </Link>
+      </div>
+
       {/* Main Content Area */}
       <div className="flex flex-1 overflow-hidden">
         {/* ========================================================================= */}
