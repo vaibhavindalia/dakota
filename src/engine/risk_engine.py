@@ -130,7 +130,7 @@ def assess(ticker: str, as_of: str | date | pd.Timestamp | None = None,
     market_data_as_of = meta_info.get("retrieved_at") or meta_info.get("last_trading_date") or str(as_of.date())
 
     score = round(min(score, 100.0), 1)
-    return {
+    res = {
         "ticker": ticker,
         "as_of": str(as_of.date()),
         "score": score,
@@ -148,6 +148,14 @@ def assess(ticker: str, as_of: str | date | pd.Timestamp | None = None,
         "disclaimer": "Dakota shows risk indicators from public signals — it is not "
                       "an accusation of fraud and not investment advice.",
     }
+
+    try:
+        from src.surveillance.risk_bridge import attach_qn_intelligence
+        res = attach_qn_intelligence(res, ticker, as_of=str(as_of.date()))
+    except Exception as exc:
+        pass
+
+    return res
 
 
 def _next_steps(score: float) -> list[str]:

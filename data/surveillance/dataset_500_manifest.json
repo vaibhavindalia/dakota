@@ -1,0 +1,57 @@
+{
+  "dataset_version": "1.0.0",
+  "total_windows": 2952,
+  "feature_columns": [
+    "return_1d",
+    "return_5d",
+    "return_20d",
+    "return_60d",
+    "volume_zscore_20d",
+    "volume_zscore_60d",
+    "volume_ratio_20d_60d",
+    "volatility_20d",
+    "volatility_ratio_5d_20d",
+    "price_volume_corr_20d",
+    "upper_circuit_count_20d",
+    "lower_circuit_count_20d",
+    "amihud_illiquidity_20d",
+    "gap_mean_20d",
+    "market_relative_return_20d",
+    "delivery_pct"
+  ],
+  "purge_embargo_days": 15,
+  "splits": {
+    "train": {
+      "count": 1024,
+      "positive_count": 59,
+      "negative_count": 965,
+      "positive_ratio": 0.0576,
+      "date_min": "2024-04-15",
+      "date_max": "2026-09-30"
+    },
+    "val": {
+      "count": 970,
+      "positive_count": 12,
+      "negative_count": 958,
+      "positive_ratio": 0.0124,
+      "date_min": "2025-05-15",
+      "date_max": "2026-09-30"
+    },
+    "test": {
+      "count": 958,
+      "positive_count": 5,
+      "negative_count": 953,
+      "positive_ratio": 0.0052,
+      "date_min": "2026-04-15",
+      "date_max": "2026-09-30"
+    }
+  },
+  "leakage_invariants": {
+    "event_isolation_verified": true,
+    "temporal_monotonicity_verified": true,
+    "cross_split_event_overlap": 0
+  },
+  "parquet_path": "D:\\dakota V4 with telegram integrated\\dakota integ. d11 final prototype1 minus telegram feature\\dakota\\data\\surveillance\\surveillance_dataset_500.parquet",
+  "manifest_path": "D:\\dakota V4 with telegram integrated\\dakota integ. d11 final prototype1 minus telegram feature\\dakota\\data\\surveillance\\dataset_500_manifest.json",
+  "generated_at": "2026-10-24T14:18:08.016857+00:00"
+}

@@ -1711,3 +1711,13 @@ except Exception as exc:
     logger.warning("Could not mount JEV intelligence router: %s", exc)
 
 
+# --- QN & JAV Quantitative Surveillance Subsystem ---
+try:
+    from src.surveillance.api import router as surveillance_router
+    app.include_router(surveillance_router)
+    logger.info("Mounted QN & JAV quantitative surveillance router at /api/surveillance/qn")
+except Exception as exc:
+    logger.warning("Could not mount surveillance router: %s", exc)
+
+
+
