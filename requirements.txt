@@ -7,3 +7,4 @@ python-dotenv>=1.0
 # Existing Dakota exchange helpers; keep these in the venv already used by the project.
 nse>=3.2.1
 bse>=3.3.3
+reportlab>=4.0.0

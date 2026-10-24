@@ -26,8 +26,10 @@ import {
   XCircle,
   MessageSquare,
   AlertOctagon,
-  Activity
+  Activity,
+  Download
 } from "lucide-react";
+import CampaignGraph from "@/components/CampaignGraph";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -669,6 +671,32 @@ export default function CampaignsPage() {
                               <span>Forensic Investigation</span>
                             </Link>
                           )}
+
+                          {/* Forensic Exports */}
+                          <div className="flex items-center gap-1.5 mt-1">
+                            <a
+                              href={`${API}/api/campaigns/${camp.campaign_id}/export.pdf`}
+                              download={`${camp.campaign_id}_dossier.pdf`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title="Download Forensic PDF Dossier"
+                              className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-slate-800 hover:bg-rose-950/50 border border-white/[0.08] hover:border-rose-500/40 text-[10px] font-mono font-semibold text-slate-300 hover:text-rose-300 transition-colors"
+                            >
+                              <Download className="h-3 w-3 text-rose-400" />
+                              <span>PDF</span>
+                            </a>
+                            <a
+                              href={`${API}/api/campaigns/${camp.campaign_id}/export.json`}
+                              download={`${camp.campaign_id}_dossier.json`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              title="Download Machine-Readable JSON Dossier"
+                              className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-slate-800 hover:bg-cyan-950/50 border border-white/[0.08] hover:border-cyan-500/40 text-[10px] font-mono font-semibold text-slate-300 hover:text-cyan-300 transition-colors"
+                            >
+                              <FileText className="h-3 w-3 text-cyan-400" />
+                              <span>JSON</span>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -734,7 +762,7 @@ export default function CampaignsPage() {
         {/* DETAILED DOSSIER MODAL */}
         {selectedCampaign && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
-            <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/[0.15] bg-[#090d14] p-6 shadow-2xl">
+            <div className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/[0.15] bg-[#090d14] p-6 shadow-2xl">
               <button
                 onClick={() => setSelectedCampaign(null)}
                 className="absolute right-4 top-4 p-2 text-slate-400 hover:text-white"
@@ -754,6 +782,41 @@ export default function CampaignsPage() {
                   <span>Score: <strong className="text-white">{(selectedCampaign.confidence_score * 100).toFixed(0)}%</strong></span>
                   <span>Time Span: {formatTimeWindow(selectedCampaign.first_seen, selectedCampaign.last_seen)}</span>
                 </div>
+
+                {/* Forensic Dossier Export Actions */}
+                <div className="flex flex-wrap items-center gap-2 mt-4 pt-3 border-t border-white/[0.06]">
+                  <a
+                    href={`${API}/api/campaigns/${selectedCampaign.campaign_id}/export.pdf`}
+                    download={`${selectedCampaign.campaign_id}_dossier.pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-500/15 hover:bg-rose-500/25 border border-rose-500/30 text-xs font-mono font-bold text-rose-300 transition-colors shadow-sm"
+                  >
+                    <Download className="h-3.5 w-3.5 text-rose-400" />
+                    <span>Export Forensic PDF Dossier</span>
+                  </a>
+
+                  <a
+                    href={`${API}/api/campaigns/${selectedCampaign.campaign_id}/export.json`}
+                    download={`${selectedCampaign.campaign_id}_dossier.json`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/30 text-xs font-mono font-bold text-cyan-300 transition-colors shadow-sm"
+                  >
+                    <FileText className="h-3.5 w-3.5 text-cyan-400" />
+                    <span>Export Structured JSON Dossier</span>
+                  </a>
+
+                  {selectedCampaign.securities[0] && (
+                    <Link
+                      href={`/investigate?ticker=${selectedCampaign.securities[0]}`}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-500/15 hover:bg-purple-500/25 border border-purple-500/30 text-xs font-mono font-bold text-purple-300 transition-colors shadow-sm"
+                    >
+                      <TrendingUp className="h-3.5 w-3.5 text-purple-400" />
+                      <span>Forensic Investigation View</span>
+                    </Link>
+                  )}
+                </div>
               </div>
 
               {/* Connected Securities */}
@@ -772,6 +835,11 @@ export default function CampaignsPage() {
                     </Link>
                   ))}
                 </div>
+              </div>
+
+              {/* Interactive Evidence-Backed Syndicate Graph */}
+              <div className="mb-6">
+                <CampaignGraph campaignId={selectedCampaign.campaign_id} />
               </div>
 
               {/* Chronological Event Timeline */}

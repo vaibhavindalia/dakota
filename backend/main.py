@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 import pandas as pd
 from fastapi import FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse, Response
 from pydantic import BaseModel, Field
 
 from src.connectors.config import public_status
@@ -721,6 +721,70 @@ def campaign_detail(campaign_id: str) -> dict[str, Any]:
     res["events"] = [e.model_dump() for e in campaign.events]
     res["alert_details"] = alert_details
     return res
+
+
+@app.get("/api/campaigns/{campaign_id}/graph")
+def campaign_graph_endpoint(campaign_id: str) -> dict[str, Any]:
+    """Retrieve typed, evidence-backed syndicate relationship graph for a campaign."""
+    campaign = campaign_store.get_campaign(campaign_id, include_events=True)
+    if campaign is None:
+        raise HTTPException(status_code=404, detail="Campaign not found")
+    from src.campaign.graph import build_campaign_graph
+    graph = build_campaign_graph(campaign)
+    return graph.model_dump()
+
+
+@app.get("/api/campaigns/{campaign_id}/export.json")
+def campaign_export_json_file(campaign_id: str) -> Response:
+    """Download verified forensic campaign dossier in canonical JSON format."""
+    try:
+        from src.campaign.dossier import generate_campaign_dossier
+        dossier = generate_campaign_dossier(campaign_id)
+        content = json.dumps(dossier, indent=2, ensure_ascii=False)
+        return Response(
+            content=content,
+            media_type="application/json",
+            headers={
+                "Content-Disposition": f'attachment; filename="dakota_campaign_{campaign_id}_dossier.json"',
+                "Cache-Control": "no-cache",
+            },
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        logger.error("Failed generating JSON dossier for %s: %s", campaign_id, exc)
+        raise HTTPException(status_code=500, detail=f"Failed generating JSON export: {exc}")
+
+
+@app.get("/api/campaigns/{campaign_id}/export.pdf")
+def campaign_export_pdf_file(campaign_id: str) -> Response:
+    """Download verified forensic campaign dossier in publication-quality PDF format."""
+    try:
+        from src.campaign.dossier import generate_campaign_dossier
+        from src.campaign.pdf_exporter import render_campaign_pdf
+        dossier = generate_campaign_dossier(campaign_id)
+        pdf_bytes = render_campaign_pdf(dossier)
+        return Response(
+            content=pdf_bytes,
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": f'attachment; filename="dakota_campaign_{campaign_id}_dossier.pdf"',
+                "Cache-Control": "no-cache",
+            },
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
+    except Exception as exc:
+        logger.error("Failed generating PDF dossier for %s: %s", campaign_id, exc)
+        raise HTTPException(status_code=500, detail=f"Failed generating PDF export: {exc}")
+
+
+@app.get("/api/campaigns/{campaign_id}/export")
+def campaign_export_dispatcher(campaign_id: str, format: str = "json") -> Response:
+    """Export dispatcher supporting ?format=pdf or ?format=json."""
+    if format.lower() == "pdf":
+        return campaign_export_pdf_file(campaign_id)
+    return campaign_export_json_file(campaign_id)
 
 
 @app.post("/api/campaigns/{campaign_id}/acknowledge")

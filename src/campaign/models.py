@@ -90,3 +90,64 @@ class CampaignSummary(BaseModel):
     total_securities_involved: int = 0
     total_actors_tracked: int = 0
     last_updated: str | None = None
+
+
+class NodeType(str, Enum):
+    CAMPAIGN = "campaign"
+    SECURITY = "security"
+    ACTOR = "actor"
+    MESSAGE = "message"
+    ALERT = "alert"
+    URL = "url"
+    DISCLOSURE = "disclosure"
+
+
+class EdgeType(str, Enum):
+    PROMOTED_BY = "promoted_by"
+    SHARED_TEMPLATE = "shared_template"
+    SHARED_URL = "shared_url"
+    TEMPORAL_BURST = "temporal_burst"
+    MARKET_CORROBORATION = "market_corroboration"
+    ASSOCIATED_DISCLOSURE = "associated_disclosure"
+    CONTRADICTED_BY = "contradicted_by"
+    MEMBER_SECURITY = "member_security"
+
+
+class GraphNode(BaseModel):
+    id: str
+    type: NodeType
+    label: str
+    sublabel: str | None = None
+    status: str | None = None
+    properties: dict[str, Any] = Field(default_factory=dict)
+    evidence_ids: list[str] = Field(default_factory=list)
+
+
+class GraphEdge(BaseModel):
+    id: str
+    source: str
+    target: str
+    type: EdgeType
+    label: str
+    rationale: str
+    confidence: float = 1.0
+    evidence_references: list[str] = Field(default_factory=list)
+    properties: dict[str, Any] = Field(default_factory=dict)
+
+
+class CampaignGraph(BaseModel):
+    campaign_id: str
+    name: str
+    tier: CampaignTier
+    status: CampaignStatus
+    confidence_score: float
+    nodes: list[GraphNode] = Field(default_factory=list)
+    edges: list[GraphEdge] = Field(default_factory=list)
+    metrics: dict[str, Any] = Field(default_factory=dict)
+    contradictions: list[str] = Field(default_factory=list)
+    missing_evidence: list[str] = Field(default_factory=list)
+    disclaimer: str = (
+        "Dakota graph models reflect observed correlations and analytical evidence tokens. "
+        "They do not imply legal culpability or coordinated criminal intent."
+    )
+
