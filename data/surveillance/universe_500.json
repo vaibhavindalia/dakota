@@ -4,7 +4,7 @@
   "target_size": 500,
   "case_equities_count": 50,
   "control_equities_count": 450,
-  "generated_at": "2026-10-24T14:18:02.288165+00:00",
+  "generated_at": "2026-10-24T16:04:23.252731+00:00",
   "equities": [
     {
       "ticker": "CLOUD",
@@ -21,7 +21,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/AS/CFID/CFID_SEC3/30588/2024-25)",
-      "retrieved_at": "2026-10-24T14:18:02.287842+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127511+00:00"
     },
     {
       "ticker": "ASRL",
@@ -38,7 +38,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/SM/IVD/ID13/30542/2024-25)",
-      "retrieved_at": "2026-10-24T14:18:02.287849+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127520+00:00"
     },
     {
       "ticker": "TRAFIKSOL",
@@ -55,13 +55,13 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (BSE/SURV/2024/TRAF-01)",
-      "retrieved_at": "2026-10-24T14:18:02.287852+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127524+00:00"
     },
     {
       "ticker": "BRIGHTCOM",
       "name": "Brightcom Group Limited",
       "exchange": "NSE",
-      "yahoo_symbol": "BRIGHTCOM.NS",
+      "yahoo_symbol": "BCG.NS",
       "isin": "",
       "bse_code": "",
       "segment": "main",
@@ -72,13 +72,13 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/AS/CFID/CFID_SEC2/28876/2023-24)",
-      "retrieved_at": "2026-10-24T14:18:02.287856+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127527+00:00"
     },
     {
       "ticker": "SADHNABROAD",
       "name": "Sadhna Broadcast Limited",
       "exchange": "BSE",
-      "yahoo_symbol": "SADHNABROAD.BO",
+      "yahoo_symbol": "SADHNANIQ.BO",
       "isin": "",
       "bse_code": "",
       "segment": "main",
@@ -89,7 +89,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/AN/IVD/ID-8/24719/2022-23)",
-      "retrieved_at": "2026-10-24T14:18:02.287860+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127530+00:00"
     },
     {
       "ticker": "SHARPLINE",
@@ -106,7 +106,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/AN/IVD/ID-8/24720/2022-23)",
-      "retrieved_at": "2026-10-24T14:18:02.287863+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127533+00:00"
     },
     {
       "ticker": "RADFORD",
@@ -123,7 +123,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/PS/69/CFD/DEC/2015)",
-      "retrieved_at": "2026-10-24T14:18:02.287866+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127536+00:00"
     },
     {
       "ticker": "MANPASAND",
@@ -140,7 +140,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/AB/CFID/2020/098)",
-      "retrieved_at": "2026-10-24T14:18:02.287870+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127539+00:00"
     },
     {
       "ticker": "EROSMEDIA",
@@ -157,7 +157,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/AS/IVD/ID-3/27655/2023-24)",
-      "retrieved_at": "2026-10-24T14:18:02.287873+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127542+00:00"
     },
     {
       "ticker": "GICL",
@@ -174,7 +174,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/MB/IVD/2022/112)",
-      "retrieved_at": "2026-10-24T14:18:02.287876+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127545+00:00"
     },
     {
       "ticker": "AFCOM",
@@ -191,7 +191,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (GSM-STAGE-II-ALERT)",
-      "retrieved_at": "2026-10-24T14:18:02.287879+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127548+00:00"
     },
     {
       "ticker": "DRONACHRYA",
@@ -208,7 +208,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (ASM-STAGE-I)",
-      "retrieved_at": "2026-10-24T14:18:02.287883+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127550+00:00"
     },
     {
       "ticker": "BAHETI",
@@ -225,7 +225,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (NSE/SURV/ESM-01)",
-      "retrieved_at": "2026-10-24T14:18:02.287886+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127553+00:00"
     },
     {
       "ticker": "BASILIC",
@@ -242,7 +242,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (TG-CLUSTER-BASILIC-44)",
-      "retrieved_at": "2026-10-24T14:18:02.287890+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127556+00:00"
     },
     {
       "ticker": "EXHICON",
@@ -259,7 +259,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (BSE/ASM-SME-2026)",
-      "retrieved_at": "2026-10-24T14:18:02.287893+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127558+00:00"
     },
     {
       "ticker": "ZEELEARN",
@@ -276,13 +276,13 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/AB/CFID/2025/118)",
-      "retrieved_at": "2026-10-24T14:18:02.287896+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127561+00:00"
     },
     {
       "ticker": "ALOKTEXT",
       "name": "Alok Industries Limited",
       "exchange": "NSE",
-      "yahoo_symbol": "ALOKTEXT.NS",
+      "yahoo_symbol": "ALOKINDS.NS",
       "isin": "",
       "bse_code": "",
       "segment": "main",
@@ -293,13 +293,13 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/SM/IVD/2025/204)",
-      "retrieved_at": "2026-10-24T14:18:02.287898+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127564+00:00"
     },
     {
       "ticker": "RUCHISOYA",
       "name": "Patanjali Foods (Ruchi Soya) Limited",
       "exchange": "NSE",
-      "yahoo_symbol": "RUCHISOYA.NS",
+      "yahoo_symbol": "PATANJALI.NS",
       "isin": "",
       "bse_code": "",
       "segment": "main",
@@ -310,7 +310,7 @@
       "market_cap_tier": "Small",
       "active_status": "Active",
       "provenance_source": "SEBI Evidence Order (WTM/PS/SURV/2025/087)",
-      "retrieved_at": "2026-10-24T14:18:02.287901+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.127566+00:00"
     },
     {
       "ticker": "3IINFOLTD",
@@ -327,7 +327,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270485+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110643+00:00"
     },
     {
       "ticker": "AARNAV",
@@ -344,7 +344,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270543+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110703+00:00"
     },
     {
       "ticker": "AARTECH",
@@ -361,7 +361,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270556+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110715+00:00"
     },
     {
       "ticker": "AARTISURF",
@@ -378,7 +378,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270580+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110739+00:00"
     },
     {
       "ticker": "ABAN",
@@ -395,7 +395,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270603+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110761+00:00"
     },
     {
       "ticker": "ABINFRA",
@@ -412,7 +412,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270648+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110808+00:00"
     },
     {
       "ticker": "ABMINTLLTD",
@@ -429,7 +429,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270660+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110819+00:00"
     },
     {
       "ticker": "ACSTECH",
@@ -446,7 +446,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270744+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110899+00:00"
     },
     {
       "ticker": "ADROITIND",
@@ -463,7 +463,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270785+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110942+00:00"
     },
     {
       "ticker": "ADROITINFO",
@@ -480,7 +480,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270791+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110948+00:00"
     },
     {
       "ticker": "AGASTYAEN",
@@ -497,7 +497,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270943+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111103+00:00"
     },
     {
       "ticker": "AGSTRA",
@@ -514,7 +514,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270983+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111143+00:00"
     },
     {
       "ticker": "AHLWEST",
@@ -531,7 +531,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271012+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111174+00:00"
     },
     {
       "ticker": "AKI",
@@ -548,7 +548,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271081+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111244+00:00"
     },
     {
       "ticker": "AKSHARCHEM",
@@ -565,7 +565,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271093+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111255+00:00"
     },
     {
       "ticker": "AKSHOPTFBR",
@@ -582,7 +582,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271099+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111260+00:00"
     },
     {
       "ticker": "ALKALI",
@@ -599,7 +599,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271150+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111312+00:00"
     },
     {
       "ticker": "ALMONDZ",
@@ -616,7 +616,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271184+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111345+00:00"
     },
     {
       "ticker": "ALPHAGEO",
@@ -633,7 +633,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271202+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111363+00:00"
     },
     {
       "ticker": "AMANTA",
@@ -650,7 +650,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271232+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111392+00:00"
     },
     {
       "ticker": "AMBALALSA",
@@ -667,7 +667,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271244+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111404+00:00"
     },
     {
       "ticker": "AMDIND",
@@ -684,7 +684,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271273+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111433+00:00"
     },
     {
       "ticker": "ANKITMETAL",
@@ -701,7 +701,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271346+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111506+00:00"
     },
     {
       "ticker": "ANMOL",
@@ -718,7 +718,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271351+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111512+00:00"
     },
     {
       "ticker": "ANSALAPI",
@@ -735,7 +735,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271368+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111529+00:00"
     },
     {
       "ticker": "APOORVA",
@@ -752,7 +752,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271482+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111641+00:00"
     },
     {
       "ticker": "ARIES",
@@ -769,7 +769,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271551+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111709+00:00"
     },
     {
       "ticker": "ARSHIYA",
@@ -786,7 +786,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271608+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111767+00:00"
     },
     {
       "ticker": "ASAHISONG",
@@ -803,7 +803,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271678+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111867+00:00"
     },
     {
       "ticker": "ASHIKAG",
@@ -820,7 +820,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271728+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111918+00:00"
     },
     {
       "ticker": "ASTRON",
@@ -837,7 +837,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271843+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112046+00:00"
     },
     {
       "ticker": "BAFNAPH",
@@ -854,7 +854,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272080+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112314+00:00"
     },
     {
       "ticker": "CDSL",
@@ -871,7 +871,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270055+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110189+00:00"
     },
     {
       "ticker": "IEX",
@@ -888,7 +888,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270061+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110196+00:00"
     },
     {
       "ticker": "RITES",
@@ -905,7 +905,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270067+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110203+00:00"
     },
     {
       "ticker": "REDINGTON",
@@ -922,7 +922,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270074+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110210+00:00"
     },
     {
       "ticker": "TANLA",
@@ -939,7 +939,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270080+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110217+00:00"
     },
     {
       "ticker": "ROUTE",
@@ -956,7 +956,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270086+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110223+00:00"
     },
     {
       "ticker": "BLS",
@@ -973,7 +973,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270092+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110229+00:00"
     },
     {
       "ticker": "HFCL",
@@ -990,7 +990,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270098+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110236+00:00"
     },
     {
       "ticker": "TRIDENT",
@@ -1007,7 +1007,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270105+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110242+00:00"
     },
     {
       "ticker": "CESC",
@@ -1024,7 +1024,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270110+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110248+00:00"
     },
     {
       "ticker": "JBCHEPHARM",
@@ -1041,7 +1041,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270117+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110255+00:00"
     },
     {
       "ticker": "FSL",
@@ -1058,7 +1058,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270123+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110262+00:00"
     },
     {
       "ticker": "RELIANCE",
@@ -1075,7 +1075,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270130+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110269+00:00"
     },
     {
       "ticker": "INFY",
@@ -1092,7 +1092,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270136+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110275+00:00"
     },
     {
       "ticker": "TCS",
@@ -1109,7 +1109,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270143+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110281+00:00"
     },
     {
       "ticker": "HDFCBANK",
@@ -1126,7 +1126,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270152+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110288+00:00"
     },
     {
       "ticker": "ICICIBANK",
@@ -1143,7 +1143,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270158+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110294+00:00"
     },
     {
       "ticker": "SBIN",
@@ -1160,7 +1160,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270164+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110300+00:00"
     },
     {
       "ticker": "TATAPOWER",
@@ -1177,7 +1177,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270170+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110306+00:00"
     },
     {
       "ticker": "TATAMOTORS",
@@ -1194,7 +1194,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270177+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110312+00:00"
     },
     {
       "ticker": "TATASTEEL",
@@ -1211,7 +1211,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270183+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110319+00:00"
     },
     {
       "ticker": "WIPRO",
@@ -1228,7 +1228,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270189+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110325+00:00"
     },
     {
       "ticker": "AXISBANK",
@@ -1245,7 +1245,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270196+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110331+00:00"
     },
     {
       "ticker": "BAJFINANCE",
@@ -1262,7 +1262,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270202+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110338+00:00"
     },
     {
       "ticker": "ADANIENT",
@@ -1279,7 +1279,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270208+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110344+00:00"
     },
     {
       "ticker": "ADANIPORTS",
@@ -1296,7 +1296,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270214+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110350+00:00"
     },
     {
       "ticker": "ADANIGREEN",
@@ -1313,7 +1313,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270220+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110356+00:00"
     },
     {
       "ticker": "ADANIPOWER",
@@ -1330,7 +1330,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270225+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110361+00:00"
     },
     {
       "ticker": "LT",
@@ -1347,7 +1347,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270231+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110367+00:00"
     },
     {
       "ticker": "SUNPHARMA",
@@ -1364,7 +1364,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270238+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110373+00:00"
     },
     {
       "ticker": "HINDUNILVR",
@@ -1381,7 +1381,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270243+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110379+00:00"
     },
     {
       "ticker": "ITC",
@@ -1398,7 +1398,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270249+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110385+00:00"
     },
     {
       "ticker": "KOTAKBANK",
@@ -1415,7 +1415,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270255+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110390+00:00"
     },
     {
       "ticker": "BHARTIARTL",
@@ -1432,7 +1432,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270261+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110396+00:00"
     },
     {
       "ticker": "ZOMATO",
@@ -1449,7 +1449,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270267+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110402+00:00"
     },
     {
       "ticker": "PAYTM",
@@ -1466,7 +1466,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270272+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110407+00:00"
     },
     {
       "ticker": "NYKAA",
@@ -1483,7 +1483,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270278+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110413+00:00"
     },
     {
       "ticker": "DMART",
@@ -1500,7 +1500,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270284+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110418+00:00"
     },
     {
       "ticker": "ONGC",
@@ -1517,7 +1517,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270289+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110424+00:00"
     },
     {
       "ticker": "POWERGRID",
@@ -1534,7 +1534,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270295+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110429+00:00"
     },
     {
       "ticker": "NTPC",
@@ -1551,7 +1551,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270301+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110435+00:00"
     },
     {
       "ticker": "COALINDIA",
@@ -1568,7 +1568,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270306+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110440+00:00"
     },
     {
       "ticker": "BPCL",
@@ -1585,7 +1585,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270312+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110446+00:00"
     },
     {
       "ticker": "IOC",
@@ -1602,7 +1602,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270318+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110452+00:00"
     },
     {
       "ticker": "HCLTECH",
@@ -1619,7 +1619,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270324+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110457+00:00"
     },
     {
       "ticker": "TECHM",
@@ -1636,7 +1636,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270330+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110463+00:00"
     },
     {
       "ticker": "DRREDDY",
@@ -1653,7 +1653,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270336+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110469+00:00"
     },
     {
       "ticker": "CIPLA",
@@ -1670,7 +1670,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270341+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110474+00:00"
     },
     {
       "ticker": "DIVISLAB",
@@ -1687,7 +1687,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270347+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110480+00:00"
     },
     {
       "ticker": "MARUTI",
@@ -1704,24 +1704,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270354+00:00"
-    },
-    {
-      "ticker": "M_M",
-      "name": "Mahindra and Mahindra Limited",
-      "exchange": "NSE",
-      "yahoo_symbol": "M&M.NS",
-      "isin": "",
-      "bse_code": "",
-      "segment": "main",
-      "role": "control",
-      "surveillance_flag": false,
-      "listing_date": null,
-      "free_float_pct": null,
-      "market_cap_tier": "Large",
-      "active_status": "Active",
-      "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270360+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110486+00:00"
     },
     {
       "ticker": "HEROMOTOCO",
@@ -1738,7 +1721,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270366+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110498+00:00"
     },
     {
       "ticker": "BAJAJ-AUTO",
@@ -1755,7 +1738,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270372+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110503+00:00"
     },
     {
       "ticker": "ULTRACEMCO",
@@ -1772,7 +1755,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270378+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110509+00:00"
     },
     {
       "ticker": "GRASIM",
@@ -1789,7 +1772,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270384+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110514+00:00"
     },
     {
       "ticker": "VEDL",
@@ -1806,7 +1789,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270389+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110520+00:00"
     },
     {
       "ticker": "JSWSTEEL",
@@ -1823,7 +1806,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270395+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110525+00:00"
     },
     {
       "ticker": "HINDALCO",
@@ -1840,7 +1823,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270401+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110530+00:00"
     },
     {
       "ticker": "INDUSINDBK",
@@ -1857,7 +1840,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270406+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110536+00:00"
     },
     {
       "ticker": "BANKBARODA",
@@ -1874,7 +1857,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270412+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110541+00:00"
     },
     {
       "ticker": "PNB",
@@ -1891,7 +1874,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270418+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110547+00:00"
     },
     {
       "ticker": "IRCTC",
@@ -1908,7 +1891,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270427+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110556+00:00"
     },
     {
       "ticker": "SUZLON",
@@ -1925,7 +1908,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270433+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110562+00:00"
     },
     {
       "ticker": "20MICRONS",
@@ -1942,7 +1925,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270459+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110617+00:00"
     },
     {
       "ticker": "21STCENMGM",
@@ -1959,7 +1942,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270466+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110624+00:00"
     },
     {
       "ticker": "360ONE",
@@ -1976,7 +1959,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270473+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110631+00:00"
     },
     {
       "ticker": "3BBLACKBIO",
@@ -1993,7 +1976,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270479+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110637+00:00"
     },
     {
       "ticker": "3MINDIA",
@@ -2010,7 +1993,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270491+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110650+00:00"
     },
     {
       "ticker": "3PLAND",
@@ -2027,7 +2010,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270497+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110656+00:00"
     },
     {
       "ticker": "5PAISA",
@@ -2044,7 +2027,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270503+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110662+00:00"
     },
     {
       "ticker": "63MOONS",
@@ -2061,7 +2044,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270509+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110668+00:00"
     },
     {
       "ticker": "A2ZINFRA",
@@ -2078,7 +2061,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270515+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110674+00:00"
     },
     {
       "ticker": "AAATECH",
@@ -2095,7 +2078,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270520+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110680+00:00"
     },
     {
       "ticker": "AADHARHFC",
@@ -2112,7 +2095,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270526+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110686+00:00"
     },
     {
       "ticker": "AAKASH",
@@ -2129,7 +2112,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270532+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110691+00:00"
     },
     {
       "ticker": "AAREYDRUGS",
@@ -2146,7 +2129,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270538+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110697+00:00"
     },
     {
       "ticker": "AARON",
@@ -2163,7 +2146,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270549+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110709+00:00"
     },
     {
       "ticker": "AARTIDRUGS",
@@ -2180,7 +2163,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270561+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110721+00:00"
     },
     {
       "ticker": "AARTIIND",
@@ -2197,7 +2180,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270567+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110727+00:00"
     },
     {
       "ticker": "AARTIPHARM",
@@ -2214,7 +2197,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270573+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110733+00:00"
     },
     {
       "ticker": "AARVI",
@@ -2231,7 +2214,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270586+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110745+00:00"
     },
     {
       "ticker": "AASTHA",
@@ -2248,7 +2231,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270592+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110750+00:00"
     },
     {
       "ticker": "AAVAS",
@@ -2265,7 +2248,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270598+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110756+00:00"
     },
     {
       "ticker": "ABANSENT",
@@ -2282,7 +2265,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270609+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110767+00:00"
     },
     {
       "ticker": "ABB",
@@ -2299,7 +2282,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270614+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110773+00:00"
     },
     {
       "ticker": "ABBOTINDIA",
@@ -2316,7 +2299,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270620+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110778+00:00"
     },
     {
       "ticker": "ABCAPITAL",
@@ -2333,7 +2316,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270626+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110784+00:00"
     },
     {
       "ticker": "ABCOTS",
@@ -2350,7 +2333,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270632+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110790+00:00"
     },
     {
       "ticker": "ABDL",
@@ -2367,7 +2350,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270637+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110796+00:00"
     },
     {
       "ticker": "ABFRL",
@@ -2384,7 +2367,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270643+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110802+00:00"
     },
     {
       "ticker": "ABLBL",
@@ -2401,7 +2384,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270654+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110814+00:00"
     },
     {
       "ticker": "ABMKNO",
@@ -2418,7 +2401,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270667+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110825+00:00"
     },
     {
       "ticker": "ABREL",
@@ -2435,7 +2418,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270673+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110831+00:00"
     },
     {
       "ticker": "ABSLAMC",
@@ -2452,7 +2435,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270679+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110837+00:00"
     },
     {
       "ticker": "ACC",
@@ -2469,7 +2452,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270686+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110843+00:00"
     },
     {
       "ticker": "ACCELYA",
@@ -2486,7 +2469,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270693+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110848+00:00"
     },
     {
       "ticker": "ACCURACY",
@@ -2503,7 +2486,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270698+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110854+00:00"
     },
     {
       "ticker": "ACE",
@@ -2520,7 +2503,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270704+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110859+00:00"
     },
     {
       "ticker": "ACEINTEG",
@@ -2537,7 +2520,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270710+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110865+00:00"
     },
     {
       "ticker": "ACEVECTOR",
@@ -2554,7 +2537,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270716+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110870+00:00"
     },
     {
       "ticker": "ACGL",
@@ -2571,7 +2554,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270721+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110876+00:00"
     },
     {
       "ticker": "ACI",
@@ -2588,7 +2571,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270727+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110882+00:00"
     },
     {
       "ticker": "ACL",
@@ -2605,7 +2588,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270733+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110887+00:00"
     },
     {
       "ticker": "ACMESOLAR",
@@ -2622,7 +2605,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270739+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110893+00:00"
     },
     {
       "ticker": "ACUTAAS",
@@ -2639,7 +2622,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270750+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110904+00:00"
     },
     {
       "ticker": "ADANIENSOL",
@@ -2656,7 +2639,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270756+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110910+00:00"
     },
     {
       "ticker": "ADDIND",
@@ -2673,7 +2656,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270762+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110916+00:00"
     },
     {
       "ticker": "ADFFOODS",
@@ -2690,7 +2673,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270767+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110921+00:00"
     },
     {
       "ticker": "ADL",
@@ -2707,7 +2690,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270773+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110930+00:00"
     },
     {
       "ticker": "ADOR",
@@ -2724,7 +2707,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270780+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110936+00:00"
     },
     {
       "ticker": "ADSL",
@@ -2741,7 +2724,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270797+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110954+00:00"
     },
     {
       "ticker": "ADVAIT",
@@ -2758,7 +2741,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270803+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110959+00:00"
     },
     {
       "ticker": "ADVANCE",
@@ -2775,7 +2758,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270809+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110965+00:00"
     },
     {
       "ticker": "ADVANIHOTR",
@@ -2792,7 +2775,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270815+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110971+00:00"
     },
     {
       "ticker": "ADVENTHTL",
@@ -2809,7 +2792,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270820+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110976+00:00"
     },
     {
       "ticker": "ADVENZYMES",
@@ -2826,7 +2809,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270826+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110982+00:00"
     },
     {
       "ticker": "ADVIKCA",
@@ -2843,7 +2826,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270832+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110988+00:00"
     },
     {
       "ticker": "AEGISLOG",
@@ -2860,7 +2843,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270837+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110994+00:00"
     },
     {
       "ticker": "AEGISVOPAK",
@@ -2877,7 +2860,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270843+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.110999+00:00"
     },
     {
       "ticker": "AEPL",
@@ -2894,7 +2877,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270849+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111005+00:00"
     },
     {
       "ticker": "AEQUS",
@@ -2911,7 +2894,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270854+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111011+00:00"
     },
     {
       "ticker": "AEROENTER",
@@ -2928,7 +2911,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270860+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111017+00:00"
     },
     {
       "ticker": "AEROFLEX",
@@ -2945,7 +2928,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270878+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111037+00:00"
     },
     {
       "ticker": "AERONEU",
@@ -2962,7 +2945,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270884+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111042+00:00"
     },
     {
       "ticker": "AEROPLANE",
@@ -2979,7 +2962,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270890+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111048+00:00"
     },
     {
       "ticker": "AETHER",
@@ -2996,7 +2979,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270895+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111054+00:00"
     },
     {
       "ticker": "AFCONS",
@@ -3013,7 +2996,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270901+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111060+00:00"
     },
     {
       "ticker": "AFFLE",
@@ -3030,7 +3013,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270906+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111066+00:00"
     },
     {
       "ticker": "AFFORDABLE",
@@ -3047,7 +3030,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270913+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111072+00:00"
     },
     {
       "ticker": "AFIL",
@@ -3064,7 +3047,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270919+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111079+00:00"
     },
     {
       "ticker": "AFSL",
@@ -3081,7 +3064,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270925+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111085+00:00"
     },
     {
       "ticker": "AGARIND",
@@ -3098,7 +3081,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270931+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111091+00:00"
     },
     {
       "ticker": "AGARWALEYE",
@@ -3115,7 +3098,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270936+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111097+00:00"
     },
     {
       "ticker": "AGI",
@@ -3132,7 +3115,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270949+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111109+00:00"
     },
     {
       "ticker": "AGIIL",
@@ -3149,7 +3132,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270954+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111114+00:00"
     },
     {
       "ticker": "AGL",
@@ -3166,7 +3149,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270960+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111120+00:00"
     },
     {
       "ticker": "AGOL",
@@ -3183,7 +3166,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270966+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111126+00:00"
     },
     {
       "ticker": "AGRITECH",
@@ -3200,7 +3183,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270972+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111132+00:00"
     },
     {
       "ticker": "AGROPHOS",
@@ -3217,7 +3200,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270977+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111137+00:00"
     },
     {
       "ticker": "AHCL",
@@ -3234,7 +3217,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270989+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111149+00:00"
     },
     {
       "ticker": "AHLADA",
@@ -3251,7 +3234,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.270994+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111155+00:00"
     },
     {
       "ticker": "AHLEAST",
@@ -3268,7 +3251,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271000+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111161+00:00"
     },
     {
       "ticker": "AHLUCONT",
@@ -3285,7 +3268,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271006+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111167+00:00"
     },
     {
       "ticker": "AIAENG",
@@ -3302,7 +3285,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271017+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111180+00:00"
     },
     {
       "ticker": "AIIL",
@@ -3319,7 +3302,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271023+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111186+00:00"
     },
     {
       "ticker": "AIRAN",
@@ -3336,7 +3319,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271029+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111192+00:00"
     },
     {
       "ticker": "AIROLAM",
@@ -3353,7 +3336,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271035+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111197+00:00"
     },
     {
       "ticker": "AJANTPHARM",
@@ -3370,7 +3353,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271041+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111203+00:00"
     },
     {
       "ticker": "AJAXENGG",
@@ -3387,7 +3370,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271047+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111209+00:00"
     },
     {
       "ticker": "AJMERA",
@@ -3404,7 +3387,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271053+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111215+00:00"
     },
     {
       "ticker": "AJOONI",
@@ -3421,7 +3404,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271058+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111221+00:00"
     },
     {
       "ticker": "AKASH",
@@ -3438,7 +3421,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271064+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111227+00:00"
     },
     {
       "ticker": "AKCAPIT",
@@ -3455,7 +3438,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271070+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111232+00:00"
     },
     {
       "ticker": "AKG",
@@ -3472,7 +3455,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271075+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111238+00:00"
     },
     {
       "ticker": "AKSHAR",
@@ -3489,7 +3472,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271087+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111249+00:00"
     },
     {
       "ticker": "AKUMS",
@@ -3506,7 +3489,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271105+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111266+00:00"
     },
     {
       "ticker": "ALANKIT",
@@ -3523,7 +3506,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271110+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111272+00:00"
     },
     {
       "ticker": "ALBERTDAVD",
@@ -3540,7 +3523,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271116+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111278+00:00"
     },
     {
       "ticker": "ALEMBICLTD",
@@ -3557,7 +3540,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271122+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111283+00:00"
     },
     {
       "ticker": "ALFREDHE",
@@ -3574,7 +3557,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271127+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111289+00:00"
     },
     {
       "ticker": "ALGOQUANT",
@@ -3591,7 +3574,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271133+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111295+00:00"
     },
     {
       "ticker": "ALICON",
@@ -3608,7 +3591,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271139+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111301+00:00"
     },
     {
       "ticker": "ALIVUS",
@@ -3625,7 +3608,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271145+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111306+00:00"
     },
     {
       "ticker": "ALKEM",
@@ -3642,7 +3625,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271156+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111317+00:00"
     },
     {
       "ticker": "ALKYLAMINE",
@@ -3659,7 +3642,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271162+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111323+00:00"
     },
     {
       "ticker": "ALLCARGO",
@@ -3676,7 +3659,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271167+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111329+00:00"
     },
     {
       "ticker": "ALLDIGI",
@@ -3693,7 +3676,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271173+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111334+00:00"
     },
     {
       "ticker": "ALLTIME",
@@ -3710,24 +3693,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271178+00:00"
-    },
-    {
-      "ticker": "ALOKINDS",
-      "name": "Alok Industries Limited",
-      "exchange": "NSE",
-      "yahoo_symbol": "ALOKINDS.NS",
-      "isin": "",
-      "bse_code": "",
-      "segment": "main",
-      "role": "control",
-      "surveillance_flag": false,
-      "listing_date": "2020-02-19",
-      "free_float_pct": null,
-      "market_cap_tier": "Large",
-      "active_status": "Active",
-      "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271190+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111340+00:00"
     },
     {
       "ticker": "ALPA",
@@ -3744,7 +3710,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271196+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111357+00:00"
     },
     {
       "ticker": "ALPINETEX",
@@ -3761,7 +3727,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271207+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111369+00:00"
     },
     {
       "ticker": "ALUFLUOR",
@@ -3778,7 +3744,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271213+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111374+00:00"
     },
     {
       "ticker": "AMAGI",
@@ -3795,7 +3761,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271221+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111380+00:00"
     },
     {
       "ticker": "AMAL",
@@ -3812,7 +3778,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271227+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111386+00:00"
     },
     {
       "ticker": "AMARJOTHI",
@@ -3829,7 +3795,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271238+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111398+00:00"
     },
     {
       "ticker": "AMBER",
@@ -3846,7 +3812,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271250+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111410+00:00"
     },
     {
       "ticker": "AMBICAAGAR",
@@ -3863,7 +3829,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271256+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111416+00:00"
     },
     {
       "ticker": "AMBIKCO",
@@ -3880,7 +3846,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271261+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111422+00:00"
     },
     {
       "ticker": "AMBUJACEM",
@@ -3897,7 +3863,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271267+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111427+00:00"
     },
     {
       "ticker": "AMJLAND",
@@ -3914,7 +3880,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271279+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111438+00:00"
     },
     {
       "ticker": "AMNPLST",
@@ -3931,7 +3897,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271294+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111453+00:00"
     },
     {
       "ticker": "AMRUTANJAN",
@@ -3948,7 +3914,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271300+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111458+00:00"
     },
     {
       "ticker": "ANANDRATHI",
@@ -3965,7 +3931,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271306+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111464+00:00"
     },
     {
       "ticker": "ANANTRAJ",
@@ -3982,7 +3948,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271312+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111470+00:00"
     },
     {
       "ticker": "ANDHRAPAP",
@@ -3999,7 +3965,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271318+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111475+00:00"
     },
     {
       "ticker": "ANDHRSUGAR",
@@ -4016,7 +3982,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271323+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111483+00:00"
     },
     {
       "ticker": "ANDREWYU",
@@ -4033,7 +3999,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271329+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111489+00:00"
     },
     {
       "ticker": "ANGELONE",
@@ -4050,7 +4016,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271335+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111494+00:00"
     },
     {
       "ticker": "ANIKINDS",
@@ -4067,7 +4033,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271340+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111500+00:00"
     },
     {
       "ticker": "ANNAPURNA",
@@ -4084,7 +4050,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271357+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111518+00:00"
     },
     {
       "ticker": "ANNU",
@@ -4101,7 +4067,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271363+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111523+00:00"
     },
     {
       "ticker": "ANSALBU",
@@ -4118,7 +4084,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271374+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111535+00:00"
     },
     {
       "ticker": "ANTELOPUS",
@@ -4135,7 +4101,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271379+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111540+00:00"
     },
     {
       "ticker": "ANTGRAPHIC",
@@ -4152,7 +4118,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271385+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111546+00:00"
     },
     {
       "ticker": "ANTHEM",
@@ -4169,7 +4135,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271391+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111551+00:00"
     },
     {
       "ticker": "ANUHPHR",
@@ -4186,7 +4152,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271396+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111557+00:00"
     },
     {
       "ticker": "ANUP",
@@ -4203,7 +4169,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271402+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111562+00:00"
     },
     {
       "ticker": "ANURAS",
@@ -4220,7 +4186,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271407+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111568+00:00"
     },
     {
       "ticker": "AONESTEELS",
@@ -4237,7 +4203,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271413+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111574+00:00"
     },
     {
       "ticker": "APARINDS",
@@ -4254,7 +4220,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271419+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111579+00:00"
     },
     {
       "ticker": "APCL",
@@ -4271,7 +4237,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271424+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111584+00:00"
     },
     {
       "ticker": "APCOTEXIND",
@@ -4288,7 +4254,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271431+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111590+00:00"
     },
     {
       "ticker": "APEX",
@@ -4305,7 +4271,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271436+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111596+00:00"
     },
     {
       "ticker": "APLAPOLLO",
@@ -4322,7 +4288,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271442+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111602+00:00"
     },
     {
       "ticker": "APLLTD",
@@ -4339,7 +4305,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271448+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111607+00:00"
     },
     {
       "ticker": "APOLLO",
@@ -4356,7 +4322,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271454+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111613+00:00"
     },
     {
       "ticker": "APOLLOHOSP",
@@ -4373,7 +4339,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271460+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111618+00:00"
     },
     {
       "ticker": "APOLLOPIPE",
@@ -4390,7 +4356,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271466+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111624+00:00"
     },
     {
       "ticker": "APOLLOTYRE",
@@ -4407,7 +4373,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271471+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111629+00:00"
     },
     {
       "ticker": "APOLSINHOT",
@@ -4424,7 +4390,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271477+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111635+00:00"
     },
     {
       "ticker": "APTECHT",
@@ -4441,7 +4407,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271488+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111647+00:00"
     },
     {
       "ticker": "APTUS",
@@ -4458,7 +4424,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271494+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111653+00:00"
     },
     {
       "ticker": "AQYLON",
@@ -4475,7 +4441,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271499+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111658+00:00"
     },
     {
       "ticker": "ARCHIDPLY",
@@ -4492,7 +4458,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271505+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111664+00:00"
     },
     {
       "ticker": "ARCHIES",
@@ -4509,7 +4475,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271511+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111669+00:00"
     },
     {
       "ticker": "ARCIL",
@@ -4526,7 +4492,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271517+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111675+00:00"
     },
     {
       "ticker": "ARCL",
@@ -4543,7 +4509,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271522+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111681+00:00"
     },
     {
       "ticker": "ARDEE",
@@ -4560,7 +4526,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271528+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111686+00:00"
     },
     {
       "ticker": "ARE&M",
@@ -4577,7 +4543,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271533+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111692+00:00"
     },
     {
       "ticker": "ARENTERP",
@@ -4594,7 +4560,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271539+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111698+00:00"
     },
     {
       "ticker": "ARFIN",
@@ -4611,7 +4577,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271545+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111704+00:00"
     },
     {
       "ticker": "ARIHANT",
@@ -4628,7 +4594,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271557+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111715+00:00"
     },
     {
       "ticker": "ARIHANTCAP",
@@ -4645,7 +4611,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271563+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111721+00:00"
     },
     {
       "ticker": "ARIHANTSUP",
@@ -4662,7 +4628,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271568+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111727+00:00"
     },
     {
       "ticker": "ARIS",
@@ -4679,7 +4645,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271574+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111733+00:00"
     },
     {
       "ticker": "ARKADE",
@@ -4696,7 +4662,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271580+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111738+00:00"
     },
     {
       "ticker": "ARMANFIN",
@@ -4713,7 +4679,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271586+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111744+00:00"
     },
     {
       "ticker": "ARMEE",
@@ -4730,7 +4696,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271591+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111750+00:00"
     },
     {
       "ticker": "AROGRANITE",
@@ -4747,7 +4713,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271597+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111756+00:00"
     },
     {
       "ticker": "ARROWGREEN",
@@ -4764,7 +4730,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271603+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111762+00:00"
     },
     {
       "ticker": "ARSSBL",
@@ -4781,7 +4747,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271614+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111773+00:00"
     },
     {
       "ticker": "ARTEMISMED",
@@ -4798,7 +4764,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271620+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111800+00:00"
     },
     {
       "ticker": "ARTNIRMAN",
@@ -4815,7 +4781,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271625+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111819+00:00"
     },
     {
       "ticker": "ARVEE",
@@ -4832,7 +4798,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271632+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111828+00:00"
     },
     {
       "ticker": "ARVIND",
@@ -4849,7 +4815,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271638+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111836+00:00"
     },
     {
       "ticker": "ARVINDFASN",
@@ -4866,7 +4832,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271643+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111842+00:00"
     },
     {
       "ticker": "ARVSMART",
@@ -4883,7 +4849,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271658+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111849+00:00"
     },
     {
       "ticker": "ARYAMAN",
@@ -4900,7 +4866,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271664+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111855+00:00"
     },
     {
       "ticker": "ASAHIINDIA",
@@ -4917,7 +4883,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271669+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111861+00:00"
     },
     {
       "ticker": "ASAL",
@@ -4934,7 +4900,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271689+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111874+00:00"
     },
     {
       "ticker": "ASALCBR",
@@ -4951,7 +4917,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271698+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111880+00:00"
     },
     {
       "ticker": "ASHAPURMIN",
@@ -4968,7 +4934,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271716+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111904+00:00"
     },
     {
       "ticker": "ASHIANA",
@@ -4985,7 +4951,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271722+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111912+00:00"
     },
     {
       "ticker": "ASHIMASYN",
@@ -5002,7 +4968,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271734+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111925+00:00"
     },
     {
       "ticker": "ASHOKA",
@@ -5019,7 +4985,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271739+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111931+00:00"
     },
     {
       "ticker": "ASHOKAMET",
@@ -5036,7 +5002,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271745+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111936+00:00"
     },
     {
       "ticker": "ASHOKLEY",
@@ -5053,7 +5019,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271751+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111943+00:00"
     },
     {
       "ticker": "ASIANENE",
@@ -5070,7 +5036,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271757+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111949+00:00"
     },
     {
       "ticker": "ASIANHOTNR",
@@ -5087,7 +5053,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271763+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111955+00:00"
     },
     {
       "ticker": "ASIANPAINT",
@@ -5104,7 +5070,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271769+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111961+00:00"
     },
     {
       "ticker": "ASIANTILES",
@@ -5121,7 +5087,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271774+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111967+00:00"
     },
     {
       "ticker": "ASIANTNE",
@@ -5138,7 +5104,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271780+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111974+00:00"
     },
     {
       "ticker": "ASKAUTOLTD",
@@ -5155,7 +5121,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271786+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111980+00:00"
     },
     {
       "ticker": "ASMS",
@@ -5172,7 +5138,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271792+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111986+00:00"
     },
     {
       "ticker": "ASPINWALL",
@@ -5189,7 +5155,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271797+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111992+00:00"
     },
     {
       "ticker": "ASSAMENT",
@@ -5206,7 +5172,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271803+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.111998+00:00"
     },
     {
       "ticker": "ASTAR",
@@ -5223,7 +5189,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271808+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112006+00:00"
     },
     {
       "ticker": "ASTEC",
@@ -5240,7 +5206,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271814+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112013+00:00"
     },
     {
       "ticker": "ASTERDM",
@@ -5257,7 +5223,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271820+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112021+00:00"
     },
     {
       "ticker": "ASTRAL",
@@ -5274,7 +5240,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271826+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112027+00:00"
     },
     {
       "ticker": "ASTRAMICRO",
@@ -5291,7 +5257,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271832+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112034+00:00"
     },
     {
       "ticker": "ASTRAZEN",
@@ -5308,7 +5274,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271838+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112040+00:00"
     },
     {
       "ticker": "ATALREAL",
@@ -5325,7 +5291,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271849+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112052+00:00"
     },
     {
       "ticker": "ATAM",
@@ -5342,7 +5308,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271855+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112061+00:00"
     },
     {
       "ticker": "ATGL",
@@ -5359,7 +5325,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271860+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112067+00:00"
     },
     {
       "ticker": "ATHERENERG",
@@ -5376,7 +5342,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271866+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112073+00:00"
     },
     {
       "ticker": "ATL",
@@ -5393,7 +5359,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271872+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112079+00:00"
     },
     {
       "ticker": "ATLANTAA",
@@ -5410,7 +5376,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271881+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112098+00:00"
     },
     {
       "ticker": "ATLANTAELE",
@@ -5427,7 +5393,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271887+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112104+00:00"
     },
     {
       "ticker": "ATLASCYCLE",
@@ -5444,7 +5410,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271894+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112110+00:00"
     },
     {
       "ticker": "ATUL",
@@ -5461,7 +5427,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271899+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112117+00:00"
     },
     {
       "ticker": "ATULAUTO",
@@ -5478,7 +5444,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271905+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112123+00:00"
     },
     {
       "ticker": "AUBANK",
@@ -5495,7 +5461,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271911+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112129+00:00"
     },
     {
       "ticker": "AUGMONT",
@@ -5512,7 +5478,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271917+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112135+00:00"
     },
     {
       "ticker": "AURIONPRO",
@@ -5529,7 +5495,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271922+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112141+00:00"
     },
     {
       "ticker": "AUROPHARMA",
@@ -5546,7 +5512,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271928+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112147+00:00"
     },
     {
       "ticker": "AURUM",
@@ -5563,7 +5529,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271933+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112153+00:00"
     },
     {
       "ticker": "AURUS",
@@ -5580,7 +5546,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271939+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112159+00:00"
     },
     {
       "ticker": "AUSOMENT",
@@ -5597,7 +5563,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271944+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112164+00:00"
     },
     {
       "ticker": "AUSTENG",
@@ -5614,7 +5580,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271950+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112170+00:00"
     },
     {
       "ticker": "AUTOAXLES",
@@ -5631,7 +5597,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271956+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112176+00:00"
     },
     {
       "ticker": "AUTOIND",
@@ -5648,7 +5614,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271961+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112182+00:00"
     },
     {
       "ticker": "AVADHSUGAR",
@@ -5665,7 +5631,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271967+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112187+00:00"
     },
     {
       "ticker": "AVALON",
@@ -5682,7 +5648,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271972+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112193+00:00"
     },
     {
       "ticker": "AVANCE",
@@ -5699,7 +5665,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271978+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112199+00:00"
     },
     {
       "ticker": "AVANTEL",
@@ -5716,7 +5682,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271984+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112204+00:00"
     },
     {
       "ticker": "AVANTIFEED",
@@ -5733,7 +5699,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271989+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112210+00:00"
     },
     {
       "ticker": "AVG",
@@ -5750,7 +5716,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.271995+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112216+00:00"
     },
     {
       "ticker": "AVL",
@@ -5767,7 +5733,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272001+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112222+00:00"
     },
     {
       "ticker": "AVONMORE",
@@ -5784,7 +5750,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272007+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112235+00:00"
     },
     {
       "ticker": "AVROIND",
@@ -5801,7 +5767,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272012+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112241+00:00"
     },
     {
       "ticker": "AVTNPL",
@@ -5818,7 +5784,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272018+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112246+00:00"
     },
     {
       "ticker": "AWFIS",
@@ -5835,7 +5801,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272024+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112252+00:00"
     },
     {
       "ticker": "AWHCL",
@@ -5852,7 +5818,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272029+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112258+00:00"
     },
     {
       "ticker": "AWL",
@@ -5869,7 +5835,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272035+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112268+00:00"
     },
     {
       "ticker": "AXISCADES",
@@ -5886,7 +5852,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272041+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112274+00:00"
     },
     {
       "ticker": "AXITA",
@@ -5903,7 +5869,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272047+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112280+00:00"
     },
     {
       "ticker": "AXTEL",
@@ -5920,7 +5886,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272052+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112286+00:00"
     },
     {
       "ticker": "AYE",
@@ -5937,7 +5903,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272058+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112291+00:00"
     },
     {
       "ticker": "AYMSYNTEX",
@@ -5954,7 +5920,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272063+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112297+00:00"
     },
     {
       "ticker": "AZAD",
@@ -5971,7 +5937,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272069+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112303+00:00"
     },
     {
       "ticker": "AZADIND",
@@ -5988,7 +5954,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272075+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112308+00:00"
     },
     {
       "ticker": "BAGFILMS",
@@ -6005,7 +5971,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272086+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112320+00:00"
     },
     {
       "ticker": "BAIDFIN",
@@ -6022,7 +5988,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272092+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112326+00:00"
     },
     {
       "ticker": "BAJAJCON",
@@ -6039,7 +6005,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272097+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112332+00:00"
     },
     {
       "ticker": "BAJAJELEC",
@@ -6056,7 +6022,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272103+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112338+00:00"
     },
     {
       "ticker": "BAJAJFINSV",
@@ -6073,7 +6039,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272108+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112344+00:00"
     },
     {
       "ticker": "BAJAJHCARE",
@@ -6090,7 +6056,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272114+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112349+00:00"
     },
     {
       "ticker": "BAJAJHFL",
@@ -6107,7 +6073,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272119+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112355+00:00"
     },
     {
       "ticker": "BAJAJHIND",
@@ -6124,7 +6090,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272136+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112372+00:00"
     },
     {
       "ticker": "BAJAJHLDNG",
@@ -6141,7 +6107,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272142+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112379+00:00"
     },
     {
       "ticker": "BAJAJINDEF",
@@ -6158,7 +6124,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272147+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112385+00:00"
     },
     {
       "ticker": "BAJAJST",
@@ -6175,7 +6141,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272153+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112391+00:00"
     },
     {
       "ticker": "BAJEL",
@@ -6192,7 +6158,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272159+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112397+00:00"
     },
     {
       "ticker": "BALAJEE",
@@ -6209,7 +6175,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272165+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112404+00:00"
     },
     {
       "ticker": "BALAJITELE",
@@ -6226,7 +6192,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272171+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112409+00:00"
     },
     {
       "ticker": "BALAMINES",
@@ -6243,7 +6209,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272176+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112415+00:00"
     },
     {
       "ticker": "BALAXI",
@@ -6260,7 +6226,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272182+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112421+00:00"
     },
     {
       "ticker": "BALKRISHNA",
@@ -6277,7 +6243,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272188+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112427+00:00"
     },
     {
       "ticker": "BALKRISIND",
@@ -6294,7 +6260,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272194+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112433+00:00"
     },
     {
       "ticker": "BALMLAWRIE",
@@ -6311,7 +6277,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272199+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112438+00:00"
     },
     {
       "ticker": "BALRAMCHIN",
@@ -6328,7 +6294,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272211+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112450+00:00"
     },
     {
       "ticker": "BALUFORGE",
@@ -6345,7 +6311,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272217+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112456+00:00"
     },
     {
       "ticker": "BANARBEADS",
@@ -6362,7 +6328,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272223+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112461+00:00"
     },
     {
       "ticker": "BANARISUG",
@@ -6379,7 +6345,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272228+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112467+00:00"
     },
     {
       "ticker": "BANCOINDIA",
@@ -6396,7 +6362,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272234+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112473+00:00"
     },
     {
       "ticker": "BANDHANBNK",
@@ -6413,7 +6379,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272239+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112479+00:00"
     },
     {
       "ticker": "BANG",
@@ -6430,7 +6396,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272245+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112485+00:00"
     },
     {
       "ticker": "BANKA",
@@ -6447,7 +6413,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272250+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112490+00:00"
     },
     {
       "ticker": "BANKINDIA",
@@ -6464,7 +6430,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272256+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112496+00:00"
     },
     {
       "ticker": "BANSALWIRE",
@@ -6481,7 +6447,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272262+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112502+00:00"
     },
     {
       "ticker": "BANSWRAS",
@@ -6498,7 +6464,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272270+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112507+00:00"
     },
     {
       "ticker": "BASF",
@@ -6515,7 +6481,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272277+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112513+00:00"
     },
     {
       "ticker": "BASML",
@@ -6532,7 +6498,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272283+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112519+00:00"
     },
     {
       "ticker": "BATAINDIA",
@@ -6549,7 +6515,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272289+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112525+00:00"
     },
     {
       "ticker": "BATLIBOI",
@@ -6566,7 +6532,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272295+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112531+00:00"
     },
     {
       "ticker": "BAYERCROP",
@@ -6583,7 +6549,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272301+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112536+00:00"
     },
     {
       "ticker": "BBL",
@@ -6600,7 +6566,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272307+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112542+00:00"
     },
     {
       "ticker": "BBOX",
@@ -6617,7 +6583,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272313+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112548+00:00"
     },
     {
       "ticker": "BBTC",
@@ -6634,7 +6600,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272319+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112554+00:00"
     },
     {
       "ticker": "BBTCL",
@@ -6651,7 +6617,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272325+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112560+00:00"
     },
     {
       "ticker": "BCLIND",
@@ -6668,7 +6634,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272337+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112572+00:00"
     },
     {
       "ticker": "BCONCEPTS",
@@ -6685,7 +6651,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272344+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112578+00:00"
     },
     {
       "ticker": "BCPL",
@@ -6702,7 +6668,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272349+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112584+00:00"
     },
     {
       "ticker": "BDL",
@@ -6719,7 +6685,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272356+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112590+00:00"
     },
     {
       "ticker": "BEARDSELL",
@@ -6736,7 +6702,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272362+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112595+00:00"
     },
     {
       "ticker": "BECTORFOOD",
@@ -6753,7 +6719,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272368+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112601+00:00"
     },
     {
       "ticker": "BEDMUTHA",
@@ -6770,7 +6736,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272374+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112606+00:00"
     },
     {
       "ticker": "BEEKAY",
@@ -6787,7 +6753,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272381+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112612+00:00"
     },
     {
       "ticker": "BEL",
@@ -6804,7 +6770,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272386+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112618+00:00"
     },
     {
       "ticker": "BELDING",
@@ -6821,7 +6787,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272393+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112624+00:00"
     },
     {
       "ticker": "BELLACASA",
@@ -6838,7 +6804,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272399+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112629+00:00"
     },
     {
       "ticker": "BELRISE",
@@ -6855,7 +6821,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272405+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112635+00:00"
     },
     {
       "ticker": "BEML",
@@ -6872,7 +6838,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272412+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112641+00:00"
     },
     {
       "ticker": "BENARAS",
@@ -6889,7 +6855,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272418+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112647+00:00"
     },
     {
       "ticker": "BENGALASM",
@@ -6906,7 +6872,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272424+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112653+00:00"
     },
     {
       "ticker": "BEPL",
@@ -6923,7 +6889,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272430+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112659+00:00"
     },
     {
       "ticker": "BERGEPAINT",
@@ -6940,7 +6906,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272436+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112665+00:00"
     },
     {
       "ticker": "BESTAGRO",
@@ -6957,7 +6923,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272442+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112671+00:00"
     },
     {
       "ticker": "BETA",
@@ -6974,7 +6940,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272448+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112676+00:00"
     },
     {
       "ticker": "BFINVEST",
@@ -6991,7 +6957,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272454+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112682+00:00"
     },
     {
       "ticker": "BFUTILITIE",
@@ -7008,7 +6974,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272460+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112688+00:00"
     },
     {
       "ticker": "BHAGCHEM",
@@ -7025,7 +6991,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272472+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112700+00:00"
     },
     {
       "ticker": "BHAGERIA",
@@ -7042,7 +7008,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272478+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112707+00:00"
     },
     {
       "ticker": "BHANDARI",
@@ -7059,7 +7025,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272490+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112719+00:00"
     },
     {
       "ticker": "BHARATCOAL",
@@ -7076,7 +7042,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272496+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112725+00:00"
     },
     {
       "ticker": "BHARATFORG",
@@ -7093,7 +7059,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272503+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112731+00:00"
     },
     {
       "ticker": "BHARATRAS",
@@ -7110,7 +7076,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272514+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112742+00:00"
     },
     {
       "ticker": "BHARATSE",
@@ -7127,7 +7093,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272520+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112748+00:00"
     },
     {
       "ticker": "BHARATWIRE",
@@ -7144,7 +7110,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272526+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112754+00:00"
     },
     {
       "ticker": "BHARTIHEXA",
@@ -7161,7 +7127,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272532+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112760+00:00"
     },
     {
       "ticker": "BHEL",
@@ -7178,7 +7144,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272538+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.112844+00:00"
     },
     {
       "ticker": "BIGBLOC",
@@ -7195,7 +7161,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272567+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113680+00:00"
     },
     {
       "ticker": "BIKAJI",
@@ -7212,7 +7178,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272573+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113688+00:00"
     },
     {
       "ticker": "BIL",
@@ -7229,7 +7195,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272579+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113694+00:00"
     },
     {
       "ticker": "BIMETAL",
@@ -7246,7 +7212,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272592+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113707+00:00"
     },
     {
       "ticker": "BIOCON",
@@ -7263,7 +7229,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272598+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113713+00:00"
     },
     {
       "ticker": "BIOFILCHEM",
@@ -7280,7 +7246,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272604+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113720+00:00"
     },
     {
       "ticker": "BIRLACABLE",
@@ -7297,7 +7263,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272610+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113726+00:00"
     },
     {
       "ticker": "BIRLACORPN",
@@ -7314,7 +7280,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272616+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113732+00:00"
     },
     {
       "ticker": "BIRLAMONEY",
@@ -7331,7 +7297,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272622+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113738+00:00"
     },
     {
       "ticker": "BIRLANU",
@@ -7348,7 +7314,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272629+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113743+00:00"
     },
     {
       "ticker": "BLACKBUCK",
@@ -7365,7 +7331,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272641+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113755+00:00"
     },
     {
       "ticker": "BLACKROSE",
@@ -7382,7 +7348,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272647+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113761+00:00"
     },
     {
       "ticker": "BLAL",
@@ -7399,7 +7365,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272653+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113767+00:00"
     },
     {
       "ticker": "BLBLIMITED",
@@ -7416,7 +7382,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272659+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113773+00:00"
     },
     {
       "ticker": "BLEL",
@@ -7433,7 +7399,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272665+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113779+00:00"
     },
     {
       "ticker": "BLIL",
@@ -7450,7 +7416,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272671+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113785+00:00"
     },
     {
       "ticker": "BLKASHYAP",
@@ -7467,7 +7433,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272683+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113796+00:00"
     },
     {
       "ticker": "BLSE",
@@ -7484,7 +7450,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272689+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113802+00:00"
     },
     {
       "ticker": "BLUECLOUDS",
@@ -7501,7 +7467,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272695+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113808+00:00"
     },
     {
       "ticker": "BLUECOAST",
@@ -7518,7 +7484,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272701+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113814+00:00"
     },
     {
       "ticker": "BLUEDART",
@@ -7535,7 +7501,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272708+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113819+00:00"
     },
     {
       "ticker": "BLUEJET",
@@ -7552,7 +7518,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272714+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113825+00:00"
     },
     {
       "ticker": "BLUESTARCO",
@@ -7569,7 +7535,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272720+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113831+00:00"
     },
     {
       "ticker": "BLUESTONE",
@@ -7586,7 +7552,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272726+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113837+00:00"
     },
     {
       "ticker": "BLUSPRING",
@@ -7603,7 +7569,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272732+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113843+00:00"
     },
     {
       "ticker": "BMWVENTLTD",
@@ -7620,7 +7586,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272738+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113848+00:00"
     },
     {
       "ticker": "BNAGROCHEM",
@@ -7637,7 +7603,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272744+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113854+00:00"
     },
     {
       "ticker": "BOHRAIND",
@@ -7654,7 +7620,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272763+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113871+00:00"
     },
     {
       "ticker": "BOMDYEING",
@@ -7671,7 +7637,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272769+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113877+00:00"
     },
     {
       "ticker": "BONLON",
@@ -7688,7 +7654,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272776+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113883+00:00"
     },
     {
       "ticker": "BORANA",
@@ -7705,7 +7671,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272782+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113890+00:00"
     },
     {
       "ticker": "BOROLTD",
@@ -7722,7 +7688,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272789+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113896+00:00"
     },
     {
       "ticker": "BORORENEW",
@@ -7739,7 +7705,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272795+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113902+00:00"
     },
     {
       "ticker": "BOROSCI",
@@ -7756,7 +7722,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272801+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113908+00:00"
     },
     {
       "ticker": "BOSCH-HCIL",
@@ -7773,7 +7739,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272807+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113914+00:00"
     },
     {
       "ticker": "BOSCHLTD",
@@ -7790,7 +7756,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272813+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113920+00:00"
     },
     {
       "ticker": "BPL",
@@ -7807,7 +7773,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272819+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113926+00:00"
     },
     {
       "ticker": "BPLPHARMA",
@@ -7824,7 +7790,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272825+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113932+00:00"
     },
     {
       "ticker": "BRAHMINFRA",
@@ -7841,7 +7807,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272831+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113938+00:00"
     },
     {
       "ticker": "BRIGADE",
@@ -7858,7 +7824,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272837+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113944+00:00"
     },
     {
       "ticker": "BRIGHOTEL",
@@ -7875,7 +7841,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272843+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113950+00:00"
     },
     {
       "ticker": "BRIGHTBR",
@@ -7892,7 +7858,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272849+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113956+00:00"
     },
     {
       "ticker": "BRITANNIA",
@@ -7909,7 +7875,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272855+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113962+00:00"
     },
     {
       "ticker": "BRNL",
@@ -7926,7 +7892,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272862+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113968+00:00"
     },
     {
       "ticker": "BROOKS",
@@ -7943,7 +7909,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272868+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113974+00:00"
     },
     {
       "ticker": "BSE",
@@ -7960,7 +7926,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272873+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113979+00:00"
     },
     {
       "ticker": "BSHSL",
@@ -7977,7 +7943,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272880+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113985+00:00"
     },
     {
       "ticker": "BSL",
@@ -7994,7 +7960,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272885+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113991+00:00"
     },
     {
       "ticker": "BSOFT",
@@ -8011,7 +7977,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272891+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.113997+00:00"
     },
     {
       "ticker": "BTML",
@@ -8028,7 +7994,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272897+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114002+00:00"
     },
     {
       "ticker": "BUILDPRO",
@@ -8045,7 +8011,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272909+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114014+00:00"
     },
     {
       "ticker": "BUTTERFLY",
@@ -8062,7 +8028,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272922+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114026+00:00"
     },
     {
       "ticker": "BVCL",
@@ -8079,7 +8045,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272928+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114032+00:00"
     },
     {
       "ticker": "BYKE",
@@ -8096,7 +8062,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272934+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114038+00:00"
     },
     {
       "ticker": "CAMLINFINE",
@@ -8113,7 +8079,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272947+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114050+00:00"
     },
     {
       "ticker": "CAMPUS",
@@ -8130,7 +8096,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272953+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114056+00:00"
     },
     {
       "ticker": "CAMS",
@@ -8147,7 +8113,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272959+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114062+00:00"
     },
     {
       "ticker": "CANBK",
@@ -8164,7 +8130,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272965+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114067+00:00"
     },
     {
       "ticker": "CANFINHOME",
@@ -8181,7 +8147,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272972+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114073+00:00"
     },
     {
       "ticker": "CANHLIFE",
@@ -8198,7 +8164,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272978+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114079+00:00"
     },
     {
       "ticker": "CANTABIL",
@@ -8215,7 +8181,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.272985+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114086+00:00"
     },
     {
       "ticker": "CAPACITE",
@@ -8232,7 +8198,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273019+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114104+00:00"
     },
     {
       "ticker": "CAPILLARY",
@@ -8249,7 +8215,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273026+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114110+00:00"
     },
     {
       "ticker": "CAPITALSFB",
@@ -8266,7 +8232,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273033+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114116+00:00"
     },
     {
       "ticker": "CAPLIPOINT",
@@ -8283,7 +8249,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273039+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114122+00:00"
     },
     {
       "ticker": "CARBORUNIV",
@@ -8300,7 +8266,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273051+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114136+00:00"
     },
     {
       "ticker": "CARERATING",
@@ -8317,7 +8283,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273058+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114146+00:00"
     },
     {
       "ticker": "CARRARO",
@@ -8334,7 +8300,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273064+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114154+00:00"
     },
     {
       "ticker": "CARTRADE",
@@ -8351,7 +8317,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273070+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114161+00:00"
     },
     {
       "ticker": "CARYSIL",
@@ -8368,7 +8334,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273076+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114166+00:00"
     },
     {
       "ticker": "CASTROLIND",
@@ -8385,7 +8351,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273082+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114172+00:00"
     },
     {
       "ticker": "CCAVENUE",
@@ -8402,7 +8368,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273089+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114178+00:00"
     },
     {
       "ticker": "CCCL",
@@ -8419,7 +8385,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273095+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114184+00:00"
     },
     {
       "ticker": "CCHHL",
@@ -8436,7 +8402,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273102+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114189+00:00"
     },
     {
       "ticker": "CCL",
@@ -8453,7 +8419,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273109+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114196+00:00"
     },
     {
       "ticker": "CEATLTD",
@@ -8470,7 +8436,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273115+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114203+00:00"
     },
     {
       "ticker": "CEIGALL",
@@ -8487,7 +8453,7 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273121+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114208+00:00"
     },
     {
       "ticker": "CEINSYS",
@@ -8504,7 +8470,41 @@
       "market_cap_tier": "Large",
       "active_status": "Active",
       "provenance_source": "nse_universe.csv (Official Exchange Feed)",
-      "retrieved_at": "2026-10-24T14:18:02.273128+00:00"
+      "retrieved_at": "2026-10-24T16:04:23.114214+00:00"
+    },
+    {
+      "ticker": "CELEBRITY",
+      "name": "Celebrity Fashions Limited",
+      "exchange": "NSE",
+      "yahoo_symbol": "CELEBRITY.NS",
+      "isin": "",
+      "bse_code": "",
+      "segment": "main",
+      "role": "control",
+      "surveillance_flag": false,
+      "listing_date": "2006-01-12",
+      "free_float_pct": null,
+      "market_cap_tier": "Large",
+      "active_status": "Active",
+      "provenance_source": "nse_universe.csv (Official Exchange Feed)",
+      "retrieved_at": "2026-10-24T16:04:23.114220+00:00"
+    },
+    {
+      "ticker": "CELLO",
+      "name": "Cello World Limited",
+      "exchange": "NSE",
+      "yahoo_symbol": "CELLO.NS",
+      "isin": "",
+      "bse_code": "",
+      "segment": "main",
+      "role": "control",
+      "surveillance_flag": false,
+      "listing_date": "2023-11-06",
+      "free_float_pct": null,
+      "market_cap_tier": "Large",
+      "active_status": "Active",
+      "provenance_source": "nse_universe.csv (Official Exchange Feed)",
+      "retrieved_at": "2026-10-24T16:04:23.114226+00:00"
     }
   ]
 }

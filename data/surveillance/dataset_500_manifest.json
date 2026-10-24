@@ -1,6 +1,6 @@
 {
   "dataset_version": "1.0.0",
-  "total_windows": 2952,
+  "total_windows": 4910,
   "feature_columns": [
     "return_1d",
     "return_5d",
@@ -20,28 +20,33 @@
     "delivery_pct"
   ],
   "purge_embargo_days": 15,
+  "provenance_summary": {
+    "CACHED_REAL_SOURCE_DATA": 496,
+    "SYNTHETIC_TEST_DATA": 0,
+    "UNAVAILABLE_DELISTED": 4
+  },
   "splits": {
     "train": {
-      "count": 1024,
-      "positive_count": 59,
-      "negative_count": 965,
-      "positive_ratio": 0.0576,
-      "date_min": "2024-04-15",
-      "date_max": "2026-09-30"
+      "count": 2946,
+      "positive_count": 15,
+      "negative_count": 2931,
+      "positive_ratio": 0.0051,
+      "date_min": "2022-06-15",
+      "date_max": "2024-09-15"
     },
     "val": {
-      "count": 970,
-      "positive_count": 12,
-      "negative_count": 958,
-      "positive_ratio": 0.0124,
+      "count": 982,
+      "positive_count": 4,
+      "negative_count": 978,
+      "positive_ratio": 0.0041,
       "date_min": "2025-05-15",
-      "date_max": "2026-09-30"
+      "date_max": "2025-10-15"
     },
     "test": {
-      "count": 958,
-      "positive_count": 5,
-      "negative_count": 953,
-      "positive_ratio": 0.0052,
+      "count": 982,
+      "positive_count": 8,
+      "negative_count": 974,
+      "positive_ratio": 0.0081,
       "date_min": "2026-04-15",
       "date_max": "2026-09-30"
     }
@@ -53,5 +58,5 @@
   },
   "parquet_path": "D:\\dakota V4 with telegram integrated\\dakota integ. d11 final prototype1 minus telegram feature\\dakota\\data\\surveillance\\surveillance_dataset_500.parquet",
   "manifest_path": "D:\\dakota V4 with telegram integrated\\dakota integ. d11 final prototype1 minus telegram feature\\dakota\\data\\surveillance\\dataset_500_manifest.json",
-  "generated_at": "2026-10-24T14:18:08.016857+00:00"
+  "generated_at": "2026-10-24T16:06:16.339995+00:00"
 }

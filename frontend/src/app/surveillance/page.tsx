@@ -68,6 +68,8 @@ type QNPrediction = {
   is_real_model: boolean;
   data_freshness: string;
   latency_ms: number;
+  effective_threshold?: number;
+  alert_triggered?: boolean;
   disclaimer: string;
 };
 
@@ -478,9 +480,21 @@ export default function SurveillancePage() {
                       <span className="text-xs font-mono text-slate-400">
                         Prob: {(analysis.qn_prediction.manipulation_probability * 100).toFixed(1)}%
                       </span>
+                      {analysis.qn_prediction.alert_triggered != null && (
+                        <span
+                          className={`px-2 py-0.5 rounded font-mono text-[10px] font-semibold ${
+                            analysis.qn_prediction.alert_triggered
+                              ? "bg-rose-900/60 text-rose-200 border border-rose-700"
+                              : "bg-slate-800 text-slate-400"
+                          }`}
+                        >
+                          {analysis.qn_prediction.alert_triggered ? "ALERT TRIGGERED" : "BELOW THRESHOLD"}
+                        </span>
+                      )}
                     </div>
 
                     <div className="mt-4 pt-3 border-t border-white/[0.08] text-[11px] font-mono text-slate-400 space-y-1">
+                      <div>Threshold: <strong className="text-slate-200">{((analysis.qn_prediction.effective_threshold ?? 0.012) * 100).toFixed(1)}%</strong></div>
                       <div>Confidence: <strong className="text-slate-200">{(analysis.qn_prediction.confidence * 100).toFixed(1)}%</strong></div>
                       <div>Model: <strong className="text-slate-200">{analysis.qn_prediction.model_version}</strong></div>
                       <div>Latency: <strong className="text-slate-200">{analysis.qn_prediction.latency_ms.toFixed(1)} ms</strong></div>

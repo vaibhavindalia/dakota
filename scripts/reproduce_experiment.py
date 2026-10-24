@@ -37,12 +37,25 @@ logger = logging.getLogger("reproduce_experiment")
 def run_pipeline(
     random_state: int = 42,
     purge_days: int = 15,
+    allow_synthetic: bool = False,
     output_report_path: Path | None = None,
 ) -> dict:
     start_time = time.perf_counter()
     logger.info("======================================================================")
     logger.info("DAKOTA INDIAN STOCK MANIPULATION SURVEILLANCE RESEARCH PIPELINE")
     logger.info("======================================================================")
+
+    # Step 0: Data Quality & Provenance Audit
+    logger.info("--- STEP 0: Forensic Data Quality & Provenance Audit (500 Equities) ---")
+    from src.surveillance.data_audit import run_universe_data_audit
+    data_audit_summary = run_universe_data_audit()
+    logger.info(
+        "Data audit complete: %d / %d usable (%.1f%%). Delisted/Unavailable: %d",
+        data_audit_summary["usable_equities_count"],
+        data_audit_summary["total_equities_audited"],
+        data_audit_summary["usable_percentage"],
+        data_audit_summary["unusable_equities_count"],
+    )
 
     # Step 1: Universe Verification
     logger.info("--- STEP 1: Verifying 500-Equity Surveillance Universe ---")
@@ -69,9 +82,9 @@ def run_pipeline(
     )
 
     # Step 3: Dataset Construction & Walk-Forward Splitting
-    logger.info("--- STEP 3: Constructing Walk-Forward Splits (Embargo: %d days) ---", purge_days)
+    logger.info("--- STEP 3: Constructing Walk-Forward Splits (Embargo: %d days, allow_synthetic=%s) ---", purge_days, allow_synthetic)
     dataset_builder.purge_days = purge_days
-    manifest = dataset_builder.build_dataset()
+    manifest = dataset_builder.build_dataset(allow_synthetic=allow_synthetic)
     splits = manifest["splits"]
     logger.info(
         "Splits constructed: Train=%d (pos=%d), Val=%d (pos=%d), Test=%d (pos=%d)",
@@ -89,8 +102,8 @@ def run_pipeline(
         manifest["leakage_invariants"]["cross_split_event_overlap"],
     )
 
-    # Step 4: Model Training with Calibrated Estimator
-    logger.info("--- STEP 4: Training Calibrated QN Quantitative Manipulation Model ---")
+    # Step 4: Model Training with Calibrated Estimator & Validation Threshold Tuning
+    logger.info("--- STEP 4: Training Calibrated QN Model with Validation-Tuned Operating Threshold ---")
     model = QNManipulationModel(random_state=random_state)
     val_report, test_report, model_meta = model.train()
 
@@ -129,11 +142,21 @@ def run_pipeline(
         "configuration": {
             "random_state": random_state,
             "purge_embargo_days": purge_days,
+            "allow_synthetic": allow_synthetic,
             "target_universe_size": 500,
         },
         "universe_summary": uni_summary,
         "evidence_summary": ev_summary,
+        "data_quality_summary": {
+            "total_equities_audited": data_audit_summary["total_equities_audited"],
+            "usable_equities_count": data_audit_summary["usable_equities_count"],
+            "usable_percentage": data_audit_summary["usable_percentage"],
+            "unusable_equities_count": data_audit_summary["unusable_equities_count"],
+            "provenance_breakdown": data_audit_summary["provenance_breakdown"],
+            "aggregate_telemetry": data_audit_summary["aggregate_telemetry"],
+        },
         "dataset_splits": splits,
+        "operating_threshold": model_meta.get("operating_threshold", 0.50),
         "validation_metrics": val_report.to_dict(),
         "holdout_test_metrics": test_report.to_dict(),
         "inference_probe_checks": probe_results,
@@ -150,8 +173,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Reproduce Dakota QN Surveillance Experiment")
     parser.add_argument("--seed", type=int, default=42, help="Random seed for model training")
     parser.add_argument("--purge-days", type=int, default=15, help="Embargo purge window in days")
+    parser.add_argument("--allow-synthetic", action="store_true", default=False, help="Allow synthetic fallback for test suites")
     parser.add_argument("--out", type=str, default="", help="Optional output JSON report path")
     args = parser.parse_args()
 
     out_p = Path(args.out) if args.out else None
-    run_pipeline(random_state=args.seed, purge_days=args.purge_days, output_report_path=out_p)
+    run_pipeline(
+        random_state=args.seed,
+        purge_days=args.purge_days,
+        allow_synthetic=args.allow_synthetic,
+        output_report_path=out_p,
+    )

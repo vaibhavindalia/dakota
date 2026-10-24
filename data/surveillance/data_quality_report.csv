@@ -1,0 +1,501 @@
+ticker,target_ticker,exchange,company_name,role,segment,surveillance_flag,is_usable,provenance,row_count,min_date,max_date,missing_sessions_count,invalid_ohlc_count,nonpositive_volume_count,suspicious_jumps_count,defect_notes
+CLOUD,CLOUD,NSE,Varanium Cloud Limited,case,main,True,False,UNAVAILABLE_DELISTED,0,,,0,0,0,0,No cached parquet file found. Delisted or listing withheld prior to data ingestion.
+ASRL,ASRL,BSE,Add-Shop E-Retail Limited,case,main,True,True,CACHED_REAL_SOURCE_DATA,928,2023-01-02,2026-10-09,57,0,1,0,1 nonpositive volume sessions
+TRAFIKSOL,TRAFIKSOL,BSE,Trafiksol ITS Technologies Limited,case,main,True,False,UNAVAILABLE_DELISTED,0,,,0,0,0,0,No cached parquet file found. Delisted or listing withheld prior to data ingestion.
+BRIGHTCOM,BCG,NSE,BRIGHTCOM,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,242,1,242 nonpositive volume sessions; 1 extreme single-day jumps >50%
+SADHNABROAD,SADHNANIQ,NSE,SADHNABROAD,control,main,False,True,CACHED_REAL_SOURCE_DATA,849,2023-05-05,2026-10-09,47,0,3,1,3 nonpositive volume sessions; 1 extreme single-day jumps >50%
+SHARPLINE,SHARPLINE,BSE,Sharpline Broadcast Limited,case,main,True,True,CACHED_REAL_SOURCE_DATA,1136,2022-03-15,2026-10-23,68,0,39,0,39 nonpositive volume sessions
+RADFORD,RADFORD,BSE,Radford Global Limited,case,main,True,False,UNAVAILABLE_DELISTED,0,,,0,0,0,0,No cached parquet file found. Delisted or listing withheld prior to data ingestion.
+MANPASAND,MANPASAND,NSE,Manpasand Beverages Limited,case,main,True,False,UNAVAILABLE_DELISTED,0,,,0,0,0,0,No cached parquet file found. Delisted or listing withheld prior to data ingestion.
+EROSMEDIA,EROSMEDIA,NSE,Eros International Media Limited,case,main,True,True,CACHED_REAL_SOURCE_DATA,1236,2021-10-25,2026-10-23,69,0,434,0,434 nonpositive volume sessions
+GICL,GICL,NSE,Gitanjali Gems Limited,case,main,True,True,CACHED_REAL_SOURCE_DATA,929,2023-01-02,2026-10-09,56,0,142,1,142 nonpositive volume sessions; 1 extreme single-day jumps >50%
+AFCOM,AFCOM,BSE,Afcom Holdings Limited,case,main,True,True,CACHED_REAL_SOURCE_DATA,536,2024-08-09,2026-10-09,30,0,1,0,1 nonpositive volume sessions
+DRONACHRYA,DRONACHRYA,BSE,DroneAcharya Aerial Innovations Limited,case,main,True,True,CACHED_REAL_SOURCE_DATA,928,2023-01-02,2026-10-09,57,1,3,0,1 OHLC invariant violations; 3 nonpositive volume sessions
+BAHETI,BAHETI,NSE,Baheti Recycling Industries Limited,case,main,True,True,CACHED_REAL_SOURCE_DATA,955,2022-12-08,2026-10-23,57,0,15,0,15 nonpositive volume sessions
+BASILIC,BASILIC,NSE,Basilic Fly Studio Limited,case,main,True,True,CACHED_REAL_SOURCE_DATA,767,2023-09-11,2026-10-23,48,0,1,0,1 nonpositive volume sessions
+EXHICON,EXHICON,BSE,Exhicon Events Media Solutions Limited,case,main,True,True,CACHED_REAL_SOURCE_DATA,859,2023-04-17,2026-10-09,51,1,2,0,1 OHLC invariant violations; 2 nonpositive volume sessions
+ZEELEARN,ZEELEARN,NSE,Zee Learn Limited,case,main,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,1,22,0,1 OHLC invariant violations; 22 nonpositive volume sessions
+ALOKTEXT,ALOKINDS,NSE,ALOKTEXT,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+RUCHISOYA,PATANJALI,NSE,RUCHISOYA,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+3IINFOLTD,3IINFOLTD,NSE,3i Infotech Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+AARNAV,AARNAV,NSE,Aarnav Fashions Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,153,2026-02-25,2026-10-09,10,0,0,0,Valid clean market series
+AARTECH,AARTECH,NSE,Aartech Solonics Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,803,2023-07-10,2026-10-09,47,0,4,0,4 nonpositive volume sessions
+AARTISURF,AARTISURF,NSE,Aarti Surfactants Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ABAN,ABAN,NSE,Aban Offshore Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,54,0,54 nonpositive volume sessions
+ABINFRA,ABINFRA,NSE,A B Infrabuild Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,179,0,179 nonpositive volume sessions
+ABMINTLLTD,ABMINTLLTD,NSE,ABM International Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,3,53,0,3 OHLC invariant violations; 53 nonpositive volume sessions
+ACSTECH,ACSTECH,NSE,ACS Technologies Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+ADROITIND,ADROITIND,NSE,Adroit Industries (India) Limited,control,surveillance,True,False,CACHED_REAL_SOURCE_DATA,7,2026-09-30,2026-10-09,1,0,0,0,Insufficient history (7 < 25 sessions)
+ADROITINFO,ADROITINFO,NSE,Adroit Infotech Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,1,1,0,1 OHLC invariant violations; 1 nonpositive volume sessions
+AGASTYAEN,AGASTYAEN,NSE,Agastya Energy and Infrastructure Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AGSTRA,AGSTRA,NSE,AGS Transact Technologies Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,59,0,59 nonpositive volume sessions
+AHLWEST,AHLWEST,NSE,Asian Hotels (West) Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,801,0,801 nonpositive volume sessions
+AKI,AKI,NSE,AKI India Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,866,2023-04-06,2026-10-09,51,0,2,0,2 nonpositive volume sessions
+AKSHARCHEM,AKSHARCHEM,NSE,AksharChem India Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AKSHOPTFBR,AKSHOPTFBR,NSE,Aksh Optifibre Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ALKALI,ALKALI,NSE,Alkali Metals Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ALMONDZ,ALMONDZ,NSE,Almondz Global Securities Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ALPHAGEO,ALPHAGEO,NSE,Alphageo (India) Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AMANTA,AMANTA,NSE,Amanta Healthcare Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,266,2025-09-11,2026-10-09,16,0,0,0,Valid clean market series
+AMBALALSA,AMBALALSA,NSE,Ambalal Sarabhai Enterprises Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,118,2026-04-22,2026-10-09,5,0,0,0,Valid clean market series
+AMDIND,AMDIND,NSE,AMD Industries Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ANKITMETAL,ANKITMETAL,NSE,Ankit Metal & Power Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,132,0,132 nonpositive volume sessions
+ANMOL,ANMOL,NSE,Anmol India Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+ANSALAPI,ANSALAPI,NSE,Ansal Properties & Infrastructure Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,209,0,209 nonpositive volume sessions
+APOORVA,APOORVA,NSE,Apoorva Leasing Finance and Investment Company Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,35,2026-08-20,2026-10-09,2,0,10,0,10 nonpositive volume sessions
+ARIES,ARIES,NSE,Aries Agro Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ARSHIYA,ARSHIYA,NSE,Arshiya Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,91,0,91 nonpositive volume sessions
+ASAHISONG,ASAHISONG,NSE,Asahi Songwon Colors Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASHIKAG,ASHIKAG,NSE,Ashika Global Securities Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+ASTRON,ASTRON,NSE,Astron Paper & Board Mill Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,4,0,4 nonpositive volume sessions
+BAFNAPH,BAFNAPH,NSE,Bafna Pharmaceuticals Limited,control,surveillance,True,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,85,0,85 nonpositive volume sessions
+CDSL,CDSL,NSE,Central Depository Services (India) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+IEX,IEX,NSE,Indian Energy Exchange Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+RITES,RITES,NSE,RITES Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+REDINGTON,REDINGTON,NSE,Redington Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+TANLA,TANLA,NSE,Tanla Platforms Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,1,0,1 nonpositive volume sessions
+ROUTE,ROUTE,NSE,Route Mobile Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+BLS,BLS,NSE,BLS E-Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+HFCL,HFCL,NSE,HFCL Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+TRIDENT,TRIDENT,NSE,Trident Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+CESC,CESC,NSE,CESC Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+JBCHEPHARM,JBCHEPHARM,NSE,J.B. Chemicals & Pharmaceuticals Limited,control,main,False,False,CACHED_REAL_SOURCE_DATA,1,2026-07-16,2026-07-16,0,0,0,0,Insufficient history (1 < 25 sessions)
+FSL,FSL,NSE,Firstsource Solutions Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+RELIANCE,RELIANCE,NSE,Reliance Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+INFY,INFY,NSE,Infosys Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,937,2023-01-02,2026-10-19,54,0,2,0,2 nonpositive volume sessions
+TCS,TCS,NSE,Tata Consultancy Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+HDFCBANK,HDFCBANK,NSE,HDFC Bank Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ICICIBANK,ICICIBANK,NSE,ICICI Bank Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+SBIN,SBIN,NSE,State Bank of India,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+TATAPOWER,TATAPOWER,NSE,Tata Power Company Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+TATAMOTORS,TATAMOTORS,NSE,Tata Motors Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,937,2023-01-02,2026-10-19,54,0,2,0,2 nonpositive volume sessions
+TATASTEEL,TATASTEEL,NSE,Tata Steel Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+WIPRO,WIPRO,NSE,Wipro Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,937,2023-01-02,2026-10-19,54,0,2,0,2 nonpositive volume sessions
+AXISBANK,AXISBANK,NSE,Axis Bank Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BAJFINANCE,BAJFINANCE,NSE,Bajaj Finance Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ADANIENT,ADANIENT,NSE,Adani Enterprises Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ADANIPORTS,ADANIPORTS,NSE,Adani Ports and SEZ Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ADANIGREEN,ADANIGREEN,NSE,Adani Green Energy Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ADANIPOWER,ADANIPOWER,NSE,Adani Power Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+LT,LT,NSE,Larsen and Toubro Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+SUNPHARMA,SUNPHARMA,NSE,Sun Pharmaceutical Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+HINDUNILVR,HINDUNILVR,NSE,Hindustan Unilever Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ITC,ITC,NSE,ITC Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,1,0,1 nonpositive volume sessions
+KOTAKBANK,KOTAKBANK,NSE,Kotak Mahindra Bank Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BHARTIARTL,BHARTIARTL,NSE,Bharti Airtel Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ZOMATO,ZOMATO,NSE,Zomato Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,937,2023-01-02,2026-10-19,54,0,5,0,5 nonpositive volume sessions
+PAYTM,PAYTM,NSE,One97 Communications Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+NYKAA,NYKAA,NSE,FSN E-Commerce Ventures Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+DMART,DMART,NSE,Avenue Supermarts Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ONGC,ONGC,NSE,Oil and Natural Gas Corporation Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+POWERGRID,POWERGRID,NSE,Power Grid Corporation of India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+NTPC,NTPC,NSE,NTPC Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+COALINDIA,COALINDIA,NSE,Coal India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BPCL,BPCL,NSE,Bharat Petroleum Corporation Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+IOC,IOC,NSE,Indian Oil Corporation Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+HCLTECH,HCLTECH,NSE,HCL Technologies Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+TECHM,TECHM,NSE,Tech Mahindra Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+DRREDDY,DRREDDY,NSE,Dr Reddys Laboratories Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+CIPLA,CIPLA,NSE,Cipla Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+DIVISLAB,DIVISLAB,NSE,Divis Laboratories Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+MARUTI,MARUTI,NSE,Maruti Suzuki India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+HEROMOTOCO,HEROMOTOCO,NSE,Hero MotoCorp Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BAJAJ-AUTO,BAJAJ-AUTO,NSE,Bajaj Auto Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+ULTRACEMCO,ULTRACEMCO,NSE,UltraTech Cement Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+GRASIM,GRASIM,NSE,Grasim Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+VEDL,VEDL,NSE,Vedanta Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,1,2 nonpositive volume sessions; 1 extreme single-day jumps >50%
+JSWSTEEL,JSWSTEEL,NSE,JSW Steel Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+HINDALCO,HINDALCO,NSE,Hindalco Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+INDUSINDBK,INDUSINDBK,NSE,IndusInd Bank Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BANKBARODA,BANKBARODA,NSE,Bank of Baroda,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+PNB,PNB,NSE,Punjab National Bank,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+IRCTC,IRCTC,NSE,Indian Railway Catering and Tourism Corporation Ltd,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+SUZLON,SUZLON,NSE,Suzlon Energy Ltd,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+20MICRONS,20MICRONS,NSE,20 Microns Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+21STCENMGM,21STCENMGM,NSE,21st Century Management Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,3,0,3 nonpositive volume sessions
+360ONE,360ONE,NSE,360 ONE WAM LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+3BBLACKBIO,3BBLACKBIO,NSE,3B Blackbio Dx Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+3MINDIA,3MINDIA,NSE,3M India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+3PLAND,3PLAND,NSE,3P Land Holdings Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+5PAISA,5PAISA,NSE,5Paisa Capital Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+63MOONS,63MOONS,NSE,63 moons technologies limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+A2ZINFRA,A2ZINFRA,NSE,A2Z Infra Engineering Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,4,0,4 nonpositive volume sessions
+AAATECH,AAATECH,NSE,AAA Technologies Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+AADHARHFC,AADHARHFC,NSE,Aadhar Housing Finance Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,597,2024-05-15,2026-10-09,31,0,2,0,2 nonpositive volume sessions
+AAKASH,AAKASH,NSE,Aakash Exploration Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+AAREYDRUGS,AAREYDRUGS,NSE,Aarey Drugs & Pharmaceuticals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,1,2,0,1 OHLC invariant violations; 2 nonpositive volume sessions
+AARON,AARON,NSE,Aaron Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+AARTIDRUGS,AARTIDRUGS,NSE,Aarti Drugs Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AARTIIND,AARTIIND,NSE,Aarti Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AARTIPHARM,AARTIPHARM,NSE,Aarti Pharmalabs Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,912,2023-01-30,2026-10-09,53,0,3,0,3 nonpositive volume sessions
+AARVI,AARVI,NSE,Aarvi Encon Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AASTHA,AASTHA,NSE,Aastha Spintex Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,68,2026-07-06,2026-10-09,2,0,0,0,Valid clean market series
+AAVAS,AAVAS,NSE,Aavas Financiers Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ABANSENT,ABANSENT,NSE,Abans Enterprises Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+ABB,ABB,NSE,ABB India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ABBOTINDIA,ABBOTINDIA,NSE,Abbott India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ABCAPITAL,ABCAPITAL,NSE,Aditya Birla Capital Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ABCOTS,ABCOTS,NSE,A B Cotspin India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,929,2023-01-02,2026-10-09,56,1,214,0,1 OHLC invariant violations; 214 nonpositive volume sessions
+ABDL,ABDL,NSE,Allied Blenders and Distillers Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,565,2024-07-02,2026-10-09,29,0,2,0,2 nonpositive volume sessions
+ABFRL,ABFRL,NSE,Aditya Birla Fashion and Retail Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,1,2 nonpositive volume sessions; 1 extreme single-day jumps >50%
+ABLBL,ABLBL,NSE,Aditya Birla Lifestyle Brands Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,322,2025-06-24,2026-10-09,17,0,1,0,1 nonpositive volume sessions
+ABMKNO,ABMKNO,NSE,ABM Knowledgeware Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+ABREL,ABREL,NSE,Aditya Birla Real Estate Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ABSLAMC,ABSLAMC,NSE,Aditya Birla Sun Life AMC Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+ACC,ACC,NSE,ACC Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ACCELYA,ACCELYA,NSE,Accelya Solutions India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ACCURACY,ACCURACY,NSE,Accuracy Shipping Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+ACE,ACE,NSE,Action Construction Equipment Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ACEINTEG,ACEINTEG,NSE,Ace Integrated Solutions Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,3,0,3 nonpositive volume sessions
+ACEVECTOR,ACEVECTOR,NSE,AceVector Limited,control,main,False,False,CACHED_REAL_SOURCE_DATA,5,2026-10-05,2026-10-09,0,0,0,0,Insufficient history (5 < 25 sessions)
+ACGL,ACGL,NSE,Automobile Corporation of Goa Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+ACI,ACI,NSE,Archean Chemical Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+ACL,ACL,NSE,Andhra Cements Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,59,0,59 nonpositive volume sessions
+ACMESOLAR,ACMESOLAR,NSE,Acme Solar Holdings Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,472,2024-11-13,2026-10-09,26,0,2,0,2 nonpositive volume sessions
+ACUTAAS,ACUTAAS,NSE,Acutaas Chemicals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,4,0,4 nonpositive volume sessions
+ADANIENSOL,ADANIENSOL,NSE,Adani Energy Solutions Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+ADDIND,ADDIND,NSE,Addi Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+ADFFOODS,ADFFOODS,NSE,ADF Foods Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ADL,ADL,NSE,Archidply Decor Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,7,0,7 nonpositive volume sessions
+ADOR,ADOR,NSE,Ador Welding Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ADSL,ADSL,NSE,Allied Digital Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ADVAIT,ADVAIT,NSE,Advait Energy Transitions Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,178,2026-01-20,2026-10-09,11,0,0,0,Valid clean market series
+ADVANCE,ADVANCE,NSE,Advance Agrolife Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,249,2025-10-08,2026-10-09,14,0,1,0,1 nonpositive volume sessions
+ADVANIHOTR,ADVANIHOTR,NSE,Advani Hotels & Resorts (India) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ADVENTHTL,ADVENTHTL,NSE,Advent Hotels International Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,225,2025-11-13,2026-10-09,12,0,1,0,1 nonpositive volume sessions
+ADVENZYMES,ADVENZYMES,NSE,Advanced Enzyme Technologies Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ADVIKCA,ADVIKCA,NSE,Advik Capital Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+AEGISLOG,AEGISLOG,NSE,Aegis Logistics Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,929,2023-01-02,2026-10-09,56,0,2,0,2 nonpositive volume sessions
+AEGISVOPAK,AEGISVOPAK,NSE,Aegis Vopak Terminals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,338,2025-06-02,2026-10-09,17,0,1,0,1 nonpositive volume sessions
+AEPL,AEPL,NSE,Artemis Electricals and Projects Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,143,2026-03-12,2026-10-09,9,0,0,0,Valid clean market series
+AEQUS,AEQUS,NSE,Aequs Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,206,2025-12-10,2026-10-09,12,0,1,0,1 nonpositive volume sessions
+AEROENTER,AEROENTER,NSE,Aeroflex Enterprises Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,3,0,3 nonpositive volume sessions
+AEROFLEX,AEROFLEX,NSE,Aeroflex Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,767,2023-08-31,2026-10-09,45,0,3,0,3 nonpositive volume sessions
+AERONEU,AERONEU,NSE,Aeroflex Neu Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,922,2023-01-12,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+AEROPLANE,AEROPLANE,NSE,Amir Chand Jagdish Kumar (Exports) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,130,2026-04-02,2026-10-09,7,0,0,0,Valid clean market series
+AETHER,AETHER,NSE,Aether Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+AFCONS,AFCONS,NSE,Afcons Infrastructure Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,479,2024-11-04,2026-10-09,26,0,2,0,2 nonpositive volume sessions
+AFFLE,AFFLE,NSE,Affle 3i Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AFFORDABLE,AFFORDABLE,NSE,Affordable Robotic & Automation Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,485,2024-10-23,2026-10-09,28,0,1,0,1 nonpositive volume sessions
+AFIL,AFIL,NSE,Akme Fintrade (India) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,569,2024-06-26,2026-10-09,29,0,2,0,2 nonpositive volume sessions
+AFSL,AFSL,NSE,Abans Financial Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AGARIND,AGARIND,NSE,Agarwal Industrial Corporation Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AGARWALEYE,AGARWALEYE,NSE,Dr. Agarwal's Health Care Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,414,2025-02-04,2026-10-09,25,0,1,0,1 nonpositive volume sessions
+AGI,AGI,NSE,AGI Greenpac Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+AGIIL,AGIIL,NSE,Agi Infra Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,556,2024-07-15,2026-10-09,29,0,2,0,2 nonpositive volume sessions
+AGL,AGL,NSE,Allcargo Global Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,69,2026-07-03,2026-10-09,2,0,0,0,Valid clean market series
+AGOL,AGOL,NSE,Ashapuri Gold Ornament Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,928,2023-01-02,2026-10-09,57,1,1,0,1 OHLC invariant violations; 1 nonpositive volume sessions
+AGRITECH,AGRITECH,NSE,Agri-Tech (India) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AGROPHOS,AGROPHOS,NSE,Agro Phos India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AHCL,AHCL,NSE,Anlon Healthcare Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,273,2025-09-03,2026-10-09,15,0,1,0,1 nonpositive volume sessions
+AHLADA,AHLADA,NSE,Ahlada Engineers Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+AHLEAST,AHLEAST,NSE,Asian Hotels (East) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AHLUCONT,AHLUCONT,NSE,Ahluwalia Contracts (India) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AIAENG,AIAENG,NSE,AIA Engineering Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AIIL,AIIL,NSE,Authum Investment & Infrastructure Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,612,2024-04-23,2026-10-09,32,0,2,0,2 nonpositive volume sessions
+AIRAN,AIRAN,NSE,Airan Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AIROLAM,AIROLAM,NSE,Airo Lam limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+AJANTPHARM,AJANTPHARM,NSE,Ajanta Pharma Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AJAXENGG,AJAXENGG,NSE,Ajax Engineering Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,406,2025-02-17,2026-10-09,24,0,2,0,2 nonpositive volume sessions
+AJMERA,AJMERA,NSE,Ajmera Realty & Infra India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AJOONI,AJOONI,NSE,Ajooni Biotech Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+AKASH,AKASH,NSE,Akash Infra-Projects Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AKCAPIT,AKCAPIT,NSE,AK Capital Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+AKG,AKG,NSE,Akg Exim Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+AKSHAR,AKSHAR,NSE,Akshar Spintex Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,4,0,4 nonpositive volume sessions
+AKUMS,AKUMS,NSE,Akums Drugs and Pharmaceuticals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,539,2024-08-06,2026-10-09,30,0,1,0,1 nonpositive volume sessions
+ALANKIT,ALANKIT,NSE,Alankit Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ALBERTDAVD,ALBERTDAVD,NSE,Albert David Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ALEMBICLTD,ALEMBICLTD,NSE,Alembic Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ALFREDHE,ALFREDHE,NSE,Alfred Herbert India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,4,0,4 nonpositive volume sessions
+ALGOQUANT,ALGOQUANT,NSE,Algoquant Fintech Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,187,2026-01-06,2026-10-09,12,0,0,0,Valid clean market series
+ALICON,ALICON,NSE,Alicon Castalloy Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ALIVUS,ALIVUS,NSE,Alivus Life Sciences Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,3,0,3 nonpositive volume sessions
+ALKEM,ALKEM,NSE,Alkem Laboratories Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ALKYLAMINE,ALKYLAMINE,NSE,Alkyl Amines Chemicals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+ALLCARGO,ALLCARGO,NSE,Allcargo Logistics Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,1,2 nonpositive volume sessions; 1 extreme single-day jumps >50%
+ALLDIGI,ALLDIGI,NSE,Alldigi Tech Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,929,2023-01-02,2026-10-09,56,0,1,0,1 nonpositive volume sessions
+ALLTIME,ALLTIME,NSE,All Time Plastics Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,285,2025-08-14,2026-10-09,17,0,1,0,1 nonpositive volume sessions
+ALPA,ALPA,NSE,Alpa Laboratories Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ALPINETEX,ALPINETEX,NSE,Alpine Texworld Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,57,2026-07-21,2026-10-09,2,0,0,0,Valid clean market series
+ALUFLUOR,ALUFLUOR,NSE,Alufluoride Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+AMAGI,AMAGI,NSE,Amagi Media Labs Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,177,2026-01-21,2026-10-09,11,0,0,0,Valid clean market series
+AMAL,AMAL,NSE,Amal Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+AMARJOTHI,AMARJOTHI,NSE,Amarjothi Spinning Mills Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,42,2026-08-11,2026-10-09,2,0,4,1,4 nonpositive volume sessions; 1 extreme single-day jumps >50%
+AMBER,AMBER,NSE,Amber Enterprises India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AMBICAAGAR,AMBICAAGAR,NSE,Ambica Agarbathies & Aroma industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,6,0,6 nonpositive volume sessions
+AMBIKCO,AMBIKCO,NSE,Ambika Cotton Mills Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AMBUJACEM,AMBUJACEM,NSE,Ambuja Cements Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AMJLAND,AMJLAND,NSE,Amj Land Holdings Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AMNPLST,AMNPLST,NSE,Amines & Plasticizers Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,719,2023-11-10,2026-10-09,42,0,3,0,3 nonpositive volume sessions
+AMRUTANJAN,AMRUTANJAN,NSE,Amrutanjan Health Care Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ANANDRATHI,ANANDRATHI,NSE,Anand Rathi Wealth Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+ANANTRAJ,ANANTRAJ,NSE,Anant Raj Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ANDHRAPAP,ANDHRAPAP,NSE,ANDHRA PAPER LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+ANDHRSUGAR,ANDHRSUGAR,NSE,The Andhra Sugars Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ANDREWYU,ANDREWYU,NSE,Andrew Yule & Company Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,271,2023-01-02,2026-10-09,714,0,32,0,32 nonpositive volume sessions
+ANGELONE,ANGELONE,NSE,Angel One Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,9,3,0,9 OHLC invariant violations; 3 nonpositive volume sessions
+ANIKINDS,ANIKINDS,NSE,Anik Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ANNAPURNA,ANNAPURNA,NSE,Annapurna Swadisht Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,929,2023-01-02,2026-10-09,56,0,2,0,2 nonpositive volume sessions
+ANNU,ANNU,NSE,Annu Projects Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,26,2026-09-02,2026-10-09,2,0,0,0,Valid clean market series
+ANSALBU,ANSALBU,NSE,Ansal Buildwell Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,1,0,1 nonpositive volume sessions
+ANTELOPUS,ANTELOPUS,NSE,Antelopus Selan Energy Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ANTGRAPHIC,ANTGRAPHIC,NSE,Antarctica Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ANTHEM,ANTHEM,NSE,Anthem Biosciences Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,303,2025-07-21,2026-10-09,17,0,1,0,1 nonpositive volume sessions
+ANUHPHR,ANUHPHR,NSE,Anuh Pharma Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,447,2024-12-20,2026-10-09,24,0,2,0,2 nonpositive volume sessions
+ANUP,ANUP,NSE,The Anup Engineering Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ANURAS,ANURAS,NSE,Anupam Rasayan India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+AONESTEELS,AONESTEELS,NSE,A-One Steels India Limited,control,main,False,False,CACHED_REAL_SOURCE_DATA,6,2026-10-01,2026-10-09,1,0,0,0,Insufficient history (6 < 25 sessions)
+APARINDS,APARINDS,NSE,Apar Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+APCL,APCL,NSE,Anjani Portland Cement Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+APCOTEXIND,APCOTEXIND,NSE,Apcotex Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+APEX,APEX,NSE,Apex Frozen Foods Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+APLAPOLLO,APLAPOLLO,NSE,APL Apollo Tubes Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+APLLTD,APLLTD,NSE,Alembic Pharmaceuticals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+APOLLO,APOLLO,NSE,Apollo Micro Systems Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+APOLLOHOSP,APOLLOHOSP,NSE,Apollo Hospitals Enterprise Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+APOLLOPIPE,APOLLOPIPE,NSE,Apollo Pipes Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+APOLLOTYRE,APOLLOTYRE,NSE,Apollo Tyres Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+APOLSINHOT,APOLSINHOT,NSE,Apollo Sindoori Hotels Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+APTECHT,APTECHT,NSE,Aptech Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+APTUS,APTUS,NSE,Aptus Value Housing Finance India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+AQYLON,AQYLON,NSE,Aqylon Nexus Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,147,2,147 nonpositive volume sessions; 2 extreme single-day jumps >50%
+ARCHIDPLY,ARCHIDPLY,NSE,Archidply Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,4,0,4 nonpositive volume sessions
+ARCHIES,ARCHIES,NSE,Archies Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ARCIL,ARCIL,NSE,Asset Reconstruction Company (India) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,25,2026-09-17,2026-10-23,2,0,0,0,Valid clean market series
+ARCL,ARCL,NSE,ARCL Organics Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+ARDEE,ARDEE,NSE,Ardee Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,41,2026-08-12,2026-10-09,2,0,0,0,Valid clean market series
+ARE&M,ARE&M,NSE,Amara Raja Energy & Mobility Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,5,0,5 nonpositive volume sessions
+ARENTERP,ARENTERP,NSE,Rajdarshan Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,5,0,5 nonpositive volume sessions
+ARFIN,ARFIN,NSE,Arfin India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,301,2025-07-22,2026-10-09,18,0,0,0,Valid clean market series
+ARIHANT,ARIHANT,NSE,Arihant Foundations & Housing Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,124,2026-04-13,2026-10-09,6,0,4,1,4 nonpositive volume sessions; 1 extreme single-day jumps >50%
+ARIHANTCAP,ARIHANTCAP,NSE,Arihant Capital Markets Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+ARIHANTSUP,ARIHANTSUP,NSE,Arihant Superstructures Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ARIS,ARIS,NSE,Arisinfra Solutions Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,321,2025-06-25,2026-10-09,17,0,1,0,1 nonpositive volume sessions
+ARKADE,ARKADE,NSE,Arkade Developers Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,507,2024-09-24,2026-10-09,27,0,2,0,2 nonpositive volume sessions
+ARMANFIN,ARMANFIN,NSE,Arman Financial Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ARMEE,ARMEE,NSE,ArMee Infotech Limited,control,main,False,False,CACHED_REAL_SOURCE_DATA,7,2026-09-30,2026-10-09,1,0,0,0,Insufficient history (7 < 25 sessions)
+AROGRANITE,AROGRANITE,NSE,Aro Granite Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ARROWGREEN,ARROWGREEN,NSE,Arrow Greentech Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ARSSBL,ARSSBL,NSE,Anand Rathi Share and Stock Brokers Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,254,2025-09-30,2026-10-09,15,0,1,0,1 nonpositive volume sessions
+ARTEMISMED,ARTEMISMED,NSE,Artemis Medicare Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,911,2023-01-02,2026-10-09,74,0,0,0,Valid clean market series
+ARTNIRMAN,ARTNIRMAN,NSE,Art Nirman Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,14,0,14 nonpositive volume sessions
+ARVEE,ARVEE,NSE,Arvee Laboratories (India) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,8,0,8 nonpositive volume sessions
+ARVIND,ARVIND,NSE,Arvind Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ARVINDFASN,ARVINDFASN,NSE,Arvind Fashions Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ARVSMART,ARVSMART,NSE,Arvind SmartSpaces Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ARYAMAN,ARYAMAN,NSE,Aryaman Financial Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,1,0,1 nonpositive volume sessions
+ASAHIINDIA,ASAHIINDIA,NSE,Asahi India Glass Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASAL,ASAL,NSE,Automotive Stampings and Assemblies Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASALCBR,ASALCBR,NSE,Associated Alcohols & Breweries Ltd.,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ASHAPURMIN,ASHAPURMIN,NSE,Ashapura Minechem Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASHIANA,ASHIANA,NSE,Ashiana Housing Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASHIMASYN,ASHIMASYN,NSE,Ashima Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASHOKA,ASHOKA,NSE,Ashoka Buildcon Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASHOKAMET,ASHOKAMET,NSE,Ashoka Metcast Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,812,2023-06-27,2026-10-09,47,0,3,0,3 nonpositive volume sessions
+ASHOKLEY,ASHOKLEY,NSE,Ashok Leyland Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASIANENE,ASIANENE,NSE,Asian Energy Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,15,0,15 nonpositive volume sessions
+ASIANHOTNR,ASIANHOTNR,NSE,Asian Hotels (North) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ASIANPAINT,ASIANPAINT,NSE,Asian Paints Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASIANTILES,ASIANTILES,NSE,Asian Granito India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASIANTNE,ASIANTNE,NSE,Asian Tea & Exports Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+ASKAUTOLTD,ASKAUTOLTD,NSE,ASK Automotive Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,717,2023-11-15,2026-10-09,41,0,3,0,3 nonpositive volume sessions
+ASMS,ASMS,NSE,Avio Smart Market Stack Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,38,1,38 nonpositive volume sessions; 1 extreme single-day jumps >50%
+ASPINWALL,ASPINWALL,NSE,Aspinwall and Company Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,3,0,3 nonpositive volume sessions
+ASSAMENT,ASSAMENT,NSE,Assam Entrade Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,15,0,15 nonpositive volume sessions
+ASTAR,ASTAR,NSE,Asian Star Company Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,3,0,3 nonpositive volume sessions
+ASTEC,ASTEC,NSE,Astec LifeSciences Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASTERDM,ASTERDM,NSE,Aster DM Quality Care Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASTRAL,ASTRAL,NSE,Astral Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASTRAMICRO,ASTRAMICRO,NSE,Astra Microwave Products Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ASTRAZEN,ASTRAZEN,NSE,AstraZeneca Pharma India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+ATALREAL,ATALREAL,NSE,Atal Realtech Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,9,0,9 nonpositive volume sessions
+ATAM,ATAM,NSE,Atam Valves Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,846,2023-05-10,2026-10-09,47,0,3,0,3 nonpositive volume sessions
+ATGL,ATGL,NSE,Adani Total Gas Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+ATHERENERG,ATHERENERG,NSE,Ather Energy Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,357,2025-05-06,2026-10-09,17,0,1,0,1 nonpositive volume sessions
+ATL,ATL,NSE,Allcargo Terminals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,779,2023-08-10,2026-10-09,48,0,3,0,3 nonpositive volume sessions
+ATLANTAA,ATLANTAA,NSE,ATLANTAA LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ATLANTAELE,ATLANTAELE,NSE,Atlanta Electricals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,255,2025-09-29,2026-10-09,15,0,1,0,1 nonpositive volume sessions
+ATLASCYCLE,ATLASCYCLE,NSE,Atlas Cycles (Haryana) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,929,2023-01-02,2026-10-09,56,2,488,1,2 OHLC invariant violations; 488 nonpositive volume sessions; 1 extreme single-day jumps >50%
+ATUL,ATUL,NSE,Atul Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+ATULAUTO,ATULAUTO,NSE,Atul Auto Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AUBANK,AUBANK,NSE,AU Small Finance Bank Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AUGMONT,AUGMONT,NSE,Augmont Enterprises Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,28,2026-08-31,2026-10-09,2,0,0,0,Valid clean market series
+AURIONPRO,AURIONPRO,NSE,Aurionpro Solutions Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AUROPHARMA,AUROPHARMA,NSE,Aurobindo Pharma Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AURUM,AURUM,NSE,Aurum PropTech Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+AURUS,AURUS,NSE,AURUS GEM CORPORATION LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AUSOMENT,AUSOMENT,NSE,Ausom Enterprise Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,1,2,0,1 OHLC invariant violations; 2 nonpositive volume sessions
+AUSTENG,AUSTENG,NSE,Austin Engineering Company  Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+AUTOAXLES,AUTOAXLES,NSE,Automotive Axles Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AUTOIND,AUTOIND,NSE,Autoline Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AVADHSUGAR,AVADHSUGAR,NSE,Avadh Sugar & Energy Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AVALON,AVALON,NSE,Avalon Technologies Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,861,2023-04-18,2026-10-09,48,0,3,0,3 nonpositive volume sessions
+AVANCE,AVANCE,NSE,Avance Technologies Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+AVANTEL,AVANTEL,NSE,Avantel Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,544,2024-07-31,2026-10-09,29,0,2,0,2 nonpositive volume sessions
+AVANTIFEED,AVANTIFEED,NSE,Avanti Feeds Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AVG,AVG,NSE,AVG Logistics Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,46,0,46 nonpositive volume sessions
+AVL,AVL,NSE,Aditya Vision Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,475,2024-11-06,2026-10-09,28,0,1,0,1 nonpositive volume sessions
+AVONMORE,AVONMORE,NSE,Avonmore Capital & Management Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,928,2023-01-04,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+AVROIND,AVROIND,NSE,AVRO INDIA LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+AVTNPL,AVTNPL,NSE,AVT Natural Products Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+AWFIS,AWFIS,NSE,Awfis Space Solutions Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,587,2024-05-30,2026-10-09,30,0,2,0,2 nonpositive volume sessions
+AWHCL,AWHCL,NSE,Antony Waste Handling Cell Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+AWL,AWL,NSE,AWL Agri Business Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+AXISCADES,AXISCADES,NSE,AXISCADES Technologies Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AXITA,AXITA,NSE,Axita Cotton Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,1073,2022-06-21,2026-10-23,61,0,3,0,3 nonpositive volume sessions
+AXTEL,AXTEL,NSE,Axtel Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+AYE,AYE,NSE,Aye Finance Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,160,2026-02-16,2026-10-09,10,0,0,0,Valid clean market series
+AYMSYNTEX,AYMSYNTEX,NSE,AYM Syntex Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+AZAD,AZAD,NSE,Azad Engineering Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,688,2023-12-28,2026-10-09,39,0,3,0,3 nonpositive volume sessions
+AZADIND,AZADIND,NSE,Azad India Mobility Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BAGFILMS,BAGFILMS,NSE,B.A.G Films and Media Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BAIDFIN,BAIDFIN,NSE,Baid Finserv Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,916,2023-01-20,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+BAJAJCON,BAJAJCON,NSE,Bajaj Consumer Care Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BAJAJELEC,BAJAJELEC,NSE,Bajaj Electricals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BAJAJFINSV,BAJAJFINSV,NSE,Bajaj Finserv Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BAJAJHCARE,BAJAJHCARE,NSE,Bajaj Healthcare Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+BAJAJHFL,BAJAJHFL,NSE,Bajaj Housing Finance Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,513,2024-09-16,2026-10-09,27,0,2,0,2 nonpositive volume sessions
+BAJAJHIND,BAJAJHIND,NSE,Bajaj Hindusthan Sugar Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BAJAJHLDNG,BAJAJHLDNG,NSE,Bajaj Holdings & Investment Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BAJAJINDEF,BAJAJINDEF,NSE,Indef Manufacturing Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,402,2025-02-21,2026-10-09,24,0,2,0,2 nonpositive volume sessions
+BAJAJST,BAJAJST,NSE,Bajaj Steel Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BAJEL,BAJEL,NSE,Bajel Projects Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,694,2023-12-19,2026-10-09,40,0,3,0,3 nonpositive volume sessions
+BALAJEE,BALAJEE,NSE,Shree Tirupati Balajee Agro Trading Company Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,514,2024-09-12,2026-10-09,28,0,2,0,2 nonpositive volume sessions
+BALAJITELE,BALAJITELE,NSE,Balaji Telefilms Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BALAMINES,BALAMINES,NSE,Balaji Amines Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,1236,2021-10-25,2026-10-23,69,0,2,0,2 nonpositive volume sessions
+BALAXI,BALAXI,NSE,BALAXI PHARMACEUTICALS LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BALKRISHNA,BALKRISHNA,NSE,Balkrishna Paper Mills Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BALKRISIND,BALKRISIND,NSE,Balkrishna Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BALMLAWRIE,BALMLAWRIE,NSE,Balmer Lawrie & Company Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BALRAMCHIN,BALRAMCHIN,NSE,Balrampur Chini Mills Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BALUFORGE,BALUFORGE,NSE,Balu Forge Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,608,2024-04-29,2026-10-09,32,0,2,0,2 nonpositive volume sessions
+BANARBEADS,BANARBEADS,NSE,Banaras Beads Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BANARISUG,BANARISUG,NSE,Bannari Amman Sugars Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BANCOINDIA,BANCOINDIA,NSE,Banco Products (I) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BANDHANBNK,BANDHANBNK,NSE,Bandhan Bank Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BANG,BANG,NSE,Bang Overseas Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BANKA,BANKA,NSE,Banka BioLoo Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,4,0,4 nonpositive volume sessions
+BANKINDIA,BANKINDIA,NSE,Bank of India,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BANSALWIRE,BANSALWIRE,NSE,Bansal Wire Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,557,2024-07-10,2026-10-09,31,0,1,0,1 nonpositive volume sessions
+BANSWRAS,BANSWRAS,NSE,Banswara Syntex Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BASF,BASF,NSE,BASF India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BASML,BASML,NSE,Bannari Amman Spinning Mills Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BATAINDIA,BATAINDIA,NSE,Bata India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BATLIBOI,BATLIBOI,NSE,Batliboi Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,123,2026-04-15,2026-10-09,5,0,3,1,3 nonpositive volume sessions; 1 extreme single-day jumps >50%
+BAYERCROP,BAYERCROP,NSE,Bayer Cropscience Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+BBL,BBL,NSE,Bharat Bijlee Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BBOX,BBOX,NSE,Black Box Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+BBTC,BBTC,NSE,The Bombay Burmah Trading Corporation Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BBTCL,BBTCL,NSE,B&B Triplewall Containers Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+BCLIND,BCLIND,NSE,Bcl Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+BCONCEPTS,BCONCEPTS,NSE,Brand Concepts Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+BCPL,BCPL,NSE,BCPL Railway Infrastructure Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,133,2026-03-27,2026-10-09,8,0,0,0,Valid clean market series
+BDL,BDL,NSE,Bharat Dynamics Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BEARDSELL,BEARDSELL,NSE,Beardsell Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BECTORFOOD,BECTORFOOD,NSE,Mrs. Bectors Food Specialities Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+BEDMUTHA,BEDMUTHA,NSE,Bedmutha Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BEEKAY,BEEKAY,NSE,Beekay Steel Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BEL,BEL,NSE,Bharat Electronics Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BELDING,BELDING,NSE,Belding India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,112,0,112 nonpositive volume sessions
+BELLACASA,BELLACASA,NSE,Bella Casa Fashion & Retail Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,304,2025-07-18,2026-10-09,17,0,1,0,1 nonpositive volume sessions
+BELRISE,BELRISE,NSE,Belrise Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,341,2025-05-28,2026-10-09,17,0,1,0,1 nonpositive volume sessions
+BEML,BEML,NSE,BEML Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BENARAS,BENARAS,NSE,Benares Hotels Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BENGALASM,BENGALASM,NSE,Bengal & Assam Company Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BEPL,BEPL,NSE,Bhansali Engineering Polymers Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BERGEPAINT,BERGEPAINT,NSE,Berger Paints (I) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,1236,2021-10-25,2026-10-23,69,0,2,0,2 nonpositive volume sessions
+BESTAGRO,BESTAGRO,NSE,Best Agrolife Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,233,0,233 nonpositive volume sessions
+BETA,BETA,NSE,Beta Drugs Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,4,0,4 nonpositive volume sessions
+BFINVEST,BFINVEST,NSE,BF Investment Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BFUTILITIE,BFUTILITIE,NSE,BF Utilities Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BHAGCHEM,BHAGCHEM,NSE,Bhagiradha Chemicals & Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+BHAGERIA,BHAGERIA,NSE,Bhageria Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BHANDARI,BHANDARI,NSE,Bhandari Hosiery Exports Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BHARATCOAL,BHARATCOAL,NSE,Bharat Coking Coal Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,179,2026-01-19,2026-10-09,11,0,0,0,Valid clean market series
+BHARATFORG,BHARATFORG,NSE,Bharat Forge Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BHARATRAS,BHARATRAS,NSE,Bharat Rasayan Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BHARATSE,BHARATSE,NSE,Bharat Seats Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,382,2025-03-25,2026-10-09,22,0,1,0,1 nonpositive volume sessions
+BHARATWIRE,BHARATWIRE,NSE,Bharat Wire Ropes Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BHARTIHEXA,BHARTIHEXA,NSE,Bharti Hexacom Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,618,2024-04-12,2026-10-09,33,0,2,0,2 nonpositive volume sessions
+BHEL,BHEL,NSE,Bharat Heavy Electricals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BIGBLOC,BIGBLOC,NSE,Bigbloc Construction Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BIKAJI,BIKAJI,NSE,Bikaji Foods International Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+BIL,BIL,NSE,Bhartiya International Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,2,1,0,2 OHLC invariant violations; 1 nonpositive volume sessions
+BIMETAL,BIMETAL,NSE,Bimetal Bearings Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,123,2026-04-15,2026-10-09,5,0,3,0,3 nonpositive volume sessions
+BIOCON,BIOCON,NSE,Biocon Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BIOFILCHEM,BIOFILCHEM,NSE,Biofil Chemicals & Pharmaceuticals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BIRLACABLE,BIRLACABLE,NSE,Birla Cable Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BIRLACORPN,BIRLACORPN,NSE,Birla Corporation Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BIRLAMONEY,BIRLAMONEY,NSE,Aditya Birla Money Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BIRLANU,BIRLANU,NSE,BirlaNu Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BLACKBUCK,BLACKBUCK,NSE,BLACKBUCK LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,466,2024-11-22,2026-10-09,25,0,2,0,2 nonpositive volume sessions
+BLACKROSE,BLACKROSE,NSE,Black Rose Inds. Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BLAL,BLAL,NSE,BEML Land Assets Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,860,2023-04-19,2026-10-09,48,0,3,0,3 nonpositive volume sessions
+BLBLIMITED,BLBLIMITED,NSE,BLB Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BLEL,BLEL,NSE,Behari Lal Engineering Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,36,2026-08-19,2026-10-09,2,0,0,0,Valid clean market series
+BLIL,BLIL,NSE,Balmer Lawrie Investments Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BLKASHYAP,BLKASHYAP,NSE,B. L. Kashyap and Sons Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BLSE,BLSE,NSE,BLS E-Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,662,2024-02-06,2026-10-09,37,0,2,0,2 nonpositive volume sessions
+BLUECLOUDS,BLUECLOUDS,NSE,Blue Cloud Softech Solutions Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BLUECOAST,BLUECOAST,NSE,Blue Coast Hotels Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,402,0,402 nonpositive volume sessions
+BLUEDART,BLUEDART,NSE,Blue Dart Express Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BLUEJET,BLUEJET,NSE,Blue Jet Healthcare Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,726,2023-11-01,2026-10-09,42,0,3,0,3 nonpositive volume sessions
+BLUESTARCO,BLUESTARCO,NSE,Blue Star Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BLUESTONE,BLUESTONE,NSE,BlueStone Jewellery and Lifestyle Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,283,2025-08-19,2026-10-09,16,0,1,0,1 nonpositive volume sessions
+BLUSPRING,BLUSPRING,NSE,Bluspring Enterprises Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,330,2025-06-11,2026-10-09,18,0,0,0,Valid clean market series
+BMWVENTLTD,BMWVENTLTD,NSE,BMW Ventures Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,253,2025-10-01,2026-10-09,15,0,1,0,1 nonpositive volume sessions
+BNAGROCHEM,BNAGROCHEM,NSE,BN Agrochem Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,1,0,1 nonpositive volume sessions
+BOHRAIND,BOHRAIND,NSE,Bohra Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,1,167,0,1 OHLC invariant violations; 167 nonpositive volume sessions
+BOMDYEING,BOMDYEING,NSE,Bombay Dyeing & Mfg Company Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BONLON,BONLON,NSE,Bonlon Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,155,2026-02-23,2026-10-09,10,0,0,0,Valid clean market series
+BORANA,BORANA,NSE,Borana Weaves Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,341,2025-05-27,2026-10-09,18,0,0,0,Valid clean market series
+BOROLTD,BOROLTD,NSE,Borosil Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BORORENEW,BORORENEW,NSE,BOROSIL RENEWABLES LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BOROSCI,BOROSCI,NSE,Borosil Scientific Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,580,2024-06-07,2026-10-09,31,0,1,0,1 nonpositive volume sessions
+BOSCH-HCIL,BOSCH-HCIL,NSE,BOSCH HOME COMFORT INDIA LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BOSCHLTD,BOSCHLTD,NSE,Bosch Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BPL,BPL,NSE,BPL Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BPLPHARMA,BPLPHARMA,NSE,Bharat Parenterals Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BRAHMINFRA,BRAHMINFRA,NSE,Brahmaputra Infrastructure Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BRIGADE,BRIGADE,NSE,Brigade Enterprises Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BRIGHOTEL,BRIGHOTEL,NSE,Brigade Hotel Ventures Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,294,2025-07-31,2026-10-09,18,0,0,0,Valid clean market series
+BRIGHTBR,BRIGHTBR,NSE,Bright Brothers Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,37,2026-08-18,2026-10-09,2,0,0,0,Valid clean market series
+BRITANNIA,BRITANNIA,NSE,Britannia Industries Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BRNL,BRNL,NSE,Bharat Road Network Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,4,0,4 nonpositive volume sessions
+BROOKS,BROOKS,NSE,Brooks Laboratories Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,1,1,0,1 OHLC invariant violations; 1 nonpositive volume sessions
+BSE,BSE,NSE,BSE Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+BSHSL,BSHSL,NSE,Bombay Super Hybrid Seeds Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+BSL,BSL,NSE,BSL Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,2,0,2 nonpositive volume sessions
+BSOFT,BSOFT,NSE,BIRLASOFT LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,1236,2021-10-25,2026-10-23,69,0,2,0,2 nonpositive volume sessions
+BTML,BTML,NSE,Bodhi Tree Multimedia Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,5,0,5 nonpositive volume sessions
+BUILDPRO,BUILDPRO,NSE,Shankara Buildpro Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,185,2026-01-09,2026-10-09,11,0,1,0,1 nonpositive volume sessions
+BUTTERFLY,BUTTERFLY,NSE,Butterfly Gandhimathi Appliances Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BVCL,BVCL,NSE,Barak Valley Cements Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+BYKE,BYKE,NSE,The Byke Hospitality Ltd,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+CAMLINFINE,CAMLINFINE,NSE,Camlin Fine Sciences Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+CAMPUS,CAMPUS,NSE,Campus Activewear Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+CAMS,CAMS,NSE,Computer Age Management Services Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+CANBK,CANBK,NSE,Canara Bank,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+CANFINHOME,CANFINHOME,NSE,Can Fin Homes Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+CANHLIFE,CANHLIFE,NSE,Canara HSBC Life Insurance Company Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,242,2025-10-17,2026-10-09,14,0,1,0,1 nonpositive volume sessions
+CANTABIL,CANTABIL,NSE,Cantabil Retail India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+CAPACITE,CAPACITE,NSE,Capacit'e Infraprojects Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+CAPILLARY,CAPILLARY,NSE,Capillary Technologies India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,219,2025-11-21,2026-10-09,12,0,1,0,1 nonpositive volume sessions
+CAPITALSFB,CAPITALSFB,NSE,Capital Small Finance Bank Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,655,2024-02-14,2026-10-09,38,0,1,0,1 nonpositive volume sessions
+CAPLIPOINT,CAPLIPOINT,NSE,Caplin Point Laboratories Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+CARBORUNIV,CARBORUNIV,NSE,Carborundum Universal Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+CARERATING,CARERATING,NSE,CARE Ratings Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+CARRARO,CARRARO,NSE,Carraro India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,441,2024-12-30,2026-10-09,24,0,1,0,1 nonpositive volume sessions
+CARTRADE,CARTRADE,NSE,Cartrade Tech Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+CARYSIL,CARYSIL,NSE,CARYSIL LIMITED,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+CASTROLIND,CASTROLIND,NSE,Castrol India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+CCAVENUE,CCAVENUE,NSE,AvenuesAI Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,3,0,3 nonpositive volume sessions
+CCCL,CCCL,NSE,Consolidated Construction Consortium Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,929,2023-01-02,2026-10-09,56,0,342,1,342 nonpositive volume sessions; 1 extreme single-day jumps >50%
+CCHHL,CCHHL,NSE,Country Club Hospitality & Holidays Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+CCL,CCL,NSE,CCL Products (India) Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,931,2023-01-02,2026-10-09,54,0,2,0,2 nonpositive volume sessions
+CEATLTD,CEATLTD,NSE,CEAT Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,1236,2021-10-25,2026-10-23,69,0,3,0,3 nonpositive volume sessions
+CEIGALL,CEIGALL,NSE,Ceigall India Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,538,2024-08-08,2026-10-09,29,0,2,0,2 nonpositive volume sessions
+CEINSYS,CEINSYS,NSE,Ceinsys Tech Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,157,2026-02-19,2026-10-09,10,0,0,0,Valid clean market series
+CELEBRITY,CELEBRITY,NSE,Celebrity Fashions Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,930,2023-01-02,2026-10-09,55,0,1,0,1 nonpositive volume sessions
+CELLO,CELLO,NSE,Cello World Limited,control,main,False,True,CACHED_REAL_SOURCE_DATA,722,2023-11-06,2026-10-09,43,0,2,0,2 nonpositive volume sessions

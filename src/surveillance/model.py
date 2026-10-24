@@ -40,6 +40,7 @@ MODEL_META_PATH = MODELS_DIR / "qn_manipulation_v1.meta.json"
 _TRAINING_LOCK = threading.Lock()
 _INFERENCE_LOCK = threading.Lock()
 _IS_TRAINING = False
+_LAST_TRAINING_ERROR: Optional[str] = None
 
 
 @dataclass
@@ -57,6 +58,8 @@ class QNPrediction:
     is_real_model: bool
     data_freshness: str
     latency_ms: float
+    effective_threshold: float = 0.012
+    alert_triggered: bool = False
     disclaimer: str = (
         "QN score is an algorithmic surveillance risk indicator based on statistical market anomalies. "
         "It does not constitute a legal or regulatory finding of market manipulation."
@@ -118,8 +121,13 @@ class QNManipulationModel:
                 )
                 base_clf.fit(X_train, y_train)
 
-                # Calibrate probabilities using cross-validation to ensure minimal ECE
-                calibrated_clf = CalibratedClassifierCV(estimator=base_clf, method="sigmoid", cv=3)
+                # Calibrate probabilities using group-isolated cross-validation
+                # to strictly eliminate event and ticker leakage inside calibration folds
+                from sklearn.model_selection import StratifiedGroupKFold
+                sgkf = StratifiedGroupKFold(n_splits=3, shuffle=True, random_state=self.random_state)
+                cv_splits = list(sgkf.split(X_train, y_train, groups=train_df["ticker"].values))
+
+                calibrated_clf = CalibratedClassifierCV(estimator=base_clf, method="sigmoid", cv=cv_splits)
                 calibrated_clf.fit(X_train, y_train)
                 self.pipeline = calibrated_clf
 
@@ -131,13 +139,40 @@ class QNManipulationModel:
                     for col, imp in zip(FEATURE_COLUMNS, raw_importances)
                 }
 
-                # Validation split evaluation
+                # Validation split evaluation & operating threshold policy selection
+                # Policy: False-positive workload control on validation split (max alert rate <= 2.5%)
                 val_probs = calibrated_clf.predict_proba(X_val)[:, 1]
-                val_report = evaluate_predictions(y_val, val_probs, split_name="val")
+                val_report_initial = evaluate_predictions(y_val, val_probs, split_name="val")
 
-                # Holdout test split evaluation
+                best_op_th = 0.012
+                best_val_f1 = -1.0
+                for th_str, metrics in val_report_initial.threshold_metrics.items():
+                    th_flt = float(th_str)
+                    total_alerts = metrics["true_positives"] + metrics["false_positives"]
+                    alert_rate = total_alerts / len(val_df) if len(val_df) else 0.0
+                    if alert_rate <= 0.025 and metrics["f1"] > best_val_f1 and metrics["recall"] > 0:
+                        best_val_f1 = metrics["f1"]
+                        best_op_th = th_flt
+
+                if best_val_f1 <= 0.0:
+                    best_op_th = 0.012
+
+                logger.info(
+                    "Selected operating threshold from validation split policy: %.3f (Validation F1: %.4f)",
+                    best_op_th,
+                    best_val_f1,
+                )
+
+                # Re-evaluate validation report with selected operating threshold
+                val_report = evaluate_predictions(
+                    y_val, val_probs, split_name="val", default_threshold=0.50, operating_threshold=best_op_th
+                )
+
+                # Holdout test split evaluation with strictly untouched data using validation-selected threshold
                 test_probs = calibrated_clf.predict_proba(X_test)[:, 1]
-                test_report = evaluate_predictions(y_test, test_probs, split_name="test")
+                test_report = evaluate_predictions(
+                    y_test, test_probs, split_name="test", default_threshold=0.50, operating_threshold=best_op_th
+                )
 
                 elapsed_seconds = round(time.perf_counter() - start_time, 2)
 
@@ -148,6 +183,7 @@ class QNManipulationModel:
                     "scaler": self.scaler,
                     "feature_columns": FEATURE_COLUMNS,
                     "feature_importances": self.feature_importances,
+                    "operating_threshold": best_op_th,
                     "version": "1.0.0",
                 }
                 joblib.dump(artifact_bundle, MODEL_ARTIFACT_PATH)
@@ -161,6 +197,7 @@ class QNManipulationModel:
                     "training_duration_seconds": elapsed_seconds,
                     "feature_columns": FEATURE_COLUMNS,
                     "feature_importances": self.feature_importances,
+                    "operating_threshold": best_op_th,
                     "train_samples": len(train_df),
                     "val_samples": len(val_df),
                     "test_samples": len(test_df),
@@ -172,6 +209,10 @@ class QNManipulationModel:
                 logger.info("QN model successfully trained and serialized to %s", MODEL_ARTIFACT_PATH)
 
                 return val_report, test_report, metadata
+            except Exception as e:
+                global _LAST_TRAINING_ERROR
+                _LAST_TRAINING_ERROR = str(e)
+                raise
             finally:
                 _IS_TRAINING = False
 
@@ -201,13 +242,15 @@ class QNManipulationInference:
         return self._bundle is not None and "model" in self._bundle
 
     def get_metadata(self) -> Dict[str, Any]:
-        if self._metadata:
-            return self._metadata
-        return {
+        global _IS_TRAINING, _LAST_TRAINING_ERROR
+        base = dict(self._metadata) if self._metadata else {
             "model_version": "unavailable",
             "model_family": "QN-Quantitative-Manipulation-Detector",
             "status": "NOT_TRAINED",
         }
+        base["is_training"] = _IS_TRAINING
+        base["last_training_error"] = _LAST_TRAINING_ERROR
+        return base
 
     def analyze_ticker(
         self,
@@ -229,7 +272,9 @@ class QNManipulationInference:
                 latency = round((time.perf_counter() - start) * 1000.0, 1)
                 prob = self._heuristic_fallback_score(raw_feats, clean_t)
                 score = round(prob * 100.0, 1)
-                band = "High" if score >= 70 else ("Elevated" if score >= 40 else "Low")
+                op_th = 0.012
+                alert_trig = bool(prob >= op_th)
+                band = "High" if score >= 70 else ("Elevated" if alert_trig else "Low")
                 factors, reasons = self._explain_factors(raw_feats)
                 return QNPrediction(
                     ticker=clean_t,
@@ -245,6 +290,8 @@ class QNManipulationInference:
                     is_real_model=False,
                     data_freshness="SYNTHETIC_FALLBACK",
                     latency_ms=latency,
+                    effective_threshold=op_th,
+                    alert_triggered=alert_trig,
                 )
 
             # Real model forward pass
@@ -259,8 +306,11 @@ class QNManipulationInference:
 
             probs = model.predict_proba(feat_scaled)[0]
             prob = float(probs[1])
-            score = round(prob * 100.0, 1)
-            band = "High" if score >= 70 else ("Elevated" if score >= 40 else "Low")
+            op_th = float(self._bundle.get("operating_threshold", 0.012))
+            alert_trig = bool(prob >= op_th)
+            # Model score (0-100) scaled to market baseline anomaly density (base rate ~0.51%)
+            score = round(min(100.0, max(0.0, (prob / 0.020) * 100.0)), 1)
+            band = "High" if prob >= 0.015 else ("Elevated" if alert_trig else "Low")
 
             factors, reasons = self._explain_factors(raw_feats)
             latency = round((time.perf_counter() - start) * 1000.0, 2)
@@ -279,6 +329,8 @@ class QNManipulationInference:
                 is_real_model=True,
                 data_freshness="LIVE_CACHE",
                 latency_ms=latency,
+                effective_threshold=op_th,
+                alert_triggered=alert_trig,
             )
 
     def _heuristic_fallback_score(self, feats: Dict[str, float], ticker: str) -> float:

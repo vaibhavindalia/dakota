@@ -56,13 +56,29 @@ def compute_window_features(
 
     # Filter strictly up to as_of_date (prevent lookahead bias)
     work_df = df.copy()
-    if as_of_date and "trade_date" in work_df.columns:
-        work_df = work_df[work_df["trade_date"] <= as_of_date]
+    if as_of_date:
+        as_of_str = str(as_of_date)[:10]
+        if "trade_date" in work_df.columns:
+            work_df = work_df[work_df["trade_date"].astype(str).str[:10] <= as_of_str]
+        elif "date" in work_df.columns:
+            work_df = work_df[pd.to_datetime(work_df["date"]).dt.strftime("%Y-%m-%d") <= as_of_str]
+        elif "Date" in work_df.columns:
+            work_df = work_df[pd.to_datetime(work_df["Date"]).dt.strftime("%Y-%m-%d") <= as_of_str]
+        elif hasattr(work_df.index, "strftime"):
+            work_df = work_df[work_df.index.strftime("%Y-%m-%d") <= as_of_str]
 
     if len(work_df) < 5:
         return {col: 0.0 for col in FEATURE_COLUMNS}
 
-    # Sort chronologically and take trailing lookback
+    # Ensure strict chronological order
+    if "trade_date" in work_df.columns:
+        work_df = work_df.sort_values("trade_date").reset_index(drop=True)
+    elif "date" in work_df.columns:
+        work_df = work_df.sort_values("date").reset_index(drop=True)
+    elif "Date" in work_df.columns:
+        work_df = work_df.sort_values("Date").reset_index(drop=True)
+
+    # Take trailing lookback
     work_df = work_df.tail(lookback_bars).copy()
     closes = work_df["close"].values.astype(float)
     volumes = work_df["volume"].values.astype(float)

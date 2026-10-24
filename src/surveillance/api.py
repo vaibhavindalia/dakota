@@ -79,7 +79,10 @@ def list_surveillance_stocks(
 
 
 @router.get("/analyze/{ticker}")
-def analyze_stock_surveillance(ticker: str) -> Dict[str, Any]:
+def analyze_stock_surveillance(
+    ticker: str,
+    as_of_date: Optional[str] = Query(default=None, description="Point-in-time date YYYY-MM-DD for surveillance analysis"),
+) -> Dict[str, Any]:
     """Execute complete QN quantitative surveillance & JAV forensic intelligence on a stock."""
     sym = normalize_symbol(ticker)
     eq = surveillance_universe.get_equity(sym)
@@ -91,7 +94,7 @@ def analyze_stock_surveillance(ticker: str) -> Dict[str, Any]:
             raise HTTPException(status_code=404, detail=f"Stock '{ticker}' not found in universe")
 
     # 1. Run QN quantitative model inference
-    qn_pred = qn_inference.analyze_ticker(sym)
+    qn_pred = qn_inference.analyze_ticker(sym, as_of_date=as_of_date)
 
     # 2. Retrieve official regulatory evidence (SEBI orders, ASM/GSM notices)
     events = evidence_registry.get_events_for_ticker(sym)
@@ -241,9 +244,12 @@ def get_model_status() -> Dict[str, Any]:
     meta = qn_inference.get_metadata()
     return {
         "is_model_available": is_avail,
+        "is_training": bool(meta.get("is_training", False)),
+        "last_training_error": meta.get("last_training_error"),
         "model_version": meta.get("model_version", "unavailable"),
         "trained_at": meta.get("trained_at"),
         "training_duration_seconds": meta.get("training_duration_seconds"),
+        "operating_threshold": meta.get("operating_threshold"),
         "train_samples": meta.get("train_samples"),
         "val_samples": meta.get("val_samples"),
         "test_samples": meta.get("test_samples"),

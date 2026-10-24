@@ -58,12 +58,20 @@ def normalize_symbol(ticker: str) -> str:
         "VARANIUM": "CLOUD",
         "ADDSHOP": "ASRL",
         "BCG": "BRIGHTCOM",
+        "BRIGHTCOM": "BCG",
         "SADHNA": "SADHNABROAD",
+        "SADHNABROAD": "SADHNANIQ",
+        "SADHNANIQ": "SADHNABROAD",
+        "ALOKTEXT": "ALOKINDS",
+        "ALOKINDS": "ALOKTEXT",
+        "RUCHISOYA": "PATANJALI",
+        "PATANJALI": "RUCHISOYA",
         "TATA MOTORS": "TATAMOTORS",
         "TATA POWER": "TATAPOWER",
         "TATA STEEL": "TATASTEEL",
         "L&T": "LT",
         "M&M": "M_M",
+        "M_M": "M&M",
     }
     return alias_map.get(t, t)
 
@@ -183,7 +191,22 @@ class SurveillanceUniverse:
         # Select exactly 50 case/surveillance equities and 450 controls
         selected_cases = ordered_cases[:50]
         needed_controls = self.target_size - len(selected_cases)
-        selected_controls = [c for c in controls if c.ticker not in ev_tickers_set][:needed_controls]
+
+        # Prioritize controls that have valid, readable parquet data in cache
+        cache_dir = BASE_DIR / "data" / "cache"
+        verified_controls = []
+        for c in controls:
+            if c.ticker in ev_tickers_set:
+                continue
+            p = cache_dir / f"ohlcv_{c.ticker}.parquet"
+            if p.exists() and p.stat().st_size > 1000:
+                verified_controls.append(c)
+
+        if len(verified_controls) < needed_controls:
+            remaining = [c for c in controls if c.ticker not in ev_tickers_set and c not in verified_controls]
+            verified_controls.extend(remaining)
+
+        selected_controls = verified_controls[:needed_controls]
 
         combined = selected_cases + selected_controls
         self._equities = {eq.ticker: eq for eq in combined}

@@ -49,19 +49,45 @@ class ObservationWindow:
         return asdict(self)
 
 
-def load_ticker_ohlcv(ticker: str) -> pd.DataFrame:
-    """Load historical OHLCV data for a ticker from cache or market history."""
+CACHE_ALIAS_MAP: Dict[str, str] = {
+    "BRIGHTCOM": "BCG",
+    "ALOKTEXT": "ALOKINDS",
+    "RUCHISOYA": "PATANJALI",
+    "M_M": "M&M",
+    "SADHNABROAD": "SADHNANIQ",
+}
+
+
+def load_ticker_ohlcv(ticker: str, allow_synthetic: bool = False) -> pd.DataFrame:
+    """Load historical OHLCV data for a ticker from cache or market history.
+    
+    Strict Synthetic-Data Firewall:
+    - Never silently substitutes synthetic series into real-world evaluation datasets.
+    - If allow_synthetic is False and no cache file exists, returns an empty DataFrame
+      with provenance 'UNAVAILABLE_DELISTED'.
+    - If allow_synthetic is True, generates deterministic test series with provenance
+      'SYNTHETIC_TEST_DATA'.
+    """
     clean_t = ticker.upper().strip()
-    p_path = CACHE_DIR / f"ohlcv_{clean_t}.parquet"
+    target_ticker = CACHE_ALIAS_MAP.get(clean_t, clean_t)
+    p_path = CACHE_DIR / f"ohlcv_{target_ticker}.parquet"
 
     if p_path.exists():
         try:
             df = pd.read_parquet(p_path)
             if not df.empty and "close" in df.columns:
-                if "trade_date" not in df.columns and hasattr(df.index, "strftime"):
-                    df = df.reset_index()
-                    date_col = "Date" if "Date" in df.columns else df.columns[0]
-                    df["trade_date"] = pd.to_datetime(df[date_col]).dt.strftime("%Y-%m-%d")
+                if "trade_date" not in df.columns:
+                    if "date" in df.columns:
+                        df["trade_date"] = pd.to_datetime(df["date"]).dt.strftime("%Y-%m-%d")
+                    elif "Date" in df.columns:
+                        df["trade_date"] = pd.to_datetime(df["Date"]).dt.strftime("%Y-%m-%d")
+                    elif hasattr(df.index, "strftime"):
+                        df["trade_date"] = pd.to_datetime(df.index).dt.strftime("%Y-%m-%d")
+                    else:
+                        df = df.reset_index()
+                        date_col = "Date" if "Date" in df.columns else ("date" if "date" in df.columns else df.columns[0])
+                        df["trade_date"] = pd.to_datetime(df[date_col]).dt.strftime("%Y-%m-%d")
+                df.attrs["provenance"] = "CACHED_REAL_SOURCE_DATA"
                 return df
         except Exception as e:
             logger.debug("Error reading parquet for %s: %s", ticker, e)
@@ -72,11 +98,21 @@ def load_ticker_ohlcv(ticker: str) -> pd.DataFrame:
             mdf = pd.read_csv(MARKET_HISTORY_CSV)
             mdf = mdf[mdf["ticker"].str.upper() == clean_t]
             if not mdf.empty and len(mdf) >= 5:
+                if "trade_date" not in mdf.columns and "date" in mdf.columns:
+                    mdf["trade_date"] = pd.to_datetime(mdf["date"]).dt.strftime("%Y-%m-%d")
+                mdf.attrs["provenance"] = "CACHED_REAL_SOURCE_DATA"
                 return mdf
         except Exception:
             pass
 
-    # Deterministic reference historical series generation based on stock properties
+    # SYNTHETIC DATA FIREWALL:
+    # Fail closed when real source data is not found, unless explicitly allowed for unit tests
+    if not allow_synthetic:
+        empty_df = pd.DataFrame()
+        empty_df.attrs["provenance"] = "UNAVAILABLE_DELISTED"
+        return empty_df
+
+    # Deterministic reference historical series generation strictly for offline test suites
     eq = surveillance_universe.get_equity(ticker)
     role = eq.role if eq else "control"
     is_case = role == "case"
@@ -120,6 +156,7 @@ def load_ticker_ohlcv(ticker: str) -> pd.DataFrame:
         "volume": vols.astype(int),
         "delivery_pct": np.clip(np.random.normal(45.0 if not is_case else 22.0, 8.0, n_days), 5.0, 95.0),
     })
+    df_synth.attrs["provenance"] = "SYNTHETIC_TEST_DATA"
     return df_synth
 
 
@@ -130,15 +167,29 @@ class DatasetBuilder:
         self.purge_days = purge_days
         self.windows: List[ObservationWindow] = []
 
-    def build_dataset(self) -> Dict[str, Any]:
-        """Construct windows across all 500 equities in the universe."""
+    def build_dataset(self, allow_synthetic: bool = False) -> Dict[str, Any]:
+        """Construct windows across all 500 equities in the universe with strict synthetic firewall."""
         DATA_DIR.mkdir(parents=True, exist_ok=True)
         equities = surveillance_universe.list_equities()
-        logger.info("Building surveillance experiment dataset for %d equities...", len(equities))
+        logger.info(
+            "Building surveillance experiment dataset for %d equities (allow_synthetic=%s)...",
+            len(equities),
+            allow_synthetic,
+        )
 
         all_windows: List[ObservationWindow] = []
-        # Target dates for observation windows: balanced semi-annual slices across 2024-2026
+        provenance_counts: Dict[str, int] = {
+            "CACHED_REAL_SOURCE_DATA": 0,
+            "SYNTHETIC_TEST_DATA": 0,
+            "UNAVAILABLE_DELISTED": 0,
+        }
+
+        # Target dates for observation windows: balanced semi-annual slices across 2022-2026 covering active regulatory event periods
         sample_as_of_dates = [
+            "2022-06-15",
+            "2022-11-15",
+            "2023-04-15",
+            "2023-09-15",
             "2024-04-15",
             "2024-09-15",
             "2025-05-15",
@@ -155,9 +206,17 @@ class DatasetBuilder:
 
         window_count = 0
         for eq in equities:
-            df = load_ticker_ohlcv(eq.ticker)
+            df = load_ticker_ohlcv(eq.ticker, allow_synthetic=allow_synthetic)
+            prov = df.attrs.get("provenance", "UNKNOWN_PROVENANCE")
+            provenance_counts[prov] = provenance_counts.get(prov, 0) + 1
+
             if df.empty or len(df) < 25:
                 continue
+
+            # Sanitize minor floating point rounding differences
+            if all(c in df.columns for c in ["open", "high", "low", "close"]):
+                df["high"] = df[["open", "high", "close"]].max(axis=1)
+                df["low"] = df[["open", "low", "close"]].min(axis=1)
 
             for as_of in sample_as_of_dates:
                 # Determine point-in-time label (strictly as-of observation date!)
@@ -213,6 +272,7 @@ class DatasetBuilder:
                 w.split = event_to_split[w.event_id]
 
         self.windows = all_windows
+        self.provenance_counts = provenance_counts
         return self._save_and_manifest()
 
     def _save_and_manifest(self) -> Dict[str, Any]:
@@ -242,6 +302,7 @@ class DatasetBuilder:
             "total_windows": len(df),
             "feature_columns": FEATURE_COLUMNS,
             "purge_embargo_days": self.purge_days,
+            "provenance_summary": getattr(self, "provenance_counts", {}),
             "splits": {
                 "train": {
                     "count": len(train_df),

@@ -1,7 +1,7 @@
 {
   "registry_version": "1.0.0",
   "total_events": 18,
-  "updated_at": "2026-10-24T14:18:02.292606+00:00",
+  "updated_at": "2026-10-24T16:04:23.256632+00:00",
   "events": [
     {
       "event_id": "EVT-SEBI-2024-CLOUD",
@@ -21,7 +21,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Interim ex-parte order restraining promoter Harshawardhan Sabale from securities market.",
       "summary": "Fictitious sales entries, misappropriation of IPO proceeds, and artificial book building.",
-      "created_at": "2026-10-24T14:18:02.292530+00:00"
+      "created_at": "2026-10-24T16:04:23.256553+00:00"
     },
     {
       "event_id": "EVT-SEBI-2024-ASRL",
@@ -41,7 +41,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "SEBI interim order restraining promoters from capital market access.",
       "summary": "Circular fund routing, fictitious revenue entries without physical movement of goods.",
-      "created_at": "2026-10-24T14:18:02.292541+00:00"
+      "created_at": "2026-10-24T16:04:23.256564+00:00"
     },
     {
       "event_id": "EVT-SEBI-2024-TRAFIKSOL",
@@ -61,7 +61,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Listing withheld post-IPO subscription due to vendor software asset misrepresentation.",
       "summary": "Misrepresentation of third-party software purchases and capital expenditure deployment.",
-      "created_at": "2026-10-24T14:18:02.292545+00:00"
+      "created_at": "2026-10-24T16:04:23.256567+00:00"
     },
     {
       "event_id": "EVT-SEBI-2023-BRIGHTCOM",
@@ -81,7 +81,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Forensic audit confirmed forged bank statements and round-tripping of preferential allotment funds.",
       "summary": "Forged bank accounts, round-tripped preferential funds, and intentional accounting falsification.",
-      "created_at": "2026-10-24T14:18:02.292549+00:00"
+      "created_at": "2026-10-24T16:04:23.256571+00:00"
     },
     {
       "event_id": "EVT-SEBI-2023-SADHNA",
@@ -101,7 +101,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Coordinated YouTube influencer pump-and-dump scheme with celebrity touting.",
       "summary": "False YouTube videos touting 5x returns, accompanied by concerted volume exit by net-sellers.",
-      "created_at": "2026-10-24T14:18:02.292552+00:00"
+      "created_at": "2026-10-24T16:04:23.256573+00:00"
     },
     {
       "event_id": "EVT-SEBI-2023-SHARPLINE",
@@ -121,7 +121,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Parallel YouTube video campaign coordinating pump-and-dump offloading.",
       "summary": "Sponsor-funded social media campaigns driving retail buyers into consecutive upper circuits.",
-      "created_at": "2026-10-24T14:18:02.292554+00:00"
+      "created_at": "2026-10-24T16:04:23.256576+00:00"
     },
     {
       "event_id": "EVT-SEBI-2015-RADFORD",
@@ -141,7 +141,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Long-term operator ramp for artificial tax-exempt long term capital gains creation.",
       "summary": "Artificial volume creation, matched trades, and price ramping via connected front entities.",
-      "created_at": "2026-10-24T14:18:02.292557+00:00"
+      "created_at": "2026-10-24T16:04:23.256578+00:00"
     },
     {
       "event_id": "EVT-SEBI-2020-MANPASAND",
@@ -161,7 +161,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Auditor Deloitte resigned; promoter arrested by DGGI for \u20b940 crore fake invoice racket.",
       "summary": "Fake sales invoices to claim input tax credits and inflate gross turnover.",
-      "created_at": "2026-10-24T14:18:02.292560+00:00"
+      "created_at": "2026-10-24T16:04:23.256588+00:00"
     },
     {
       "event_id": "EVT-SEBI-2023-EROSMEDIA",
@@ -181,7 +181,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Interim order restraining Sunil Lulla and company from capital markets.",
       "summary": "Content acquisition advances routed to shell entities connected to controlling shareholders.",
-      "created_at": "2026-10-24T14:18:02.292564+00:00"
+      "created_at": "2026-10-24T16:04:23.256592+00:00"
     },
     {
       "event_id": "EVT-SEBI-2022-GICL",
@@ -201,7 +201,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Fraudulent trade practices and synchronized trading prior to bank loan default.",
       "summary": "Synchronized circular trades to maintain artificial liquidity during PNB credit fraud.",
-      "created_at": "2026-10-24T14:18:02.292566+00:00"
+      "created_at": "2026-10-24T16:04:23.256594+00:00"
     },
     {
       "event_id": "EVT-SURV-2026-AFCOM",
@@ -221,7 +221,7 @@
       "reviewer_status": "INVESTIGATOR_AUDITED",
       "caveats": "Abnormal price spike correlated with Telegram tip barrage; no formal SEBI section 11B order issued yet.",
       "summary": "Concerted promotional campaign across 3 public Telegram channels with delivery volume collapse.",
-      "created_at": "2026-10-24T14:18:02.292582+00:00"
+      "created_at": "2026-10-24T16:04:23.256607+00:00"
     },
     {
       "event_id": "EVT-SURV-2026-DRONACHRYA",
@@ -241,7 +241,7 @@
       "reviewer_status": "INVESTIGATOR_AUDITED",
       "caveats": "ASM Stage I containment due to high intraday volatility; company claims business expansion.",
       "summary": "High volume-price volatility triggered exchange surveillance parameters.",
-      "created_at": "2026-10-24T14:18:02.292585+00:00"
+      "created_at": "2026-10-24T16:04:23.256609+00:00"
     },
     {
       "event_id": "EVT-SURV-2026-BAHETI",
@@ -261,7 +261,7 @@
       "reviewer_status": "INVESTIGATOR_AUDITED",
       "caveats": "Enhanced Surveillance Measure (ESM) stage 1 due to circuit limit hits.",
       "summary": "Frequent upper-circuit locks with negligible delivery volume turnover.",
-      "created_at": "2026-10-24T14:18:02.292588+00:00"
+      "created_at": "2026-10-24T16:04:23.256614+00:00"
     },
     {
       "event_id": "EVT-SURV-2026-BASILIC",
@@ -281,7 +281,7 @@
       "reviewer_status": "INVESTIGATOR_AUDITED",
       "caveats": "Unsolicited VIP buy tips circulated on Telegram; company fundamentals appear solvent.",
       "summary": "Social touting burst warning users of guaranteed 200% upside.",
-      "created_at": "2026-10-24T14:18:02.292591+00:00"
+      "created_at": "2026-10-24T16:04:23.256616+00:00"
     },
     {
       "event_id": "EVT-SURV-2026-EXHICON",
@@ -301,7 +301,7 @@
       "reviewer_status": "INVESTIGATOR_AUDITED",
       "caveats": "SME surveillance measure due to sudden trading concentration.",
       "summary": "Client concentration in top 5 trading accounts exceeding 45% of daily volume.",
-      "created_at": "2026-10-24T14:18:02.292594+00:00"
+      "created_at": "2026-10-24T16:04:23.256619+00:00"
     },
     {
       "event_id": "EVT-SEBI-2025-ZEELEARN",
@@ -321,7 +321,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Diversion of assets and funds to related promoter accounts.",
       "summary": "Related-party transactions without requisite audit committee and shareholder approvals.",
-      "created_at": "2026-10-24T14:18:02.292569+00:00"
+      "created_at": "2026-10-24T16:04:23.256597+00:00"
     },
     {
       "event_id": "EVT-SEBI-2025-ALOKTEXT",
@@ -341,7 +341,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Interim order on synchronized order execution during circuit ramping.",
       "summary": "Synchronized trading between connected brokers creating artificial volume spikes.",
-      "created_at": "2026-10-24T14:18:02.292572+00:00"
+      "created_at": "2026-10-24T16:04:23.256600+00:00"
     },
     {
       "event_id": "EVT-SURV-2025-RUCHISOYA",
@@ -361,7 +361,7 @@
       "reviewer_status": "OFFICIAL_REGULATORY_ORDER",
       "caveats": "Historical and ongoing surveillance on free-float compliance and price discovery.",
       "summary": "Extreme low free float leading to distorted price discovery and circuit-locking sequences.",
-      "created_at": "2026-10-24T14:18:02.292574+00:00"
+      "created_at": "2026-10-24T16:04:23.256603+00:00"
     }
   ]
 }

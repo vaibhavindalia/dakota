@@ -521,9 +521,9 @@ class EvidenceRegistry:
         if not events:
             return ManipulationLabel.NO_KNOWN_CONFIRMED_CASE, None
 
-        # Check if as_of_date falls into any documented event window
+        # Check if as_of_date falls strictly into documented event window
         for ev in events:
-            if ev.start_date <= as_of_date <= ev.end_date or as_of_date >= ev.start_date:
+            if ev.start_date <= as_of_date <= ev.end_date:
                 return ev.label, ev
 
         return ManipulationLabel.NO_KNOWN_CONFIRMED_CASE, None
