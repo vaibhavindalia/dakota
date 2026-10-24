@@ -1,0 +1,421 @@
+{
+  "pipeline_name": "Dakota QN & JAV Manipulation Surveillance Pipeline",
+  "executed_at": "2026-10-24T16:04:38.622616+00:00",
+  "elapsed_seconds": 20.32,
+  "configuration": {
+    "random_state": 42,
+    "purge_embargo_days": 15,
+    "allow_synthetic": false,
+    "target_universe_size": 500
+  },
+  "universe_summary": {
+    "total_count": 500,
+    "case_count": 50,
+    "control_count": 450,
+    "mainboard_count": 468,
+    "sme_count": 0,
+    "surveillance_flag_count": 50,
+    "exchanges": {
+      "NSE": 492,
+      "BSE": 8
+    },
+    "manifest_path": "D:\\dakota V4 with telegram integrated\\dakota integ. d11 final prototype1 minus telegram feature\\dakota\\data\\surveillance\\universe_500.json"
+  },
+  "evidence_summary": {
+    "total_registered_events": 18,
+    "confirmed_manipulation_count": 13,
+    "suspicious_unconfirmed_count": 5,
+    "no_known_confirmed_cases_count": 482,
+    "regulators_represented": [
+      "BSE Surveillance",
+      "SEBI",
+      "Dakota Intelligence Feed",
+      "NSE Surveillance",
+      "SEBI / GST Intelligence",
+      "SEBI / BSE"
+    ],
+    "registry_path": "D:\\dakota V4 with telegram integrated\\dakota integ. d11 final prototype1 minus telegram feature\\dakota\\data\\surveillance\\manipulation_evidence_registry.json"
+  },
+  "data_quality_summary": {
+    "total_equities_audited": 500,
+    "usable_equities_count": 491,
+    "usable_percentage": 98.2,
+    "unusable_equities_count": 9,
+    "provenance_breakdown": {
+      "UNAVAILABLE_DELISTED": 4,
+      "CACHED_REAL_SOURCE_DATA": 496
+    },
+    "aggregate_telemetry": {
+      "total_trading_sessions": 377806,
+      "average_sessions_per_usable_stock": 769.5,
+      "total_invalid_ohlc_records": 26,
+      "total_nonpositive_volume_records": 5718,
+      "total_extreme_jumps_gt_50pct": 14
+    }
+  },
+  "dataset_splits": {
+    "train": {
+      "count": 2946,
+      "positive_count": 15,
+      "negative_count": 2931,
+      "positive_ratio": 0.0051,
+      "date_min": "2022-06-15",
+      "date_max": "2024-09-15"
+    },
+    "val": {
+      "count": 982,
+      "positive_count": 4,
+      "negative_count": 978,
+      "positive_ratio": 0.0041,
+      "date_min": "2025-05-15",
+      "date_max": "2025-10-15"
+    },
+    "test": {
+      "count": 982,
+      "positive_count": 8,
+      "negative_count": 974,
+      "positive_ratio": 0.0081,
+      "date_min": "2026-04-15",
+      "date_max": "2026-09-30"
+    }
+  },
+  "operating_threshold": 0.012,
+  "validation_metrics": {
+    "split_name": "val",
+    "total_samples": 982,
+    "positive_count": 4,
+    "negative_count": 978,
+    "accuracy": 0.9959,
+    "accuracy_ci_95": [
+      0.9896,
+      0.9984
+    ],
+    "balanced_accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "macro_f1": 0.0,
+    "roc_auc": 0.6283,
+    "pr_auc": 0.0094,
+    "brier_score": 0.0041,
+    "expected_calibration_error": 0.0018,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 1.0,
+    "confusion_matrix": {
+      "tn": 978,
+      "fp": 0,
+      "fn": 4,
+      "tp": 0
+    },
+    "threshold_metrics": {
+      "0.005": {
+        "precision": 0.005,
+        "recall": 1.0,
+        "f1": 0.0099,
+        "true_positives": 4,
+        "false_positives": 802,
+        "false_negatives": 0,
+        "true_negatives": 176
+      },
+      "0.008": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 34,
+        "false_negatives": 4,
+        "true_negatives": 944
+      },
+      "0.010": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 19,
+        "false_negatives": 4,
+        "true_negatives": 959
+      },
+      "0.012": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 16,
+        "false_negatives": 4,
+        "true_negatives": 962
+      },
+      "0.015": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 7,
+        "false_negatives": 4,
+        "true_negatives": 971
+      },
+      "0.020": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 4,
+        "true_negatives": 978
+      },
+      "0.050": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 4,
+        "true_negatives": 978
+      },
+      "0.100": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 4,
+        "true_negatives": 978
+      },
+      "0.200": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 4,
+        "true_negatives": 978
+      },
+      "0.300": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 4,
+        "true_negatives": 978
+      },
+      "0.400": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 4,
+        "true_negatives": 978
+      },
+      "0.500": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 4,
+        "true_negatives": 978
+      }
+    },
+    "business_impact": {
+      "false_positive_risk": "FPR = 0.00% (0 false alarms). Flagging legitimate Indian listed companies creates severe reputational harm, unwarranted panic among retail shareholders, and potential regulatory liability.",
+      "false_negative_risk": "FNR = 100.00% (4 missed events). Failing to detect a syndicate pump-and-dump or circuit-locking ramp allows operator cartels to offload illiquid shares onto uninformed retail investors prior to regulatory action.",
+      "surveillance_recommendation": "At operating threshold 0.01, the model achieves 0.0% recall and 0.0% precision, optimizing surveillance analyst queue triage."
+    },
+    "operating_threshold": 0.012,
+    "operating_metrics": {
+      "operating_threshold": 0.012,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "balanced_accuracy": 0.4918,
+      "confusion_matrix": {
+        "tn": 962,
+        "fp": 16,
+        "fn": 4,
+        "tp": 0
+      }
+    }
+  },
+  "holdout_test_metrics": {
+    "split_name": "test",
+    "total_samples": 982,
+    "positive_count": 8,
+    "negative_count": 974,
+    "accuracy": 0.9919,
+    "accuracy_ci_95": [
+      0.984,
+      0.9959
+    ],
+    "balanced_accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "macro_f1": 0.0,
+    "roc_auc": 0.8579,
+    "pr_auc": 0.2099,
+    "brier_score": 0.008,
+    "expected_calibration_error": 0.0022,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 1.0,
+    "confusion_matrix": {
+      "tn": 974,
+      "fp": 0,
+      "fn": 8,
+      "tp": 0
+    },
+    "threshold_metrics": {
+      "0.005": {
+        "precision": 0.009,
+        "recall": 1.0,
+        "f1": 0.0178,
+        "true_positives": 8,
+        "false_positives": 881,
+        "false_negatives": 0,
+        "true_negatives": 93
+      },
+      "0.008": {
+        "precision": 0.0769,
+        "recall": 0.375,
+        "f1": 0.1277,
+        "true_positives": 3,
+        "false_positives": 36,
+        "false_negatives": 5,
+        "true_negatives": 938
+      },
+      "0.010": {
+        "precision": 0.125,
+        "recall": 0.375,
+        "f1": 0.1875,
+        "true_positives": 3,
+        "false_positives": 21,
+        "false_negatives": 5,
+        "true_negatives": 953
+      },
+      "0.012": {
+        "precision": 0.2308,
+        "recall": 0.375,
+        "f1": 0.2857,
+        "true_positives": 3,
+        "false_positives": 10,
+        "false_negatives": 5,
+        "true_negatives": 964
+      },
+      "0.015": {
+        "precision": 0.125,
+        "recall": 0.125,
+        "f1": 0.125,
+        "true_positives": 1,
+        "false_positives": 7,
+        "false_negatives": 7,
+        "true_negatives": 967
+      },
+      "0.020": {
+        "precision": 0.3333,
+        "recall": 0.125,
+        "f1": 0.1818,
+        "true_positives": 1,
+        "false_positives": 2,
+        "false_negatives": 7,
+        "true_negatives": 972
+      },
+      "0.050": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 8,
+        "true_negatives": 974
+      },
+      "0.100": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 8,
+        "true_negatives": 974
+      },
+      "0.200": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 8,
+        "true_negatives": 974
+      },
+      "0.300": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 8,
+        "true_negatives": 974
+      },
+      "0.400": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 8,
+        "true_negatives": 974
+      },
+      "0.500": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 8,
+        "true_negatives": 974
+      }
+    },
+    "business_impact": {
+      "false_positive_risk": "FPR = 0.00% (0 false alarms). Flagging legitimate Indian listed companies creates severe reputational harm, unwarranted panic among retail shareholders, and potential regulatory liability.",
+      "false_negative_risk": "FNR = 100.00% (8 missed events). Failing to detect a syndicate pump-and-dump or circuit-locking ramp allows operator cartels to offload illiquid shares onto uninformed retail investors prior to regulatory action.",
+      "surveillance_recommendation": "At operating threshold 0.01, the model achieves 37.5% recall and 23.1% precision, optimizing surveillance analyst queue triage."
+    },
+    "operating_threshold": 0.012,
+    "operating_metrics": {
+      "operating_threshold": 0.012,
+      "precision": 0.2308,
+      "recall": 0.375,
+      "f1": 0.2857,
+      "balanced_accuracy": 0.6824,
+      "confusion_matrix": {
+        "tn": 964,
+        "fp": 10,
+        "fn": 5,
+        "tp": 3
+      }
+    }
+  },
+  "inference_probe_checks": {
+    "CLOUD": {
+      "score": 23.6,
+      "band": "Low",
+      "prob": 0.0047,
+      "latency_ms": 164.81
+    },
+    "ASRL": {
+      "score": 34.8,
+      "band": "Low",
+      "prob": 0.007,
+      "latency_ms": 114.09
+    },
+    "INFY": {
+      "score": 29.0,
+      "band": "Low",
+      "prob": 0.0058,
+      "latency_ms": 106.05
+    },
+    "RELIANCE": {
+      "score": 28.3,
+      "band": "Low",
+      "prob": 0.0057,
+      "latency_ms": 107.84
+    }
+  }
+}
